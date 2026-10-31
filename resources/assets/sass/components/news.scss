@@ -35,34 +35,34 @@
 }
 
 .news-item__content img {
-  max-width: 100%;
+    max-width: 100%;
 }
 
 .justified-paragraphs p {
-  text-align: justify;
+    text-align: justify;
 }
 
 .news__comment {
-  font-size: 0.9rem;
-  background-color: $gray-100;
-  color: $gray-700;
-  padding: 1.5em 3em 1em;
-  border: thin solid $gray-200;
-  margin: 1.5em -3em;
-  line-height: 1.5;
+    font-size: 0.9rem;
+    background-color: $gray-100;
+    color: $gray-700;
+    padding: 1.5em 3em 1em;
+    border: thin solid $gray-200;
+    margin: 1.5em -3em;
+    line-height: 1.5;
 }
 
 .news-comment__title {
-  position: relative;
-  padding-bottom: 0.25em;
+    position: relative;
+    padding-bottom: 0.25em;
 
-  &:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    width: 88px;
-    border-bottom: solid 1px $secondary-color-dark;
-  }
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 1px;
+        width: 88px;
+        border-bottom: solid 1px $secondary-color-dark;
+    }
 }
