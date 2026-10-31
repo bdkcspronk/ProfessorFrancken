@@ -55,7 +55,10 @@ final class FileUploader
                 $franckenVrijMedia->getAbsolutePath()
             );
 
+        // The uploader is shared with the pdf upload, so explicitly store the
+        // cover on the public disk instead of the private francken-vrij disk
         return $this->uploader->fromSource($coverFile)
+            ->toDisk('uploads')
             ->toDirectory('francken-vrij/covers/')
             ->useFilename($edition->volume . '-' . $edition->edition . '-cover')
             ->setMaximumSize(self::ONE_HUNDRED_MB)
