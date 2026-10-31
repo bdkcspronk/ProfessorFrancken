@@ -79,6 +79,7 @@
                 <li>A challenging puzzle</li>
             </ul>
 
+            @auth
             <p>
                 Below you can download the <strong>latest edition</strong> of the Francken Vrij, or go to the archive including all published Francken Vrij magazines.
             </p>
@@ -91,6 +92,17 @@
             <a class="link-to-all-dark text-nowrap" href="/association/francken-vrij">
                 Go to the archive
             </a>
+            @endauth
+
+            @guest
+            <p>
+                The Francken Vrij is available to <strong>members only</strong>. Login to read the latest edition and all published Francken Vrij magazines.
+            </p>
+
+            <a class="btn btn-primary" href="/association/francken-vrij">
+                Login to read the Francken Vrij
+            </a>
+            @endguest
         </div>
     </div>
 <br>

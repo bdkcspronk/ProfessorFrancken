@@ -118,6 +118,32 @@ class FranckenVrijArchiveFeature extends TestCase
             ->seeStatusCode(404);
     }
 
+    /** @test */
+    public function guests_are_asked_to_login_to_read_the_francken_vrij_from_the_homepage() : void
+    {
+        $this->publishAFranckenVrij();
+
+        $this->visit('/')
+            ->see('Login to read the Francken Vrij')
+            ->dontSee('Download latest edition')
+            ->click('Login to read the Francken Vrij')
+            ->seePageIs(action([FranckenVrijController::class, 'index']))
+            ->see('Login to view the Francken Vrij');
+    }
+
+    /** @test */
+    public function members_can_download_the_latest_francken_vrij_from_the_homepage() : void
+    {
+        $edition = $this->publishAFranckenVrij();
+        $this->loginAsMember();
+
+        $this->visit('/')
+            ->dontSee('Login to read the Francken Vrij')
+            ->see('Download latest edition')
+            ->seeLink('Download latest edition', action([FranckenVrijPdfController::class, 'show'], ['edition' => $edition]))
+            ->seeLink('Go to the archive', '/association/francken-vrij');
+    }
+
     private function loginAsMember() : void
     {
         $account = Account::create([

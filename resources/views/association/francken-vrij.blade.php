@@ -10,10 +10,10 @@
     <div class="row">
         <div class="col-md-12">
             <p>
-                Francken Vrij is the popular science magazine of the Technisch Fysische Vereniging ‘Professor Francken’ and is distributed to its members, sponsors and other interested parties. The complete Francken Vrij archive can be found on this page.
+                Francken Vrij is the popular science magazine of the Technisch Fysische Vereniging ‘Professor Francken’ and is distributed to its members, sponsors and other interested parties. The complete Francken Vrij archive can be found on this page and is available to members only.
             </p>
             <p>
-                The theme of each edition is different but relates to (Applied) Physics. The contents of the magazine changes slightly from edition to edition but generaly one might expect an article by one of the applied physics research groups, an article by a student about his or her internship or a graduate about her or his new job.
+                The theme of each edition is different but relates to (Applied) Physics. The contents of the magazine changes slightly from edition to edition but generally one might expect an article by one of the applied physics research groups, an article by a student about their internship or a graduate about their new job.
                 Most editions come with a challenging puzzle and a fun comic as well.
             </p>
         </div>
