@@ -2,7 +2,7 @@
 
 @section('committee-content')
     <p>
-        One of the few regular events in the student lives of Francken members is the appearance of our popular science magazine Francken Vrij. It comes out three times a year and has been published since 1995. Each edition contains some regular physics columns, looking for instance at one of the applied physics departments at the University of Groningen. There is also space devoted to the Association’s activities, such as the field trips and drinks parties organized by the committees.
+        One of the few regular events in the student lives of Francken members is the appearance of our popular science magazine Francken Vrij. It comes out three times a year and has been published since 1996. Each edition contains some regular physics columns, looking for instance at one of the applied physics departments at the University of Groningen. There is also space devoted to the Association’s activities, such as the field trips and drinks parties organized by the committees.
     </p>
 
     <p>
