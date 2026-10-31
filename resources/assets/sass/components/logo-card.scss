@@ -42,3 +42,6 @@
         transition: filter 0.25s;
     }
 }
+
+@include logo-card(committee, .25em, #fafafa, 75%);
+@include logo-card(company, 1em, white, 90%);

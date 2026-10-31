@@ -1,39 +1,3 @@
-.news {
-    padding: 4em 0;
-    background-color: $news-background;
-}
-
-.news-item {
-    margin: 2em 0;
-}
-
-.news-item__written-by {
-    color: #8b99a4;
-    font-size: 0.9em;
-    margin-left: 1em;
-}
-
-.news-item__author {
-    text-decoration: underline;
-    font-weight: bold;
-}
-.news-item__date {
-    color: $primary-color;
-    background: white;
-}
-
-.news-item__title {
-    font-weight: bold;
-    margin-bottom: .5em;
-    margin-top: .5em;
-    color: $news-color;
-}
-
-.news-item__body {
-    color: #6e7f8d;
-    margin-bottom: 1.5em;
-}
-
 .ribbon {
     padding: 4em 0;
     background-color: $news-background;
