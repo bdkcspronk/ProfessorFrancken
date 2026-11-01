@@ -1,4 +1,8 @@
 @extends('pages.study')
+
+@section('page-title')
+    Faculty Council
+@endsection
 @section('title', "Faculty Council - T.F.V. 'Professor Francken'")
 @php
 $breadcrumbs = [
@@ -8,9 +12,6 @@ $breadcrumbs = [
 @endphp
 
 @section('content')
-    <h1 class="section-header">
-        Faculty Council
-    </h1>
     <p class="text-justify">
         The faculty council is a participation body that consists of nine elected students and nine staff members of the faculty. The students are elected for one year and the staff-members for 2 years. As a Faculty Council we have the right of consent on certain topics to the Faculty Board and are allowed to share our advice and feelings on other topics, in this way we are directly involved in the process of decision making at our Faculty.
     </p>

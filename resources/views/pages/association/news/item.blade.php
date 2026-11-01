@@ -1,13 +1,13 @@
 @extends('layout.two-column-layout')
 
+@section('page-title')
+    {{ $newsItem->title }}
+@endsection
+
 @section('title', $newsItem->title . " - T.F.V. 'Professor Francken'")
 @section('description', $newsItem->exerpt)
 
 @section('content')
-
-    <h2 class="section-header">
-        {{ $newsItem->title }}
-    </h2>
 
     <span>
         Posted on {{ $newsItem->published_at->format('d M Y') }}

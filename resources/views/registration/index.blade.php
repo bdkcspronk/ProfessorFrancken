@@ -1,5 +1,9 @@
 @extends('layout.one-column-layout')
 
+@section('page-title')
+    Register to be a Francken member
+@endsection
+
 @section('content')
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -10,10 +14,6 @@
         </ul>
     </div>
 @endif
-
-    <h1 class="section-header section-header--centered mt-5">
-        Register to be a Francken member
-    </h1>
 
     <p class="lead text-center my-4">
         Will you be studying in Groningen and do you want to have a good time? Come and join our association!<br/>

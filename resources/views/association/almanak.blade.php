@@ -1,5 +1,9 @@
 @extends('pages.association')
 
+@section('page-title')
+    Almanak
+@endsection
+
 @push('styles')
     <style type="text/css">
         #almanak{
@@ -23,10 +27,6 @@
 
 @section('main-content')
     <div class="container">
-        <h1 class="section-header section-header--centered">
-            Almanak
-        </h1>
-
         <div class="row">
             <div class="col-md-12">
                 <div id="almanak">

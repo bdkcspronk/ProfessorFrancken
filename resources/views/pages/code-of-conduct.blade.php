@@ -1,4 +1,8 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Code of conduct
+@endsection
 @section('title', "Code of conduct - T.F.V. 'Professor Francken'")
 @php
 $breadcrumbs = [
@@ -7,9 +11,6 @@ $breadcrumbs = [
 @endphp
 
 @section('content')
-    <h1 class="section-header">
-        Code of conduct
-    </h1>
     <h1 id="your-data-at-t.f.v.-professor-francken">The board wants everyone to have a great time in the comforts of T.F.V. 'Professor Francken'</h1>
     <p>
         This Code of Conduct outlines the expectations of the board as well as examples of unac-

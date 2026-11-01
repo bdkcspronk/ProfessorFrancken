@@ -1,5 +1,13 @@
 @extends('layout.two-column-layout')
 
+@section('page-title')
+    @if($searchTimeRange)
+        Activities in {{ $selectedDate->format('F \'y')}}
+    @else
+        Upcoming activities
+    @endif
+@endsection
+
 
 {{-- pagination in titel! --}}
 @if($searchTimeRange)
@@ -11,12 +19,6 @@
 @endif
 
 @section('content')
-    @if($searchTimeRange)
-        <h1 class="section-header mb-4">Activities in {{ $selectedDate->format('F \'y')}}</h1>
-    @else
-        <h1 class="section-header mb-4">Upcoming activities</h1>
-    @endif
-
     <ul class="agenda-list list-unstyled">
         @forelse ($activities as $activity)
             <li class=" mb-4 bg-white p-4 rounded shadow-sm">

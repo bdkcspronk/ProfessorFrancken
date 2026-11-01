@@ -1,12 +1,12 @@
 @extends('layout.two-column-layout')
 
+@section('page-title')
+    News Archive
+@endsection
+
 @section('title', "News archive - T.F.V. 'Professor Francken'")
 
 @section('content')
-
-    <h2 class="section-header">
-        News Archive
-    </h2>
 
     <hr>
 

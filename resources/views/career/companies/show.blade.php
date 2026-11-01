@@ -1,12 +1,12 @@
 @extends('layout.two-column-layout')
+
+@section('page-title')
+    {{ $partner->companyProfile->display_name }}
+@endsection
 @section('header-image-url', '/images/header/oslo.jpg')
 @section('title', $partner->companyProfile->display_name . " - T.F.V. 'Professor Francken'")
 
 @section('content')
-
-    <h1 class="section-header">
-        {{ $partner->companyProfile->display_name }}
-    </h1>
 
     <div class="text-justify">
         {!! $partner->companyProfile->compiled_content !!}

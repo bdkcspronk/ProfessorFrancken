@@ -1,8 +1,10 @@
 @extends('layout.one-column-layout')
 
-@section('content')
-    <h1 class="section-header section-header--centered mb-4">Alumni Activity 2022</h1>
+@section('page-title')
+    Alumni Activity 2022
+@endsection
 
+@section('content')
     <p class="lead">
         Dear Alumni,
     </p>

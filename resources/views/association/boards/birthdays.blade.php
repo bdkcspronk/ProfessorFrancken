@@ -1,10 +1,12 @@
 @extends('layout.one-column-layout')
 
+@section('page-title')
+    Birthdays
+@endsection
+
 @section('title', "Birthday calendar - T.F.V. 'Professor Francken'")
 
 @section('content')
-    <h1 class="section-header">Birthdays</h1>
-
     <ul class="agenda-list list-unstyled">
         @foreach ($years as $year => $months)
         @foreach ($months as $month => $members)

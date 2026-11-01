@@ -1,12 +1,12 @@
 @extends('pages.association')
+
+@section('page-title')
+    Francken Vrij
+@endsection
 @section('header-image-url', '/images/header/library-books.jpeg')
 @section('main-content')
 
 <div class="container">
-    <h1 class="section-header section-header--centered">
-        Francken Vrij
-    </h1>
-
     <div class="row">
         <div class="col-md-12">
             <p>

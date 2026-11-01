@@ -1,12 +1,14 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    The Francken Piano
+@endsection
 @section('title', "The Francken Piano - T.F.V. 'Professor Francken'")
 @section('description', 'Help us tuning the Francken Piano by joining our fundraiser.')
 
 @section('header-image-url', 'https://images3.persgroep.net/rcs/kFiWtBVNnKswrVgF7zYT6pnqrlI/diocontent/100809956/_fill/1164/900/?appId=21791a8992982cd8da851550a453bd7f&quality=0.9')
 
 @section('content')
-    <h1 class="section-header section-header--centered">The Francken Piano</h1>
-
     <p class="lead">
         On the 12th of June 2017, the Fysisch-Mathematische Faculteitsvereniging gifted our beloved association with a beatiful Julius Pfaffe Piano. Ever since this beloved day, the piano has experienced a great many adventures.
     </p>

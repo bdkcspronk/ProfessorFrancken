@@ -1,4 +1,8 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Photos
+@endsection
 @section('title', "Photos - T.F.V. 'Professor Francken'")
 
 @section('content')
@@ -7,10 +11,6 @@
             The password you've submitted is wrong.
         </div>
     @endif
-
-    <h1 class="section-header section-header--centered mb-5">
-        Photos
-    </h1>
 
     <div class="card bg-light">
         <div class="card-body">

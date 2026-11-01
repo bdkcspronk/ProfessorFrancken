@@ -1,13 +1,13 @@
 @extends('pages.association')
 
+@section('page-title')
+    The latest news
+@endsection
+
 @section('title', "Recent news - T.F.V. 'Professor Francken'")
 
 @section('main-content')
     <div class="container my-5">
-        <h2 class="section-header section-header--centered">
-            The latest news
-        </h2>
-
         <div class="ribbon__items row no-gutters align-items-stretch my-5">
             @foreach ($news as $newsItem)
             <div class="col-md-6 col-lg-4" style="border-bottom: thin solid #eee; border-top: thin solid #eee;">

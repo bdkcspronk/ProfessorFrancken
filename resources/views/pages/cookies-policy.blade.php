@@ -1,10 +1,11 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Cookies Policy
+@endsection
 @section('title', "Cookie policy - T.F.V. 'Professor Francken'")
 
 @section('content')
-    <h1 class="section-header">
-        Cookies Policy
-    </h1>
     <p class="lead">
         Like most websites T.F.V. 'Professor Francken' uses cookies.
         In order to deliver a personalised, responsive service and to improve the site, we remember and store information about how you use it.

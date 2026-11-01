@@ -1,5 +1,9 @@
 @extends('layout.one-column-layout')
 
+@section('page-title')
+    Hi {{ $registration->fullname->toString() }}, thank you for registering!
+@endsection
+
 @section('content')
     @if ($registration->email_verified_at === null)
         <div class="alert alert-warning my-5">
@@ -7,10 +11,6 @@
             Please verify your email by clicking the link in the email.
         </div>
     @endif
-
-    <h1 class="section-header section-header--centered">
-        Hi {{ $registration->fullname->toString() }}, thank you for registering!
-    </h1>
 
     <p class="lead text-center">
         Your registration is being reviewed by one of our board members.

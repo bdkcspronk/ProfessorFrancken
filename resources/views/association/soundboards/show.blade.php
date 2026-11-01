@@ -1,10 +1,11 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    {{ $soundboard->name }}
+@endsection
 @section('title', "Soundboard - " . $soundboard->name . " - T.F.V. 'Professor Francken'")
 
 @section('content')
-    <h3 class="section-header section-header--centered">
-        {{ $soundboard->name }}
-    </h3>
     <h5 class="text-center mb-4">Soundboard</h5>
     <div class="my-5">
         <style>

@@ -1,14 +1,14 @@
 @extends('layout.two-column-layout')
 
+@section('page-title')
+    {{ $committee->name }}
+@endsection
+
 @section('content')
 
     <div class="text-center">
         <img class="img-fluid" alt="" src="{{ image($committee->logo, ['height' => 500, 'width' => 500]) }}"/>
     </div>
-
-    <h2 class="section-header">
-        {{ $committee->name }}
-    </h2>
 
 
     @yield('committee-content')

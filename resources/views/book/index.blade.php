@@ -1,11 +1,14 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Second hand books
+@endsection
 @section('title', "Books - T.F.V. 'Professor Francken'")
 @section('description', "Buy or sell second hand study books.")
 @section('header-image-url', '/images/header/library-books.jpeg')
 
 @section('content')
     <div class="jumbotron py-5">
-        <h1 class="section-header">Second hand books</h1>
         <p>
             On this page you will find all second hand books that are for sale at Francken. If you’re intersted in buying a book you can just come to the Franckenroom (Feringa Building, room 5614.0143) and pick up your books. The fee will be taken from your bankaccount with the next depreciation.
         </p>

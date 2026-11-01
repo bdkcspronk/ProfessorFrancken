@@ -637,6 +637,120 @@ $covers-half-height: 0.3045;
     margin-bottom: 1.25rem;
 }
 
+// The public pages use crimson and navy instead of the teal of the old style. The
+// admin uses the same stylesheet and keeps its teal, so this only applies to the
+// public layout (.public-site) and the homepage (.home)
+.public-site,
+.home {
+    .section-header:before,
+    .news-comment__title:before {
+        border-bottom-color: $home-crimson;
+    }
+
+    .link-to-all-dark,
+    .agenda-item__header,
+    .list li::before,
+    .text-app-secondary,
+    .text-app-secondary-dark {
+        color: $home-crimson !important;
+    }
+
+    .link-to-all:hover,
+    .link-to-all:focus,
+    .news-item__title {
+        color: $home-crimson-light;
+    }
+
+    .link-to-all-dark:hover,
+    .link-to-all-dark:focus {
+        color: $home-navy !important;
+    }
+
+    .btn.btn-inverse,
+    .bg-secondary,
+    .login-modal__close,
+    .profile-section__icon {
+        background-color: $home-crimson !important;
+        color: white;
+    }
+
+    .btn.btn-inverse:hover {
+        background-color: $home-crimson-dark !important;
+    }
+
+    .login-modal__icon {
+        color: $home-crimson;
+    }
+
+    // The selected month in the calendar of the activities
+    .aside-link--active {
+        background-color: $home-crimson;
+
+        .agenda-item__header {
+            color: white !important;
+        }
+    }
+}
+
+// The header and footer are used on every page, so they set their own fonts instead
+// of relying on the .home class of the homepage
+.home-header,
+.home-footer {
+    font-family: $home-body-font;
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $home-heading-font;
+    }
+}
+
+// Space between the content of a page and the footer; the sections of the homepage
+// end with their own space
+.home-footer {
+    margin-top: 4rem;
+}
+
+.home .home-footer {
+    margin-top: 0;
+}
+
+// The other pages show their title in a navy hero below the header, like the hero of
+// the homepage (layout/_page-hero.blade.php)
+.page-hero {
+    position: relative;
+    padding: 2.5rem 0;
+    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+    @include fcc-lattice($fade: false);
+
+    .container {
+        position: relative;
+    }
+}
+
+.page-hero__title {
+    margin: 0;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 2.25rem;
+    font-weight: bold;
+
+    i {
+        margin-right: 0.5rem;
+        color: $home-crimson-light;
+        font-size: 0.8em;
+    }
+}
+
+// On larger screens the logo block hangs below the header, into the hero
+@include media-breakpoint-up(md) {
+    .page-hero {
+        padding: calc(#{$logo-block-height - $header-height} + 1.5rem) 0 3rem;
+    }
+
+    .page-hero__title {
+        font-size: 3rem;
+    }
+}
+
 // Header: a crimson logo block with a slanted edge, and the navigation on navy
 .home-header {
     position: relative;

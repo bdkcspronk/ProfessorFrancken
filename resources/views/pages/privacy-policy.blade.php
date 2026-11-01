@@ -1,10 +1,11 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Privacy policy
+@endsection
 @section('title', "Privacy policy - T.F.V. 'Professor Francken'")
 
 @section('content')
-    <h1 class="section-header">
-        Privacy policy
-    </h1>
     <h1 id="your-data-at-t.f.v.-professor-francken">Your data at T.F.V. 'Professor Francken'</h1>
     <p>When you become a member of our association, by filling in the registration form (either a physical form or on our website), you give us permission to store and process your personal information. We will keep this data until you resign as a member, unless specified otherwise in this document.</p>
     <h2 id="what-data-we-store-and-why">What data we store and why</h2>

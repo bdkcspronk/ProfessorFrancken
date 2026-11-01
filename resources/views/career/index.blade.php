@@ -1,11 +1,13 @@
 @extends('layout.one-column-layout')
 
+@section('page-title')
+    Career
+@endsection
+
 @section('header-image-url', '/images/header/oslo.jpg')
 @section('title', "Career - T.F.V. 'Professor Francken'")
 
 @section('content')
-
-  <h1 class="section-header">Career</h1>
 
   <p>
       At T.F.V. 'Professor Francken' we aim to help students prepare for their professional career after their studies.

@@ -1,11 +1,12 @@
 @extends('association.borrelcie.layout')
 
+@section('page-title')
+    Activate your borrelcie account
+@endsection
+
 @section('content')
     <div class="card">
         <div class="card-body">
-            <h2 class="section-header mb-3">
-                Activate your borrelcie account
-            </h2>
             <p>
                 Do you want to keep track of anytimers, borrelcie statistics and more?
                 Then go ahead and activate your own Borrelcie account.

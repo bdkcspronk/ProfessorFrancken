@@ -1,11 +1,13 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Companies
+@endsection
 @section('header-image-url', '/images/header/oslo.jpg')
 @section('title', "Company profiles - T.F.V. 'Professor Francken'")
 @section('keywords', $keywords)
 
 @section('content')
-    <h1 class="section-header section-header--centered">Companies</h1>
-
     <div class="row">
         @foreach ($partners as $partner)
             <div class="col-sm-6 col-md-4">

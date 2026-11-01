@@ -1,12 +1,12 @@
 @extends('association.borrelcie.layout')
 
+@section('page-title')
+    Anytimers
+@endsection
+
 @section('content')
     <div class="card mb-4">
         <div class="card-body">
-            <h2 class="section-header mb-3">
-                Anytimers
-            </h2>
-
             <p>
                 Keeping track of your anytimers can be difficult, let's make it easy!
             </p>

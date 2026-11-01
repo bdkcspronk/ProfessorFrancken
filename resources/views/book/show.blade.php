@@ -1,4 +1,8 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Second hand books
+@endsection
 @section('header-image-url', '/images/header/library-books.jpeg')
 @section('title', "Buy \"" . $book->title . "\" - T.F.V. 'Professor Francken'")
 

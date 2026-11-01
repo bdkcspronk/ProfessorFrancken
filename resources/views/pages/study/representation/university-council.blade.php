@@ -1,4 +1,8 @@
 @extends('pages.study')
+
+@section('page-title')
+    University Council
+@endsection
 @section('title', "University Council - T.F.V. 'Professor Francken'")
 @php
 $breadcrumbs = [
@@ -8,9 +12,6 @@ $breadcrumbs = [
 @endphp
 
 @section('content')
-    <h2 class="section-header d-inline-block mt-4 h1">
-        University Council
-    </h2>
     <div class="row">
         <div class="col-lg-7">
             <p class="text-justify">

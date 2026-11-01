@@ -1,11 +1,13 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    Contact
+@endsection
 @section('title', "Contact - T.F.V. 'Professor Francken'")
 @section('description', "Contact information of the study association T.F.V. 'Professor Francken'.")
 @inject('settings', "Francken\Shared\Settings\Settings")
 
 @section('content')
-    <h1>Contact</h1>
-
     <div class="row">
         <div class="col-sm-4">
             <h2>Address</h2>

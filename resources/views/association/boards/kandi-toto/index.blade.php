@@ -1,10 +1,12 @@
 @extends('layout.two-column-layout')
 
+@section('page-title')
+    Kandi Toto {{ $boardYear->toString() }}
+@endsection
+
 @section('title', "Kandi toto - T.F.V. 'Professor Francken'")
 
 @section('content')
-    <h1 class="section-header">Kandi Toto {{ $boardYear->toString() }}</h1>
-
 
     @if ($bet === null)
         <p>

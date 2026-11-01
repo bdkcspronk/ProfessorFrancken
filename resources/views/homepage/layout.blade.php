@@ -20,9 +20,9 @@
     </head>
     <body class="home">
         <main>
-            @include('homepage._header')
+            @include('layout._header')
             @yield('main-content')
-            @include('homepage._footer')
+            @include('layout._footer')
         </main>
 
         @include('layout._login-modal')

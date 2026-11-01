@@ -1,14 +1,13 @@
 @extends('layout.one-column-layout')
+
+@section('page-title')
+    <i class="fa fa-unlock-alt" aria-hidden="true"></i> Reset password
+@endsection
 @section('title', "Reset password - T.F.V. 'Professor Francken'")
 
 @section('content')
     <div class=" d-flex justify-content-center my-4">
         <div class="card p-5 mx-3 mx-md-5 w-100">
-            <h1 class="section-header">
-                <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                Reset password
-            </h1>
-
             <form method="POST" action="{{ route('password.update') }}">
                 @csrf
 

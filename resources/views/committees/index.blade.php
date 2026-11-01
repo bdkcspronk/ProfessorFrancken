@@ -1,10 +1,10 @@
 @extends('layout.one-column-layout')
 
-@section('content')
-  <h2 class="section-header section-header--centered">
+@section('page-title')
     Committees
-  </h2>
+@endsection
 
+@section('content')
   <div class="row">
       @foreach ($committees as $committee)
           @component('committees._committee')

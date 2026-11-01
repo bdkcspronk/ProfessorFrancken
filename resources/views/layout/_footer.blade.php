@@ -1,5 +1,5 @@
 @inject('settings', "Francken\Shared\Settings\Settings")
-<footer class="mt-md-5">
+<footer class="home-footer">
     @if (isset($editPageUrl))
         <div class="container">
             <p class="text-center my-5">
@@ -10,90 +10,75 @@
         </div>
     @endif
 
-    <div class="container-fluid">
-        <div class="footer__contact-background footer__contact row flex-md-nowrap">
-            <div class="col-12 col-sm-3 col-md-2 my-3">
-                <h4 class="footer__header h5 mb-2">Address</h4>
+    <div class="home-footer__sponsors">
+        <x-footer-sponsors/>
+    </div>
 
-                <address class="footer__body mb-0">
-                    <i class="fa fa-map-marker-alt text-primary" aria-hidden="true"></i>
-                    Nijenborgh 3<br>
-                    <i class="fa fa-map-marker-alt invisible" aria-hidden="true"></i>
-                    9747AG, Groningen<br>
-                    <i class="fa fa-globe-africa invisible" aria-hidden="true"></i>
-                    The Netherlands
-                </address>
-            </div>
-
-            <div class="col-12 col-sm-5 col-md-4 col-lg-3 my-3">
-                <h4 class="footer__header h5 mb-2">Contact</h4>
-
-                <div class="footer__body">
-                    <i class="far fa-envelope text-primary" aria-hidden="true"></i> <a href="mailto: board@professorfrancken.nl">board@professorfrancken.nl</a> <br>
-                    <i class="fa fa-phone text-primary" aria-hidden="true"></i> <a href="tel:{{ str_replace(' ', '', $settings->contactNumberOfChair()) }}">{{ $settings->contactNumberOfChair() }}</a> <br>
-                    <a href="/contact"><u>More contact info</u></a>
+    <div class="home-footer__main" data-fcc-lattice>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a class="home-footer__brand" href="/">
+                        @svg('LOGO_FRANCKEN_BALLS', 'home-footer__logo')
+                        <span class="home-footer__name">T.F.V. ‘Professor<br><span class="home-hero__name">Francken</span><span class="home-hero__quote">’</span></span>
+                    </a>
+                    <p class="home-footer__tagline">
+                        The study association for engineering physics at the University of Groningen.
+                    </p>
+                    <div class="home-footer__social">
+                        <a href="https://www.instagram.com/tfvprofessorfrancken/" aria-label="Instagram">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/t.f.v.-professor-francken/?viewAsMember=true" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/ProfessorFrancken/ProfessorFrancken" aria-label="GitHub">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-12 col-sm-4 col-md-4 my-3">
-                <h4 class="footer__header h5 mb-2">Other</h4>
+                <div class="col-sm-4 col-lg-2 offset-lg-1 mb-4 mb-sm-0">
+                    <h2 class="home-footer__heading">Visit us</h2>
+                    <address class="mb-0">
+                        <a href="https://maps.app.goo.gl/ZzqTA98zP9sSvZLA6" target="_blank" rel="noopener">
+                            Nijenborgh 3<br>
+                            9747 AG Groningen<br>
+                            The Netherlands
+                        </a>
+                    </address>
+                </div>
 
-                <div class="footer__body" style="column-count: 2">
-                    {{-- <a href="https://www.facebook.com/groups/139490187648/">
-                        <i class="fab fa-facebook text-primary" aria-hidden="true"></i> Facebook<br>
-                    </a> --}}
+                <div class="col-sm-4 col-lg-3 mb-4 mb-sm-0">
+                    <h2 class="home-footer__heading">Contact</h2>
+                    <a class="home-footer__contact" href="mailto:board@professorfrancken.nl">
+                        <i class="far fa-envelope fa-fw" aria-hidden="true"></i>
+                        board@professorfrancken.nl
+                    </a>
+                    @if ($settings->contactNumberOfChair())
+                        <a class="home-footer__contact" href="tel:{{ str_replace(' ', '', $settings->contactNumberOfChair()) }}">
+                            <i class="fas fa-phone fa-fw" aria-hidden="true"></i>
+                            {{ $settings->contactNumberOfChair() }}
+                        </a>
+                    @endif
+                    <a class="home-footer__contact" href="/contact">
+                        <i class="fas fa-address-card fa-fw" aria-hidden="true"></i>
+                        More contact info
+                    </a>
+                </div>
 
-                    <a href="https://www.instagram.com/tfvprofessorfrancken/">
-                        <i class="fab fa-instagram text-primary" aria-hidden="true"></i> Instagram<br>
-                    </a>
-
-                    <a href="https://www.linkedin.com/company/t.f.v.-professor-francken/?viewAsMember=true">
-                        <i class="fab fa-linkedin text-primary" aria-hidden="true"></i> LinkedIn<br>
-                    </a>
-                    <a href="https://github.com/ProfessorFrancken/ProfessorFrancken">
-                        <i class="fab fa-github-square text-primary" aria-hidden="true"></i> Github<br>
-                    </a>
-                    <a href="/privacy-policy">
-                        <i class="fa fa-user-secret text-primary" aria-hidden="true"></i>
-                        Privacy policy<br>
-                    </a>
-                    <a href="/pdf/Code_of_Conduct.pdf">
-                        <i class="fas fa-gavel text-primary" aria-hidden="true"></i>
-                        Code of conduct<br>
-                    </a>
-                    <a href="/cookies-policy">
-                        <i class="fa fa-cookie-bite text-primary" aria-hidden="true"></i>
-                        Cookies<br>
-                    </a>
-
+                <div class="col-sm-4 col-lg-2">
+                    <h2 class="home-footer__heading">Policies</h2>
+                    <a href="/privacy-policy">Privacy policy</a><br>
+                    <a href="/pdf/Code_of_Conduct.pdf">Code of conduct</a><br>
+                    <a href="/cookies-policy">Cookies</a>
                     @impersonating($guard = null)
-                    <a href="{{ route('impersonate.leave') }}">
-                        <i class="fas fa-user-secret text-primary" aria-hidden="true"></i>
-                        Leave impersonation
-                    </a>
+                        <br><a href="{{ route('impersonate.leave') }}">Leave impersonation</a>
                     @endImpersonating
                 </div>
             </div>
 
-            {{-- Note: we add a padding left 0 since the gutter from the row adds a padding --}}
-            <div class="col-12 col-md-2 col-lg-3 d-none d-lg-block footer__logo skew-md--bottom-right align-self-end"
-                 style="
-        box-shadow: 0 0px 5px rgba(0,0,0,0.2);
-                        "
-
-            >
-                <div class="align-middle align-items-center">
-                    <div class="d-flex justify-content-center justify-content-md-start align-items-center">
-                        <a class="header__title-link" href="/">
-                            @svg('LOGO_KAAL', 'svg-logo scaleUp--hover')
-                        </a>
-                    </div>
-                </div>
-            </div>
+            <p class="home-footer__copyright">&copy; {{ date('Y') }} T.F.V. ‘Professor Francken’</p>
         </div>
-
     </div>
-
-
-    <x-footer-sponsors/>
 </footer>

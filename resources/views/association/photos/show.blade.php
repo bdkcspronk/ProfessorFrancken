@@ -1,5 +1,9 @@
 @extends('layout.one-column-layout')
 
+@section('page-title')
+    {{ $album->title }}
+@endsection
+
 @section('title', $album->title . " - Photos - T.F.V. 'Professor Francken'")
 @section('description', $album->description)
 
@@ -14,10 +18,6 @@
             @endisset
         </li>
         <li style="flex-grow: 1; flex-basis:0">
-            <h1 class="section-header section-header--centered mb-3">
-                {{ $album->title }}
-            </h1>
-
             <h3 class="text-center mb-4">
                 {{ $album->published_at->format('Y-m-d') }}
             </h3>

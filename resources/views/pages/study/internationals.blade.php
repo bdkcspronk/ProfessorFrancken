@@ -1,4 +1,8 @@
 @extends('layout.two-column-layout')
+
+@section('page-title')
+    Information for internationals
+@endsection
 @section('title', "Information for international students - T.F.V. 'Professor Francken'")
 
 @php
@@ -8,7 +12,6 @@ $breadcrumbs = [
 ];
 @endphp
 @section('content')
-    <h1>Information for internationals</h1>
     <p>
         The following information and useful tips for students starting their studies in Groningen were collected by the <a href="/association/committees/intercie" class="font-weight-bold">intercie</a> committee.
     </p>

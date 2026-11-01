@@ -1,12 +1,13 @@
 @extends('layout.two-column-layout')
+
+@section('page-title')
+    {{ $activity->name }}
+@endsection
 @section('title', $activity->name . " - T.F.V. 'Professor Francken'")
 
 @section('content')
     <div class="rounded shadow-sm">
         <div class="bg-white p-4 ">
-            <h3 class="section-header">
-                {{ $activity->name }}
-            </h3>
             <div class="mt-3">
                 {!! $activity->compiled_content !!}
             </div>

@@ -7,6 +7,11 @@
 
         @include('layout._seo')
 
+        {{-- The fonts of the header and footer --}}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+
         @unless(config('env') == 'testing')
             <link rel="stylesheet" href="{{ mix('/dist/css/app.css') }}">
         @endunless
@@ -21,10 +26,11 @@
 
         @include('layout._favicon')
     </head>
-    <body class="h-100">
+    <body class="h-100 public-site">
         <main class="d-flex flex-column justify-content-between h-100">
             <div>
                 @include('layout._header')
+                @include('layout._page-hero')
                 @yield('main-content')
             </div>
             @include("layout._footer")
@@ -38,7 +44,9 @@
         <script src="/js/LoginModal.js"></script>
         @endif
 
-        <script src="/js/Menu.js"></script>
+        {{-- The modification time makes browsers load the scripts again after they changed --}}
+        <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>
+        <script src="/js/LogoBalls.js?v={{ filemtime(public_path('js/LogoBalls.js')) }}"></script>
 
         <script type="text/javascript">
          // Render  any latex currently loaded in our dom
