@@ -1,5 +1,5 @@
 @extends('layout.one-column-layout')
-@section('title', $page->title . " - T.F.V.'Professor Francken'")
+@section('title', $page->title . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div>

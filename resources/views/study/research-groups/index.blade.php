@@ -3,7 +3,7 @@
 @section('page-title')
     Research Groups
 @endsection
-@section('title', "Research Groups - T.F.V. 'Professor Francken'")
+@section('title', "Research Groups - T.F.V. ‘Professor Francken’")
 @section('header-image-url', '/images/header/practice-session.jpg')
 
 @section('content')

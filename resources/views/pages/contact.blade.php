@@ -3,8 +3,8 @@
 @section('page-title')
     Contact
 @endsection
-@section('title', "Contact - T.F.V. 'Professor Francken'")
-@section('description', "Contact information of the study association T.F.V. 'Professor Francken'.")
+@section('title', "Contact - T.F.V. ‘Professor Francken’")
+@section('description', "Contact information of the study association T.F.V. ‘Professor Francken’.")
 @inject('settings', "Francken\Shared\Settings\Settings")
 
 @section('content')
@@ -13,7 +13,7 @@
             <h2>Address</h2>
 
             <address>
-                <h4>Correspondences address</h4>
+                <h4>Correspondence address</h4>
                 T.F.V. ‘Professor Francken’<br>
                 Nijenborgh 3<br>
                 9747 AG Groningen

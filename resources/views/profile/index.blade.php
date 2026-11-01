@@ -51,7 +51,7 @@
             @if ($member->phone_number !== null)
                 <h5 class="mt-4">
                     <i class="fas fa-mobile"></i>
-                    Phonenumber
+                    Phone number
                 </h5>
                 <p class="mb-0 mt-2">
                     {{ $member->phone_number }}
@@ -100,7 +100,7 @@
             </h5>
 
             <p>
-                You've authorized T.F.V. 'Professor Francken' to withdraw money from the bank account listed above, due to:
+                You've authorized T.F.V. ‘Professor Francken’ to withdraw money from the bank account listed above, due to:
             </p>
             <ul class="list-unstyled">
                 @if (! $member->gratis_lidmaatschap)

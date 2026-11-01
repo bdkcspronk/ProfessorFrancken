@@ -3,7 +3,7 @@
 @section('page-title')
     <i class="fa fa-user" aria-hidden="true"></i> Login
 @endsection
-@section('title', "Login - T.F.V. 'Professor Francken'")
+@section('title', "Login - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div class="d-flex justify-content-center">

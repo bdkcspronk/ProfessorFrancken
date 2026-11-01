@@ -1,7 +1,7 @@
 @extends('layout.one-column-layout')
 
 @section('page-title')
-    Boards of T.F.V. 'Professor Francken'
+    Boards of T.F.V. ‘Professor Francken’
 @endsection
 
 @section('main-content')

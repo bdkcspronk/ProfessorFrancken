@@ -32,7 +32,7 @@
                 />
             @else
                 <p>
-                    Your currently don't have an active <strong>physical</strong> subscription for the Francken Vrij.
+                    You currently don't have an active <strong>physical</strong> subscription for the Francken Vrij.
                 </p>
 
                 <x-forms.select

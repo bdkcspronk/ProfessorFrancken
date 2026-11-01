@@ -21,5 +21,5 @@
 @endif
 
 @if ($activity->signUpSettings->ask_for_drivers_license)
-    <x-forms.checkbox name="has_drivers_license" label="Do you have a drivers license?" />
+    <x-forms.checkbox name="has_drivers_license" label="Do you have a driver's license?" />
 @endif

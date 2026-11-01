@@ -4,7 +4,7 @@
     Second hand books
 @endsection
 @section('header-image-url', '/images/header/library-books.jpeg')
-@section('title', "Buy \"" . $book->title . "\" - T.F.V. 'Professor Francken'")
+@section('title', "Buy \"" . $book->title . "\" - T.F.V. ‘Professor Francken’")
 
 @section('content')
 
@@ -39,7 +39,7 @@
 
             <div class="alert alert-success">
                 <p>
-                    To buy this book come to the board room and tell one of the board  members that you're interested in buying this book. Or send them email to <a href="mailto:books@professorfrancken.nl">books@professorfrancken.nl</a>
+                    To buy this book come to the board room and tell one of the board  members that you're interested in buying this book. Or send them an email at <a href="mailto:books@professorfrancken.nl">books@professorfrancken.nl</a>
                 </p>
             </div>
         </div>

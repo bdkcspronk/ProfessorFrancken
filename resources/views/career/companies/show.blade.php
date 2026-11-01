@@ -4,7 +4,7 @@
     {{ $partner->companyProfile->display_name }}
 @endsection
 @section('header-image-url', '/images/header/oslo.jpg')
-@section('title', $partner->companyProfile->display_name . " - T.F.V. 'Professor Francken'")
+@section('title', $partner->companyProfile->display_name . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
 

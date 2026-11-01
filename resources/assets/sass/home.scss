@@ -1296,3 +1296,208 @@ $covers-half-height: 0.3045;
     display: inline-block;
     margin-top: 1.5rem;
 }
+
+// The history in periods that fold open: a white heading per period, with its own timeline
+.history-era {
+    margin-bottom: 1rem;
+    font-family: $home-body-font;
+
+    &[open] {
+        margin-bottom: 3rem;
+
+        .history-era__summary {
+            margin-bottom: 2rem;
+        }
+
+        .history-era__chevron {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.history-era__summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 4rem 1.25rem 1.5rem;
+    background: white;
+    border-left: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $home-navy;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.15s ease-in-out;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        border-left-color: $home-navy;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+    }
+}
+
+.history-era__years {
+    color: $home-crimson;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.history-era__title {
+    font-family: $home-heading-font;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.history-era__description {
+    margin-top: 0.25rem;
+    color: $gray-600;
+}
+
+.history-era__chevron {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    margin-top: -0.5rem;
+    color: $home-crimson;
+    transition: transform 0.2s ease-in-out;
+}
+
+// The history page as a timeline: the years in crimson next to a navy line with dots,
+// the text in white cards and the most important moments as navy milestones
+$timeline-year-width: 6rem;
+$timeline-gap: 2.5rem;
+
+.history-timeline {
+    position: relative;
+    font-family: $home-body-font;
+
+    // The line through the dots: an even width, so that its center falls on a whole pixel
+    // like the centers of the dots
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0.5rem;
+        bottom: 0.5rem;
+        left: calc(#{$timeline-year-width} + #{$timeline-gap / 2} - 2px);
+        width: 4px;
+        background: $home-navy;
+    }
+}
+
+.history-entry {
+    position: relative;
+    display: grid;
+    grid-template-columns: $timeline-year-width 1fr;
+    column-gap: $timeline-gap;
+    margin-bottom: 1.5rem;
+
+    // The dot on the line
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0.6rem;
+        left: calc(#{$timeline-year-width} + #{$timeline-gap / 2} - 0.5rem);
+        width: 1rem;
+        height: 1rem;
+        border: 3px solid $home-navy;
+        border-radius: 50%;
+        background: $home-crimson;
+    }
+}
+
+.history-entry__year {
+    color: $home-crimson;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.history-entry__card {
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// The milestones are navy with the lattice, like the hero of the homepage
+.history-entry--milestone {
+    &::before {
+        top: 50%;
+        width: 1.5rem;
+        height: 1.5rem;
+        margin-top: -0.75rem;
+        margin-left: -0.25rem;
+        border-color: $home-crimson;
+        background: white;
+    }
+
+    .history-entry__card {
+        position: relative;
+        padding: 2rem;
+        background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+        @include fcc-lattice($fade: false);
+
+        > * {
+            position: relative;
+        }
+    }
+}
+
+.history-entry__date {
+    color: $home-crimson-light;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.history-entry__title {
+    margin: 0.25rem 0 0;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+// On phones the years are above the cards, and the line is at the left
+@include media-breakpoint-down(sm) {
+    // Centered on the dots, which are centered 0.5rem from the left
+    .history-timeline::before {
+        left: calc(0.5rem - 2px);
+    }
+
+    .history-entry {
+        grid-template-columns: 1fr;
+        padding-left: 2rem;
+
+        &::before {
+            left: 0;
+        }
+    }
+
+    .history-entry__year {
+        margin-bottom: 0.5rem;
+        text-align: left;
+    }
+
+    .history-entry--milestone {
+        .history-entry__year {
+            display: none;
+        }
+
+        &::before {
+            margin-left: -0.25rem;
+        }
+    }
+}

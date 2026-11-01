@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            T.F.V. 'Professor Francken'
+            T.F.V. ‘Professor Francken’
         @endcomponent
     @endslot
 
@@ -11,7 +11,7 @@
 
 Your membership has been approved!
 
-Your account will soon be activated, after which you can log in to the website of our association T.F.V. 'Professor Francken'.
+Your account will soon be activated, after which you can log in to the website of our association T.F.V. ‘Professor Francken’.
 
 Moreover, you will now receive our fortnightly newsletter, in which we will inform you of all the upcoming activities and the latest news.
 

@@ -1,5 +1,5 @@
 @extends('study.research-groups.index')
-@section('title', $group['title'] . " - Research Groups - T.F.V. 'Professor Francken'")
+@section('title', $group['title'] . " - Research Groups - T.F.V. ‘Professor Francken’")
 @section('header-image-url', $group['photo'])
 
 @section('content')

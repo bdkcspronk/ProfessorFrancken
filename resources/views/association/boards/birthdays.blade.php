@@ -4,7 +4,7 @@
     Birthdays
 @endsection
 
-@section('title', "Birthday calendar - T.F.V. 'Professor Francken'")
+@section('title', "Birthday calendar - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <ul class="agenda-list list-unstyled">

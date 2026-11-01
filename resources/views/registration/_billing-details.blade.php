@@ -1,6 +1,6 @@
 <p>
     The membership fee at our association is €5,- per year.
-    Additionaly, there may be extra costs for you if you want to buy food and drinks in our membersroom or if you'd like to attend payed events.
+    Additionally, there may be extra costs for you if you want to buy food and drinks in our members room or if you'd like to attend paid events.
 </p>
 
 <div class="row">

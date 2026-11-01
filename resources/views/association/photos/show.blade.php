@@ -4,7 +4,7 @@
     {{ $album->title }}
 @endsection
 
-@section('title', $album->title . " - Photos - T.F.V. 'Professor Francken'")
+@section('title', $album->title . " - Photos - T.F.V. ‘Professor Francken’")
 @section('description', $album->description)
 
 @section('content')

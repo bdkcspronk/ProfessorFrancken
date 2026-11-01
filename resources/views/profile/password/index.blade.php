@@ -37,7 +37,7 @@
 
 
                 <div class="form-group">
-                    <label for="password">password</label>
+                    <label for="password">Password</label>
                     {!!
                            Form::password(
                                'password',
@@ -70,7 +70,7 @@
     <p class="mt-3">
         <small>
             <a class="text-muted" href="{{ route('password.request') }}" tabindex="-1">
-                Did you forgot your password? Click <strong>here</strong> to reset it.
+                Did you forget your password? Click <strong>here</strong> to reset it.
             </a>
         </small>
     </p>

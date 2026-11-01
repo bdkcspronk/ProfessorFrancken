@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-12">
         <h5 class="mt-3">
-            <i class="fas fa-map-marker-alt"></i> Get the Franken Vrij
+            <i class="fas fa-map-marker-alt"></i> Get the Francken Vrij
             <small class="text-muted">(optional)</small>
         </h5>
         <p>
@@ -42,7 +42,7 @@
             </h5>
             <p>
                 Would you like to stay informed about upcoming activities?
-                Provide your phone number so that we can add you to our WhatsApp braodcast.
+                Provide your phone number so that we can add you to our WhatsApp broadcast.
             </p>
             <div class="row">
                 <div class="col-md-4">

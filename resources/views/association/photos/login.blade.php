@@ -3,7 +3,7 @@
 @section('page-title')
     Photos
 @endsection
-@section('title', "Photos - T.F.V. 'Professor Francken'")
+@section('title', "Photos - T.F.V. ‘Professor Francken’")
 
 @section('content')
     @if (session('private-album-login') === false)
@@ -21,6 +21,6 @@
             </p>
             @include('association.photos._login-form')
         </div>
-    </div>;
+    </div>
 
 @endsection

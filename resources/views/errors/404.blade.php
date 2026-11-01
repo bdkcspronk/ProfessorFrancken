@@ -5,7 +5,7 @@
 @endsection
 
 @section('header-image-url', '/images/header/oslo.jpg')
-@section('title', "404 - Page not found - T.F.V. 'Professor Francken'")
+@section('title', "404 - Page not found - T.F.V. ‘Professor Francken’")
 
 @section('header-image')
 @endsection

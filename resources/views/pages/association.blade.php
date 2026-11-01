@@ -3,13 +3,13 @@
 @section('page-title')
     Association
 @endsection
-@section('title', "Association - T.F.V. 'Professor Francken'")
+@section('title', "Association - T.F.V. ‘Professor Francken’")
 @section('description', "The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for applied physics and it is focused on (graduated) applied physics students.")
 
 @section('content')
 
     <p>
-      The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for engineering physics and it is focused on (graduated) applied physics students and students of closely related tracks study tracks.
+      The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for engineering physics and it is focused on (graduated) applied physics students and students of closely related study tracks.
      Other students of the faculty can become a donator of the association. They have the same privileges as applied physics students, except the right to vote at the general members assembly (ALV).
     </p>
 
@@ -76,7 +76,7 @@
                         style="width: 150px; height: 150px; object-fit: contain"
                     />
                     <h2>Committees</h2>
-                    <p>Francken has a lot of fascinating commmittees. Come and see yourself.</p>
+                    <p>Francken has a lot of fascinating committees. Come and see yourself.</p>
                 </a>
             </div>
 

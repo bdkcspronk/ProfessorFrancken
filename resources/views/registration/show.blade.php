@@ -7,14 +7,14 @@
 @section('content')
     @if ($registration->email_verified_at === null)
         <div class="alert alert-warning my-5">
-            We have sent you a confirmation email to <a href="malto: {{ $registration->email->toString() }}">{{ $registration->email->toString() }}</a>.
+            We have sent you a confirmation email to <a href="mailto:{{ $registration->email->toString() }}">{{ $registration->email->toString() }}</a>.
             Please verify your email by clicking the link in the email.
         </div>
     @endif
 
     <p class="lead text-center">
         Your registration is being reviewed by one of our board members.
-        Below your registration details are shown, if something is missing or incorrect please let us know by emailing to <a href="malto: board@professorfrancken.nl">board@professorfrancken.nl</a>.
+        Below your registration details are shown, if something is missing or incorrect please let us know by emailing to <a href="mailto:board@professorfrancken.nl">board@professorfrancken.nl</a>.
     </p>
 
     <div class="bg-white p-4 rounded text-primary mt-5">

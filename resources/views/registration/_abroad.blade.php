@@ -1,6 +1,6 @@
 <h4>Studying from abroad?</h4>
 <p class="text-muted">
-    We would like to keep track of the amount of international members, please provide your nationality and indicate if you've got a Dutch high school diploma.
+    We would like to keep track of the number of international members, please provide your nationality and indicate if you've got a Dutch high school diploma.
 </p>
 <x-forms.checkbox
     name="no_dutch_high_school_diploma"

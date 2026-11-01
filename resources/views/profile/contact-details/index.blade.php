@@ -71,7 +71,7 @@
             <x-forms.text
                 name="country"
                 label="Country"
-                placeholder="Nijenborgh 9"
+                placeholder="Netherlands"
                 :value="$member->address->country()"
             />
 

@@ -3,7 +3,7 @@
 @section('page-title')
     {{ $activity->name }}
 @endsection
-@section('title', $activity->name . " - T.F.V. 'Professor Francken'")
+@section('title', $activity->name . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div class="rounded shadow-sm">

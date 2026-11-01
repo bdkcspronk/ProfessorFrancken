@@ -9,7 +9,7 @@
     <div class="sidebar">
       <h3>Agenda</h3>
       <hr/>
-      <h4>Wednesday 13th of april</h4>
+      <h4>Wednesday 13th of April</h4>
       <ol class="list-unstyled">
         <li>
           <i class="glyphicon glyphicon-education"></i>
@@ -28,14 +28,14 @@
           Placerat duis ultricies lacus.</li>
       </ol>
 
-      <h4>Friday 15th of april</h4>
+      <h4>Friday 15th of April</h4>
       <ol class="list-unstyled">
         <li style="line-height: 1.5">
           <i class="glyphicon glyphicon-glass"></i>Id leo in.</li>
         <li>
       </ol>
 
-      <h4>Thuesday 19th of april</h4>
+      <h4>Tuesday 19th of April</h4>
       <ol class="list-unstyled">
         <li><i class="glyphicon glyphicon-picture"></i>Id leo in.</li>
         <li><i class="glyphicon glyphicon-education"></i>Massa tincidunt dui ut!</li>
@@ -90,7 +90,7 @@
                 </div>
               </div>
               <div class="media-body">
-                <h3 class="media-heading">Experiences of a freshmen</h3>
+                <h3 class="media-heading">Experiences of a freshman</h3>
                 <i>Posted by <a href="#">Mark Boer</a> on 03-04-2001</i>
               </div>
             </div>
@@ -109,7 +109,7 @@
                 </div>
               </div>
               <div class="media-body">
-                <h3 class="media-heading">Experiences of a freshmen</h3>
+                <h3 class="media-heading">Experiences of a freshman</h3>
                 <i>Posted by <a href="#">Mark Boer</a> on 03-04-2001</i>
               </div>
             </div>
@@ -127,7 +127,7 @@
                 </div>
               </div>
               <div class="media-body">
-                <h3 class="media-heading">Experiences of a freshmen</h3>
+                <h3 class="media-heading">Experiences of a freshman</h3>
                 <i>Posted by <a href="#">Mark Boer</a> on 03-04-2001</i>
               </div>
             </div>
@@ -145,7 +145,7 @@
                 </div>
               </div>
               <div class="media-body">
-                <h3 class="media-heading">Experiences of a freshmen</h3>
+                <h3 class="media-heading">Experiences of a freshman</h3>
                 <i>Posted by <a href="#">Mark Boer</a> on 03-04-2001</i>
               </div>
             </div>

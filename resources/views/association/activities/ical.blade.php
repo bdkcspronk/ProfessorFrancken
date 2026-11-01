@@ -1,6 +1,6 @@
 @extends('layout.two-column-layout')
 @section('title', 'Synchronize our calendar')
-@section('description', "Synchronize the calendar of T.F.V. 'Professor Francken' with your own online agenda.")
+@section('description', "Synchronize the calendar of T.F.V. ‘Professor Francken’ with your own online agenda.")
 
 @section('content')
     <h1>Synchronize our calendar</h1>
