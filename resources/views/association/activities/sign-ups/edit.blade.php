@@ -55,19 +55,5 @@
 @endsection
 
 @section('aside')
-    <div class="agenda">
-        <h3 class="section-header agenda-header">
-            Calendar
-        </h3>
-        <ul class="agenda-list list-unstyled">
-            <div class="agenda-item d-flex justify-content-between font-weight-bold mb-2 pb-2">
-                @include('association.activities._sidebar-years', ['years' => $visibleYears])
-            </div>
-            @foreach ($months as $month)
-                @include('association.activities._sidebar-month', [
-                    'year' => $selectedYear, 'month' => $month
-                    ])
-            @endforeach
-        </ul>
-    </div>
+    @include('association.activities._calendar')
 @endsection

@@ -1174,3 +1174,125 @@ $covers-half-height: 0.3045;
     border-top: 1px solid rgba(white, 0.15);
     font-size: 0.85rem;
 }
+
+// The activities page: the activities as cards like on the homepage, grouped by month,
+// and a calendar with the months of an academic year as tiles
+.activity-card,
+.activity-calendar,
+.public-site .home-agenda__group {
+    font-family: $home-body-font;
+}
+
+.activity-card h4,
+.activity-calendar h2 {
+    font-family: $home-heading-font;
+}
+
+.activity-card__detail {
+    margin-top: 0.25rem;
+    color: $gray-600;
+    font-size: 0.85rem;
+}
+
+.activity-calendar {
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+
+.activity-calendar__years {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1.5rem 0 1rem;
+}
+
+.activity-calendar__year {
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.activity-calendar__arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid $gray-300;
+    color: $home-navy;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-color: $home-navy;
+        background: $home-navy;
+        color: white;
+        text-decoration: none;
+    }
+
+    &.is-disabled {
+        opacity: 0.3;
+    }
+}
+
+.activity-calendar__months {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.activity-calendar__month {
+    position: relative;
+    padding: 0.75rem 0;
+    border: 1px solid $gray-200;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-color: $home-crimson;
+        color: $home-crimson;
+        text-decoration: none;
+    }
+
+    // Months without activities
+    &.is-empty {
+        color: $gray-500;
+    }
+
+    // The month of today
+    &.is-current {
+        border-color: $home-crimson;
+    }
+
+    // The month that is shown
+    &.is-selected,
+    &.is-selected:hover {
+        border-color: $home-crimson;
+        background: $home-crimson;
+        color: white;
+    }
+}
+
+// The number of activities in a month
+.activity-calendar__count {
+    position: absolute;
+    top: 0.2rem;
+    right: 0.4rem;
+    color: $home-crimson;
+    font-size: 0.65rem;
+
+    .is-selected & {
+        color: white;
+    }
+}
+
+.activity-calendar__ical {
+    display: inline-block;
+    margin-top: 1.5rem;
+}
