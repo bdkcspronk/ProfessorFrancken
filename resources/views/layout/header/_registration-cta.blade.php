@@ -5,7 +5,7 @@
     <div class="row align-items-center h-100 my-5 my-md-0">
         <div class="registration-cta__body col-md-9 offset-md-3 align-self-center">
             <h1>
-                <strong>T.F.V. 'Professor Francken'</strong>
+                <strong>T.F.V. ‘Professor Francken’</strong>
             </h1>
             <h2>
                 The study association for

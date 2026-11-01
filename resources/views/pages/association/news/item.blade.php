@@ -4,7 +4,7 @@
     {{ $newsItem->title }}
 @endsection
 
-@section('title', $newsItem->title . " - T.F.V. 'Professor Francken'")
+@section('title', $newsItem->title . " - T.F.V. ‘Professor Francken’")
 @section('description', $newsItem->exerpt)
 
 @section('content')

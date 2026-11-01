@@ -3,7 +3,7 @@
 @section('page-title')
     <i class="fa fa-unlock-alt" aria-hidden="true"></i> Reset password
 @endsection
-@section('title', "Forgotten password - T.F.V. 'Professor Francken'")
+@section('title', "Forgotten password - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div class=" d-flex justify-content-center my-4">

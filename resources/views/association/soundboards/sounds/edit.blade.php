@@ -1,5 +1,5 @@
 @extends('layout.one-column-layout')
-@section('title', "Soundboard - " . $soundboard->name . " - T.F.V. 'Professor Francken'")
+@section('title', "Soundboard - " . $soundboard->name . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div class="bg-light p-4 mt-5 pt-0 border">

@@ -5,14 +5,14 @@
 @endsection
 
 @section('header-image-url', '/images/header/oslo.jpg')
-@section('title', "Career - T.F.V. 'Professor Francken'")
+@section('title', "Career - T.F.V. ‘Professor Francken’")
 
 @section('content')
 
   <p>
-      At T.F.V. 'Professor Francken' we aim to help students prepare for their professional career after their studies.
+      At T.F.V. ‘Professor Francken’ we aim to help students prepare for their professional career after their studies.
       We do this by organizing <a href="/career/events">lunch lectures, excursions, symposia and other career related activities</a>.
-      Additionally we have large network of alumni students that work at various companies whom might be of help when you're looking for a <a href="/career/job-openings">job or an internship</a>.
+      Additionally we have a large network of alumni students that work at various companies who might be of help when you're looking for a <a href="/career/job-openings">job or an internship</a>.
   </p>
 
   <hr class="my-5">
@@ -52,7 +52,7 @@
     <div style="text-align: center" class="col-md-4">
         <a href="/association/activities">
             <img
-                alt="A typical Sanning Electron Microscope"
+                alt="A typical Scanning Electron Microscope"
                 src="{{ image('https://upload.wikimedia.org/wikipedia/commons/3/3b/SEM_chamber1.JPG', ['height' => 150, 'width' => 150]) }}"
                 class="mb-3 rounded-circle"
                 style="height: 150px; width: 150px; object-fit: contain"

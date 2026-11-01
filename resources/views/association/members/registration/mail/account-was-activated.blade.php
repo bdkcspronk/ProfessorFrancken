@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            T.F.V. 'Professor Francken'
+            T.F.V. ‘Professor Francken’
         @endcomponent
     @endslot
 
@@ -10,7 +10,7 @@
 # Hi {{ $fullname }},
 
 
-Your account has now been activated! Now you can log in to the website of our association T.F.V. 'Professor Francken'.
+Your account has now been activated! Now you can log in to the website of our association T.F.V. ‘Professor Francken’.
 
 You can use this account to view your [latest expenses]({{ $expenses_url }}) at our association, [view photos]({{ $photos_url }}), [sign up to our activities]({{ $activities_url }}) as well as [update your profile]({{ $profile_url }})!
 
@@ -23,7 +23,7 @@ Use your email, **{{ $email }}**
     Set your password
 @endcomponent
 
-If you face any problems, please let the board now and they will try to resolve them quickly.
+If you face any problems, please let the board know and they will try to resolve them quickly.
 
 We look forward to seeing you around Francken!
 

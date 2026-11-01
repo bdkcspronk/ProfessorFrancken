@@ -3,7 +3,7 @@
 @section('page-title')
     {{ $soundboard->name }}
 @endsection
-@section('title', "Soundboard - " . $soundboard->name . " - T.F.V. 'Professor Francken'")
+@section('title', "Soundboard - " . $soundboard->name . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <h5 class="text-center mb-4">Soundboard</h5>

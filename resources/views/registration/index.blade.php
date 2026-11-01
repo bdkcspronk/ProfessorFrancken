@@ -17,7 +17,7 @@
 
     <p class="lead text-center my-4">
         Will you be studying in Groningen and do you want to have a good time? Come and join our association!<br/>
-        For only <strong>€5,- per year</strong> you can get free <strong>coffee and tea</strong> at our membersroom in the Nijenborgh 4 and join many of our activities, which is a great way to get to know your fellow students!
+        For only <strong>€5,- per year</strong> you can get free <strong>coffee and tea</strong> at our members room in the Nijenborgh 4 and join many of our activities, which is a great way to get to know your fellow students!
     </p>
 
     {!!
@@ -84,7 +84,7 @@
 
         <h4>Would you like to join a committee?</h4>
         <p>
-            Many of our activities are organized by voluntary work from committees members.
+            Many of our activities are organized by voluntary work from committee members.
             Joining a committee is a good opportunity to get to know your fellow students as well as improve your resume.
             You can find more information about each committee on our
             <a
@@ -111,7 +111,7 @@
     </fieldset>
 
     <p>
-        By registering this form you agree to the privacy statement of T.F.V. 'Professor Francken'
+        By registering this form you agree to the privacy statement of T.F.V. ‘Professor Francken’
     </p>
 
     <x-forms.submit
@@ -129,7 +129,7 @@
      return `<div class="form-group row">
                     <div class="col-sm-3">
                         <label for="study">Study</label>
-                        <input placeholder="Bsc Applied Physics" class="form-control" name="study_name[]" type="text" required>
+                        <input placeholder="BSc Applied Physics" class="form-control" name="study_name[]" type="text" required>
                     </div>
                     <div class="col-sm-3">
                         <label for="starting-date-study">Starting date</label>

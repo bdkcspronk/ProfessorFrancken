@@ -3,7 +3,7 @@
 @section('page-title')
     Faculty Council
 @endsection
-@section('title', "Faculty Council - T.F.V. 'Professor Francken'")
+@section('title', "Faculty Council - T.F.V. ‘Professor Francken’")
 @php
 $breadcrumbs = [
     ['url' => '/study', 'text' => 'Study'],
@@ -48,7 +48,7 @@ $breadcrumbs = [
                 Faculty Council Committees
             </h2>
                 <p>
-                There are different committees in the Faculty Council, each one of them consists of both student and staff members and they discuss various topics related to their focus on which they give updates during the council meetings with their faction. In this way all council members are well informed on all the topics we discuss. Not all committees meet as often or take as much time as others, but they are all important and every member of the Faculty Council takes place in 2 different committees.
+                There are different committees in the Faculty Council, each one of them consists of both student and staff members and they discuss various topics related to their focus on which they give updates during the council meetings with their faction. In this way all council members are well informed on all the topics we discuss. Not all committees meet as often or take as much time as others, but they are all important and every member of the Faculty Council takes part in 2 different committees.
             </p>
 
             <dl>

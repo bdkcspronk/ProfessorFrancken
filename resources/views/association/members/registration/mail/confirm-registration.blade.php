@@ -2,14 +2,14 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            T.F.V. 'Professor Francken'
+            T.F.V. ‘Professor Francken’
         @endcomponent
     @endslot
 
     {{-- Body --}}
 # Hi {{ $fullname }},
 
-Thank you for requesting registration with T.F.V ‘Professor Francken’!
+Thank you for requesting registration with T.F.V. ‘Professor Francken’!
 Once your registration has been reviewed, your membership will be confirmed and a personal account will be activated.
 
 Click the link below to verify your email and confirm your personal details.

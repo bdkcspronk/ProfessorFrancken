@@ -3,7 +3,7 @@
         <div class="form-group">
             <div class="row">
                 <div class="col-sm-6">
-                    <x-forms.text name="firstname" label="Firstname" placeholder="Jan" required />
+                    <x-forms.text name="firstname" label="First name" placeholder="Jan" required />
                 </div>
                 <div class="col-sm-6">
                     <x-forms.text name="surname" label="Surname" placeholder="Francken" required />

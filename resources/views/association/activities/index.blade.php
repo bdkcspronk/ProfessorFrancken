@@ -15,7 +15,7 @@
     @section('title', 'Activities in ' . ($selectedMonth ? $selectedMonth . ' ' : '')  . $selectedYear)
     @section('description', 'Activiteiten in ' . ($selectedMonth ? $selectedMonth . ' ' : '') . $selectedYear)
 @else
-    @section('title', "Upcoming activities - T.F.V. 'Professor Francken'")
+    @section('title', "Upcoming activities - T.F.V. ‘Professor Francken’")
 @endif
 
 @section('content')

@@ -2,7 +2,7 @@
     {{-- Header --}}
     @slot('header')
         @component('mail::header', ['url' => config('app.url')])
-            T.F.V. 'Professor Francken'
+            T.F.V. ‘Professor Francken’
         @endcomponent
     @endslot
 
@@ -16,7 +16,7 @@ They've added a comment / question:
 
 > {{ $comments }}
 
-Make sure to answer their comments / questions by sending an email to: <a href="malto: {{ $email }}">{{ $email }}</a>.
+Make sure to answer their comments / questions by sending an email to: <a href="mailto:{{ $email }}">{{ $email }}</a>.
 @endif
 
 Kind regards,

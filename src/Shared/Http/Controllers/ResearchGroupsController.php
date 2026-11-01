@@ -49,7 +49,7 @@ final class ResearchGroupsController
             ],
             [
                 'title' => 'Materials Science',
-                'description' => 'The principal aim of the research programme of the Applied Physics-Materials Science group is to search for the relation between the microstructure of materials and its physical properties. The programme concentrates on experimental and theoretical work of the characterization of line defects (dislocations and disclinations) and homo-/heterophase interfaces so as to draw conclusions about the correlation between atomic structure, electronic charge transfer, and physical properties, both structural and functional. <br/> The research group for Materials Science is no longer an active research group, but it has been a vital part of the association over the years. ',
+                'description' => 'The principal aim of the research programme of the Applied Physics-Materials Science group is to search for the relation between the microstructure of materials and their physical properties. The programme concentrates on experimental and theoretical work of the characterization of line defects (dislocations and disclinations) and homo-/heterophase interfaces so as to draw conclusions about the correlation between atomic structure, electronic charge transfer, and physical properties, both structural and functional. <br/> The research group for Materials Science is no longer an active research group, but it has been a vital part of the association over the years. ',
                 'photo' => 'https://www.rug.nl/research/zernike/materials-science/2_MK_ZIAMWEB.jpg',
                 'groups' => [
                     [
@@ -91,7 +91,7 @@ final class ResearchGroupsController
             ],
             [
                 'title' => 'Nanostructured Materials and Interfaces',
-                'description' => 'Investigating the relation between nanostructure and functional properties of materials. Our research focus is on material structures, surfaces/interfaces, and surface interactions at the nanoscale. Our research interests include phase change materials, nanoclusters/nanoparticles, nanoresonators, surface forces, friction, and adhesion. Experimental facilities include scanning probe, scanning electron, and Transmission electron microscopy. Applications of our research are connected with hydrogen storage, novel NEMS devices and phase change memories.',
+                'description' => 'Investigating the relation between nanostructure and functional properties of materials. Our research focus is on material structures, surfaces/interfaces, and surface interactions at the nanoscale. Our research interests include phase change materials, nanoclusters/nanoparticles, nanoresonators, surface forces, friction, and adhesion. Experimental facilities include scanning probe, scanning electron, and transmission electron microscopy. Applications of our research are connected with hydrogen storage, novel NEMS devices and phase change memories.',
                 'photo' => 'https://www.rug.nl/research/zernike/nanostructured-materials-and-interfaces/NMI_group.jpg',
                 'groups' => [
                     [
@@ -113,7 +113,7 @@ final class ResearchGroupsController
             [
                 'title' => 'Nanostructures of Functional Oxides',
                 'description' => 'We investigate materials that display physical phenomena and responses of relevance for electronic applications.
-We are particularly interested in ferroelectric, piezoelectric, thermoelectric, ferromagnetics or multiferroic oxides. Our approach consists on exploiting the symmetry-property relationships by achieving a high control of the materials synthesis, combined with a detailed nanoscale structural and physical characterization.',
+We are particularly interested in ferroelectric, piezoelectric, thermoelectric, ferromagnetic or multiferroic oxides. Our approach consists of exploiting the symmetry-property relationships by achieving a high control of the materials synthesis, combined with a detailed nanoscale structural and physical characterization.',
                 'photo' => 'https://www.rug.nl/research/zernike/research/topic_nfo.jpg',
                 'groups' => [
                     [
@@ -134,7 +134,7 @@ We are particularly interested in ferroelectric, piezoelectric, thermoelectric, 
             ],
             [
                 'title' => 'Photophysics and Opto-electronics',
-                'description' => 'Our group aims to develop novel materials for solar cell & microelectronics applications. The materials we work on have in common that they are solution processable. This property holds the promise of cheap production methods with a low energy demand. Our research focusses on a number of subjects:<ul><li>The properties of organic semiconductors and organic/organic interfaces and their application in optoelectronic devices</li><li>Physical and optoelectronic properties of carbon nanotubes and hybrids systems</li><li>Fabrication of hybrid optoelectronic devices composed by inorganic nanocrystals and organic molecules</li></ul>',
+                'description' => 'Our group aims to develop novel materials for solar cell & microelectronics applications. The materials we work on have in common that they are solution processable. This property holds the promise of cheap production methods with a low energy demand. Our research focusses on a number of subjects:<ul><li>The properties of organic semiconductors and organic/organic interfaces and their application in optoelectronic devices</li><li>Physical and optoelectronic properties of carbon nanotubes and hybrid systems</li><li>Fabrication of hybrid optoelectronic devices composed by inorganic nanocrystals and organic molecules</li></ul>',
                 'photo' => 'https://www.rug.nl/research/zernike/photophysics-and-opto-electronics/images/PbS-CdS_Coreshell_quantumdots.png',
                 'groups' => [
                     [

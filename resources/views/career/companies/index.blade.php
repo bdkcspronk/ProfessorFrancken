@@ -4,7 +4,7 @@
     Companies
 @endsection
 @section('header-image-url', '/images/header/oslo.jpg')
-@section('title', "Company profiles - T.F.V. 'Professor Francken'")
+@section('title', "Company profiles - T.F.V. ‘Professor Francken’")
 @section('keywords', $keywords)
 
 @section('content')

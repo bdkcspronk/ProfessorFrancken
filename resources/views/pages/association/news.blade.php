@@ -4,7 +4,7 @@
     The latest news
 @endsection
 
-@section('title', "Recent news - T.F.V. 'Professor Francken'")
+@section('title', "Recent news - T.F.V. ‘Professor Francken’")
 
 @section('main-content')
     <div class="container my-5">

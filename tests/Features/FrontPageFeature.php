@@ -23,7 +23,7 @@ class FrontPageFeature extends TestCase
         $this->publishAFranckenVrij();
 
         $this->visit('/')
-             ->see("T.F.V. 'Professor Francken'");
+             ->see("T.F.V. ‘Professor Francken’");
     }
 
     /** @test */

@@ -1,5 +1,5 @@
 @extends('layout.two-column-layout')
-@section('title', 'Edit comment at ' . $activity->name . " - T.F.V. 'Professor Francken'")
+@section('title', 'Edit comment at ' . $activity->name . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
     <div class="rounded shadow-sm">

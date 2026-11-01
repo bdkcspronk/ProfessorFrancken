@@ -4,7 +4,7 @@
     Photos
 @endsection
 
-@section('title', "Photos - T.F.V. 'Professor Francken'")
+@section('title', "Photos - T.F.V. ‘Professor Francken’")
 
 @section('content')
 
@@ -15,7 +15,7 @@
     @endif
 
     <p>
-      Welcome to our fun, lovely and colourful pictures of our experiences in T.F.V. 'Professor Francken', with many beautiful portraits of beautiful people. If at any time you feel camera shy, just let us know at <a href="mailto: Fotociefrancken@gmail.com">Fotociefrancken@gmail.com</a> or let board know at <a href="mailto: board@professorfrancken.nl">board@professorfrancken.nl</a>, and we will make sure those photos disappear into thin air.
+      Welcome to our fun, lovely and colourful pictures of our experiences in T.F.V. ‘Professor Francken’, with many beautiful portraits of beautiful people. If at any time you feel camera shy, just let us know at <a href="mailto: Fotociefrancken@gmail.com">Fotociefrancken@gmail.com</a> or let the board know at <a href="mailto: board@professorfrancken.nl">board@professorfrancken.nl</a>, and we will make sure those photos disappear into thin air.
   </p>
 
     <ul class="agenda-list list-unstyled photo-grid">

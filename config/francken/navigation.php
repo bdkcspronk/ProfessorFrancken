@@ -10,7 +10,7 @@ return [
             'subItems' => [
                 ['url' => "/study/books", 'title' => 'Books', 'description' => 'Buy or sell second hand books', 'icon' => 'fas fa-book'],
                 ['url' => "/study/research-groups", 'title' => 'Research Groups', 'description' => 'Find a research group for your bachelor or master thesis', 'icon' => 'fas fa-flask'],
-                ['url' => "/study/representation/university-council", 'title' => 'University Council', 'description' => 'Read about the parties that represent students among the university', 'icon' => 'fas fa-user-tie'],
+                ['url' => "/study/representation/university-council", 'title' => 'University Council', 'description' => 'Read about the parties that represent students within the university', 'icon' => 'fas fa-user-tie'],
                 ['url' => "/study/representation/faculty-council", 'title' => 'Faculty Council', 'description' => 'See who is representing students from the FSE', 'icon' => 'fas fa-person-booth'],
                 ['url' => "/study/internationals", 'title' => 'Internationals', 'description' => 'Useful information about studying and living in Groningen', 'icon' => 'fas fa-globe-europe'],
             ],
@@ -23,7 +23,7 @@ return [
                 // ['url' => "/association/news", 'title' => 'News', 'description' => 'The latest news from the association', 'icon' => 'fas fa-newspaper'],
                 ['url' => "/association/activities", 'title' => 'Activities', 'description' => 'Upcoming career, study and social activities', 'icon' => 'fas fa-calendar-week'],
                 ['url' => "/association/history", 'title' => 'History', 'description' => 'Curious about the history of our association, read it here', 'icon' => 'far fa-clock'],
-                ['url' => "/association/honorary-members", 'title' => 'Honorary members', 'description' => 'Francken knows two honnorary members: Francken and De Hosson', 'icon' => 'fas fa-award'],
+                ['url' => "/association/honorary-members", 'title' => 'Honorary members', 'description' => 'Francken knows two honorary members: Francken and De Hosson', 'icon' => 'fas fa-award'],
                 ['url' => "/association/boards", 'title' => 'Boards', 'description' => 'Current and previous board members', 'icon' => 'fas fa-user-tie'],
                 ['url' => "/association/committees", 'title' => 'Committees', 'description' => 'Want to join a committee?', 'icon' => 'fas fa-users'],
                 ['url' => "/association/francken-vrij", 'title' => 'Francken Vrij', 'description' => 'Our popular science magazine', 'icon' => 'fas fa-book-open'],

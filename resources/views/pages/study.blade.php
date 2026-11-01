@@ -3,15 +3,15 @@
 @section('page-title')
     Study
 @endsection
-@section('title', "Study - T.F.V. 'Professor Francken'")
-@section('description', "As a study association T.F.V. 'Professor Francken' organizes plethora of activities related to (applied) physics, including symposia, (research group) excursions, practice sessions for exams.")
+@section('title', "Study - T.F.V. ‘Professor Francken’")
+@section('description', "As a study association T.F.V. ‘Professor Francken’ organizes a plethora of activities related to (applied) physics, including symposia, (research group) excursions, practice sessions for exams.")
 
 @section('header-image-url', '/images/header/practice-session.jpg')
 @section('content')
 
     <p>
         T.F.V. ‘Professor Francken’ organizes a plethora of activities related to (applied) physics, including symposia, (research group) excursions, practice sessions for exams.
-        In addition to that we communicate regularly with many different university organs like the educations committees, the faculty councils and the university council.
+        In addition to that we communicate regularly with many different university organs like the education committees, the faculty councils and the university council.
     </p>
 
     <hr>

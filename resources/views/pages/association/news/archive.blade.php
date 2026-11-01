@@ -4,7 +4,7 @@
     News Archive
 @endsection
 
-@section('title', "News archive - T.F.V. 'Professor Francken'")
+@section('title', "News archive - T.F.V. ‘Professor Francken’")
 
 @section('content')
 

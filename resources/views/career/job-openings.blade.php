@@ -4,7 +4,7 @@
     Jobs and internships
 @endsection
 @section('header-image-url', '/images/header/oslo.jpg')
-@section('title', "Job openings and internships - T.F.V. 'Professor Francken'")
+@section('title', "Job openings and internships - T.F.V. ‘Professor Francken’")
 @section('description', "Find job openings and internships related to engineering physics.")
 
 @section('content')

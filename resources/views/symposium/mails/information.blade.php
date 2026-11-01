@@ -19,15 +19,15 @@ This year the symposium will take place online using the platform Zoom. Click th
 
 ### Schedule
 
-The Zoom call will open at 10:00 at Wednesday. The official program will start at 10:15 with a talk by our chair of the day, Prof. dr. Beatriz Noheda. If this doesn't suit you, you are of course welcome to join at any later moment. You can find more information about the program in the attached programme ().
+The Zoom call will open at 10:00 on Wednesday. The official program will start at 10:15 with a talk by our chair of the day, Prof. dr. Beatriz Noheda. If this doesn't suit you, you are of course welcome to join at any later moment. You can find more information about the program in the attached programme ().
 
 @component('mail::button', ['url' =>  'https://professorfrancken.nl/uploads/association/symposia/cognitive-matters-programme.pdf'])
-    Progamme booklet
+    Programme booklet
 @endcomponent
 
 ### Colloquium points
 
-By visiting the symposium you can earn physics colloquium points. One colloquium point is rewarded for attending two talks and two colloquium points are rewarded for attending the whole day. Please email the committee if you want to make use of this, so that we can track your attendance.
+By visiting the symposium you can earn physics colloquium points. One colloquium point is awarded for attending two talks and two colloquium points are awarded for attending the whole day. Please email the committee if you want to make use of this, so that we can track your attendance.
 
 ### Lunch and borrelbox
 
