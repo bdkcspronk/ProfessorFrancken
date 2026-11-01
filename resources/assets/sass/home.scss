@@ -1,0 +1,1062 @@
+// The homepage, in navy and crimson with diagonal stripes that lean like the logo blocks
+$home-navy: #14213d;
+$home-navy-light: #4b6795;
+$home-crimson: #a51c30;
+$home-crimson-dark: #7d1424;
+$home-crimson-light: #f0889a;
+// The board photo is tinted with this color
+$home-photo-tint: #d0596c;
+
+$home-heading-font: "Space Grotesk", $font-family-sans-serif;
+$home-body-font: "Inter", $font-family-sans-serif;
+
+$stripe-width: 14px;
+$stripe-angle: 120deg;
+
+// The slanted edges lean 30 degrees, like the skewX(-30deg) logo blocks
+$slant: 0.57735; // tan(30deg)
+$hero-height: 500px;
+$header-height: 76px;
+// The logo block hangs below the header on larger screens
+$logo-block-height: 144px;
+
+@function stripes($first: $home-navy, $second: $home-crimson) {
+    @return repeating-linear-gradient(
+        $stripe-angle,
+        $first 0 $stripe-width,
+        $second $stripe-width 2 * $stripe-width
+    );
+}
+
+// The border-image slice has to be a number without unit
+@mixin striped-top($height: 14) {
+    border-top: $height * 1px solid;
+    border-image: stripes() $height;
+}
+
+@mixin striped-bottom($height: 14) {
+    border-bottom: $height * 1px solid;
+    border-image: stripes() $height;
+}
+
+// Hide the scrollbar of the page, it can still be scrolled
+.home-html {
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+// One face of an FCC unit cell: atoms on the corners (quarters at the edges of the
+// tile) and one in the center. Tiled, it forms the lattice of the circles in our logo.
+// Like in a real FCC lattice the atoms touch along the diagonal of the face, so their
+// radius is a quarter of the diagonal: 96 * sqrt(2) / 4 = 33.94.
+// The colors are rgba() strings, because a # can't be used in the data url
+@function fcc-face-pattern($center-color, $corner-color: "rgba(255,255,255,0.8)", $edge-color: "rgba(255,255,255,0.35)") {
+    @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' fill='none' stroke-width='1.5'%3E%3Cpath d='M0 0H96M0 0V96' stroke='#{$edge-color}'/%3E%3Cg stroke='#{$corner-color}'%3E%3Ccircle cx='0' cy='0' r='33.94'/%3E%3Ccircle cx='96' cy='0' r='33.94'/%3E%3Ccircle cx='0' cy='96' r='33.94'/%3E%3Ccircle cx='96' cy='96' r='33.94'/%3E%3C/g%3E%3Ccircle cx='48' cy='48' r='33.94' stroke='#{$center-color}'/%3E%3C/svg%3E");
+}
+
+// A faint FCC lattice behind an element that (optionally) fades out towards the
+// bottom; the element needs position: relative and its content has to be positioned
+// above it. By default the center atoms are light crimson, for use on navy.
+// The lattice is a background pattern, which public/js/FccLattice.js replaces by a
+// canvas with the same lattice (in a .home-lattice element) that reacts to the mouse
+@mixin fcc-lattice(
+    $center-color: "rgba(240,136,154,0.9)",
+    $opacity: 0.1,
+    $fade: true,
+    $corner-color: "rgba(255,255,255,0.8)",
+    $edge-color: "rgba(255,255,255,0.35)"
+) {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: fcc-face-pattern($center-color, $corner-color, $edge-color);
+        background-position: center top;
+        opacity: $opacity;
+        pointer-events: none;
+
+        @if $fade {
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+    }
+
+    &.has-lattice::before {
+        display: none;
+    }
+
+    > .home-lattice {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: $opacity;
+        pointer-events: none;
+        --lattice-center: #{$center-color};
+        --lattice-corner: #{$corner-color};
+        --lattice-edge: #{$edge-color};
+
+        @if $fade {
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+    }
+}
+
+.home {
+    background: #fafafa;
+    color: $gray-700;
+    font-family: $home-body-font;
+
+    h1, h2, h3, h4, h5, h6,
+    .btn {
+        font-family: $home-heading-font;
+    }
+}
+
+.home-heading {
+    position: relative;
+    padding-bottom: 0.4em;
+    margin-bottom: 1rem;
+    color: $home-navy;
+    font-size: 2rem;
+    font-weight: bold;
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 88px;
+        border-bottom: 3px solid $home-crimson;
+    }
+}
+
+.home-heading--light {
+    color: white;
+
+    &::after {
+        border-color: white;
+    }
+}
+
+// Only the arrow after a link moves on hover; an icon in front of the text stays put
+.home-link {
+    color: $home-crimson;
+    font-weight: bold;
+
+    .fa-arrow-right {
+        margin-left: 0.25rem;
+        transition: transform 0.15s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+        color: $home-crimson-dark;
+        text-decoration: none;
+
+        .fa-arrow-right {
+            transform: translateX(3px);
+        }
+    }
+}
+
+.home-btn {
+    padding: 0.7rem 1.5rem;
+    border: 2px solid transparent;
+    border-radius: 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: all 0.15s ease-in-out;
+}
+
+.home-btn--crimson {
+    background: $home-crimson;
+    border-color: $home-crimson;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background: $home-crimson-dark;
+        border-color: $home-crimson-dark;
+        color: white;
+    }
+}
+
+.home-btn--outline {
+    border-color: white;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background: white;
+        color: $home-navy;
+    }
+}
+
+.home-btn--white {
+    background: white;
+    border-color: white;
+    color: $home-crimson;
+
+    &:hover,
+    &:focus {
+        background: $home-navy;
+        border-color: $home-navy;
+        color: white;
+    }
+}
+
+// Hero: the board photo with a slanted edge
+.home-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 2.5rem 0 4.5rem;
+    // The navy gets a bit lighter towards the bottom of the hero
+    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+    @include fcc-lattice($fade: false);
+    color: white;
+}
+
+.home-hero__photo-frame {
+    position: relative;
+    height: 220px;
+    margin: -2.5rem 0 2rem;
+    background-color: $home-photo-tint;
+}
+
+// The photo is tinted crimson: shown in black and white over the tint color
+.home-hero__photo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $home-photo-tint;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
+    opacity: 0.45;
+}
+
+.home-hero__container {
+    position: relative;
+}
+
+// The eyebrow is as wide as the lines of the title, so its font size is a part of the
+// font size of the title (measured; small text renders a bit narrower, so the ratio
+// for the smaller title is a bit larger)
+$hero-title-size: 2.25rem;
+$hero-title-size-lg: 3rem;
+$hero-eyebrow-ratio: 0.274;
+$hero-eyebrow-ratio-lg: 0.2645;
+
+.home-hero__eyebrow {
+    margin-bottom: 0.5rem;
+    color: $home-crimson-light;
+    font-size: $hero-title-size * $hero-eyebrow-ratio;
+    font-weight: bold;
+    letter-spacing: 0.0717em;
+    text-transform: uppercase;
+}
+
+.home-hero__title {
+    margin-bottom: 2rem;
+    color: white;
+    font-size: $hero-title-size;
+    font-weight: bold;
+}
+
+// We usually call the association just Francken, so that part of the name stands out:
+// Francken’ is as wide as T.F.V. ‘Professor on the line above (used in the footer too).
+// These sizes were measured in Chrome; other browsers can be off by a few pixels
+.home-hero__name {
+    font-size: 1.637em;
+    line-height: 1;
+}
+
+// Raise the closing quote so that it lines up with the top of the bigger Francken
+.home-hero__quote {
+    vertical-align: 0.418em;
+}
+
+.home-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+@include media-breakpoint-up(lg) {
+    .home-hero {
+        height: $hero-height;
+        padding: 6rem 0 0;
+    }
+
+    .home-hero__photo-frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 58%;
+        height: auto;
+        margin: 0;
+        // The edge of the photo leans the other way than the stripes (\ instead of /)
+        clip-path: polygon(0 0, 100% 0, 100% 100%, $hero-height * $slant 100%);
+    }
+
+    .home-hero__photo {
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba($home-navy, 0.5), rgba($home-navy, 0) 45%);
+        }
+    }
+
+    .home-hero__body {
+        max-width: 45%;
+    }
+
+    .home-hero__eyebrow {
+        font-size: $hero-title-size-lg * $hero-eyebrow-ratio-lg;
+        letter-spacing: 0.0864em;
+    }
+
+    .home-hero__title {
+        font-size: $hero-title-size-lg;
+
+        .home-hero__name {
+            font-size: 1.612em;
+        }
+
+        .home-hero__quote {
+            vertical-align: 0.401em;
+        }
+    }
+}
+
+// Agenda: a panel that overlaps the bottom of the hero
+.home-agenda {
+    position: relative;
+    margin-top: -2.5rem;
+    padding: 1.5rem;
+    background: white;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+.home-agenda__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 2rem;
+}
+
+.home-agenda__group {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0 0.75rem;
+    color: $home-crimson;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    &::after {
+        content: "";
+        flex: 1;
+        margin-left: 0.75rem;
+        border-top: 1px solid $gray-300;
+    }
+}
+
+.home-activity {
+    display: flex;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid $gray-200;
+    border-left: 4px solid $home-crimson;
+    color: $home-navy;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-color: $gray-300;
+        border-left-color: $home-navy;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+        color: $home-navy;
+        text-decoration: none;
+        transform: translateY(-2px);
+    }
+}
+
+.home-activity__date {
+    flex-shrink: 0;
+    width: 3rem;
+    margin-right: 0.75rem;
+    text-align: center;
+}
+
+.home-activity__day {
+    display: block;
+    color: $home-crimson;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.home-activity__month {
+    color: $gray-600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.home-activity__when {
+    color: $gray-600;
+    font-size: 0.85rem;
+}
+
+.home-activity__name {
+    margin: 0.15rem 0 0;
+    color: $home-navy;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.home-activity__sign-up {
+    margin-top: 0.35rem;
+    color: $home-crimson;
+    font-size: 0.8rem;
+}
+
+@include media-breakpoint-up(lg) {
+    .home-agenda {
+        margin-top: -5rem;
+        padding: 2.5rem;
+    }
+}
+
+// About the association and the Francken Vrij
+.home-about {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.home-about__professor {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    .home-heading {
+        margin-bottom: 0;
+    }
+}
+
+.home-about__portrait {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    margin-right: 1.5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px $home-crimson;
+}
+
+.home-about__intro {
+    color: $home-navy;
+    font-size: 1.1rem;
+}
+
+// The covers image is 642 x 391, so half of its height is 30.45% of its width
+$covers-half-height: 0.3045;
+
+.home-francken-vrij {
+    // Make room for the half of the covers image that sticks out above the card. A
+    // percentage margin is relative to the width of the column, which is the width
+    // of the image plus the padding of the card
+    margin-top: calc(#{$covers-half-height * 100%} - 4rem * #{$covers-half-height});
+    padding: 2rem;
+    // Fades in at the top, then goes from light navy to navy at the bottom
+    background: linear-gradient(
+        to bottom,
+        rgba($home-navy-light, 0) 0%,
+        $home-navy-light 40%,
+        $home-navy 100%
+    );
+    color: rgba(white, 0.8);
+
+    .home-heading {
+        color: white;
+    }
+
+    .home-link {
+        color: $home-crimson-light;
+
+        &:hover,
+        &:focus {
+            color: white;
+        }
+    }
+}
+
+// The covers stick out halfway above the card
+.home-francken-vrij__image {
+    display: block;
+    // Keep the space of the image (642 x 391) when it can't be loaded, and show its
+    // description in a readable color instead
+    aspect-ratio: 642 / 391;
+    height: auto;
+    color: $gray-600;
+    font-size: 0.85rem;
+    width: 100%;
+    margin-top: calc(#{-$covers-half-height * 100%} - 2rem);
+    margin-bottom: 1.5rem;
+}
+
+.home-francken-vrij__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+}
+
+// Membership: a crimson band for guests
+.home-membership {
+    position: relative;
+    padding: 3.5rem 0;
+    background: $home-crimson;
+    color: rgba(white, 0.9);
+    // On crimson the whole lattice is light crimson; it contrasts less than white
+    // so it is a bit stronger, and it covers the whole band
+    @include fcc-lattice(
+        $center-color: "rgba(240,136,154,0.9)",
+        $corner-color: "rgba(240,136,154,0.9)",
+        $edge-color: "rgba(240,136,154,0.5)",
+        $opacity: 0.25,
+        $fade: false
+    );
+
+    .container {
+        position: relative;
+    }
+}
+
+.home-membership__price {
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 4.5rem;
+    font-weight: bold;
+    line-height: 1;
+
+    span {
+        margin-left: 0.5rem;
+        font-size: 1.25rem;
+        opacity: 0.8;
+    }
+}
+
+// Study, association and career: cards that lead to the three parts of the website
+.home-pillars {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+// The cards are columns, so that the links line up at the bottom
+.home-pillar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    padding: 2rem;
+    background: white;
+    border: 1px solid $gray-200;
+    border-top: 4px solid $home-crimson;
+    color: $gray-700;
+    transition: all 0.15s ease-in-out;
+
+    // An invisible strip below the card, as high as the card rises on hover, so that
+    // the mouse stays on the card when it hovers its bottom edge
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        height: 4px;
+    }
+
+    &:hover,
+    &:focus {
+        border-top-color: $home-navy;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+        color: $gray-700;
+        text-decoration: none;
+        transform: translateY(-3px);
+
+        .home-link {
+            color: $home-crimson-dark;
+
+            .fa-arrow-right {
+                transform: translateX(3px);
+            }
+        }
+    }
+}
+
+.home-pillar__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.25rem;
+    height: 3.25rem;
+    margin-bottom: 1.25rem;
+    background: $home-navy;
+    color: white;
+    font-size: 1.35rem;
+}
+
+.home-pillar__title {
+    margin-bottom: 0.75rem;
+    color: $home-navy;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.home-pillar__text {
+    flex-grow: 1;
+    margin-bottom: 1.25rem;
+}
+
+// Header: a crimson logo block with a slanted edge, and the navigation on navy
+.home-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: stretch;
+    height: $header-height;
+    background: $home-navy;
+}
+
+.home-header__brand {
+    display: flex;
+    align-items: flex-start;
+    color: white;
+
+    &:hover,
+    &:focus {
+        color: white;
+        text-decoration: none;
+    }
+}
+
+// The crimson block is a skewed layer behind the logo, so that its slanted corner can
+// be rounded like on the rest of the website (skew-md--top-right)
+.home-header__logo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 calc(#{$header-height * $slant} + 1rem) 0 1.25rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $home-crimson;
+        border-radius: 0 0 10px 0;
+        transform: skewX(-30deg);
+        transform-origin: top right;
+    }
+
+    svg {
+        position: relative;
+    }
+}
+
+// The balls of the logo are filled with the color of the block, so that the front
+// balls cover the balls behind them
+.home-header__logo-svg {
+    height: 48px;
+    width: auto;
+    color: $home-crimson;
+}
+
+@include media-breakpoint-up(md) {
+    .home-header__logo {
+        height: $logo-block-height;
+        padding: 0 calc(#{$logo-block-height * $slant} + 1.5rem) 0 2rem;
+    }
+
+    .home-header__logo-svg {
+        height: 96px;
+    }
+}
+
+.home-nav {
+    display: none;
+    align-items: stretch;
+    margin-left: auto;
+    padding-right: 1rem;
+}
+
+.home-nav__item {
+    position: relative;
+    display: flex;
+}
+
+.home-nav__link {
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border-bottom: 3px solid transparent;
+    color: rgba(white, 0.85);
+    font-family: $home-heading-font;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+        border-bottom-color: $home-crimson;
+        color: white;
+        text-decoration: none;
+    }
+}
+
+.home-nav__chevron {
+    margin-left: 0.4rem;
+    font-size: 0.65rem;
+    opacity: 0.6;
+}
+
+.home-nav .login-link {
+    align-self: center;
+    margin-left: 0.75rem;
+    padding: 0.5rem 1.25rem;
+    border-bottom: 0;
+    background: $home-crimson;
+    color: white;
+
+    &:hover,
+    &:focus {
+        background: white;
+        color: $home-navy;
+    }
+}
+
+.home-nav__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    min-width: 18rem;
+    padding: 0.5rem 0;
+    background: white;
+    border-top: 3px solid $home-crimson;
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
+}
+
+// The last item (Profile when logged in) is at the right edge of the window, so its
+// dropdown opens to the left instead of sticking out of the window
+.home-nav__item:last-child .home-nav__dropdown {
+    right: 0;
+    left: auto;
+}
+
+.home-nav__item:hover .home-nav__dropdown,
+.home-nav__item:focus-within .home-nav__dropdown {
+    display: block;
+}
+
+.home-nav__sub-link {
+    display: flex;
+    align-items: baseline;
+    padding: 0.6rem 1.25rem;
+    color: $home-navy;
+    font-weight: 500;
+
+    i {
+        margin-right: 0.75rem;
+        color: $home-crimson;
+    }
+
+    small {
+        display: block;
+        color: $gray-600;
+        font-weight: normal;
+    }
+
+    &:hover,
+    &:focus {
+        background: $gray-100;
+        color: $home-navy;
+        text-decoration: none;
+    }
+}
+
+.home-menu {
+    margin-left: auto;
+}
+
+.home-menu__toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: $header-height;
+    height: $header-height;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    list-style: none;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    span {
+        display: block;
+        height: 2px;
+        margin: 3px 0;
+        background: white;
+    }
+}
+
+.home-menu__panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    padding: 1rem 1.5rem 1.5rem;
+    background: $home-navy;
+}
+
+.home-menu__link,
+.home-menu__sub-link {
+    display: block;
+    color: white;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson-light;
+        text-decoration: none;
+    }
+}
+
+.home-menu__link {
+    margin-top: 0.75rem;
+    font-family: $home-heading-font;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.home-menu__sub-link {
+    padding: 0.2rem 0 0.2rem 1rem;
+    color: rgba(white, 0.75);
+}
+
+@include media-breakpoint-up(lg) {
+    .home-nav {
+        display: flex;
+    }
+
+    .home-menu {
+        display: none;
+    }
+}
+
+// Footer: the sponsors on white, then the navy footer
+.home-footer__sponsors .sponsors {
+    padding: 3rem 1rem 1rem;
+    background: white;
+    color: $gray-600;
+
+    h5 {
+        margin-bottom: 1rem;
+        color: $gray-600;
+        font-size: 0.85rem;
+        font-weight: bold;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    // The logos are centered in rows of at most 3 (see layout/_sponsors.blade.php),
+    // on phones in rows of 2
+    // The rows are as wide as the content of the page, with the first logo of a row
+    // aligned to the left and the last to the right, in line with the text around it
+    .row {
+        @include make-container-max-widths();
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .row > div {
+        display: flex;
+        justify-content: center;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .row > div {
+            flex: 0 0 calc(100% / var(--sponsors-per-row, 3));
+            max-width: calc(100% / var(--sponsors-per-row, 3));
+        }
+    }
+
+    // Each logo takes most of the width of its column, leaving space between them
+    a {
+        justify-content: center;
+        width: 75%;
+    }
+
+    @include media-breakpoint-up(sm) {
+        .row > .sponsors__row-start {
+            justify-content: flex-start;
+        }
+
+        .row > .sponsors__row-end {
+            justify-content: flex-end;
+        }
+
+        // A row with a single logo keeps it centered
+        .row > .sponsors__row-start.sponsors__row-end {
+            justify-content: center;
+        }
+    }
+
+    // The logos are white, so instead of the image show a navy (crimson on hover)
+    // surface in the shape of the logo. This uses a mask rather than a color filter,
+    // which leaves lines at the edges of the tiles the browser draws it in. The logos
+    // are 200 x 80, and take the width of the link
+    img {
+        display: none;
+    }
+
+    .sponsors__logo {
+        display: block;
+        width: 100%;
+        aspect-ratio: 5 / 2;
+        background-color: $home-navy;
+        transition: background-color 0.2s ease-in-out;
+        -webkit-mask: var(--logo) center / contain no-repeat;
+        mask: var(--logo) center / contain no-repeat;
+    }
+
+    a:hover .sponsors__logo,
+    a:focus .sponsors__logo {
+        background-color: $home-crimson;
+    }
+
+    // The copyright is shown in the navy part of the footer
+    p {
+        display: none;
+    }
+}
+
+.home-footer__main {
+    position: relative;
+    padding: 3.5rem 0;
+    // The navy gets a bit darker towards the bottom of the page
+    background: linear-gradient(to bottom, $home-navy, darken($home-navy, 6%));
+    color: rgba(white, 0.75);
+
+    @include fcc-lattice;
+
+    .container {
+        position: relative;
+    }
+
+    a {
+        color: white;
+
+        &:hover,
+        &:focus {
+            color: $home-crimson-light;
+            text-decoration: none;
+        }
+    }
+}
+
+.home-footer__brand {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-family: $home-heading-font;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    // The name is broken and emphasized like in the hero (home-hero__name and
+    // home-hero__quote)
+    .home-footer__name {
+        margin-left: 0.75rem;
+        line-height: 1.1;
+    }
+}
+
+// The same logo as in the header, without the effect (no data-logo-balls); its balls
+// are filled with the navy of the footer so that the front balls cover those behind
+.home-footer__logo {
+    height: 56px;
+    width: auto;
+    color: $home-navy;
+}
+
+.home-footer__tagline {
+    max-width: 20rem;
+}
+
+.home-footer__social {
+    display: flex;
+    gap: 0.75rem;
+
+    a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: rgba(white, 0.1);
+        font-size: 1.1rem;
+
+        &:hover,
+        &:focus {
+            background: $home-crimson;
+            color: white;
+        }
+    }
+}
+
+.home-footer__heading {
+    margin-bottom: 1rem;
+    color: $home-crimson-light;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.home-footer__contact {
+    display: block;
+    white-space: nowrap;
+
+    i {
+        margin-right: 0.35rem;
+        color: $home-crimson-light;
+    }
+}
+
+.home-footer__copyright {
+    margin: 3rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(white, 0.15);
+    font-size: 0.85rem;
+}

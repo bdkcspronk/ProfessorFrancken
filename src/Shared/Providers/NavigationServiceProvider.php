@@ -20,7 +20,7 @@ final class NavigationServiceProvider extends ServiceProvider
 {
     public function boot() : void
     {
-        View::composer('layout._header', function ($view) : void {
+        View::composer(['layout._header', 'homepage._header'], function ($view) : void {
             /** @var array $menu */
             $menu = config('francken.navigation.menu');
             $menu[1]['icon'] = $this->associationIcon();

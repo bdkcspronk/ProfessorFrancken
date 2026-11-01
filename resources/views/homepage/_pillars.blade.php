@@ -1,61 +1,37 @@
-<div class="container my-5">
+<section class="container home-pillars">
     <div class="row">
-        <div class="card-group">
-            <div class="card francken-pillar col-md-4">
-                <img src="/icons/lined/study.svg" alt="" class="francken-pillar__icon">
-                <div class="card-body text-center">
-                    <h4 class="card-title">
-                        Study
-                    </h4>
-                    <p class="card-text">
-                        <small>
-                            Prepare your exams well with the exams of last year.
-                            Make your voice heard for the degree programme in the NSOS!
-                        </small>
-                    </p>
-                </div>
-                <div class="card-footer francken-pillar__footer">
-                    <a class="btn btn-primary" href="/study">Read more</a>
-                </div>
-            </div>
-            <div class="card francken-pillar col-md-4">
-                <img src="/icons/lined/{{ $associationIcon }}.svg" alt="" class="francken-pillar__icon">
-                <div class="card-body text-center">
-                    <h4 class="card-title">
-                        Association
-                    </h4>
-                    <p class="card-text">
-                        <small>
-                            Are you curious who we are?
-                            Do you want to know what Engineering Physics is about?
-                            Or are you interested in participating in a committee?
-                            Find all you need to know right here!
-                        </small>
-                    </p>
-                </div>
-                <div class="card-footer francken-pillar__footer">
-                    <a class="btn btn-primary" href="/association">Read more</a>
-                </div>
-            </div>
-            <div class="card francken-pillar col-md-4">
-                <img src="/icons/lined/career.svg" alt="" class="francken-pillar__icon">
-                <div class="card-body text-center">
-                    <h4 class="card-title">
-                        Career
-                    </h4>
-                    <p class="card-text">
-                        <small>
-                            What happens after graduation?
-                            Do you prefer an academic or a business carreer?
-                            Look here for your carreer orientation.
-                        </small>
-                    </p>
-                </div>
-                <div class="card-footer francken-pillar__footer">
-                    <a class="btn btn-primary" href="/career">Read more</a>
-                </div>
-            </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+            <a class="home-pillar" href="/study">
+                <span class="home-pillar__icon"><i class="fas fa-graduation-cap" aria-hidden="true"></i></span>
+                <h3 class="home-pillar__title">Study</h3>
+                <p class="home-pillar__text">
+                    Prepare for your exams with the exams of previous years,
+                    and make your voice heard about the degree programme.
+                </p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+            <a class="home-pillar" href="/association">
+                <span class="home-pillar__icon"><i class="fas fa-{{ $associationIcon }}" aria-hidden="true"></i></span>
+                <h3 class="home-pillar__title">Association</h3>
+                <p class="home-pillar__text">
+                    Curious who we are, what Engineering Physics is about,
+                    or interested in joining a committee? Find out here.
+                </p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="home-pillar" href="/career">
+                <span class="home-pillar__icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+                <h3 class="home-pillar__title">Career</h3>
+                <p class="home-pillar__text">
+                    What happens after graduation? Discover whether an academic
+                    or a business career suits you.
+                </p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
         </div>
     </div>
-
-</div>
+</section>

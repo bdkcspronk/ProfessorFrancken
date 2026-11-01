@@ -36,12 +36,29 @@ class FrontPageController extends Controller
             ->limit(8)
             ->get();
 
+        // Group the activities by the week in which they start, activities
+        // that started before this week but are still going on count as this week
+        $startOfNextWeek = $today->modify('monday next week')->setTime(0, 0);
+        $startOfWeekAfterNext = $startOfNextWeek->modify('+1 week');
+
+        $agenda = $activities->groupBy(function (Activity $activity) use ($startOfNextWeek, $startOfWeekAfterNext) : string {
+            if ($activity->start_date < $startOfNextWeek) {
+                return 'This week';
+            }
+
+            if ($activity->start_date < $startOfWeekAfterNext) {
+                return 'Next week';
+            }
+
+            return 'Upcoming';
+        });
+
         $covid = Page::covid()->where('is_published', true)->first();
 
         return view('homepage/homepage', [
             'header_image' => $settings->headerImage(),
             'news' => $news,
-            'activities' => $activities,
+            'agenda' => $agenda,
             'latest_edition' => $latestEdition,
             'covid' => $covid,
         ]);
