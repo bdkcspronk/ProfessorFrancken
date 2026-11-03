@@ -23,7 +23,7 @@ In the meantime, let us introduce you to our wonderful association.
 T.F.V. ‘Professor Francken’ was named after Groningen’s first professor of applied physics and has welcomed over 900 members.
 A variety of activities are hosted for all members throughout the year, including borrels, excursions, and a Buixie - a week-long trip to a European destination.
 
-Be sure to swing by the Franckenroom for a cup of coffee or a game of klaverjas, and check out the many committees you can join!
+Be sure to swing by the Francken room for a cup of coffee or a game of klaverjas, and check out the many committees you can join!
 
 Stay up to date with upcoming activities and news by subscribing to our WhatsApp broadcast (+31 50 363 4978) and follow us on Instagram ([@tfvprofessorfrancken](https://www.instagram.com/tfvprofessorfrancken/)).
 

@@ -1,6 +1,6 @@
 @if ($page == $paginator->currentPage())
     <li class="mx-2">
-        <span class="py-2 px-3 bg-primary rounded text-white">
+        <span class="py-2 px-3 bg-primary rounded text-white is-current" aria-current="page">
             {{ $page }}
         </span>
     </li>
