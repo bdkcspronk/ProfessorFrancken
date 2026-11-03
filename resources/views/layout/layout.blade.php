@@ -47,6 +47,7 @@
         {{-- The modification time makes browsers load the scripts again after they changed --}}
         <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>
         <script src="/js/LogoBalls.js?v={{ filemtime(public_path('js/LogoBalls.js')) }}"></script>
+        <script src="/js/ExternalLinks.js?v={{ filemtime(public_path('js/ExternalLinks.js')) }}"></script>
 
         <script type="text/javascript">
          // Render  any latex currently loaded in our dom

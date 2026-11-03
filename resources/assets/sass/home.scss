@@ -981,6 +981,39 @@ $covers-half-height: 0.3045;
     color: rgba(white, 0.75);
 }
 
+// The items with a dropdown open and close when they are tapped
+.home-menu__group {
+    > summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    &[open] {
+        padding-bottom: 0.25rem;
+
+        > summary {
+            color: $home-crimson-light;
+        }
+
+        .home-menu__chevron {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.home-menu__chevron {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    transition: transform 0.15s ease-in-out;
+}
+
 @include media-breakpoint-up(lg) {
     .home-nav {
         display: flex;
@@ -2436,5 +2469,30 @@ $menu-card-banner-height: 11rem;
 
     i {
         position: relative;
+    }
+}
+
+// Links to other websites: a small icon after the link, as they open in a new tab
+.home-nav__external {
+    margin-left: 0.3rem;
+    font-size: 0.65em;
+    opacity: 0.6;
+}
+
+.home-nav__sub-link .home-nav__external-note {
+    color: $home-crimson;
+}
+
+.public-site,
+.home {
+    .external-link::after {
+        content: "\f35d";
+        display: inline-block;
+        margin-left: 0.25em;
+        font-family: "Font Awesome 5 Free";
+        font-size: 0.7em;
+        font-weight: 900;
+        opacity: 0.7;
+        text-decoration: none;
     }
 }

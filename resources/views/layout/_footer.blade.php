@@ -42,10 +42,12 @@
                     <h2 class="home-footer__heading">Visit us</h2>
                     <address class="mb-0">
                         <a href="https://maps.app.goo.gl/ZzqTA98zP9sSvZLA6" target="_blank" rel="noopener">
-                            Nijenborgh 3<br>
-                            9747 AG Groningen<br>
-                            The Netherlands
-                        </a>
+                            Feringa Building<br>
+                            Room 5614.0143
+                        </a><br>
+                        Nijenborgh 3<br>
+                        9747 AG Groningen<br>
+                        The Netherlands
                     </address>
                 </div>
 
