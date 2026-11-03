@@ -47,6 +47,32 @@ class NewsFeature extends TestCase
     }
 
     /** @test */
+    public function old_news_is_listed_and_can_be_found_by_part_of_its_title() : void
+    {
+        $old = News::create([
+            'title' => 'Borel Borel Borel Distribution',
+            'slug' => 'borel-borel-borel-distribution',
+            'related_news_items' => [],
+            'exerpt' => '',
+            'author_name' => 'Steven Groen',
+            'author_photo' => '',
+            'source_contents' => '',
+            'compiled_contents' => '',
+        ]);
+        $old->publish(new DateTimeImmutable('2017-09-29'));
+        $old->save();
+
+        $this->visit(action([AdminNewsController::class, 'index']))
+            ->see('Borel Borel Borel Distribution');
+
+        $this->visit(action([AdminNewsController::class, 'index'], ['subject' => 'borel']))
+            ->see('Borel Borel Borel Distribution');
+
+        $this->visit(action([AdminNewsController::class, 'index'], ['published_after' => '2018-01-01']))
+            ->dontSee('Borel Borel Borel Distribution');
+    }
+
+    /** @test */
     public function a_news_item_can_be_changed() : void
     {
         $news = $this->news[0];
