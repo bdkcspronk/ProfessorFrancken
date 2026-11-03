@@ -1,53 +1,47 @@
-<div class="container my-4">
-    <div class="board-container rounded {{($board->photo !== null) ? 'board-container--with-image' : ''}}">
-          <h3 class="section-header section-header--centered section-header--light board-header" >
-            @if ($board->name != '')
-                ‘{{ $board->board_name->toString() }}’
-                <br/>
-                <small>
-                    {{ $board->board_year->toString() }}
-                </small>
-            @else
-                {{ $board->board_year->toString() }}
-            @endif
-        </h3>
+{{-- A board: a banner with its name and year (on the board photo when there is one), followed by its members --}}
+<article class="board">
+    <header @class(['board__banner', 'board__banner--photo' => $board->photo !== null]) @if ($board->photo === null) data-fcc-lattice @endif>
         @if ($board->photo !== null)
             <img
-            src="{{ board_banner_image($board->photo, ['vertical-offset' => $board->photo_position]) }}"
-            class="img-fluid rounded board-image"
+                class="board__photo"
+                src="{{ board_banner_image($board->photo, ['vertical-offset' => $board->photo_position]) }}"
+                alt="Board photo of {{ $board->name != '' ? $board->board_name->toString() : $board->board_year->toString() }}"
             >
         @endif
-    </div>
+        <div class="board__title">
+            @if ($board->name != '')
+                <div class="board__year">{{ $board->board_year->toString() }}</div>
+                <h2 class="board__name">‘{{ $board->board_name->toString() }}’</h2>
+            @else
+                <h2 class="board__name">{{ $board->board_year->toString() }}</h2>
+            @endif
+        </div>
+    </header>
 
-    @if ($board->photo !== null)
-        <p class="text-right mt-3">
-            <a class="text-muted" href="{{ $board->photo }}">
-                Download board photo
-                <i class="fa fa-picture-o" aria-hidden="true"></i>
-            </a>
-        </p>
-    @endif
-</div>
-
-<div class="container my-4">
-    <ul class="list-unstyled row">
+    <ul class="board__members">
         @foreach($board->members as $member)
-            <li class="col-12 col-sm-6 col-md board-member">
-                <h4>
-                    {{ $member->name }}
-                </h4>
-                <h6>
-                    {{ $member->title }}
-                </h6>
-
-                @if ($member->photo !== null)
-                <img
-                    class="board-member__photo mt-3"
-                    src="{{ image($member->photo, ['width' => 150, 'height' => 150]) }}"
-                    alt="Photo of {{ $member->name }}"
-                >
-                @endif
+            <li class="board__member">
+                {{-- Behind the photo is a slanted stripe, alternately crimson and navy --}}
+                <span class="board__member-photo">
+                    @if ($member->photo !== null)
+                        <img
+                            src="{{ image($member->photo, ['width' => 300, 'height' => 300]) }}"
+                            alt="Photo of {{ $member->name }}"
+                        >
+                    @else
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                    @endif
+                </span>
+                <h3 class="board__member-name">{{ $member->name }}</h3>
+                <div class="board__member-title">{{ $member->title }}</div>
             </li>
         @endforeach
     </ul>
-</div>
+
+    @if ($board->photo !== null)
+        <a class="home-link board__download" href="{{ $board->photo }}">
+            <i class="fas fa-download" aria-hidden="true"></i>
+            Download board photo
+        </a>
+    @endif
+</article>

@@ -7,91 +7,59 @@
 @section('description', "The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for applied physics and it is focused on (graduated) applied physics students.")
 
 @section('content')
-
-    <p>
-      The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for engineering physics and it is focused on (graduated) applied physics students and students of closely related study tracks.
-     Other students of the faculty can become a donator of the association. They have the same privileges as applied physics students, except the right to vote at the general members assembly (ALV).
-    </p>
-
+    <div class="page-intro">
+        <p>The Technisch Fysische Vereniging ‘Professor Francken’ (Applied Physics Association ‘Professor Francken’) is the University of Groningen’s study association for engineering physics and it is focused on (graduated) applied physics students and students of closely related study tracks. Other students of the faculty can become a donator of the association. They have the same privileges as applied physics students, except the right to vote at the general members assembly (ALV).</p>
         <p>The association was founded in 1968 as the “Vereniging van Toekomstige Ingenieurs” (Association of Future Engineers). At that time it was uncertain whether applied physics graduates would be granted the qualification ‘ingenieur’. This changed for the Groningen technicians as a result of a Royal Decree of 18 November 1971. The association changed its name to V.K.T.N., or Vereniging voor Kandidaten Technische Natuurkunde (Association for Candidates Applied Physics). In 1984 the association was named after the first professor in applied physics in Groningen: prof. dr. ir. J.C. Francken.</p>
+    </div>
 
-        <hr>
-
-        <div class="row">
-            <div style="text-align: center" class="col-md-4">
-                <a href="{{ action([\Francken\Association\News\Http\NewsController::class, 'index']) }}">
-                    <img
-                        alt="News related to Francken and other associations"
-                        src="{{ image('/images/news_images.jpg', ['height' => 150, 'width' => 150], true) }}"
-                        class="mb-3 rounded-circle"
-                        style="height: 150px; width: 150px; object-fit: contain"
-                    />
-                    <h2>News</h2>
-                    <p>Follow Francken closely and get provided all Francken news</p>
-                </a>
-            </div>
-
-            <div style="text-align: center" class="col-md-4">
-                <a href="/association/history">
-                    <img
-                        alt="History of Francken"
-                        src="{{ image('https://pbs.twimg.com/profile_images/614489310428012544/m5PFdI4G.jpg', ['height' => 150, 'width' => 150]) }}"
-                        class="mb-3 rounded-circle"
-                    />
-                    <h2>History</h2>
-                    <p>Learn more about the history of Francken!</p>
-                </a>
-            </div>
-
-            <div style="text-align: center" class="col-md-4">
-                <a href="/association/honorary-members">
-                    <img
-                        alt="Current and previous boards of T.F.V. 'Professor Francken'"
-                        src="{{ image('https://professorfrancken.nl//images/prof-jan-carel-francken.png', ['height' => 150, 'width' => 150]) }}"
-                        class="mb-3 rounded-circle"
-                    />
-                    <h2>Honorary members</h2>
-                    <p>Learn more about our honorary members</p>
-                </a>
-            </div>
-
-            <div style="text-align: center" class="col-md-4">
-                <a href="/association/boards">
-                    <img
-                        alt="Current and previous boards of T.F.V. 'Professor Francken'"
-                        src="{{ image('https://professorfrancken.nl/images/boards/statisch.jpg', ['height' => 150, 'width' => 150]) }}"
-                        class="mb-3 rounded-circle"
-                    />
-                    <h2>Boards</h2>
-                    <p>List of all previous boards and ‘Wijze Heeren en Damesch’.</p>
-                </a>
-            </div>
-
-            <div style="text-align: center" class="col-md-4">
-                <a href="/association/committees">
-                    <img
-                        alt="Current and previous boards of T.F.V. 'Professor Francken'"
-                        src="{{ image('https://professorfrancken.nl/images/LOGO_KAAL.png', ['height' => 150, 'width' => 150]) }}"
-                        class="mb-3 rounded-circle"
-                        style="width: 150px; height: 150px; object-fit: contain"
-                    />
-                    <h2>Committees</h2>
-                    <p>Francken has a lot of fascinating committees. Come and see yourself.</p>
-                </a>
-            </div>
-
-            <div style="text-align: center" class="col-md-4">
-                <a href="/association/francken-vrij">
-                    <img
-                        alt="Current and previous boards of T.F.V. 'Professor Francken'"
-                        src="{{ image('https://professorfrancken.nl/images/francken-vrij-homepage.png', ['height' => 150, 'width' => 150]) }}"
-                        class="mb-3 rounded-circle"
-                    />
-                    <h2>Francken Vrij</h2>
-                    <p>
-                        The popular science magazine of the Technisch Fysische Vereniging ‘Professor Francken'.
-                    </p>
-                </a>
-            </div>
+    <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/activities">
+                <span class="home-pillar__icon"><i class="fas fa-calendar-week" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Activities</h2>
+                <p class="home-pillar__text">Upcoming career, study and social activities, and the calendar of the whole academic year.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
         </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/history">
+                <span class="home-pillar__icon"><i class="far fa-clock" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">History</h2>
+                <p class="home-pillar__text">Learn more about the history of Francken!</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/honorary-members">
+                <span class="home-pillar__icon"><i class="fas fa-award" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Honorary members</h2>
+                <p class="home-pillar__text">Learn more about our honorary members.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/boards">
+                <span class="home-pillar__icon"><i class="fas fa-user-tie" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Boards</h2>
+                <p class="home-pillar__text">List of all previous boards and ‘Wijze Heeren en Damesch’.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/committees">
+                <span class="home-pillar__icon"><i class="fas fa-users" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Committees</h2>
+                <p class="home-pillar__text">Francken has a lot of fascinating committees. Come and see yourself.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4">
+            <a class="home-pillar" href="/association/francken-vrij">
+                <span class="home-pillar__icon"><i class="fas fa-book-open" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Francken Vrij</h2>
+                <p class="home-pillar__text">The popular science magazine of the Technisch Fysische Vereniging ‘Professor Francken’.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+    </div>
 @endsection
