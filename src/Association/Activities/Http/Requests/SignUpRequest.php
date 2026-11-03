@@ -45,6 +45,7 @@ class SignUpRequest extends FormRequest
     {
         return [
             'plus_ones.max' => "You can't bring more than :max people",
+            'plus_ones.min' => "You can't bring fewer than 0 people",
         ];
     }
 
@@ -54,21 +55,24 @@ class SignUpRequest extends FormRequest
         Assert::isInstanceOf($activity, Activity::class);
         Assert::notNull($activity->signUpSettings);
 
+        $maxPlusOnes = $activity->signUpSettings->max_plus_ones_per_member;
+
         $maxSignUps = $activity->signUpSettings->max_sign_ups;
+        if ($maxSignUps !== null) {
+            // Make sure a member can't have more plus ones than the max total sign ups
+            $placesLeft = (int)$maxSignUps - $activity->total_sign_ups - 1;
 
-        if ($maxSignUps === null) {
-            return ['nullable', 'integer'];
+            // make sure the current sign up is not counted in the max
+            $signUp = $this->route('sign_up');
+            if ($signUp instanceof SignUp) {
+                $placesLeft += 1 + (int)$signUp->plus_ones;
+            }
+
+            $maxPlusOnes = $maxPlusOnes === null ? $placesLeft : min($maxPlusOnes, $placesLeft);
         }
 
-        // Make sure a member can't have more plus ones than the max total sign ups
-        $maxPlusOnes = (int)$maxSignUps - $activity->total_sign_ups - 1;
-
-        // make sure the current sign up is not counted in the max
-        $signUp = $this->route('sign_up');
-        if ($signUp instanceof SignUp) {
-            $maxPlusOnes += 1 + (int)$signUp->plus_ones;
-        }
-
-        return ['nullable', 'integer', 'max:' . $maxPlusOnes];
+        return $maxPlusOnes === null
+            ? ['nullable', 'integer', 'min:0']
+            : ['nullable', 'integer', 'min:0', 'max:' . max(0, $maxPlusOnes)];
     }
 }

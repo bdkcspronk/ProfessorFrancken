@@ -13,7 +13,13 @@
 </h5>
 
 @if ($activity->signUpSettings->allows_plus_ones)
-    <x-forms.number name="plus_ones" label="Are you bringing anyone?" />
+    <x-forms.number
+        name="plus_ones"
+        label="Are you bringing anyone?"
+        :help="$activity->signUpSettings->max_plus_ones_per_member !== null
+            ? 'You can bring up to ' . $activity->signUpSettings->max_plus_ones_per_member . ' ' . \Illuminate\Support\Str::plural('person', $activity->signUpSettings->max_plus_ones_per_member) . '.'
+            : ''"
+    />
 @endif
 
 @if ($activity->signUpSettings->ask_for_dietary_wishes)

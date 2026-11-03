@@ -1,6 +1,6 @@
 <div class='mt-3'>
     @can('create', \Francken\Association\Activities\Comment::class)
-    <h5>Add a comment</h5>
+    <h3 class="activity-comment__author">Add a comment</h3>
 
     {!!
            Form::open([
@@ -14,7 +14,7 @@
     <x-forms.textarea name="content" label="Comment" rows="2" />
 
     <p class="mt-3">
-        <button class="btn btn-primary" type="submit">
+        <button class="btn home-btn home-btn--crimson" type="submit">
             Comment
         </button>
     </p>
