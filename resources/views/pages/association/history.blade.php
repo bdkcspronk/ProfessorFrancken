@@ -24,7 +24,14 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">1948</div>
             <div class="history-entry__card">
-  <p>In 1948 Francken graduates in applied physics in Delft.</p>
+  <p>In 1948 Francken graduates in applied physics in Delft. His studies took longer than planned: he served six years in the Royal Netherlands East Indies Army (KNIL), and was held prisoner of war by the Japanese army from 1942 to 1945.</p>
+            </div>
+        </div>
+
+        <div class="history-entry">
+            <div class="history-entry__year">1953</div>
+            <div class="history-entry__card">
+  <p>In 1953 Francken earns his doctorate with the dissertation “Elektronenoptische afbeelding in de beeldiconoscoop” (electron-optical imaging in the iconoscope). That same year Frits Zernike receives the Nobel Prize for the phase-contrast microscope, which he developed in Groningen.</p>
             </div>
         </div>
 
@@ -39,7 +46,7 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">1968</div>
             <div class="history-entry__card">
-  <p>At first the programme is housed at the Westersingel, but as the number of students grows rapidly it needs more space and moves to the Antillenstraat. In 1968 it moves again, this time to its current location.</p>
+  <p>At first the programme is housed at the Westersingel, but as the number of students grows rapidly it needs more space and moves to the Antillenstraat. In 1968 it moves again, this time to the Zernike Complex in Paddepoel.</p>
   <p>To link the association to the title of engineer, its name is changed to “Vereniging van Toekomstige Ingenieurs” (Association of Future Engineers). That goal is reached in 1971, and the association is renamed “Vereniging voor Kandidaten Technische Natuurkunde” (Association for Candidates in Applied Physics). Between 1982 and 1984 the programme is reformed and students no longer have to take candidate exams, so this name loses its meaning.</p>
             </div>
         </div>
@@ -55,22 +62,29 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">1984</div>
             <div class="history-entry__card">
-  <p>On August 1, 1984 Professor Francken retires. After his valedictory lecture on September 18, he is asked whether he would like to lend his name to the association. On October 12, 1984 T.F.V. ‘Professor Francken’ is founded, and in 1985 Professor Francken becomes an honorary member. The current logo, the FCC structure with the logo of the university, is introduced in 1988.</p>
+  <p>On August 1, 1984 Professor Francken retires. After his valedictory lecture on September 18, he is asked whether he would like to lend his name to the association. On Friday October 12, 1984 T.F.V. ‘Professor Francken’ is founded, and in 1985 Professor Francken becomes an honorary member. From the start the association holds a borrel on Friday afternoons in the canteen, as there is no Francken room yet. Jeff de Hosson lends his Mercedes to fetch the snacks, and plays the piano at the borrels while the members sing along. The current logo, the FCC structure with the logo of the university, is introduced in 1988.</p>
             </div>
         </div>
 
         <div class="history-entry">
             <div class="history-entry__year">1989</div>
             <div class="history-entry__card">
-  <p>To celebrate the lustrum in 1989, the first Francken Symposium is organized; it has been held every year since. The same year sees the first foreign trip, which also becomes an annual tradition. In 1990 the board chooses young grain jenever from Hooghoudt as its standard business gift.</p>
+  <p>To celebrate the lustrum, the first Francken Symposium is organized on May 19, 1989; it has been held every year since. The same year sees the first foreign trip, which also becomes an annual tradition. In 1990 the board chooses young grain jenever from Hooghoudt as its standard business gift.</p>
             </div>
         </div>
 
         <div class="history-entry">
             <div class="history-entry__year">1992</div>
             <div class="history-entry__card">
-  <p>In 1992 the association gets its first members room: room 5113.0104 in building 13 at Nijenborgh 4.</p>
+  <p>In 1992, the year the applied physics programme turns thirty and publishes a lustrum book, the association gets its first members room: room 5113.0104 in building 13 at Nijenborgh 4. It is open every weekday from 9:00 until the last person leaves. The coffee is free, other food and drinks are written down on lists, and later in the afternoon there is beer and a game of Mex. The association also gets its mascots: Pluis and Truus.</p>
             </div>
+            <figure class="history-building history-building--left">
+                @svg('building-13', 'history-building__svg')
+                <figcaption>
+                    <strong>Building 13</strong>
+                    Nijenborgh 4 · 1992–2024
+                </figcaption>
+            </figure>
         </div>
 
         <div class="history-entry">
@@ -98,7 +112,7 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">2000</div>
             <div class="history-entry__card">
-  <p>In 2000 the first lustrum trip outside Europe takes place, with South Africa as its destination. Since then it has been a tradition to travel outside Europe in every lustrum year.</p>
+  <p>In 2000 the first lustrum trip outside Europe takes place: three weeks in South Africa. For this trip the Stichting Lustrumexcursies Francken is founded, which has organized the foreign trips ever since. Since then it has also been a tradition to travel outside Europe in every lustrum year.</p>
             </div>
         </div>
 
@@ -112,14 +126,14 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">2004</div>
             <div class="history-entry__card">
-  <p>In 2004 the association moves once more, across the hallway to room 5113.0002. This is the room that many still call the old Francken room: the home of the association until the move to the Feringa Building. That same year the first engineers’ symposium is organized together with the associations TBV Lugus and GTD Bernoulli.</p>
+  <p>In 2004 the association moves once more, across the hallway to room 5113.0002. This is the room that many still call the old Francken room: the home of the association until the move to the Feringa Building. That same year the first engineers’ symposium, now known as Masters of Engineering, is organized together with the associations TBV Lugus and GTD Bernoulli.</p>
             </div>
         </div>
 
         <div class="history-entry">
             <div class="history-entry__year">2006</div>
             <div class="history-entry__card">
-  <p>In 2006 the flexible bachelor’s programme starts, and as a result the percentage of women increases significantly. That year the association also starts offering practice sessions for exams.</p>
+  <p>In 2006 the flexible bachelor’s programme starts, and as a result the percentage of women increases significantly. That year the association also starts offering practice sessions for exams, and decides that beer is only allowed after four o’clock: “vier uur, bier uur”. Together with Cover, CB, Lugus, PS, Idun, Bernoulli and FMF, the first Beta Business Days are organized.</p>
             </div>
         </div>
 
@@ -149,7 +163,7 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">2013</div>
             <div class="history-entry__card">
-  <p>In 2013 the first Tour de Francken is held.</p>
+  <p>In 2013 the first Tour de Francken is held: a drinking contest based on the book <em>De helaasheid der dingen</em>, after years as a Borrelcie project. Many teams take part, but only team “Waanzin” wins the yellow jersey. That same year Café Karakter goes bankrupt and the association moves to Café Jut en Jul, although the external borrels keep the name “karakterborrel”.</p>
             </div>
         </div>
 
@@ -164,7 +178,14 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">2014</div>
             <div class="history-entry__card">
-  <p>In 2014 the association introduces a new honour: Member of Merit. At the general members assembly of June 4, 2014, Gert Eising is the first to receive it, for his contribution to the digitalization of the association. Most notably, he builds the streepsysteem, which keeps track of the food and drinks taken in the members room. Whenever an electronic device at Francken acts up, shouting his name is the most effective solution.</p>
+  <p>In 2014 the association introduces a new honour: Member of Merit. At the general members assembly of June 4, 2014, Gert Eising is the first to receive it, for his contribution to the digitalization of the association. Most notably, he builds the streepsysteem, which keeps track of the food and drinks taken in the members room. Whenever an electronic device at Francken acts up, shouting his name is the most effective solution. That same year the association starts selling second-hand study books.</p>
+            </div>
+        </div>
+
+        <div class="history-entry">
+            <div class="history-entry__year">2015</div>
+            <div class="history-entry__card">
+  <p>In 2015 the first Applied Physics dinner for students and staff is organized, and it becomes a yearly event. That same year Jeff de Hosson becomes professor emeritus. A special symposium, attended by many former members, is devoted to his professorship and everything he has done for the association. He steps down as chair of the Francken Symposium, but keeps writing for the Francken Vrij and stays in close contact with the association and its board.</p>
             </div>
         </div>
 
@@ -178,7 +199,7 @@ $breadcrumbs = [
         <div class="history-entry">
             <div class="history-entry__year">2018</div>
             <div class="history-entry__card">
-  <p>In 2018 a general members assembly decides that Francken will rebrand itself around engineering physics, stepping away from the name applied physics.</p>
+  <p>In 2018 a general members assembly decides that Francken will rebrand itself around engineering physics, stepping away from the name applied physics. At the general members assembly of June 6, 2018 a renewed almanac is presented, written in English to keep up with the internationalization of the university and the association.</p>
             </div>
         </div>
 
@@ -231,6 +252,13 @@ $breadcrumbs = [
             <div class="history-entry__card">
   <p>In 2024 the association moves from building 13 at Nijenborgh 4 to the Feringa Building, its current home.</p>
             </div>
+            <figure class="history-building history-building--right">
+                @svg('building-feringa', 'history-building__svg')
+                <figcaption>
+                    <strong>Feringa Building</strong>
+                    Since 2024
+                </figcaption>
+            </figure>
         </div>
     </div>
 @endsection
