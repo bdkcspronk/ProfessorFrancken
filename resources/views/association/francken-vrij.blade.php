@@ -17,9 +17,12 @@
             <div class="col-sm-4 mb-4">
                 <article class="fv-edition fv-edition--latest">
                     <a class="fv-edition__cover" href="{{ $edition->pdf() }}">
-                        <img src="{{ $edition->cover() }}" alt="Cover of {{ $edition->title() }}">
+                        <img src="{{ $edition->cover() }}" alt="Cover of Francken Vrij {{ $edition->number() }}">
                     </a>
-                    <h3 class="fv-edition__title">{{ $edition->title() }}</h3>
+                    @if ($edition->theme() !== null)
+                        <span class="fv-edition__number">Francken Vrij {{ $edition->number() }}</span>
+                    @endif
+                    <h3 class="fv-edition__title">{{ $edition->theme() ?? $edition->title() }}</h3>
                     <a href="{{ $edition->pdf() }}" class="btn home-btn home-btn--crimson">
                         <i class="fas fa-download" aria-hidden="true"></i>
                         Download
@@ -38,9 +41,12 @@
                     @foreach($volume->editions() as $edition)
                         <a class="fv-edition" href="{{ $edition->pdf() }}">
                             <span class="fv-edition__cover">
-                                <img src="{{ $edition->cover() }}" alt="Cover of {{ $edition->title() }}">
+                                <img src="{{ $edition->cover() }}" alt="Cover of Francken Vrij {{ $edition->number() }}">
                             </span>
-                            <span class="fv-edition__title">{{ $edition->title() }}</span>
+                            <span class="fv-edition__title">{{ $edition->number() }}</span>
+                            @if ($edition->theme() !== null)
+                                <span class="fv-edition__theme">{{ $edition->theme() }}</span>
+                            @endif
                         </a>
                     @endforeach
                 </div>
