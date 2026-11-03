@@ -8,78 +8,42 @@
 @section('title', "Career - T.F.V. ‘Professor Francken’")
 
 @section('content')
-
-  <p>
-      At T.F.V. ‘Professor Francken’ we aim to help students prepare for their professional career after their studies.
-      We do this by organizing <a href="/career/events">lunch lectures, excursions, symposia and other career related activities</a>.
-      Additionally we have a large network of alumni students that work at various companies who might be of help when you're looking for a <a href="/career/job-openings">job or an internship</a>.
-  </p>
-
-  <hr class="my-5">
-
-  <div class="row">
-    <div style="text-align: center" class="col-md-4">
-
-        <a href="/career/job-openings">
-            <img
-                alt="Find job openings and internships related to engineering physics"
-                src="{{ image('https://cdn.pixabay.com/photo/2016/10/04/13/52/hire-1714369_960_720.jpg', ['height' => 150, 'width' => 150]) }}"
-                class="mb-3 rounded-circle"
-                style="height: 150px; width: 150px; object-fit: contain"
-            />
-            <h2>Job openings</h2>
-            <p>
-                Find job openings and internships related to engineering physics
-            </p>
-        </a>
+    <div class="page-intro">
+        <p>At T.F.V. ‘Professor Francken’ we aim to help students prepare for their professional career after their studies. We do this by organizing <a href="/association/activities">lunch lectures, excursions, symposia and other career related activities</a>. Additionally we have a large network of alumni who work at various companies and might be of help when you're looking for a <a href="/career/job-openings">job or an internship</a>.</p>
     </div>
 
-    <div style="text-align: center" class="col-md-4">
-        <a href="/career/companies">
-            <img
-                alt="Companies related to engineering physics"
-                src="{{ image('/images/company_profiles.jpg', ['height' => 150, 'width' => 150], true) }}"
-                class="mb-3 rounded-circle"
-                style="height: 150px; width: 150px; object-fit: contain"
-            />
-            <h2>Company profiles</h2>
-            <p>
-                Companies related to engineering physics
-            </p>
-        </a>
+    <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4">
+            <a class="home-pillar" href="/career/job-openings">
+                <span class="home-pillar__icon"><i class="fas fa-search-dollar" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Job openings</h2>
+                <p class="home-pillar__text">Find job openings and internships related to engineering physics.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <a class="home-pillar" href="/career/companies">
+                <span class="home-pillar__icon"><i class="fas fa-building" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Company profiles</h2>
+                <p class="home-pillar__text">Get to know the companies related to engineering physics.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <a class="home-pillar" href="/association/activities">
+                <span class="home-pillar__icon"><i class="fas fa-route" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">Excursions</h2>
+                <p class="home-pillar__text">Lunch lectures, excursions and other career activities appear in our calendar.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
+        <div class="col-md-6 col-lg-3 mb-4">
+            <a class="home-pillar" href="https://www.linkedin.com/company/t.f.v.-professor-francken/">
+                <span class="home-pillar__icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></span>
+                <h2 class="home-pillar__title">LinkedIn</h2>
+                <p class="home-pillar__text">Stay in touch with our alumni on LinkedIn.</p>
+                <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+            </a>
+        </div>
     </div>
-
-    <div style="text-align: center" class="col-md-4">
-        <a href="/association/activities">
-            <img
-                alt="A typical Scanning Electron Microscope"
-                src="{{ image('https://upload.wikimedia.org/wikipedia/commons/3/3b/SEM_chamber1.JPG', ['height' => 150, 'width' => 150]) }}"
-                class="mb-3 rounded-circle"
-                style="height: 150px; width: 150px; object-fit: contain"
-            />
-            <h2>Excursions </h2>
-            <p>
-                Planned excursions to research groups and to companies related to engineering physics will appear on this page
-            </p>
-        </a>
-    </div>
-
-    <div style="text-align: center" class="col-md-4">
-        <a href="https://www.linkedin.com/company/t.f.v.-professor-francken/?viewAsMember=true">
-            <img
-                alt="Stay in touch with our alumni on LinkedIn"
-                src="{{ image('https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Linkedin_circle.svg/500px-Linkedin_circle.svg.png', ['height' => 150, 'width' => 150]) }}"
-                class="mb-3 rounded-circle"
-                style="height: 150px; width: 150px; object-fit: contain"
-            />
-            <h2>LinkedIn</h2>
-            <p>
-                Stay in touch with our alumni on LinkedIn.
-            </p>
-        </a>
-    </div>
-  </div>
-
-  <hr class="my-5">
-
 @endsection

@@ -41,8 +41,8 @@ class CompaniesFeature extends TestCase
 
         $this->visit(action([CompaniesController::class, 'index']));
 
-        $company = $this->crawler()->filter('.company-card a')->first();
-        $companyName = $company->filter('img')->first()->attr('alt');
+        $company = $this->crawler()->filter('a.committee-tile')->first();
+        $companyName = trim($company->filter('.committee-tile__name')->first()->text());
 
         $this->visit($company->link()->getUri())->see($companyName);
     }
