@@ -5,120 +5,97 @@
 @endsection
 
 @section('content')
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+    <div class="page-intro">
+        <p>
+            Are you studying in Groningen and do you want to have a good time? Join Francken!
+            For only <strong>€5,- per year</strong> you get free <strong>coffee and tea</strong> in our members room in the Feringa Building, and you can join all our activities: a great way to get to know your fellow students.
+        </p>
+        <p>
+            Already a member? <a href="{{ route('login') }}">Log in</a>.
+        </p>
     </div>
-@endif
 
-    <p class="lead text-center my-4">
-        Will you be studying in Groningen and do you want to have a good time? Come and join our association!<br/>
-        For only <strong>€5,- per year</strong> you can get free <strong>coffee and tea</strong> at our members room in the Nijenborgh 4 and join many of our activities, which is a great way to get to know your fellow students!
-    </p>
+    @if ($errors->any())
+        <div class="register-errors" role="alert">
+            <h2 class="register-errors__title">
+                <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                Some details are missing or not right
+            </h2>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     {!!
        Form::open(
            [
-               'action' => [[\Francken\Association\Members\Http\Controllers\RegistrationController::class, 'store']] ,
+               'action' => [[\Francken\Association\Members\Http\Controllers\RegistrationController::class, 'store']],
+               'class' => 'register-form',
            ]
        )
     !!}
 
-    <fieldset class="register-section card card-body">
-        <legend class='mb-0'>
-            <h3 class="mb-0">
-                <i class="fa fa-address-book" aria-hidden="true"></i>
-                Step 1 / 4: Personal details
-            </h3>
-        </legend>
+    @foreach ([
+        ['icon' => 'fas fa-address-book', 'title' => 'Personal details', 'partial' => 'registration._personal-details'],
+        ['icon' => 'fas fa-home', 'title' => 'Contact details', 'partial' => 'registration._contact-details'],
+        ['icon' => 'fas fa-graduation-cap', 'title' => 'Study details', 'partial' => 'registration._study-details'],
+        ['icon' => 'fas fa-money-check-alt', 'title' => 'Billing details', 'partial' => 'registration._billing-details'],
+    ] as $step)
+        <fieldset class="register-step">
+            <legend class="register-step__legend">
+                <span class="register-step__number">{{ $loop->iteration }}</span>
+                <span>
+                    <span class="register-step__count">Step {{ $loop->iteration }} of 4</span>
+                    {{ $step['title'] }}
+                </span>
+            </legend>
 
-        @include('registration._personal-details')
-    </fieldset>
+            @include($step['partial'])
+        </fieldset>
+    @endforeach
 
-    {{--
-        --}}
-    <fieldset class="register-section card card-body">
-        <legend class='mb-0'>
-            <h3 class="mb-0">
-                <i class="fa fa-home" aria-hidden="true"></i>
-                Step 2 / 4: Contact details
-            </h3>
-        </legend>
-
-        @include('registration._contact-details')
-    </fieldset>
-
-    <fieldset class="register-section card card-body">
-        <legend class='mb-0'>
-            <h3 class="mb-0">
-                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                Step 3 / 4: Study details
-            </h3>
-        </legend>
-
-        @include('registration._study-details')
-    </fieldset>
-
-    <fieldset class="register-section card card-body">
-        <legend class='mb-0'>
-            <h3 class="mb-0">
-                <i class="fas fa-money-check-alt" aria-hidden="true"></i>
-                Step 4 / 4: Billing details
-            </h3>
-        </legend>
-
-        @include('registration._billing-details')
-    </fieldset>
-
-    <fieldset class="register-section card card-body">
-        <legend class='mb-0'>
-            <h3 class="mb-0">
-                <i class="fa fa-users" aria-hidden="true"></i>
+    <fieldset class="register-step register-step--extra">
+        <legend class="register-step__legend">
+            <span class="register-step__number"><i class="fas fa-users" aria-hidden="true"></i></span>
+            <span>
+                <span class="register-step__count">Optional</span>
                 Become an active member
-            </h3>
+            </span>
         </legend>
 
         <h4>Would you like to join a committee?</h4>
         <p>
-            Many of our activities are organized by voluntary work from committee members.
-            Joining a committee is a good opportunity to get to know your fellow students as well as improve your resume.
-            You can find more information about each committee on our
-            <a
-                href="{{action([\Francken\Association\Committees\Http\RedirectToBoardCommitteesController::class, 'index'])}}"
-            >
-                committees page
-            </a>.
+            Many of our activities are organized by members in committees.
+            Joining a committee is a good way to get to know your fellow students, and it looks good on your resume too.
+            You can read more about each committee on our
+            <a href="{{ action([\Francken\Association\Committees\Http\RedirectToBoardCommitteesController::class, 'index']) }}">committees page</a>.
         </p>
 
         <x-forms.checkbox
             name="wants_to_join_a_committee"
-            label="Yes I would like to join a committee!"
+            label="Yes, I would like to join a committee!"
         />
 
-        <h4 class="mt-3">
-            Do you have any comments or questions? Let us know!
-        </h4>
+        <h4 class="mt-4">Do you have any comments or questions? Let us know!</h4>
 
         <x-forms.textarea
             name="comments"
             rows="4"
-            placeholder="Put your comments / questions here"
+            placeholder="Your comments or questions"
         />
     </fieldset>
 
-    <p>
-        By registering this form you agree to the privacy statement of T.F.V. ‘Professor Francken’
-    </p>
+    <div class="register-submit">
+        <p>
+            By registering you agree to the <a href="/privacy-policy">privacy policy</a> of T.F.V. ‘Professor Francken’.
+        </p>
+        <x-forms.submit class="btn home-btn home-btn--crimson">Register</x-forms.submit>
+    </div>
 
-    <x-forms.submit
-        class="btn btn-lg btn-block btn-outline-primary mb-5 register-section"
-    >Register</x-forms.submit>
-
-  {!! Form::close() !!}
+    {!! Form::close() !!}
 
 <script>
  var addStudy = document.querySelector('#addAdditionalStudy');
@@ -163,7 +140,7 @@
 
      studies.appendChild(li);
 
-     var study = li.querySelector('input[name="study"]');
+     var study = li.querySelector('input[name="study_name[]"]');
      study.focus();
  });
 
