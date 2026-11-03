@@ -1,73 +1,47 @@
 @extends('profile.layout')
 
 @section('content')
-    <h4 class="font-weight-bold section-header">
-        <i class="fa fa-chart-bar text-primary text-center" aria-hidden="true"></i>
-        Expenses in {{ $date }}
-    </h4>
+    <a href="{{ action([\Francken\Association\Members\Http\ExpensesController::class, 'index']) }}" class="home-link profile-back">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i> All months
+    </a>
+    <h2 class="home-heading profile-heading">Expenses in {{ $date }}</h2>
 
-    @if (count($byDay) > 0)
-        @foreach($byDay as $transactions)
-            <div class="card my-3">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <h5 class='mb-0 font-weight-bold'>
-                            {{ $transactions->first()['time']->format('l') }}
-                            <small>
-                                {{ $transactions->first()['time']->format('j F') }}
-                            </small>
-                        </h5>
-                        <strong>
-                            €{{
-                                $transactions->reduce(function ($total, $transaction) {
-                                    return $total + $transaction['price'];
-                                }, 0)
-                             }}
-                        </strong>
-
-                    </div>
-                </div>
-                <table class="table">
-                    <thead>
+    @forelse ($byDay as $transactions)
+        <section class="profile-panel profile-panel--table">
+            <header class="profile-panel__header profile-day">
+                <h3 class="profile-panel__title">
+                    {{ $transactions->first()['time']->format('l') }}
+                    <span class="profile-list__meta">{{ $transactions->first()['time']->format('j F') }}</span>
+                </h3>
+                <strong class="profile-table__price">
+                    €{{ number_format($transactions->sum('price'), 2, '.', '') }}
+                </strong>
+            </header>
+            <table class="table profile-table mb-0">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Product</th>
+                        <th class="text-right">Price</th>
+                        <th class="text-right">Deducted on</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($transactions as $transaction)
                         <tr>
-                            <th>
-                                Time
-                            </th>
-                            <th>
-                                Product
-                            </th>
-                            <th class="text-right">
-                                Price
-                            </th>
-                            <th class="text-right">
-                                Deducted on
-                            </th>
+                            <td>{{ $transaction['time']->format('H:i') }}</td>
+                            <td>{{ $transaction['product'] }}</td>
+                            <td class="text-right">€{{ number_format($transaction['price'], 2, '.', '') }}</td>
+                            <td class="text-right">{{ $transaction['deducted_at'] }}</td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($transactions as $transaction)
-                            <tr>
-                                <td class="text-left">
-                                    {{ $transaction['time']->format('H:i') }}
-                                </td>
-                                <td>
-                                    {{ $transaction['product'] }}
-                                </td>
-                                <td class="text-right">
-                                    €{{ $transaction['price'] }}
-                                </td>
-                                <td class="text-right">
-                                    {{ $transaction['deducted_at'] }}
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        @endforeach
-    @else
-        <p>
-            You did not purchase anything during this period.
-        </p>
-    @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </section>
+    @empty
+        <section class="profile-panel profile-panel--empty">
+            <i class="fas fa-receipt" aria-hidden="true"></i>
+            <p class="mb-0">You did not buy anything in this month.</p>
+        </section>
+    @endforelse
 @endsection

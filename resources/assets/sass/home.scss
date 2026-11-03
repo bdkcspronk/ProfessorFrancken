@@ -3335,12 +3335,465 @@ $history-building-width: 13rem;
     }
 }
 
+// Profile: a navy card with the member, and a white panel for each part of the profile
+.profile-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    overflow: hidden;
+    background: $home-navy;
+    color: white;
+    font-family: $home-body-font;
+    @include fcc-lattice($fade: false);
+
+    > :not(.home-lattice) {
+        position: relative;
+    }
+}
+
+.profile-header__avatar {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    background: $home-crimson;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.profile-header__name {
+    margin: 0 0 0.35rem;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.profile-header__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    padding: 0;
+    color: rgba(white, 0.8);
+    list-style: none;
+
+    i {
+        margin-right: 0.25rem;
+        color: $home-crimson-light;
+    }
+}
+
+.profile-heading {
+    margin-bottom: 1.5rem;
+}
+
+.profile-back {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.profile-panel {
+    margin-bottom: 1.5rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+    font-family: $home-body-font;
+
+    p a,
+    .profile-form__address a {
+        color: $home-crimson;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            color: $home-crimson-dark;
+        }
+    }
+}
+
+.profile-panel__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.profile-panel__title {
+    margin: 0;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.3rem;
+    font-weight: bold;
+
+    > i {
+        width: 1.5rem;
+        margin-right: 0.35rem;
+        color: $home-crimson;
+        text-align: center;
+    }
+}
+
+.profile-panel__edit {
+    flex-shrink: 0;
+    color: $gray-600;
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson;
+        text-decoration: none;
+    }
+}
+
+.profile-panel--note {
+    border-top: 0;
+    border-left: 4px solid $home-navy;
+}
+
+.profile-panel--empty {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+
+    > i {
+        color: $home-crimson;
+        font-size: 2rem;
+    }
+}
+
+// Tables fill the panel up to its sides
+.profile-panel--table {
+    padding: 0;
+
+    .profile-panel__header {
+        margin: 0;
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+.profile-details {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 0.6rem 1rem;
+    margin: 0;
+
+    dt {
+        color: $home-navy;
+        font-weight: 600;
+    }
+
+    dd {
+        margin: 0;
+    }
+}
+
+.profile-list {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.profile-list__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.75rem 1rem;
+    border-left: 3px solid $home-crimson;
+    background: $gray-100;
+    color: $home-navy;
+
+    & + & {
+        margin-top: 0.5rem;
+    }
+}
+
+.profile-list__meta {
+    color: $gray-600;
+    font-size: 0.85rem;
+    font-weight: normal;
+}
+
+.profile-checks {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li + li {
+        margin-top: 0.4rem;
+    }
+
+    i {
+        width: 1.25rem;
+        margin-right: 0.4rem;
+        color: $home-crimson;
+    }
+
+    .is-unchecked {
+        color: $gray-500;
+
+        i {
+            color: $gray-400;
+        }
+    }
+}
+
+.profile-nav__icon {
+    margin-right: 0.75rem;
+    color: $home-crimson;
+
+    .is-active & {
+        color: white;
+    }
+}
+
+// The forms of the profile
+.profile-form {
+    label {
+        color: $home-navy;
+        font-weight: 600;
+    }
+
+    .form-check-label {
+        font-weight: normal;
+    }
+
+    .form-control {
+        border-radius: 0;
+
+        &:focus {
+            border-color: $home-navy;
+            box-shadow: 0 0 0 0.2rem rgba($home-navy, 0.15);
+        }
+    }
+
+    .form-check-input {
+        accent-color: $home-crimson;
+    }
+}
+
+.profile-form__heading {
+    margin: 1.75rem 0 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid $gray-200;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.profile-panel--note .profile-form__heading {
+    padding-top: 0;
+    border-top: 0;
+}
+
+.profile-form__address {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    background: $gray-100;
+    color: $home-navy;
+
+    i {
+        margin-right: 0.35rem;
+        color: $home-crimson;
+    }
+
+    a {
+        margin-left: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+.profile-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 1.75rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid $gray-200;
+}
+
+.profile-form__cancel {
+    color: $gray-600;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson;
+    }
+}
+
+// Activities that the member signed up for
+.profile-activity {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 1.5rem 1.75rem;
+    background: white;
+    border-left: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+    font-family: $home-body-font;
+}
+
+.profile-activity__date {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    width: 3.5rem;
+    margin: 0;
+    flex-shrink: 0;
+
+    .activity-facts__day {
+        font-size: 2.25rem;
+    }
+
+    .activity-facts__month {
+        font-size: 1rem;
+    }
+}
+
+.profile-activity__body {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.profile-activity__name {
+    margin: 0 0 0.5rem;
+    font-family: $home-heading-font;
+    font-size: 1.25rem;
+    font-weight: bold;
+
+    a {
+        color: $home-navy;
+
+        &:hover,
+        &:focus {
+            color: $home-crimson;
+            text-decoration: none;
+        }
+    }
+}
+
+.profile-activity__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    margin: 0;
+    padding: 0;
+    color: $gray-600;
+    font-size: 0.9rem;
+    list-style: none;
+
+    i {
+        margin-right: 0.3rem;
+        color: $home-crimson;
+    }
+}
+
+// Expenses
+.profile-table {
+    color: $gray-700;
+
+    th {
+        border-top: 0;
+        border-bottom: 2px solid $gray-200;
+        color: $home-navy;
+        font-size: 0.85rem;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+
+    th,
+    td {
+        padding: 0.85rem 1.5rem;
+        vertical-align: middle;
+    }
+
+    tbody tr:hover {
+        background: $gray-100;
+    }
+
+    .home-link {
+        font-size: 0.9rem;
+    }
+}
+
+.profile-table__month {
+    color: $home-navy;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson;
+    }
+}
+
+.profile-table__price {
+    color: $home-navy;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.profile-day {
+    border-bottom: 1px solid $gray-200;
+}
+
 @include media-breakpoint-down(sm) {
     // The page has less padding on phones, see .committee-page
     .research-group__photo {
         width: calc(100% + 3rem);
         height: 11rem;
         margin: -1.5rem -1.5rem 1.5rem;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .profile-panel {
+        padding: 1.5rem;
+    }
+
+    .profile-panel--table {
+        padding: 0;
+        overflow-x: auto;
+    }
+
+    .profile-details {
+        grid-template-columns: 1fr;
+        gap: 0;
+
+        dd {
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .profile-activity {
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+
+    .profile-table th,
+    .profile-table td {
+        padding: 0.75rem 1rem;
     }
 
     .research-unit {

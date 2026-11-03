@@ -1,183 +1,167 @@
 @extends('profile.layout')
 
 @section('content')
-    <div class="d-flex justify-content-between">
-        <h4 class="font-weight-bold section-header">
-            {{ $member->fullname }} ({{ $member->initials }} {{ $member->surname }})
-        </h4>
-        <div class="text-right d-flex justify-content-between">
-            <p class="text-muted mx-3">
-                @if ($member->gender === \Francken\Association\Members\Gender::FEMALE)
-                    <i class="fas fa-venus"></i>
-                @elseif ($member->gender === \Francken\Association\Members\Gender::MALE)
-                    <i class="fas fa-mars"></i>
-                @else
-                    {{ $member->gender }}
+    <div class="profile-header" data-fcc-lattice>
+        <span class="profile-header__avatar" aria-hidden="true">
+            {{ mb_strtoupper(mb_substr($member->firstname, 0, 1) . mb_substr($member->achternaam ?? '', 0, 1)) }}
+        </span>
+        <div>
+            <h2 class="profile-header__name">{{ $member->fullname }}</h2>
+            <ul class="profile-header__facts">
+                <li>{{ $member->initials }} {{ $member->surname }}</li>
+                @if ($member->birthdate !== null)
+                    <li>
+                        <i class="fas fa-birthday-cake" aria-hidden="true"></i>
+                        {{ $member->birthdate->format('j F Y') }}
+                    </li>
                 @endif
-            </p>
-            <p class="text-muted ml-3">
-                <i class="fas fa-birthday-cake"></i>
-                {{ $member->birthdate->format('Y-m-d') }}
-            </p>
+                @if ($member->gender === \Francken\Association\Members\Gender::FEMALE)
+                    <li><i class="fas fa-venus" aria-hidden="true"></i> Female</li>
+                @elseif ($member->gender === \Francken\Association\Members\Gender::MALE)
+                    <li><i class="fas fa-mars" aria-hidden="true"></i> Male</li>
+                @elseif ($member->gender)
+                    <li>{{ $member->gender }}</li>
+                @endif
+            </ul>
         </div>
     </div>
 
-    <div class="card my-3">
-        <div class="card-body">
-            <a href="{{ action([\Francken\Association\Members\Http\ContactDetailsController::class, 'index'])}}" class="float-right text-muted">
-                <i class="fas fa-edit"></i>
+    <section class="profile-panel">
+        <header class="profile-panel__header">
+            <h2 class="profile-panel__title">
+                <i class="fas fa-address-card" aria-hidden="true"></i>
+                Contact details
+            </h2>
+            <a href="{{ action([\Francken\Association\Members\Http\ContactDetailsController::class, 'index']) }}" class="profile-panel__edit">
+                <i class="fas fa-edit" aria-hidden="true"></i>
                 Edit
             </a>
-            <h5 class="">
-                <i class="fas fa-envelope-open-text"></i>
-                Email
-            </h5>
-            <p class="mb-0">
-                {{ $member->email }}
-            </p>
+        </header>
+        <dl class="profile-details">
+            <dt>Email</dt>
+            <dd>{{ $member->email }}</dd>
             @if ($member->address)
-                <h5 class="mt-4">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Address
-                </h5>
-                <address class="mb-0 mt-2">
-                    {{ $member->address->city() }}
-                    <br/>
-                    {{ $member->address->postalCode() }} {{ $member->address->address() }}
-                    <br/>
-                    {{ $member->address->country() }}
-                </address>
+                <dt>Address</dt>
+                <dd>
+                    <address class="mb-0">
+                        {{ $member->address->address() }}<br/>
+                        {{ $member->address->postalCode() }} {{ $member->address->city() }}<br/>
+                        {{ $member->address->country() }}
+                    </address>
+                </dd>
             @endif
-            @if ($member->phone_number !== null)
-                <h5 class="mt-4">
-                    <i class="fas fa-mobile"></i>
-                    Phone number
-                </h5>
-                <p class="mb-0 mt-2">
-                    {{ $member->phone_number }}
-                </p>
+            @if ($member->phone_number !== '')
+                <dt>Phone number</dt>
+                <dd>{{ $member->phone_number }}</dd>
             @endif
-        </div>
-    </div>
+        </dl>
+    </section>
 
-    <div class="card my-3">
-        <div class="card-body">
-            <a href="" class="float-right text-muted d-none">
-                <i class="fas fa-edit"></i>
+    <section class="profile-panel">
+        <header class="profile-panel__header">
+            <h2 class="profile-panel__title">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                Studies
+            </h2>
+        </header>
+        <dl class="profile-details">
+            <dt>Student number</dt>
+            <dd>{{ $member->student_number }}</dd>
+        </dl>
+        <ul class="profile-list">
+            @foreach ($member->student->studies() as $study)
+                <li class="profile-list__item">
+                    <strong>{{ $study }}</strong>
+                    <span class="profile-list__meta">{{ $study->startYear() }} – {{ $study->endYear() }}</span>
+                </li>
+            @endforeach
+        </ul>
+    </section>
+
+    <section class="profile-panel">
+        <header class="profile-panel__header">
+            <h2 class="profile-panel__title">
+                <i class="fas fa-money-check-alt" aria-hidden="true"></i>
+                Finances
+            </h2>
+            <a href="{{ action([\Francken\Association\Members\Http\PaymentDetailsController::class, 'index']) }}" class="profile-panel__edit">
+                <i class="fas fa-edit" aria-hidden="true"></i>
                 Edit
             </a>
-            <h5>
-                <i class="fas fa-graduation-cap"></i>
-                <strong>
-                    Student number
-                </strong>:
-                <span class="font-weight-light">
-                    {{ $member->student_number }}
-                </span>
-            </h5>
-            <ul class="list-unstyled">
-                @foreach ($member->student->studies() as $study)
-                    <li class="my-3 bg-light p-3">
-                        <h6 class="mb-0">
-                            {{ $study }}
-                        </h6>
-                        {{ $study->startYear() }} - {{ $study->endYear() }}
+        </header>
+        <p>
+            You have authorised T.F.V. ‘Professor Francken’ to deduct the following costs from {{ $member->payment_details->maskedIban() }}:
+        </p>
+        <ul class="profile-checks">
+            @if (! $member->gratis_lidmaatschap)
+                <li>
+                    <i class="fas fa-check-square" aria-hidden="true"></i>
+                    Membership (€5,- per year)
+                </li>
+            @endif
+            <li @class(['is-unchecked' => ! $member->payment_details->deductAdditionalCosts()])>
+                <i class="{{ $member->payment_details->deductAdditionalCosts() ? 'fas fa-check-square' : 'far fa-square' }}" aria-hidden="true"></i>
+                Food, drinks and the costs of other activities of the association
+            </li>
+        </ul>
+    </section>
+
+    <section class="profile-panel">
+        <header class="profile-panel__header">
+            <h2 class="profile-panel__title">
+                <i class="fas fa-key" aria-hidden="true"></i>
+                Password
+            </h2>
+            <a href="{{ action([\Francken\Association\Members\Http\PasswordController::class, 'index']) }}" class="profile-panel__edit">
+                <i class="fas fa-edit" aria-hidden="true"></i>
+                Change
+            </a>
+        </header>
+        <p class="mb-0">
+            You can <a href="{{ action([\Francken\Association\Members\Http\PasswordController::class, 'index']) }}">change your password</a> at any time.
+        </p>
+    </section>
+
+    @if ($committees->isNotEmpty())
+        <section class="profile-panel">
+            <header class="profile-panel__header">
+                <h2 class="profile-panel__title">
+                    <i class="fas fa-users" aria-hidden="true"></i>
+                    Committees
+                </h2>
+            </header>
+            <ul class="list-unstyled mb-0">
+                @foreach ($committees as $committee)
+                    <li>
+                        <a
+                            class="committee-nav__link"
+                            href="{{ action(
+                                [\Francken\Association\Committees\Http\CommitteesController::class, 'show'],
+                                ['board' => $committee->board, 'committee' => $committee]
+                            ) }}"
+                        >
+                            @if (! is_null($committee->logo))
+                                <img
+                                    class="committee-nav__logo"
+                                    src="{{ image($committee->logo, ['height' => 75, 'width' => 75, 'background' => '255,255,255']) }}"
+                                    alt=""
+                                >
+                            @else
+                                <span class="committee-nav__logo committee-nav__logo--empty" aria-hidden="true">
+                                    <i class="fas fa-users"></i>
+                                </span>
+                            @endif
+                            <span>
+                                {{ $committee->name }}
+                                <span class="profile-list__meta d-block">
+                                    {{ $committee->board->board_name->toString() }}
+                                    ({{ $committee->board->board_year->toString() }})
+                                </span>
+                            </span>
+                        </a>
                     </li>
                 @endforeach
             </ul>
-        </div>
-
-    </div>
-    <div class="card my-3">
-        <div class="card-body">
-            <a href="{{ action([\Francken\Association\Members\Http\PaymentDetailsController::class, 'index'])}}" class="float-right text-muted">
-                <i class="fas fa-edit"></i>
-                Edit
-            </a>
-            <h5>
-                <i class="fas fa-money-check-alt"></i>
-                Finances
-            </h5>
-
-            <p>
-                You've authorized T.F.V. ‘Professor Francken’ to withdraw money from the bank account listed above, due to:
-            </p>
-            <ul class="list-unstyled">
-                @if (! $member->gratis_lidmaatschap)
-                    <li>
-                        <i class="far fa-check-square"></i>
-                        Membership (€5,- per year)
-                    </li>
-                @endif
-                <li>
-                    @if ($member->payment_details->deductAdditionalCosts())
-                        <i class="far fa-check-square"></i>
-                    @else
-                        <i class="far fa-square"></i>
-                    @endif
-                    Drinking and eating expenses and any potential costs incurred at other activities of the association.
-                </li>
-            </ul>
-            <p>
-                These costs will be deducted from {{ $member->payment_details->maskedIban() }}.
-            </p>
-        </div>
-    </div>
-
-    <div class="card my-3">
-        <div class="card-body">
-            <h5>
-                <i class="fas fa-key"></i>
-                Password
-            </h5>
-            <p>
-                Click <a href="{{ action([\Francken\Association\Members\Http\PasswordController::class, 'index']) }}" class="font-weight-bold">here</a> to change your password.
-            </p>
-        </div>
-    </div>
-
-    @if ($committees->isNotEmpty())
-        <div class="card my-3">
-            <div class="card-body">
-                <h5>
-                    <i class="fas fa-users"></i>
-                    Committees
-                </h5>
-
-                <ul class="list-unstyled">
-                    @foreach ($committees as $committee)
-                        <li class="my-3 bg-light p-3">
-                            <a href="{{ action(
-                                            [\Francken\Association\Committees\Http\CommitteesController::class, 'show'],
-                                            ['board' => $committee->board, 'committee' => $committee]
-                                            ) }}"
-                                class="d-flex justify-content-start align-items-center text-left"
-                            >
-                                <img
-                                    class="rounded text-left mr-2"
-                                    src="{{ $committee->logo }}"
-                                    style="
-                                    width: 50px;
-                                    max-width: 50px;
-                                    max-height: 40px;
-                                    object-fit: contain;"
-                                />
-
-                                <div class="d-flex flex-column justify-content-between" >
-                                    <span class="font-weight-bold">
-                                        {{ $committee->name }}
-                                    </span>
-
-                                    <small class="text-muted">
-                                        {{ $committee->board->board_name->toString() }}
-                                        ({{ $committee->board->board_year->toString() }})
-                                    </small>
-                                </div>
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
+        </section>
     @endif
 @endsection

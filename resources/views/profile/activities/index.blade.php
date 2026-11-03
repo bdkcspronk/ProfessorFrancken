@@ -1,82 +1,66 @@
 @extends('profile.layout')
 
 @section('content')
-    <div class="d-flex justify-content-between">
-        <h4 class="font-weight-bold section-header">
-            Activities
-        </h4>
-    </div>
+    <h2 class="home-heading profile-heading">Activities you signed up for</h2>
 
-    <ul class="list-unstyled mt-3">
+    <ul class="list-unstyled">
         @forelse ($activities as $activity)
             @php
             $signUp = $activity->signUps->where('member_id', $member->id)->first();
             @endphp
-            <li class=" mb-4 bg-white p-4 rounded shadow-sm">
-                <div class="d-flex align-items-center">
-                    <div class="agenda-item__date align-self-start">
-                        <h5 class="agenda-item__date-day">
-                            {{ $activity->start_date->format('d') }}
-                        </h5>
-                        <span class="agenda-item__date-month">
-                            {{ $activity->start_date->format('M') }}
-                        </span>
-                    </div>
-                    <div class="agenda-item__body w-100">
-                        <div class="d-flex justify-content-between">
-                            <a href="{{ action([\Francken\Association\Activities\Http\ActivitiesController::class, 'show'], ['activity' => $activity]) }}">
-                                <h5 class="agenda-item__header">
-                                    {{ $activity->name }}
-                                </h5>
-                            </a>
-                            @can('update', $signUp)
-                            <div>
-                                <a
-                                    class="btn btn-text py-0 text-muted"
-                                    href="{{ action(
-                                                 [\Francken\Association\Activities\Http\SignUpsController::class, 'edit'],
-                                                 ['activity' => $activity, 'sign_up' => $signUp])
-                                          }}"
-                                >
-                                    <i class="fas fa-edit"></i>
-                                    Edit
-                                </a>
-                            </div>
-                            @endcan
-                        </div>
-                        <div class="d-flex flex-column justify-content-start">
-                            @if ($activity->signUpSettings !== null)
-                                @if (! $activity->signUpSettings->is_free)
-                                    <small class="text-muted font-weight-light d-block mt-2">
-                                        <i class="fas fa-euro-sign"></i>
-                                        {{ number_format($activity->signUpSettings->costs_per_person / 100, 2) }}
-                                    </small>
-                                @endif
-                            @endif
-                            <small class="text-muted font-weight-light d-block mt-2">
-                                <i class="fas fa-clock"></i>
-                                {{ $activity->schedule }}
-                            </small>
-                            @if ($activity->location !== '')
-                                <small class="text-muted font-weight-light d-block mt-2">
-                                    <i class="fas fa-map-marker"></i>
-                                    {{ $activity->location  }}
-                                </small>
-                            @endif
-                        </div>
-                    </div>
+            <li class="profile-activity">
+                <div class="activity-facts__date profile-activity__date">
+                    <span class="activity-facts__day">{{ $activity->start_date->format('d') }}</span>
+                    <span class="activity-facts__month">{{ $activity->start_date->format('M') }}</span>
                 </div>
+                <div class="profile-activity__body">
+                    <h3 class="profile-activity__name">
+                        <a href="{{ action([\Francken\Association\Activities\Http\ActivitiesController::class, 'show'], ['activity' => $activity]) }}">
+                            {{ $activity->name }}
+                        </a>
+                    </h3>
+                    <ul class="profile-activity__facts">
+                        <li>
+                            <i class="fas fa-clock" aria-hidden="true"></i>
+                            {{ $activity->schedule }}
+                        </li>
+                        @if ($activity->location !== '')
+                            <li>
+                                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                                {{ $activity->location }}
+                            </li>
+                        @endif
+                        @if ($activity->signUpSettings !== null && ! $activity->signUpSettings->is_free)
+                            <li>
+                                <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                {{ number_format($activity->signUpSettings->costs_per_person / 100, 2) }}
+                            </li>
+                        @endif
+                    </ul>
+                </div>
+                @can('update', $signUp)
+                    <a
+                        class="profile-panel__edit"
+                        href="{{ action(
+                                     [\Francken\Association\Activities\Http\SignUpsController::class, 'edit'],
+                                     ['activity' => $activity, 'sign_up' => $signUp])
+                              }}"
+                    >
+                        <i class="fas fa-edit" aria-hidden="true"></i>
+                        Edit
+                    </a>
+                @endcan
             </li>
         @empty
-            <li class="bg-white p-5 rounded shadow-sm text-center">
+            <li class="profile-panel profile-panel--empty">
+                <i class="fas fa-calendar-plus" aria-hidden="true"></i>
                 <p class="mb-0">
-                    You have not yet signed up for any activities.<br/>
-                    Go to the <a href="{{ action([\Francken\Association\Activities\Http\ActivitiesController::class, 'index']) }}">activities page</a> to find upcoming activities and sign up.
+                    You have not signed up for any activities yet.
+                    Have a look at the <a href="{{ action([\Francken\Association\Activities\Http\ActivitiesController::class, 'index']) }}">upcoming activities</a> to find something to join.
                 </p>
             </li>
         @endforelse
     </ul>
 
     {!! $activities->links() !!}
-
 @endsection

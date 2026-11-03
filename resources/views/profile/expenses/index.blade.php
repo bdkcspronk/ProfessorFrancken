@@ -1,55 +1,52 @@
 @extends('profile.layout')
 
 @section('content')
-    <h4 class="font-weight-bold section-header">
-        <i class="fa fa-chart-bar text-primary text-center" aria-hidden="true"></i>
-        Expenses
-    </h4>
+    <h2 class="home-heading profile-heading">Expenses</h2>
 
-    <p class="lead">
-        On this page you can find your expenses at Francken.
-        Note that due to technical difficulties we only show transactions from the streep system (the fridge).
-        These do not include expenses from ordering food and participating in activities.
-    </p>
+    <div class="page-intro">
+        <p>
+            Here you find what you bought at Francken, per month.
+            Only purchases from the streepsysteem (the fridge) are shown: ordering food and taking part in activities are not included.
+        </p>
+    </div>
 
-    <p>
-        Click the show transactions link to show all transactions made during said month.
-    </p>
-
-    <div class="card">
-        <table class="table table-hover">
+    <section class="profile-panel profile-panel--table">
+        <table class="table profile-table mb-0">
             <thead>
                 <tr>
-                    <th>
-                        Month
-                    </th>
-                    <th class="text-right">
-                        Costs this month
-                    </th>
-                    <th class="text-right">
-                        Transactions
-                    </th>
+                    <th>Month</th>
+                    <th class="text-right">Costs</th>
+                    <th class="text-right"><span class="sr-only">Transactions</span></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($perMonth as $month)
+                @forelse ($perMonth as $month)
+                    @php
+                        $monthUrl = action([\Francken\Association\Members\Http\ExpensesController::class, 'show'], [$month['time']->format('Y'), $month['time']->format('m')]);
+                    @endphp
                     <tr>
                         <td>
-                            <a href="{{ action([\Francken\Association\Members\Http\ExpensesController::class, 'show'], [$month['time']->format('Y'), $month['time']->format('m')]) }}">
-                                {{ $month['time']->format('Y - F') }}
+                            <a href="{{ $monthUrl }}" class="profile-table__month">
+                                {{ $month['time']->format('F Y') }}
                             </a>
                         </td>
-                        <td class="text-right">
+                        <td class="text-right profile-table__price">
                             €{{ number_format($month['price'], 2) }}
                         </td>
                         <td class="text-right">
-                            <a href="{{ action([\Francken\Association\Members\Http\ExpensesController::class, 'show'], [$month['time']->format('Y'), $month['time']->format('m')]) }}">
-                                show transactions
+                            <a href="{{ $monthUrl }}" class="home-link">
+                                show transactions <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="3" class="text-center text-muted py-4">
+                            You have not bought anything at Francken yet.
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
-    </div>
+    </section>
 @endsection
