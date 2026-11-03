@@ -31,7 +31,8 @@ final class NextcloudAlbumsRepository implements AlbumsRepository
                ->whereHas('photos')
             ->with('coverPhoto')
                ->with('photos')
-            ->orderBy('published_at', 'desc');
+            ->orderBy('published_at', 'desc')
+            ->orderBy('id', 'desc');
 
         $query = $this->filterPrivateAlbums($query);
 
@@ -67,7 +68,7 @@ final class NextcloudAlbumsRepository implements AlbumsRepository
         if ( ! $authenticated) {
             $oneYearAgo = (new DateTimeImmutable())->sub(new DateInterval('P1Y'));
 
-            $query = $query->whereDate('activity_date', '>=', $oneYearAgo);
+            $query = $query->whereDate('published_at', '>=', $oneYearAgo);
         }
 
         return $query;

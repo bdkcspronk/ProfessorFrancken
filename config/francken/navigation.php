@@ -37,10 +37,15 @@ return [
                 ['url' => "/association/news", 'title' => 'News', 'description' => 'The latest news from the association', 'icon' => 'fas fa-newspaper'],
                 ['url' => "/association/committees", 'title' => 'Committees', 'description' => 'Want to join a committee?', 'icon' => 'fas fa-users'],
                 ['url' => "/association/francken-vrij", 'title' => 'Francken Vrij', 'description' => 'Our popular science magazine', 'icon' => 'fas fa-book-open'],
-                ['url' => "/association/photos", 'title' => 'Photos', 'description' => 'Photos of our activities', 'icon' => 'fas fa-camera'],
             ],
             //    'icon' => 'beer',
             'icon' => 'coffee',
+        ],
+        [
+            'url' => '/association/photos',
+            'title' => 'Photos',
+            'subItems' => [],
+            'icon' => 'camera',
         ],
         [
             'url' => '/career',

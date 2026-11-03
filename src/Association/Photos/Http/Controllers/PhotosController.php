@@ -44,7 +44,7 @@ final class PhotosController
 
         return view('association.photos.show', [
             'album' => $album,
-            'photos' => $album->photos()->orderBy('taken_at', 'asc')->simplePaginate(self::PHOTOS_PER_PAGE),
+            'photos' => $album->photos()->orderBy('taken_at', 'asc')->orderBy('id', 'asc')->simplePaginate(self::PHOTOS_PER_PAGE),
 
             'cover_photo' => $album->coverPhoto,
             'next_album' => $album->nextAlbum(),
@@ -58,6 +58,10 @@ final class PhotosController
 
     public function showImage(Album $album, Photo $photo) : StreamedResponse
     {
+        // Visitors who may not see the album (for instance because it is older than a
+        // year) may not see its photos either
+        $this->albums->bySlug($album->slug);
+
         $nextcloud = Storage::disk('nextcloud');
         $response = $this->streamedResponse($nextcloud, $photo->path);
         $this->applyCache($nextcloud, $response, $photo->path);

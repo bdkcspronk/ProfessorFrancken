@@ -51,7 +51,10 @@ return [
         ],
 
         'nextcloud' => [
-            'driver'     => 'nextcloud',
+            // During development the photos can be read from a local folder instead
+            // (NEXTCLOUD_DRIVER=local with NEXTCLOUD_ROOT)
+            'driver'     => env('NEXTCLOUD_DRIVER', 'nextcloud'),
+            'root'       => env('NEXTCLOUD_ROOT'),
             'baseUri'    => env('NEXTCLOUD_URI', ''),
             'username'   => env('NEXTCLOUD_USERNAME', ''),
             'password'   => env('NEXTCLOUD_PASSWORD', ''),
