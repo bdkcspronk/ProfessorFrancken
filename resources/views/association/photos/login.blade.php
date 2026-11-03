@@ -7,20 +7,18 @@
 
 @section('content')
     @if (session('private-album-login') === false)
-        <div class="alert alert-danger font-weight-bold" role="alert">
-            The password you've submitted is wrong.
+        <div class="album-notice album-notice--error" role="alert">
+            <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+            That password is not right.
         </div>
     @endif
 
-    <div class="card bg-light">
-        <div class="card-body">
-            <h3 class="h5">Login to view photos</h3>
-            <p>
-                Fill in the <strong>album password</strong> below to view more albums.
-                Don't know the password? Ask a board member.
-            </p>
-            @include('association.photos._login-form')
-        </div>
+    <div class="login-prompt album-login">
+        <h3 class="login-prompt__title"><i class="fas fa-lock" aria-hidden="true"></i> Log in to see the photos</h3>
+        <p>
+            Our photos can only be seen by members. Fill in the <strong>album password</strong> below, or <a class="home-link" href="{{ route('login') }}">log in with your account</a>.
+            Don't know the password? Ask a board member.
+        </p>
+        @include('association.photos._login-form')
     </div>
-
 @endsection

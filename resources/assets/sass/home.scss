@@ -3753,12 +3753,245 @@ $history-building-width: 13rem;
     border-bottom: 1px solid $gray-200;
 }
 
+// Photos: the albums per year, the newest first, all of the same size
+.album-year {
+    margin: 2.5rem 0 1.5rem;
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.album-card {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: $home-navy;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.08);
+    color: white;
+    font-family: $home-body-font;
+
+    &:hover,
+    &:focus {
+        color: white;
+        text-decoration: none;
+
+        .album-card__cover {
+            transform: scale(1.05);
+        }
+
+        .album-card__caption {
+            border-left-color: $home-crimson-light;
+        }
+    }
+}
+
+// The newest album, over the whole width of the page
+.album-latest {
+    margin-bottom: 1.5rem;
+
+    .album-card {
+        aspect-ratio: 21 / 9;
+    }
+
+    .album-card__caption {
+        padding: 4rem 2rem 1.5rem;
+    }
+
+    .album-card__title {
+        font-size: 2rem;
+    }
+}
+
+.album-card__cover {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+.album-card__cover--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(white, 0.3);
+    font-size: 3rem;
+}
+
+// The caption is navy at the bottom, fading into the photo
+.album-card__caption {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 1.25rem 1rem;
+    border-left: 4px solid $home-crimson;
+    background: linear-gradient(to top, rgba($home-navy, 0.95) 40%, rgba($home-navy, 0));
+    transition: border-color 0.15s ease-in-out;
+}
+
+.album-card__date {
+    color: $home-crimson-light;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.album-card__title {
+    font-family: $home-heading-font;
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1.25;
+}
+
+.album-card__amount {
+    margin-top: 0.25rem;
+    color: rgba(white, 0.75);
+    font-size: 0.85rem;
+
+    i {
+        margin-right: 0.25rem;
+    }
+}
+
+.album-notice {
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-left: 4px solid $home-navy;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $home-navy;
+    font-family: $home-body-font;
+    font-weight: 600;
+
+    i {
+        margin-right: 0.5rem;
+        color: $home-crimson;
+    }
+}
+
+.album-notice--error {
+    border-left-color: $home-crimson;
+}
+
+.album-login {
+    margin-top: 3rem;
+
+    p {
+        color: $gray-700;
+    }
+}
+
+.album-login__form {
+    display: flex;
+    gap: 0.75rem;
+
+    .form-control {
+        max-width: 20rem;
+        height: auto;
+    }
+}
+
+.album-intro__date {
+    margin-bottom: 0.5rem;
+    color: $home-crimson;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+// The photos of an album as square previews, like the old website
+.photo-wall {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.photo-wall__item {
+    aspect-ratio: 1;
+}
+
+@include media-breakpoint-down(md) {
+    .album-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .photo-wall {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.photo-wall__link {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    background: $gray-200;
+
+    &:hover .photo-wall__img,
+    &:focus .photo-wall__img {
+        transform: scale(1.04);
+        filter: brightness(1.05);
+    }
+}
+
+.photo-wall__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease-in-out, filter 0.25s ease-in-out;
+}
+
 @include media-breakpoint-down(sm) {
     // The page has less padding on phones, see .committee-page
     .research-group__photo {
         width: calc(100% + 3rem);
         height: 11rem;
         margin: -1.5rem -1.5rem 1.5rem;
+    }
+
+    .album-login__form {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .form-control {
+            max-width: none;
+        }
+    }
+
+    .album-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .album-latest {
+        .album-card {
+            aspect-ratio: 4 / 3;
+        }
+
+        .album-card__caption {
+            padding: 2.5rem 1.25rem 1rem;
+        }
+
+        .album-card__title {
+            font-size: 1.4rem;
+        }
+    }
+
+    .photo-wall {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.25rem;
     }
 
     .profile-header {
