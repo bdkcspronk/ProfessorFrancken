@@ -3376,6 +3376,44 @@ $history-building-width: 13rem;
     }
 }
 
+// The policies: text in a panel that is not too wide to read, and for the privacy policy
+// a list of its sections that stays in view
+.policy-page {
+    max-width: 52rem;
+
+    h2,
+    h3 {
+        scroll-margin-top: 1.5rem;
+    }
+
+    ol {
+        padding-left: 1.25rem;
+
+        li::marker {
+            color: $home-crimson;
+            font-weight: bold;
+        }
+
+        li p:first-child {
+            margin-bottom: 0.25rem;
+            color: $home-navy;
+            font-weight: 600;
+        }
+    }
+}
+
+.policy-nav__sub {
+    padding-left: 2rem;
+    font-size: 0.9rem;
+}
+
+@include media-breakpoint-up(lg) {
+    .policy-nav {
+        position: sticky;
+        top: 1.5rem;
+    }
+}
+
 // Internationals: the list of subjects stays in view while reading
 .internationals h2 {
     scroll-margin-top: 1.5rem;
