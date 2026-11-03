@@ -3376,6 +3376,37 @@ $history-building-width: 13rem;
     }
 }
 
+// The 404 page: the particles of the simulation on navy, like the page hero
+.not-found {
+    margin-bottom: 2rem;
+    overflow: hidden;
+    background: $home-navy;
+    border-bottom: 4px solid $home-crimson;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+.not-found__canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.not-found__text {
+    max-width: 44rem;
+    margin-bottom: 3rem;
+    color: $gray-700;
+    font-family: $home-body-font;
+    font-size: 1.1rem;
+}
+
+.not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2rem;
+    margin-top: 1.5rem;
+}
+
 // The policies: text in a panel that is not too wide to read, and for the privacy policy
 // a list of its sections that stays in view
 .policy-page {
