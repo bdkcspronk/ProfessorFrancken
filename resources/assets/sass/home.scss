@@ -1735,6 +1735,59 @@ $board-member-stripe-overhang: 1rem;
     }
 }
 
+// The login and password pages: the login box in the middle of the page
+.auth-box {
+    max-width: 32rem;
+    margin: 1rem auto 2rem;
+
+    p {
+        color: $gray-700;
+    }
+
+    label {
+        color: $home-navy;
+        font-weight: 600;
+    }
+
+    .form-check-label {
+        font-weight: normal;
+    }
+
+    .form-control:focus {
+        border-color: $home-navy;
+        box-shadow: 0 0 0 0.2rem rgba($home-navy, 0.15);
+    }
+
+    .invalid-feedback a {
+        color: $home-crimson;
+        font-weight: 600;
+    }
+}
+
+.auth-box__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.auth-box__footer {
+    margin: 1.75rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid $gray-200;
+
+    a {
+        color: $home-crimson;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            color: $home-crimson-dark;
+        }
+    }
+}
+
 .login-prompt__title {
     margin-bottom: 1.25rem;
     color: $home-navy;
@@ -3954,6 +4007,264 @@ $history-building-width: 13rem;
     transition: transform 0.25s ease-in-out, filter 0.25s ease-in-out;
 }
 
+// Becoming a member: a white panel with a number for every step of the form. The parts
+// of the form are shared with the admin, so they are only styled within .register-form
+.register-form {
+    font-family: $home-body-font;
+
+    h4,
+    h5 {
+        margin-bottom: 0.75rem;
+        color: $home-navy;
+        font-family: $home-heading-font;
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+
+    label,
+    .form-group > :not(.form-check):not(.row):not(.d-flex):first-child {
+        color: $home-navy;
+        font-weight: 600;
+    }
+
+    .form-check-label {
+        font-weight: normal;
+    }
+
+    .form-control {
+        border-radius: 0;
+
+        &:focus {
+            border-color: $home-navy;
+            box-shadow: 0 0 0 0.2rem rgba($home-navy, 0.15);
+        }
+    }
+
+    .form-check-input {
+        accent-color: $home-crimson;
+    }
+
+    .text-primary {
+        color: $home-crimson !important;
+    }
+
+    a,
+    #addAdditionalStudy {
+        color: $home-crimson;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
+            color: $home-crimson-dark;
+            text-decoration: none;
+        }
+    }
+
+    #addAdditionalStudy {
+        padding-left: 0;
+    }
+}
+
+.register-step {
+    margin-bottom: 2rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+}
+
+.register-step__legend + * {
+    clear: both;
+}
+
+.register-step--extra {
+    border-top-color: $home-navy;
+
+    .register-step__number {
+        background: $home-navy;
+    }
+}
+
+// A legend sits on the border of its fieldset, unless it floats
+.register-step__legend {
+    display: flex;
+    float: left;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.4rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.register-step__number {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    background: $home-crimson;
+    color: white;
+    font-size: 1.3rem;
+}
+
+.register-step__count {
+    display: block;
+    color: $gray-600;
+    font-family: $home-body-font;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.register-submit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    margin-bottom: 3rem;
+
+    p {
+        margin: 0;
+        color: $gray-700;
+    }
+
+    .home-btn {
+        padding: 0.8rem 3rem;
+    }
+}
+
+.register-errors {
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: white;
+    border-left: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+    font-family: $home-body-font;
+
+    ul {
+        margin: 0;
+    }
+}
+
+.register-errors__title {
+    margin-bottom: 0.5rem;
+    color: $home-crimson;
+    font-family: $home-heading-font;
+    font-size: 1.15rem;
+    font-weight: bold;
+}
+
+.register-notice a {
+    color: $home-crimson;
+}
+
+// The registration after sending it, also shared with the admin
+.registration-summary {
+    margin-bottom: 2rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+    font-family: $home-body-font;
+
+    h4 {
+        color: $home-navy;
+        font-family: $home-heading-font;
+        font-size: 1.3rem;
+    }
+
+    h5 {
+        margin: 1.5rem 0 0.5rem !important;
+        color: $home-navy;
+        font-family: $home-heading-font;
+        font-size: 1.05rem;
+        font-weight: bold;
+
+        > i {
+            margin-right: 0.25rem;
+            color: $home-crimson;
+        }
+    }
+
+    .bg-light {
+        border-left: 3px solid $home-crimson;
+        background: $gray-100 !important;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.register-next {
+    padding: 1.75rem 2rem;
+    background: $home-navy;
+    color: rgba(white, 0.85);
+    font-family: $home-body-font;
+
+    .home-heading {
+        color: white;
+        font-size: 1.4rem;
+    }
+
+    a {
+        color: white;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+}
+
+.register-next__steps {
+    margin: 1.25rem 0 1.5rem;
+    padding: 0;
+    counter-reset: step;
+    list-style: none;
+
+    li {
+        position: relative;
+        margin-bottom: 1rem;
+        padding-left: 2.75rem;
+        counter-increment: step;
+
+        &::before {
+            content: counter(step);
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 1.85rem;
+            height: 1.85rem;
+            background: $home-crimson;
+            color: white;
+            font-family: $home-heading-font;
+            font-weight: bold;
+        }
+
+        &.is-done::before {
+            content: "\2713";
+            background: rgba(white, 0.2);
+        }
+    }
+
+    strong {
+        display: block;
+        color: white;
+    }
+}
+
 @include media-breakpoint-down(sm) {
     // The page has less padding on phones, see .committee-page
     .research-group__photo {
@@ -3992,6 +4303,16 @@ $history-building-width: 13rem;
     .photo-wall {
         grid-template-columns: repeat(3, 1fr);
         gap: 0.25rem;
+    }
+
+    .register-step,
+    .registration-summary,
+    .register-next {
+        padding: 1.5rem;
+    }
+
+    .register-step__legend {
+        font-size: 1.2rem;
     }
 
     .profile-header {
