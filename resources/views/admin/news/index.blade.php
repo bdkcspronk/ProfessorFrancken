@@ -56,7 +56,7 @@ use Francken\Association\News\Http\AdminNewsController;
 
                                 <div class="row">
                                     <div class="col">
-                                        <x-forms.date name="before">
+                                        <x-forms.date name="published_before">
                                             <x-slot name="label">
                                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                                 Published before
@@ -64,7 +64,7 @@ use Francken\Association\News\Http\AdminNewsController;
                                         </x-forms.date>
                                     </div>
                                     <div class="col">
-                                        <x-forms.date name="after">
+                                        <x-forms.date name="published_after">
                                             <x-slot name="label">
                                                 <i class="fa fa-calendar" aria-hidden="true"></i>
                                                 Published after

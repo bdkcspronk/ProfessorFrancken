@@ -2825,6 +2825,283 @@ $menu-card-banner-height: 11rem;
     font-size: 1.05rem;
     font-weight: bold;
 }
+
+// News: cards on the overview, the article with its author, and the archive
+.news-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $gray-700;
+    font-family: $home-body-font;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-top-color: $home-navy;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+        color: $gray-700;
+        text-decoration: none;
+        transform: translateY(-3px);
+
+        .fa-arrow-right {
+            transform: translateX(3px);
+        }
+    }
+}
+
+.news-card__date {
+    color: $home-crimson;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.news-card__title {
+    margin: 0.4rem 0 0.25rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.news-card__author {
+    margin-bottom: 0.75rem;
+    color: $gray-600;
+    font-size: 0.9rem;
+}
+
+.news-card__excerpt {
+    flex-grow: 1;
+}
+
+// The newest item: navy with the lattice, like the milestones of the history
+.news-card--featured {
+    position: relative;
+    padding: 2.5rem;
+    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+    color: rgba(white, 0.85);
+    @include fcc-lattice($fade: false);
+
+    > * {
+        position: relative;
+    }
+
+    .news-card__date,
+    .home-link {
+        color: $home-crimson-light;
+    }
+
+    .news-card__title {
+        color: white;
+        font-size: 2rem;
+    }
+
+    .news-card__author {
+        color: rgba(white, 0.7);
+    }
+
+    .news-card__excerpt {
+        max-width: 45rem;
+        font-size: 1.1rem;
+    }
+
+    &:hover,
+    &:focus {
+        color: rgba(white, 0.85);
+    }
+}
+
+.news-article {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.news-article__meta {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid $gray-200;
+    color: $home-crimson;
+    font-family: $home-body-font;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+// Articles are written in full, so the first paragraph is not an introduction
+.news-article__content > p:first-child {
+    max-width: none;
+    margin-bottom: 1rem;
+    color: inherit;
+    font-size: inherit;
+}
+
+.news-pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    font-family: $home-body-font;
+}
+
+.news-pager__link {
+    padding: 1rem 1.25rem;
+    background: white;
+    border-left: 4px solid $home-crimson;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-weight: bold;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson;
+        text-decoration: none;
+    }
+}
+
+.news-pager__link--next {
+    grid-column: 2;
+    border-right: 4px solid $home-crimson;
+    border-left: 0;
+    text-align: right;
+}
+
+.news-pager__label {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: $gray-600;
+    font-family: $home-body-font;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.news-author,
+.news-search {
+    margin-bottom: 2rem;
+    padding: 1.75rem 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    font-family: $home-body-font;
+
+    label {
+        color: $home-navy;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+
+    .form-control {
+        border-radius: 0;
+    }
+}
+
+.news-author__heading {
+    margin-bottom: 1rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.news-author__person {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.news-author__photo {
+    width: 4.5rem;
+    height: 4.5rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px $home-crimson;
+    object-fit: cover;
+}
+
+.news-author__photo--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $gray-200;
+    color: $home-navy-light;
+    font-size: 1.75rem;
+}
+
+.news-author__name {
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.news-archive {
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+    font-family: $home-body-font;
+}
+
+.news-archive__item {
+    display: block;
+    margin-bottom: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-left: 4px solid $gray-200;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-left-color: $home-crimson;
+        text-decoration: none;
+
+        .news-archive__title {
+            color: $home-crimson;
+        }
+    }
+}
+
+.news-archive__title {
+    display: block;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.news-archive__meta {
+    color: $gray-600;
+    font-size: 0.85rem;
+}
+
+@include media-breakpoint-down(sm) {
+    .news-card--featured {
+        padding: 1.75rem;
+
+        .news-card__title {
+            font-size: 1.5rem;
+        }
+    }
+
+    .news-pager {
+        grid-template-columns: 1fr;
+    }
+
+    .news-pager__link--next {
+        grid-column: 1;
+    }
+}
+
 // A button that removes something, such as a sign up or a comment
 .danger-button {
     padding: 0.5rem 1rem;

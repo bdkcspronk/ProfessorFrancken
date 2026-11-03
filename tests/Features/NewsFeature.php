@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Francken\Features;
 
+use DateTimeImmutable;
 use Faker\Factory;
 use Francken\Association\News\Fake\FakeNews;
 use Francken\Association\News\Http\NewsController;
+use Francken\Association\News\News;
 
 class NewsFeature extends TestCase
 {
@@ -49,5 +51,31 @@ class NewsFeature extends TestCase
         );
 
         $this->assertResponseOk();
+    }
+
+    /** @test */
+    public function the_archive_shows_old_news_and_searches_on_part_of_the_subject_and_author() : void
+    {
+        $old = News::create([
+            'title' => 'Borel Borel Borel Distribution',
+            'slug' => 'borel-borel-borel-distribution',
+            'related_news_items' => [],
+            'exerpt' => '',
+            'author_name' => 'Steven Groen',
+            'author_photo' => '',
+            'source_contents' => '',
+            'compiled_contents' => '',
+        ]);
+        $old->publish(new DateTimeImmutable('2017-09-29'));
+        $old->save();
+
+        $this->visit(action([NewsController::class, 'archive']))
+            ->see('Borel Borel Borel Distribution');
+
+        $this->visit(action([NewsController::class, 'archive'], ['subject' => 'borel', 'author' => 'groen']))
+            ->see('Borel Borel Borel Distribution');
+
+        $this->visit(action([NewsController::class, 'archive'], ['published_after' => '2018-01-01']))
+            ->dontSee('Borel Borel Borel Distribution');
     }
 }

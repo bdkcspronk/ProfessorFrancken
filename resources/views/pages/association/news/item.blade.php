@@ -8,68 +8,48 @@
 @section('description', $newsItem->exerpt)
 
 @section('content')
+    <article class="news-article">
+        <div class="news-article__meta">
+            {{ $newsItem->published_at->format('j F Y') }} · By {{ $newsItem->author_name }}
+        </div>
+        <div class="cms-page news-article__content">
+            {!! $newsItem->compiled_contents !!}
+        </div>
+    </article>
 
-    <span>
-        Posted on {{ $newsItem->published_at->format('d M Y') }}
-    </span>
-
-    <hr>
-
-
-    <div class="news-item__content justified-paragraphs">
-        {!! $newsItem->compiled_contents !!}
-    </div>
-
-    <hr class="my-4">
-
-    <div class="d-flex justify-content-between mb-5">
+    {{-- The older and newer news items --}}
+    <nav class="news-pager" aria-label="Other news">
         @unless ($previous === null)
-        <div class="d-flex flex-column">
-            <strong>
-                Previous news
-            </strong>
-            <a class="" href="{{ action([\Francken\Association\News\Http\NewsController::class, 'show'], ['news' => $previous]) }}">
+            <a class="news-pager__link" href="{{ action([\Francken\Association\News\Http\NewsController::class, 'show'], ['news' => $previous]) }}">
+                <span class="news-pager__label"><i class="fas fa-arrow-left" aria-hidden="true"></i> Previous news</span>
                 {{ $previous->title }}
             </a>
-        </div>
         @endunless
 
         @unless ($next === null)
-        {{-- Note: the latest news item does not have any next news item --}}
-        <div class="d-flex flex-column text-right">
-            <strong>
-                Next news
-            </strong>
-            <a class="" href="{{ action([\Francken\Association\News\Http\NewsController::class, 'show'], ['news' => $next]) }}">
+            <a class="news-pager__link news-pager__link--next" href="{{ action([\Francken\Association\News\Http\NewsController::class, 'show'], ['news' => $next]) }}">
+                <span class="news-pager__label">Next news <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 {{ $next->title }}
             </a>
-        </div>
         @endunless
-    </div>
-
+    </nav>
 @endsection
 
 @section('aside')
-<div class="agenda">
-    <h3 class="section-header agenda-header">
-        Written by
-    </h3>
+    <a class="home-link d-inline-block mb-3" href="{{ action([\Francken\Association\News\Http\NewsController::class, 'index']) }}">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+        All news
+    </a>
 
-    <ul class="agenda-list list-unstyled">
-        <li class="agenda-item" style="margin-bottom: .5em; padding-bottom: .5em;">
-            <div class="media align-items-center">
-                <div class="media-body">
-                    <h5 class="agenda-item__header">
-                        {{ $newsItem->author_name }}
-                    </h5>
-                </div>
-                <img
-                    class="rounded d-flex ml-3"
-                    src="{{image($newsItem->author_photo, ['height' => '75', 'width' => '75']) }}"
-                    style="width: 75px; height: 75px; object-fit: cover; border-radius: 50%;"
-                >
-            </div>
-        </li>
-    </ul>
-</div>
+    <div class="news-author">
+        <h2 class="news-author__heading">Written by</h2>
+        <div class="news-author__person">
+            @if (($newsItem->author_photo ?? '') !== '')
+                <img class="news-author__photo" src="{{ image($newsItem->author_photo, ['height' => 150, 'width' => 150]) }}" alt="">
+            @else
+                <span class="news-author__photo news-author__photo--empty" aria-hidden="true"><i class="fas fa-user"></i></span>
+            @endif
+            <span class="news-author__name">{{ $newsItem->author_name }}</span>
+        </div>
+    </div>
 @endsection

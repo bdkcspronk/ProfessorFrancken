@@ -66,11 +66,21 @@ class SearchNewsRequest extends FormRequest
         return $publishedAfter;
     }
 
-    public function period() : Period
+    /**
+     * The period in which the news was published, or null to search all published news
+     */
+    public function period() : ?Period
     {
-        $publishedBefore = $this->publishedBefore() ?? new DateTimeImmutable('-2 years');
-        $publishedAfter = $this->publishedBefore() ?? new DateTimeImmutable('+2 years');
+        $publishedAfter = $this->publishedAfter();
+        $publishedBefore = $this->publishedBefore();
 
-        return new Period($publishedBefore, $publishedAfter);
+        if ($publishedAfter === null && $publishedBefore === null) {
+            return null;
+        }
+
+        return new Period(
+            ($publishedAfter ?? new DateTimeImmutable('1900-01-01'))->setTime(0, 0),
+            ($publishedBefore ?? new DateTimeImmutable('+10 years'))->setTime(23, 59, 59)
+        );
     }
 }

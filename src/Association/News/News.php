@@ -128,27 +128,32 @@ final class News extends Model
     /**
      * Scope a query to only include news published in a given period
      */
+    /**
+     * Scope a query to only include news published in the given period, or all
+     * published news when no period is given
+     */
     public function scopeInPeriod(Builder $query, Period $period = null) : Builder
     {
-        return (isset($period) ? $query->whereBetween('published_at', [$period->getStartDate(), $period->getEndDate()]) : $query);
+        return isset($period)
+            ? $query->whereBetween('published_at', [$period->getStartDate(), $period->getEndDate()])
+            : $query->whereNotNull('published_at');
     }
 
 
     /**
-     * Scope a query to only include news with a whose subject includes
-     * the given subject string
+     * Scope a query to only include news whose title includes the given subject
      */
     public function scopeWithSubject(Builder $query, string $subject = null) : Builder
     {
-        return (isset($subject) ? $query->whereTitle($subject) : $query);
+        return (isset($subject) ? $query->where('title', 'like', '%' . $subject . '%') : $query);
     }
 
     /**
-     * Scope a query to only include a given author
+     * Scope a query to only include news whose author name includes the given name
      */
     public function scopeWithAuthorName(Builder $query, string $author = null) : Builder
     {
-        return (isset($author) ? $query->whereAuthorName($author) : $query);
+        return (isset($author) ? $query->where('author_name', 'like', '%' . $author . '%') : $query);
     }
 
     private function contents() : CompiledMarkdown
