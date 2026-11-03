@@ -1,86 +1,82 @@
 @extends('profile.layout')
 
 @section('content')
-    <h4 class="font-weight-bold section-header">
-        <i class="fas fa-book-open"></i>
-        Francken Vrij subscription
-    </h4>
+    <section class="profile-panel profile-form">
+        <header class="profile-panel__header">
+            <h2 class="profile-panel__title">
+                <i class="fas fa-book-open" aria-hidden="true"></i>
+                Francken Vrij subscription
+            </h2>
+        </header>
 
-
-    <div class="card my-3">
         {!!
                Form::model(
                    $member, [
                    'url' => action([\Francken\Association\Members\Http\FranckenVrijSubscriptionController::class, 'update']),
                ])
         !!}
-        <div class="card-body">
-
             @method('PUT')
 
             @if ($subscription->subscription_ends_at !== null)
                 <p>
-                    Your subscription of the Francken Vrij ends in {{ (new \Carbon\Carbon($subscription->subscription_ends_at))->diffForHumans()  }} ({{ $subscription->subscription_ends_at->format("Y-m-d")  }}).
+                    Your subscription to the printed Francken Vrij ends {{ (new \Carbon\Carbon($subscription->subscription_ends_at))->diffForHumans() }} ({{ $subscription->subscription_ends_at->format('j F Y') }}).
                 </p>
 
                 <x-forms.select
                     name="subsription_ends_at"
-                    label="Subscribe for new physical issues of the Francken Vrij until"
+                    label="Receive new printed editions of the Francken Vrij until"
                     placeholder=""
                     :options="$extensionOptions"
                     :value="'September ' . $subscription->subscription_ends_at->format('Y')"
                 />
             @else
                 <p>
-                    You currently don't have an active <strong>physical</strong> subscription for the Francken Vrij.
+                    You don't have a subscription to the <strong>printed</strong> Francken Vrij at the moment.
                 </p>
 
                 <x-forms.select
                     name="subsription_ends_at"
-                    label="Subscribe for new physical issues of the Francken Vrij until"
+                    label="Receive new printed editions of the Francken Vrij until"
                     placeholder=""
                     :options="$extensionOptions"
                 />
             @endif
 
-            <p>
+            <p class="mb-2">
                 @if ($subscription->subscription_ends_at !== null)
-                    We'll send the Francken Vrij to the address shown below:
+                    We send the Francken Vrij to this address:
                 @else
-                    Once activated we will send new issues of the Francken Vrij to the address below:
+                    Once you subscribe, we will send new editions of the Francken Vrij to this address:
                 @endif
-
-                <div class="p-2 bg-light">
-                    {{  $member->address->toString() }}
-                </div>
             </p>
+            <div class="profile-form__address">
+                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+                {{ $member->address->toString() }}
+                <a href="{{ action([\Francken\Association\Members\Http\ContactDetailsController::class, 'index']) }}">Change</a>
+            </div>
+
             <x-forms.checkbox
                 name="send_expiration_notification"
-                label="Notify me per email when my subscription expires."
+                label="Email me when my subscription ends"
                 :value="$subscription->send_expiration_notification"
             />
-        </div>
 
-        <div class="card-footer">
-            @if ($subscription->subscription_ends_at !== null)
-                <x-forms.submit>Update subscription</x-forms.submit>
-            @else
-                <x-forms.submit>Subscribe</x-forms.submit>
-            @endif
-        </div>
-
+            <div class="profile-form__actions">
+                @if ($subscription->subscription_ends_at !== null)
+                    <x-forms.submit class="btn home-btn home-btn--crimson">Update subscription</x-forms.submit>
+                @else
+                    <x-forms.submit class="btn home-btn home-btn--crimson">Subscribe</x-forms.submit>
+                @endif
+            </div>
         {!! Form::close() !!}
-    </div>
+    </section>
 
-
-    <div class="card mt-4">
-        <div class="card-body">
-            <h6>Why do I need to extend my Francken Vrij subscription?</h6>
-            <p class="mb-0">
-                We want to make sure the Francken Vrij is easily accessible to enjoy by all.
-                As the association looks to reduce its paper use, we would like to make sure that we don't send physical copies to members whose addresses changed or who no longer wish to receive the Francken Vrij.
-            </p> 
-        </div>
-    </div>
-    
+    <section class="profile-panel profile-panel--note">
+        <h3 class="profile-form__heading mt-0">Why does my subscription end?</h3>
+        <p class="mb-0">
+            We want everyone to be able to enjoy the Francken Vrij, but we also want to use less paper.
+            By renewing your subscription now and then, we make sure we don't send printed copies to old addresses or to members who no longer want them.
+            Every edition can also be read online on the <a href="/association/francken-vrij">Francken Vrij page</a>.
+        </p>
+    </section>
 @endsection
