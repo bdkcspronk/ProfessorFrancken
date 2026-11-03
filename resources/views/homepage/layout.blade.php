@@ -33,5 +33,6 @@
         {{-- The modification time makes browsers load the script again after it changed --}}
         <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>
         <script src="/js/LogoBalls.js?v={{ filemtime(public_path('js/LogoBalls.js')) }}"></script>
+        <script src="/js/ExternalLinks.js?v={{ filemtime(public_path('js/ExternalLinks.js')) }}"></script>
     </body>
 </html>
