@@ -1,59 +1,26 @@
-@extends('layout.two-column-layout')
+@extends('layout.one-column-layout')
 
 @section('page-title')
     Research Groups
 @endsection
 @section('title', "Research Groups - T.F.V. ‘Professor Francken’")
-@section('header-image-url', '/images/header/practice-session.jpg')
 
 @section('content')
-  <p>
+    <div class="page-intro">
+        <p>Most research groups of engineering physics are part of the <a href="https://www.rug.nl/research/zernike/">Zernike Institute for Advanced Materials</a>. It got its name in 2007, but grew out of the Materials Science Centre that started back in 1970. Physicists and chemists, and more and more biologists, theoreticians and experimentalists work closely together, from modelling and synthesis to the properties and functions of devices.</p>
+        <p>Looking for a group for your bachelor or master thesis? Below you find what each group works on, and who to contact.</p>
+    </div>
 
-  </p>
-
-  <h2>Zernike Institute for Advanced Materials</h2>
-
-  <p>
-    The <i>Zernike Institute for Advanced Materials</i> at the University of Groningen is simultaneously young and old. We got our current name on 16 January 2007, making us quite young, but we grew out of the Materials Science Centre, which started back in 1970. Much has changed since those early days, but there are a few constants. Possibly our greatest asset is the close collaboration between people with different backgrounds. Physicists and chemists, and increasingly biologists, theoreticians and experimentalists work closely together, giving the Institute a breadth rarely found elsewhere. In our efforts we involve the whole chain of knowledge; modelling, design, synthesis, characterization, physical properties, theory and device functionality.
-
-    <img src="/images/study/rug_zernike_institute_logoen_rood_rgb.png" alt="Zernike Institute for Advanced Materials" class="img-fluid mt-4">
-  </p>
-
- @endsection
-
-
-@section('aside')
-<div class="agenda">
-    <h3 class="section-header agenda-header">
-        Research Groups
-    </h3>
-    <ul class="agenda-list list-unstyled">
+    <div class="row">
         @foreach ($groups as $group)
-
-            <li class="agenda-item" style="margin-bottom: .5em; padding-bottom: .5em;">
-                <a
-                    href="/study/research-groups/{{ str_slug($group['title'])  }}"
-                    class="aside-link"
-                >
-                    <div class="media align-items-center">
-                        <div class="media-body">
-                            <h5 class="agenda-item__header">
-                                {{ $group['title'] }}
-                            </h5>
-                        </div>
-                        @if (isset($group['photo']))
-                            <img
-                                class="rounded d-flex ml-3"
-                                src="{{ image($group['photo'], ['width' => 75, 'height' => 75]) }}"
-                                alt="{{ $group['title'] }}'s logo"
-                                style="width: 75px; height: 75px; object-fit: cover; border-radius: 50%;"
-                            >
-                        @endif
-                    </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <a class="home-pillar menu-card" href="/study/research-groups/{{ str_slug($group['title']) }}">
+                    <img class="menu-card__image" src="{{ image($group['photo'], ['width' => 600, 'height' => 300]) }}" alt="">
+                    <h2 class="home-pillar__title">{{ $group['title'] }}</h2>
+                    <p class="home-pillar__text">{{ str_limit(strip_tags($group['description']), 140) }}</p>
+                    <span class="home-link">Read more <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
                 </a>
-
-            </li>
+            </div>
         @endforeach
-    </ul>
-</div>
+    </div>
 @endsection
