@@ -1,14 +1,12 @@
-<h3>
+<h2 class="home-heading committee-members__heading">
     Committee members
-</h3>
+</h2>
 
-<ul>
+<ul class="committee-members">
     @foreach ($members as $member)
-        <li>
-            <h5>
-                {{ $member->member->fullname }}
-            </h5>
+        <li class="committee-members__member">
+            <i class="fas fa-user" aria-hidden="true"></i>
+            {{ $member->member->fullname }}
         </li>
     @endforeach
 </ul>
-<hr/>

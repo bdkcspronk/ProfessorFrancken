@@ -1,17 +1,17 @@
-<div class="col-sm-6 col-md-4">
-    <div class="committee-card">
-        <a href="{{ $link }}" class="committee-card__link">
-            @if ($logo != '')
+<div class="col-sm-6 col-lg-4 mb-4">
+    <a href="{{ $link }}" class="committee-tile">
+        <div class="committee-tile__logo">
+            @if (trim($logo) != '')
                 <img
-                    alt="{{ $name }}"
-                    src="{{ image($logo, ['height' => 200, 'width' => 300, 'resize' => true]) }}"
-                    class="committee-card__logo"
+                    alt=""
+                    src="{{ image(trim($logo), ['height' => 200, 'width' => 300, 'resize' => true]) }}"
                 />
             @else
-                <h4 class="committee-card__name">
-                    {{ $name }}
-                </h4>
+                <i class="fas fa-users" aria-hidden="true"></i>
             @endif
-        </a>
-    </div>
+        </div>
+        <h2 class="committee-tile__name">
+            {{ $name }}
+        </h2>
+    </a>
 </div>

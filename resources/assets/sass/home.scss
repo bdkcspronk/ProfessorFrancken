@@ -124,6 +124,7 @@ $logo-block-height: 144px;
     padding-bottom: 0.4em;
     margin-bottom: 1rem;
     color: $home-navy;
+    font-family: $home-heading-font;
     font-size: 2rem;
     font-weight: bold;
 
@@ -628,6 +629,7 @@ $covers-half-height: 0.3045;
 .home-pillar__title {
     margin-bottom: 0.75rem;
     color: $home-navy;
+    font-family: $home-heading-font;
     font-size: 1.4rem;
     font-weight: bold;
 }
@@ -1499,5 +1501,588 @@ $timeline-gap: 2.5rem;
         &::before {
             margin-left: -0.25rem;
         }
+    }
+}
+
+// The honorary members: a navy banner with a portrait per member, like the milestones
+// of the history, and their story in a white card below
+// The introduction at the top of a page, below the hero
+.page-intro {
+    max-width: 50rem;
+    margin-bottom: 2.5rem;
+    color: $home-navy;
+    font-family: $home-body-font;
+    font-size: 1.15rem;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.honorary-member {
+    margin-bottom: 3rem;
+    font-family: $home-body-font;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+}
+
+.honorary-member__header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+    @include fcc-lattice($fade: false);
+
+    > * {
+        position: relative;
+    }
+}
+
+.honorary-member__portrait {
+    flex-shrink: 0;
+    width: 6.5rem;
+    height: 6.5rem;
+    margin-right: 1.75rem;
+    border: 3px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px $home-crimson;
+    object-fit: cover;
+}
+
+// For a member without a portrait: the initials
+.honorary-member__portrait--initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $home-crimson;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.honorary-member__name {
+    margin: 0;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.honorary-member__meta {
+    margin-top: 0.25rem;
+    color: $home-crimson-light;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.honorary-member__body {
+    padding: 2rem;
+    background: white;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .honorary-member__header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.5rem;
+    }
+
+    .honorary-member__portrait {
+        margin: 0 0 1rem;
+    }
+
+    .honorary-member__name {
+        font-size: 1.5rem;
+    }
+
+    .honorary-member__body {
+        padding: 1.5rem;
+    }
+}
+
+// Boards: a banner with the name and year of the board, on the board photo when there
+// is one, followed by the members
+.board {
+    margin-bottom: 4rem;
+    font-family: $home-body-font;
+}
+
+.board__banner {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 12rem;
+    padding: 2rem;
+    overflow: hidden;
+    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
+    @include fcc-lattice($fade: false);
+}
+
+// The photo fills the banner, with a navy gradient at the bottom for the title
+.board__banner--photo {
+    min-height: 0;
+    aspect-ratio: 930 / 350;
+    padding: 0;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba($home-navy, 0.9) 0%, rgba($home-navy, 0) 55%);
+    }
+
+    .board__title {
+        position: absolute;
+        right: 2rem;
+        bottom: 1.75rem;
+        left: 2rem;
+        z-index: 1;
+    }
+}
+
+.board__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.board__title {
+    position: relative;
+}
+
+.board__year {
+    color: $home-crimson-light;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.board__name {
+    margin: 0;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 2.25rem;
+    font-weight: bold;
+}
+
+.board__members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem 1rem;
+    margin: 0;
+    padding: 2rem 1rem;
+    background: white;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    list-style: none;
+}
+
+.board__member {
+    width: 10rem;
+    text-align: center;
+}
+
+// Behind the photo is a stripe that leans like the logo block and sticks out above
+// and below it; it alternates between crimson and navy from member to member
+$board-member-photo-size: 7rem;
+$board-member-stripe-overhang: 1rem;
+
+.board__member-photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $board-member-photo-size;
+    height: $board-member-photo-size;
+    margin: $board-member-stripe-overhang auto #{$board-member-stripe-overhang + 1rem};
+    // The grey circle shows for members without a photo
+    background: radial-gradient(circle closest-side, $gray-200 99%, transparent 100%);
+    color: $home-navy-light;
+    font-size: 2.5rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -$board-member-stripe-overhang;
+        bottom: -$board-member-stripe-overhang;
+        left: 50%;
+        z-index: 0;
+        width: 2.75rem;
+        margin-left: -1.375rem;
+        background: $home-crimson;
+        transform: skewX(-30deg);
+    }
+
+    .board__member:nth-child(even) &::before {
+        background: $home-navy;
+    }
+
+    img,
+    .fa-user {
+        position: relative;
+        z-index: 1;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+}
+
+.board__member-name {
+    margin-bottom: 0.25rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.board__member-title {
+    color: $home-crimson;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.board__download {
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+// The login form for content that only members can see
+.login-prompt {
+    max-width: 40rem;
+    padding: 2rem;
+    background: white;
+    border-top: 4px solid $home-crimson;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    font-family: $home-body-font;
+
+    .form-control {
+        border-radius: 0;
+    }
+}
+
+.login-prompt__title {
+    margin-bottom: 1.25rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    .fa-lock {
+        margin-right: 0.35rem;
+        color: $home-crimson;
+    }
+}
+
+// Committees: a card with the logo and the name of each committee
+.committee-tile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: white;
+    border: 1px solid $gray-200;
+    border-top: 4px solid $home-crimson;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-top-color: $home-navy;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+        transform: translateY(-3px);
+    }
+}
+
+.committee-tile__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 11rem;
+    padding: 1.5rem;
+    color: $gray-300;
+    font-size: 3.5rem;
+
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+}
+
+.committee-tile__name {
+    margin: 0;
+    padding: 1rem 1.5rem;
+    border-top: 1px solid $gray-200;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+// The page of a committee, with the other committees next to it
+.committee-page {
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    font-family: $home-body-font;
+}
+
+.committee-page__logo {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    img {
+        max-height: 16rem;
+    }
+}
+
+.committee-page__photo {
+    display: block;
+    margin: 2rem auto 0;
+}
+
+.committee-members__heading {
+    margin-top: 2.5rem;
+    font-size: 1.5rem;
+}
+
+.committee-members {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.committee-members__member {
+    padding: 0.4rem 0.9rem;
+    background: $gray-100;
+    border-left: 3px solid $home-crimson;
+    color: $home-navy;
+
+    .fa-user {
+        margin-right: 0.35rem;
+        color: $home-navy-light;
+    }
+}
+
+.committee-nav {
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+    font-family: $home-body-font;
+}
+
+.committee-nav__link {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid transparent;
+    color: $home-navy;
+    font-weight: 500;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-left-color: $home-crimson;
+        background: $gray-100;
+        color: $home-navy;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        border-left-color: $home-crimson-dark;
+        background: $home-crimson;
+        color: white;
+    }
+}
+
+.committee-nav__logo {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.75rem;
+    background: white;
+    border-radius: 50%;
+    object-fit: contain;
+}
+
+.committee-nav__logo--empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $gray-200;
+    color: $home-navy-light;
+    font-size: 1rem;
+}
+
+// Francken Vrij: the covers of the latest volume, and the archive per volume
+.fv-edition {
+    display: block;
+    color: $home-navy;
+    font-family: $home-body-font;
+    text-align: center;
+
+    &:hover,
+    &:focus {
+        color: $home-crimson;
+        text-decoration: none;
+
+        .fv-edition__cover {
+            box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px);
+        }
+    }
+}
+
+// The covers keep the size of an A4 page while they load or when they can't be loaded
+.fv-edition__cover {
+    display: block;
+    aspect-ratio: 210 / 297;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+    background: $gray-200;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+    transition: all 0.15s ease-in-out;
+
+    // When a cover can't be loaded its description is small and grey
+    img {
+        width: 100%;
+        height: 100%;
+        color: $gray-600;
+        font-size: 0.75rem;
+        object-fit: cover;
+    }
+}
+
+.fv-edition__title {
+    display: block;
+    font-weight: bold;
+}
+
+.fv-edition--latest {
+    max-width: 15rem;
+    margin: 0 auto;
+
+    .fv-edition__cover {
+        margin-bottom: 1rem;
+    }
+
+    .fv-edition__title {
+        margin-bottom: 1rem;
+        color: $home-navy;
+        font-family: $home-heading-font;
+        font-size: 1.3rem;
+    }
+}
+
+.fv-volume {
+    display: flex;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid $gray-200;
+}
+
+.fv-volume__title {
+    flex-shrink: 0;
+    width: 9rem;
+    margin: 0;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.fv-volume__editions {
+    display: grid;
+    flex-grow: 1;
+    grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr));
+    gap: 1.5rem;
+    max-width: 36rem;
+
+    .fv-edition__title {
+        font-size: 0.85rem;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .board__banner {
+        padding: 1.5rem;
+    }
+
+    // On a phone the photo is too small for the title, so the title goes below it
+    .board__banner--photo {
+        display: block;
+        aspect-ratio: auto;
+        padding: 0;
+
+        &::after {
+            content: none;
+        }
+
+        .board__title {
+            position: static;
+            padding: 1rem 1.25rem;
+        }
+    }
+
+    .board__photo {
+        position: static;
+        aspect-ratio: 930 / 350;
+        height: auto;
+    }
+
+    .board__name {
+        font-size: 1.5rem;
+    }
+
+    .board__members {
+        gap: 2rem 0.5rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .board__member {
+        width: 9rem;
+    }
+
+    .committee-page,
+    .committee-nav,
+    .login-prompt {
+        padding: 1.5rem;
+    }
+
+    .fv-volume {
+        flex-direction: column;
+    }
+
+    .fv-volume__title {
+        margin-bottom: 1rem;
+    }
+
+    .fv-volume__editions {
+        width: 100%;
+    }
+}
+
+// The other committees are below the committee until the columns are next to each other
+@include media-breakpoint-down(md) {
+    .committee-nav {
+        margin-top: 2rem;
     }
 }
