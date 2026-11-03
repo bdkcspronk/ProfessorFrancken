@@ -97,6 +97,31 @@ class SignUpsFeature extends TestCase
     }
 
     /** @test */
+    public function it_limits_the_plus_ones_to_the_maximum_per_member() : void
+    {
+        $activity = factory(Activity::class)->create();
+        factory(SignUpSettings::class)->create([
+            'activity_id' => $activity->id,
+            'deadline_at' => new DateTimeImmutable('tomorrow +1day'),
+            'max_sign_ups' => 33,
+            'max_plus_ones_per_member' => 2,
+        ]);
+        $account = factory(Account::class)->create();
+
+        $this->actingAs($account)
+            ->visit(action([ActivitiesController::class, 'show'], ['activity' => $activity]))
+            ->see('You can bring up to 2 people.')
+            ->type(3, 'plus_ones')
+            ->press('Sign up')
+            ->see("You can't bring more than 2 people");
+        $this->assertCount(0, $activity->signUps);
+
+        $this->type(2, 'plus_ones')
+            ->press('Sign up');
+        $this->assertCount(1, $activity->fresh()->signUps);
+    }
+
+    /** @test */
     public function it_allows_a_member_to_change_their_sign_up() : void
     {
         $activity = factory(Activity::class)->create();
