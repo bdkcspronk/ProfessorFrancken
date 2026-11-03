@@ -10,25 +10,17 @@
 @section('content')
     <div class="row">
         @foreach ($partners as $partner)
-            <div class="col-sm-6 col-md-4">
-                <div class="company-card">
-                    <a
-                        href="{{ action([Francken\Extern\Http\CompaniesController::class, 'show'], ['partner' => $partner])}}"
-                        class="company-card__link"
-                    >
-                        @if ( $partner->logo !== null)
-                            <img
-                                alt="{{ $partner->companyProfile->display_name }}"
-                                src="{{ $partner->logo }}"
-                                class="company-card__logo"
-                            />
+            <div class="col-sm-6 col-lg-4 mb-4">
+                <a href="{{ action([Francken\Extern\Http\CompaniesController::class, 'show'], ['partner' => $partner])}}" class="committee-tile">
+                    <div class="committee-tile__logo">
+                        @if ($partner->logo !== null)
+                            <img alt="" src="{{ $partner->logo }}"/>
                         @else
-                            <h4 class="company-card__name">
-                                {{ $partner->companyProfile->display_name }}
-                            </h4>
+                            <i class="fas fa-building" aria-hidden="true"></i>
                         @endif
-                    </a>
-                </div>
+                    </div>
+                    <h2 class="committee-tile__name">{{ $partner->companyProfile->display_name }}</h2>
+                </a>
             </div>
         @endforeach
     </div>

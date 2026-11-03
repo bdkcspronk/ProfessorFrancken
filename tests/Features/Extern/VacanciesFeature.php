@@ -47,7 +47,7 @@ class VacanciesFeature extends TestCase
              ->select($selectedPartner->id, 'partner_id')
              ->select($vacancy->sector_id, 'sector_id')
              ->select($vacancy->type, 'job_type')
-            ->press('Apply filters')
+            ->press('Search')
             ->see($vacancy->title)
             ->dontSee($otherVacancy->title);
     }
