@@ -2,23 +2,18 @@
 @section('title', $page->title . " - T.F.V. ‘Professor Francken’")
 
 @section('content')
-    <div>
+    {{-- The content is written in the admin, so it is styled by its elements --}}
+    <div class="cms-page">
         {!!
                $page->compiled_content
         !!}
     </div>
-    <p class="mt-4 pt-4 border-top text-center text-muted">
-        <small>
-        Last updated: {{ $page->updated_at->diffForHumans() }}
+    <p class="cms-page__updated">
+        Last updated {{ $page->updated_at->diffForHumans() }}
         @can('dashboard:pages-write')
-        <a href="{{ action([\Francken\Shared\Http\Controllers\Admin\PagesController::class, 'edit'], ['page' => $page]) }}"
-           class="btn btn-text text-primary btn-sm ml-0"
-        >
-            (
-            <i class="fas fa-edit"></i> Edit
-            )
-        </a>
+            <a href="{{ action([\Francken\Shared\Http\Controllers\Admin\PagesController::class, 'edit'], ['page' => $page]) }}" class="home-link ml-2">
+                <i class="fas fa-edit" aria-hidden="true"></i> Edit
+            </a>
         @endcan
-        </small>
     </p>
 @endsection

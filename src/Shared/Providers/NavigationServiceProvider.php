@@ -23,7 +23,12 @@ final class NavigationServiceProvider extends ServiceProvider
         View::composer('layout._header', function ($view) : void {
             /** @var array $menu */
             $menu = config('francken.navigation.menu');
-            $menu[1]['icon'] = $this->associationIcon();
+            $menu = array_map(
+                fn (array $item) : array => $item['url'] === '/association'
+                    ? array_merge($item, ['icon' => $this->associationIcon()])
+                    : $item,
+                $menu
+            );
 
             $settings = $this->app->make(Settings::class);
             if ($settings->isPienterShownInNavigation()) {
