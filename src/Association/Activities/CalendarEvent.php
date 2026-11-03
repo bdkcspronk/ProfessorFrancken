@@ -85,7 +85,7 @@ final class CalendarEvent
     public function location() : string
     {
         if ($this->location == "Technisch Fysische Vereniging 'Professor Francken', Nijenborgh 4, 9747 AG Groningen, Netherlands") {
-            return 'Franckenroom';
+            return 'Francken room';
         }
 
         return $this->location;
