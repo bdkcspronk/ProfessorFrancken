@@ -1935,6 +1935,22 @@ $board-member-stripe-overhang: 1rem;
     font-weight: bold;
 }
 
+// The volume and edition, above the theme of an edition
+.fv-edition__number {
+    display: block;
+    color: $home-crimson;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.fv-edition__theme {
+    display: block;
+    color: $gray-600;
+    font-size: 0.85rem;
+}
+
 .fv-edition--latest {
     max-width: 15rem;
     margin: 0 auto;

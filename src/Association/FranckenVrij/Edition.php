@@ -115,6 +115,24 @@ final class Edition extends Model
         return $this->attributes['title'];
     }
 
+    /**
+     * The theme of the edition, when the board gave it a title other than the default
+     * "Francken Vrij <volume>.<edition>"
+     */
+    public function theme() : ?string
+    {
+        $title = trim($this->title());
+
+        return preg_match('/^Francken Vrij \d+\.\d+$/i', $title) === 1 || $title === ''
+            ? null
+            : $title;
+    }
+
+    public function number() : string
+    {
+        return $this->volume() . '.' . $this->edition();
+    }
+
     public function volume() : int
     {
         return (int)$this->attributes['volume'];
