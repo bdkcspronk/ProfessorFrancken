@@ -67,7 +67,8 @@ return [
         'uploads' => [
             'driver' => 'local',
             'root' => public_path('uploads'),
-            'url' => env('APP_URL') . '/uploads',
+            // A relative url (/uploads) lets other devices load the uploads during development
+            'url' => env('UPLOADS_URL', env('APP_URL') . '/uploads'),
             'visibility' => 'public',
         ],
 

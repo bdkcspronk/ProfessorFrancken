@@ -52,6 +52,11 @@ function image(?string $url = '', array $options = [], bool $addAppUrl = false) 
     $url = str_replace("http://francken.nl.localhost", "http://nginx", $url);
     $url = str_replace("https://professorfrancken.nl", "http://nginx", $url);
 
+    // Relative urls (of the uploads during development) are loaded from the same server
+    if (str_starts_with($url, '/')) {
+        $url = "http://nginx" . $url;
+    }
+
     switch ($proxy) {
         case 'imaginary': {
 
