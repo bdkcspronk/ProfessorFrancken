@@ -8,7 +8,7 @@
     <div class="committee-page">
         @if (! is_null($committee->logo))
             <div class="committee-page__logo">
-                <img class="img-fluid" alt="" src="{{ image($committee->logo, ['height' => 500, 'width' => 500]) }}"/>
+                <img class="img-fluid" alt="" src="{{ image($committee->logo, ['height' => 500, 'width' => 500, 'background' => '255,255,255']) }}"/>
             </div>
         @endif
 
@@ -17,7 +17,7 @@
         @if (! is_null($committee->photo))
             <img
                 class="img-fluid committee-page__photo"
-                src="{{ image($committee->photo, ['height' => 400, 'width' => 660, 'resize' => true]) }}"
+                src="{{ image($committee->photo, ['height' => 400, 'width' => 660, 'resize' => true, 'background' => '255,255,255']) }}"
                 alt="Photo of the {{ $committee->name }}"
             >
         @endif
@@ -42,7 +42,7 @@
                         @if (! is_null($committee->logo))
                             <img
                                 class="committee-nav__logo"
-                                src="{{ image($committee->logo, ['height' => 75, 'width' => 75]) }}"
+                                src="{{ image($committee->logo, ['height' => 75, 'width' => 75, 'background' => '255,255,255']) }}"
                                 alt=""
                             >
                         @else

@@ -4,7 +4,7 @@
             @if (trim($logo) != '')
                 <img
                     alt=""
-                    src="{{ image(trim($logo), ['height' => 200, 'width' => 300, 'resize' => true]) }}"
+                    src="{{ image(trim($logo), ['height' => 200, 'width' => 300, 'resize' => true, 'background' => '255,255,255']) }}"
                 />
             @else
                 <i class="fas fa-users" aria-hidden="true"></i>
