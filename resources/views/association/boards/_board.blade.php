@@ -1,9 +1,15 @@
-{{-- A board: a banner with its name and year (on the board photo when there is one), followed by its members --}}
+{{-- A board: a banner with its name and year (on the board photo when there is one), followed by its members.
+     The photos of the first board load right away, the others when they get near the screen;
+     public/js/BoardPhotos.js shows them from top to bottom --}}
+@php($loading = ($first ?? false) ? 'eager' : 'lazy')
 <article class="board">
     <header @class(['board__banner', 'board__banner--photo' => $board->photo !== null]) @if ($board->photo === null) data-fcc-lattice @endif>
         @if ($board->photo !== null)
             <img
                 class="board__photo"
+                loading="{{ $loading }}"
+                @if ($first ?? false) fetchpriority="high" @endif
+                data-board-photo
                 src="{{ board_banner_image($board->photo, ['vertical-offset' => $board->photo_position]) }}"
                 alt="Board photo of {{ $board->name != '' ? $board->board_name->toString() : $board->board_year->toString() }}"
             >
@@ -25,6 +31,8 @@
                 <span class="board__member-photo">
                     @if ($member->photo !== null)
                         <img
+                            loading="{{ $loading }}"
+                            data-board-photo
                             src="{{ image($member->photo, ['width' => 300, 'height' => 300]) }}"
                             alt="Photo of {{ $member->name }}"
                         >

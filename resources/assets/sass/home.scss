@@ -4970,3 +4970,20 @@ $menu-card-banner-height: 11rem;
         justify-content: flex-start;
     }
 }
+
+// The photos of the boards fade in from top to bottom (public/js/BoardPhotos.js); without
+// javascript they are shown right away
+.is-revealing [data-board-photo] {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+
+    &.is-shown {
+        opacity: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .is-revealing [data-board-photo] {
+        transition: none;
+    }
+}
