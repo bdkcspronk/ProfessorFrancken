@@ -3758,6 +3758,22 @@ $history-building-width: 13rem;
     }
 }
 
+// A button that removes something, such as a sign up or a comment
+.danger-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid $home-crimson;
+    border-radius: 0;
+    background: transparent;
+    color: $home-crimson;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        background: $home-crimson;
+        color: white;
+    }
+}
+
 // Activities that the member signed up for
 .profile-activity {
     display: flex;
