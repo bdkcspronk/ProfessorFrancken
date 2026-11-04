@@ -51,7 +51,7 @@ cp .env.example .env
 
 docker compose run php composer install
 docker compose run npm npm install
-docker compose run npm npm run dev
+docker compose run npm npm run build
 docker compose run php php artisan key:generate
 docker compose run php php artisan migrate:refresh --seed
 docker compose up nginx proxy
@@ -82,17 +82,22 @@ installed Docker but don't have npm installed), then you can run
 Once you've installed the javascript dependencies you can compile our assets by
 running
 ```
-npm run dev
+npm run build
 ```
 in the root of this project (the folder in which a `package.json` file  is
-present), or alternatively use `docker-compose run npm npm run dev`.
-The compiled files will be placed in the `/public/dist` folder. This folder is
+present), or alternatively use `docker compose run npm npm run build`.
+The compiled files will be placed in the `/public/build` folder. This folder is
 added to our `.gitignore` so you won't see the folder until you run the above
 command.
 
-Check the documentation
-of [Laravel Mix](https://laravel.com/docs/5.4/mix#introduction) to learn more
-about how our assets (css & js) are compiled.
+While working on the stylesheets you can instead start the development server of
+Vite with `npm run dev`, or `docker compose up vite`, which updates the pages in
+the browser as soon as a stylesheet changes. While it runs the pages load the
+stylesheets from it; when it stops they load the built ones again.
+
+Check the documentation of [Vite](https://vite.dev) and
+[Laravel's Vite integration](https://laravel.com/docs/9.x/vite) to learn more
+about how our assets are compiled.
 
 #### Windows configuration
 

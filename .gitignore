@@ -8,6 +8,9 @@ Homestead.json
 /build
 /public/storage/francken-vrij
 /public/dist
+/public/build
+/public/vite.hot
+/public/hot
 /public/mix-manifest.json
 /database/database.sqlite
 /public/storage/

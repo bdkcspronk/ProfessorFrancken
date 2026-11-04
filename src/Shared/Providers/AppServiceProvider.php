@@ -11,6 +11,7 @@ use Francken\Shared\Clock\Clock;
 use Francken\Shared\Clock\SystemClock;
 use Francken\Shared\Settings\Settings;
 use Francken\Shared\Settings\ValueStoreSettings;
+use Francken\Shared\Vite;
 use Francken\Shared\ViewComponents\Admin\Navigation;
 use Francken\Shared\ViewComponents\Admin\NavigationGroup;
 use Francken\Shared\ViewComponents\AutocompleteMemberComponent;
@@ -38,6 +39,8 @@ final class AppServiceProvider extends ServiceProvider
         if ($this->app instanceof Application) {
             $this->app->useAppPath(base_path('src'));
         }
+
+        $this->app->singleton(\Illuminate\Foundation\Vite::class, Vite::class);
 
         $this->app->bind(Valuestore::class, fn () : Valuestore => Valuestore::make(
             storage_path('app/settings.json')

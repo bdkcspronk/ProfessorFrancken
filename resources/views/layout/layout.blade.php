@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap">
 
         @unless(config('env') == 'testing')
-            <link rel="stylesheet" href="{{ mix('/dist/css/app.css') }}">
+            @vite('resources/assets/sass/app.scss')
         @endunless
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">

@@ -14,11 +14,25 @@ services:
     image: francken/php-base:v8.2
 
   npm:
-    image: node:14.5
+    image: node:20
     volumes:
       - ./:/var/www/francken
       - ./docker/volumes/npm/:/var/www/.npm
       - ./docker/volumes/config/:/var/www/.config
+    working_dir: /var/www/francken
+
+  # The development server of Vite, which updates the pages as soon as a stylesheet
+  # changes. It runs Vite itself instead of npm run dev, so that it removes
+  # public/vite.hot when it stops and the pages load the built stylesheets again
+  vite:
+    image: node:20
+    init: true
+    user: "${USER_ID:-1000}"
+    command: node_modules/.bin/vite
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./:/var/www/francken
     working_dir: /var/www/francken
 
   php:

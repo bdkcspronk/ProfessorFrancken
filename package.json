@@ -2,26 +2,25 @@
   "name": "professorfrancken",
   "version": "1.0.0",
   "description": "|            |            | | ------------- |:-------------:| | <a href=\"https://professorfrancken.nl\"><img width=\"200px\" alt=\"Logo of T.F.V. Professor Francken\" src=\"https://github.com/ProfessorFrancken/ProfessorFrancken/blob/master/public/images/LOGO_KAAL.png\"></a> | <h1>T.F.V. 'Professor Francken'</h1> [![Build Status](http://github.scriptcie.nl/api/badges/ProfessorFrancken/ProfessorFrancken/status.svg)](http://github.scriptcie.nl/ProfessorFrancken/ProfessorFrancken) [![Coverage Status](https://coveralls.io/repos/github/ProfessorFrancken/ProfessorFrancken/badge.svg?branch=master)](https://coveralls.io/github/ProfessorFrancken/ProfessorFrancken?branch=master) |",
-  "main": "webpack.mix.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx mix build",
-    "production": "npx mix build -p"
+    "dev": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "laravel-mix": "^6.0.49",
-    "resolve-url-loader": "^5.0.0",
-    "sass": "^1.72.0",
-    "sass-loader": "^12.6.0"
+    "laravel-vite-plugin": "^3.2.1",
+    "sass": "^1.107.1",
+    "vite": "^8.3.5"
   },
   "dependencies": {
     "bootstrap": "^4.5.3",
     "jquery": "^3.5.1"
-  }
+  },
+  "type": "module"
 }
