@@ -4,10 +4,14 @@
     Boards of T.F.V. ‘Professor Francken’
 @endsection
 
+@push('scripts')
+    <script src="/js/BoardPhotos.js?v={{ filemtime(public_path('js/BoardPhotos.js')) }}"></script>
+@endpush
+
 @section('main-content')
-    <div class="container my-5">
+    <div class="container my-5" data-board-photos>
         @foreach ($boards as $board)
-            @include("association.boards._board", ['board' => $board])
+            @include("association.boards._board", ['board' => $board, 'first' => $loop->first])
         @endforeach
 
         @guest
