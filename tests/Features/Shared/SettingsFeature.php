@@ -28,7 +28,6 @@ class SettingsFeature extends TestCase
              ->type('hoi', 'number_of_chair')
              ->type('image', 'header_image')
             ->check('private_albums')
-            ->check('navigation_show_login')
             ->check('navigation_show_slef')
             ->uncheck('navigation_show_symposium')
             ->uncheck('navigation_show_pienter')
@@ -41,7 +40,6 @@ class SettingsFeature extends TestCase
             "number_of_chair" => "hoi",
             "header_image" => "image",
             "private_albums" => true,
-            "navigation_show_login" => true,
             "navigation_show_slef" => true,
             "navigation_show_symposium" => false,
             "navigation_show_pienter" => false,

@@ -36,13 +36,8 @@
             @include("layout._footer")
         </main>
 
-        @include('layout._login-modal')
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"> </script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        @if (Auth::guest())
-        <script src="/js/LoginModal.js"></script>
-        @endif
 
         {{-- The modification time makes browsers load the scripts again after they changed --}}
         <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>

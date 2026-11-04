@@ -21,8 +21,6 @@ interface Settings extends IteratorAggregate
     /**
      * Show menu items
      */
-    public function isLoginShownInNavigation() : bool;
-
     public function isSlefShownInNavigation() : bool;
 
     public function isSymposiumShownInNavigation() : bool;

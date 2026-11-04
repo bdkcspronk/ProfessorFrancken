@@ -31,10 +31,6 @@ final class ValueStoreSettings implements Settings
     /**
      * @var string
      */
-    private const IS_LOGIN_SHOWN_IN_NAVIGATION = 'navigation_show_login';
-    /**
-     * @var string
-     */
     private const IS_SLEF_SHOWN_IN_NAVIGATION = 'navigation_show_slef';
     /**
      * @var string
@@ -67,7 +63,6 @@ final class ValueStoreSettings implements Settings
             static::NUMBER_OF_CHAIR,
             static::HEADER_IMAGE,
             static::PRIVATE_ALBUMS,
-            static::IS_LOGIN_SHOWN_IN_NAVIGATION,
             static::IS_SLEF_SHOWN_IN_NAVIGATION,
             static::IS_SYMPOSIUM_SHOWN_IN_NAVIGATION,
             static::IS_PIENTER_SHOWN_IN_NAVIGATION,
@@ -131,17 +126,6 @@ final class ValueStoreSettings implements Settings
     /**
      * Show menu items
      */
-    public function isLoginShownInNavigation() : bool
-    {
-        $value = $this->store->get(self::IS_LOGIN_SHOWN_IN_NAVIGATION);
-
-        if ($value === null) {
-            return false;
-        }
-
-        return (bool) $value;
-    }
-
     public function isSlefShownInNavigation() : bool
     {
         $value = $this->store->get(self::IS_SLEF_SHOWN_IN_NAVIGATION);
@@ -216,11 +200,6 @@ final class ValueStoreSettings implements Settings
         yield static::PRIVATE_ALBUMS => [
             'text' => 'Members must be logged in to view albums/photos',
             'value' => $this->areAlbumsPrivate(),
-            'type' => 'toggle'
-        ];
-        yield static::IS_LOGIN_SHOWN_IN_NAVIGATION => [
-            'text' => 'Show a login button in the navigation menu',
-            'value' => $this->isLoginShownInNavigation(),
             'type' => 'toggle'
         ];
         yield static::IS_SLEF_SHOWN_IN_NAVIGATION => [

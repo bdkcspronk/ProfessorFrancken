@@ -93,7 +93,9 @@ final class NavigationServiceProvider extends ServiceProvider
                         ['url' => route('get-logout'), 'icon' => 'fas fa-sign-out-alt', 'title' => 'Logout']
                     ]),
                 ];
-            } elseif ($settings->isLoginShownInNavigation()) {
+            } else {
+                // The login icon of the header, which is always shown to visitors who aren't
+                // logged in, as it's the only way to log in
                 $menu[] = [
                     'url' => route('login'),
                     'title' => 'Login',

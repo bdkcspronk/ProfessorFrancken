@@ -25,11 +25,6 @@
             @include('layout._footer')
         </main>
 
-        @include('layout._login-modal')
-
-        @if (Auth::guest())
-            <script src="/js/LoginModal.js"></script>
-        @endif
         {{-- The modification time makes browsers load the script again after it changed --}}
         <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>
         <script src="/js/LogoBalls.js?v={{ filemtime(public_path('js/LogoBalls.js')) }}"></script>
