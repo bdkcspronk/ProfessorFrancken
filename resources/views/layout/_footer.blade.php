@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <a class="home-footer__brand" href="/">
-                        @svg('LOGO_FRANCKEN_BALLS', 'home-footer__logo')
+                        @svg('LOGO_FRANCKEN_STATIC', 'home-footer__logo')
                         <span class="home-footer__name">T.F.V. ‘Professor<br><span class="home-hero__name">Francken</span><span class="home-hero__quote">’</span></span>
                     </a>
                     <p class="home-footer__tagline">

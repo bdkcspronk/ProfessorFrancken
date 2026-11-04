@@ -1,5 +1,5 @@
 {{--
-    The title of the page in a navy hero, like the hero of the homepage. Pages set it with
+    The title of the page in a crimson hero, like the hero of the homepage. Pages set it with
     @section('page-title'); otherwise the title of the browser tab is used, without the
     name of the association
 --}}

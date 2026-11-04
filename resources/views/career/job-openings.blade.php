@@ -60,7 +60,7 @@
             :options="array_merge(['' => 'Any'], array_combine(array_keys($types), array_keys($types)))"
         />
 
-        <button type="submit" class="btn home-btn home-btn--crimson btn-block">
+        <button type="submit" id="search-job-openings" class="btn home-btn home-btn--crimson btn-block">
             <i class="fas fa-search" aria-hidden="true"></i> Search
         </button>
     </form>

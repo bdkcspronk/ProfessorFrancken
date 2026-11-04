@@ -41,6 +41,7 @@ use Francken\Shared\Http\Controllers\FrontPageController;
 use Francken\Shared\Http\Controllers\RedirectController;
 use Francken\Shared\Http\Controllers\ResearchGroupsController;
 use Francken\Study\BooksSale\Http\BooksController;
+use Francken\Shared\Http\Controllers\SearchController;
 
 Route::redirect('/blog', '/association/news');
 Route::permanentRedirect('/wordpress', '/');
@@ -53,6 +54,8 @@ Route::get('/wordpress/{url}', [RedirectController::class, 'wordpress'])->where(
 Route::get('/scriptcie/{url}', [RedirectController::class, 'scriptcie'])->where('url', '.*');
 
 Route::get('/', [FrontPageController::class, 'index'])->name('home');
+
+Route::get('/search', [SearchController::class, 'index'])->name('search');
 
 Route::get('/register', [RegistrationController::class, 'index']);
 Route::post('/register', [RegistrationController::class, 'store']);
