@@ -30,8 +30,9 @@ and [docker-compose](https://docs.docker.com/compose/install/).
 If you haven't yet, follow the links and install Docker.
 
 Next you will want to download our php and javascript dependencies. Using you
-terminal run `docker compose run php composer install` and `docker compose run npm yarn`
-in the root of the project.
+terminal run `docker compose run php composer install` and `docker compose run npm npm ci`
+in the root of the project, and build the stylesheets and scripts with
+`docker compose run npm npm run build`.
 Once you've installed the dependencies run `docker-compose run php php artisan
 key:generate` to generate an application key.
 Next run `docker-compose run php php artisan migrate:refresh --seed` to setup a
@@ -127,6 +128,46 @@ that automatically checks whether your PR conforms to the code style guidelines.
 
 *Note* we omit the `psr0` fixer. This fixer looks at the namespace declarations
 however it is not compatible with PSR-4, which is an improvement over PSR-0.
+
+### Deploying
+The production server runs the website with `docker-compose.prod.yaml`. Its PHP containers
+read their settings from `.docker.env` and `.env` in the root of the project on the server.
+
+After pulling a new version on the server, these are the usual steps (check them against how
+the website has been deployed so far):
+
+1. Install the PHP dependencies:
+   `docker compose -f docker-compose.prod.yaml run --rm php composer install`
+2. Build the stylesheets and scripts with Vite (Node 20.19 or newer, which the `npm` service
+   of `docker-compose.prod.yaml` has):
+   `docker compose -f docker-compose.prod.yaml run --rm npm sh -c "npm ci && npm run build"`.
+   The files are placed in `public/build/`.
+3. Run the migrations:
+   `docker compose -f docker-compose.prod.yaml run --rm php php artisan migrate --force`
+4. Clear the caches:
+   `docker compose -f docker-compose.prod.yaml run --rm php php artisan optimize:clear`
+
+#### Settings in `.env`
+These settings in the `.env` of the server are needed besides those of a fresh install
+(see `.env.example` for all of them):
+
+- `GOOGLE_MAPS_EMBED_KEY`: the key of the Google Maps Embed API, for the map of an
+  activity in the admin. Without it the location is shown without a map; nothing breaks.
+  The key is in `.env.example`.
+
+#### Once, when switching from Laravel Mix to Vite
+The stylesheets used to be built with Laravel Mix (`npx mix build`) into `public/dist/`.
+Since the switch to Vite they are built into `public/build/` (step 2 above), and
+`public/dist/` and `public/mix-manifest.json` can be removed from the server.
+Optionally, nginx can let browsers keep the files in `/build/` for a year, as their names
+change whenever their contents change:
+
+```
+location /build/ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+}
+```
 
 ### Git Usage
 The master branch is a protected branch, meaning you won't be able to force push changes to the master branch and status checks (i.e. tests should be green) are required before merging to master.

@@ -28,7 +28,7 @@
         </form>
 
         {{-- An outlined person to log in, a filled person that opens the pages of the profile.
-             Without javascript the filled person goes to the profile. See public/js/AccountMenu.js --}}
+             Without javascript the filled person goes to the profile. See resources/assets/js/AccountMenu.js --}}
         @if ($account !== null && $account['url'] === '/profile')
             <div class="account-menu" data-account-menu>
                 <a class="home-header__action" href="{{ $account['url'] }}" aria-label="{{ $account['title'] }}" title="{{ $account['title'] }}" aria-haspopup="true" aria-expanded="false" aria-controls="account-menu" data-account-menu-toggle>
@@ -68,7 +68,7 @@
     The menu with all pages: a panel that slides in from the right below the header, with
     the sections of the menu. A section with pages of its own slides those in, with a button
     to go back. The Menu button of the header closes it again.
-    See public/js/SiteMenu.js
+    See resources/assets/js/SiteMenu.js
 --}}
 <div class="site-menu" id="site-menu" data-site-menu>
     <div class="site-menu__backdrop" data-site-menu-close></div>

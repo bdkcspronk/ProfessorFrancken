@@ -7,11 +7,9 @@ Homestead.json
 .vagrant
 /build
 /public/storage/francken-vrij
-/public/dist
 /public/build
-/public/vite.hot
+/resources/assets/fontawesome
 /public/hot
-/public/mix-manifest.json
 /database/database.sqlite
 /public/storage/
 /public/uploads/

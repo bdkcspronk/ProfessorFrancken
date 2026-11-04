@@ -33,7 +33,7 @@ $breadcrumbs = [
                     Website
                 </a>
                     <a class="btn btn-secondary" href="mailto:fast@betastuf.nl">
-                    <i class="fa fa-envelope-o mr-2" aria-hidden="true"></i>
+                    <i class="far fa-envelope mr-2" aria-hidden="true"></i>
                     fast@betastuf.nl
                 </a>
                     <a class="btn btn-secondary" href="https://www.facebook.com/fcfse/">

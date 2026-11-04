@@ -8,9 +8,8 @@
         @include('layout._seo')
         @include('layout._favicon')
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
         @unless(config('env') == 'testing')
-            <link rel="stylesheet" href="{{ mix('/dist/css/print.css') }}">
+            @vite(['resources/assets/sass/print.scss', 'resources/assets/css/vendor.css'])
         @endunless
     </head>
     <body class="h-100">

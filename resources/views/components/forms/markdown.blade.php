@@ -16,6 +16,10 @@
                    'id' => $name,
                    'required' => $required,
                    'disabled' => $disabled,
+                   // See resources/assets/js/markdown-editor.js
+                   'data-markdown-editor' => true,
+                   // The draft of the editor, unique for this field on this page
+                   'data-autosave-id' => 'francken-' . $name . '-' . \Illuminate\Support\Str::slug(url()->current()),
                ]
            )
     !!}
@@ -26,44 +30,14 @@
     </x-slot>
 </x-forms.form-group>
 
-@push('scripts')
-<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+@once
+    @push('scripts')
+        <style>
+            .editor-toolbar .table {
+                width: auto;
+            }
+        </style>
 
-{{-- Syntax highlighting --}}
-<script src="https://cdn.jsdelivr.net/highlight.js/latest/highlight.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/highlight.js/latest/styles/github.min.css">
-
-<style>
-.editor-toolbar .table {
-    width: auto;
-}
-</style>
-
-<script>
-    var simplemde = new EasyMDE({
-        element: document.getElementById("{{ $name }}"),
-        autosave: {
-            enabled: true,
-            // Try to make a unique id based on the input's name and the current page's url
-            uniqueId: "francken-{{ $name }}-{{ \Illuminate\Support\Str::slug(url()->current()) }}"
-        },
-        spellChecker: false,
-        promptURLs: true,
-        toolbar: [
-            "bold", "italic", "strikethrough",
-            "|",
-            "heading-1", "heading-2", "heading-3",
-            "|",
-            "code", "quote", "link", "image", "table",
-            "|",
-            "unordered-list", "ordered-list",
-            "|",
-            "preview",
-            "guide"
-        ],
-        status: false,
-        maxHeight: "600px"
-    });
-</script>
-@endpush
+        @vite('resources/assets/js/markdown-editor.js')
+    @endpush
+@endonce

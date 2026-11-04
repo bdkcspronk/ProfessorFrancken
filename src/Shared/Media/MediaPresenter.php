@@ -27,7 +27,7 @@ final class MediaPresenter
             Media::TYPE_ARCHIVE => 'fas fa-file-archive',
             Media::TYPE_DOCUMENT => 'fas fa-file-alt',
             Media::TYPE_SPREADSHEET => 'fas fa-file-excel',
-            Media::TYPE_PRESENTATION => 'fas fa-file-presentation',
+            Media::TYPE_PRESENTATION => 'fas fa-file-powerpoint',
         ];
 
         return $iconMap[$this->media->aggregate_type] ?? 'fas fa-file';

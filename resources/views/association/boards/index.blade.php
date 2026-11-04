@@ -5,7 +5,7 @@
 @endsection
 
 @push('scripts')
-    <script src="/js/BoardPhotos.js?v={{ filemtime(public_path('js/BoardPhotos.js')) }}"></script>
+    @vite('resources/assets/js/BoardPhotos.js')
 @endpush
 
 @section('main-content')

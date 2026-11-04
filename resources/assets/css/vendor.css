@@ -1,0 +1,7 @@
+/* The fonts and icons of the website and the admin, served from our own server instead of
+   Google Fonts and a CDN. Font Awesome only has the icons that we use, see
+   vite/fontawesome-subset.js. The layouts load this file after our own stylesheet, so that
+   the font of the icons wins from classes like .h2 that set the font of headings */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+@import '../fontawesome/fontawesome.css';

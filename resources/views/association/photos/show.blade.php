@@ -52,24 +52,8 @@
         </nav>
     @endif
 
-    @push('styles')
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-    @endpush
-
+    {{-- The photos open in a lightbox, see resources/assets/js/photos.js --}}
     @push('scripts')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#album-photos').magnificPopup({
-                delegate: '.photo-wall__link',
-                type: 'image',
-                gallery: {
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [1,3]
-                },
-            });
-        })
-    </script>
+        @vite('resources/assets/js/photos.js')
     @endpush
 @endsection

@@ -12,7 +12,8 @@ services:
     image: francken/php-base:v8
 
   npm:
-    image: node:14.5
+    # Vite (npm run build) needs Node 20.19 or newer
+    image: node:20
     user: "33"
     volumes:
       - ./:/var/www/francken

@@ -3,7 +3,11 @@
     <head>
         <title>Be right back.</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {{-- The fonts of the website, from our own server --}}
+        @vite('resources/assets/css/vendor.css')
 
         <style>
             html, body {
@@ -14,10 +18,11 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-                color: #B0BEC5;
+                color: #14213d;
+                background: #fafafa;
                 display: table;
-                font-weight: 100;
-                font-family: 'Lato';
+                font-weight: 600;
+                font-family: 'Space Grotesk Variable', 'Space Grotesk', sans-serif;
             }
 
             .container {
@@ -32,7 +37,7 @@
             }
 
             .title {
-                font-size: 72px;
+                font-size: 56px;
                 margin-bottom: 40px;
             }
         </style>

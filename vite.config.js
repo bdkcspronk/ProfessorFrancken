@@ -1,38 +1,40 @@
-import fs from 'node:fs';
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import fontAwesomeSubset from './vite/fontawesome-subset.js';
 
-const stylesheets = {
-    'resources/assets/sass/app.scss': '/dist/css/app.css',
-    'resources/assets/sass/print.scss': '/dist/css/print.css',
-};
-
-// The pages of the admin still load the stylesheets with mix(), so after a build this
-// writes the mix-manifest.json that mix() reads, pointing to the files that Vite built
-function mixManifest() {
-    return {
-        name: 'mix-manifest',
-        apply: 'build',
-        closeBundle() {
-            const manifest = JSON.parse(fs.readFileSync('public/build/manifest.json', 'utf8'));
-            const mix = Object.fromEntries(Object.entries(stylesheets).map(
-                ([entry, path]) => [path, '/build/' + manifest[entry].file]
-            ));
-            fs.writeFileSync('public/mix-manifest.json', JSON.stringify(mix, null, 4) + '\n');
-        },
-    };
-}
-
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+    // Relative urls in the files that are built, like the fonts in the stylesheets, instead of
+    // the ASSET_URL of .env, so that they also load on a phone during development and
+    // browsers don't block them as fonts from another website
+    base: command === 'build' ? '/build/' : '',
     plugins: [
         laravel({
-            input: Object.keys(stylesheets),
-            // Not public/hot, as mix() would then load the stylesheets of the admin from
-            // the development server
-            hotFile: 'public/vite.hot',
+            input: [
+                // The fonts and icons, the stylesheet of the website and the admin, and the one
+                // to print pages of the admin
+                'resources/assets/css/vendor.css',
+                'resources/assets/sass/app.scss',
+                'resources/assets/sass/print.scss',
+                // The scripts of every page of the website and of the admin
+                'resources/assets/js/site.js',
+                'resources/assets/js/admin.js',
+                // The scripts of single pages
+                'resources/assets/js/BoardPhotos.js',
+                'resources/assets/js/photos.js',
+                'resources/assets/js/markdown-editor.js',
+                'resources/assets/js/404.js',
+            ],
             refresh: true,
         }),
-        mixManifest(),
+        fontAwesomeSubset({
+            // Icons that the sources don't name: those of the toolbar of the markdown editor
+            // (EasyMDE). Icons that only come from the database, like icons of sectors that
+            // were added later, can be added here as well
+            extra: [
+                'bold', 'italic', 'strikethrough', 'heading', 'header', 'code', 'quote-left', 'link',
+                'image', 'table', 'list-ul', 'list-ol', 'eye', 'question-circle',
+            ],
+        }),
     ],
     css: {
         preprocessorOptions: {
@@ -46,11 +48,11 @@ export default defineConfig({
             },
         },
     },
-    // The development server runs in Docker (see the npm service of docker-compose.yaml)
+    // The development server runs in Docker (see the vite service of docker-compose.yaml)
     server: {
         host: '0.0.0.0',
         port: 5173,
         strictPort: true,
         hmr: { host: 'localhost' },
     },
-});
+}));

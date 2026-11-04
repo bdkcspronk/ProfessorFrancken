@@ -59,7 +59,7 @@
     }
 </style>
 <script type="text/javascript">
-    $(document).ready(function () {
+    document.addEventListener('DOMContentLoaded', function () {
         var membersSource = {!! json_encode($members) !!};
         var input = document.getElementById("{{ $name }}");
         new Awesomplete(input, {

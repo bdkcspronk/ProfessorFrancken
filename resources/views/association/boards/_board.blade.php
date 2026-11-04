@@ -1,6 +1,6 @@
 {{-- A board: a banner with its name and year (on the board photo when there is one), followed by its members.
      The photos of the first board load right away, the others when they get near the screen;
-     public/js/BoardPhotos.js shows them from top to bottom --}}
+     resources/assets/js/BoardPhotos.js shows them from top to bottom --}}
 @php($loading = ($first ?? false) ? 'eager' : 'lazy')
 <article class="board">
     <header @class(['board__banner', 'board__banner--photo' => $board->photo !== null]) @if ($board->photo === null) data-fcc-lattice @endif>

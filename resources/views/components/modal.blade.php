@@ -80,12 +80,9 @@
                         e.stopPropagation();
                     });
 
-                    // Remove menu when document clicked or when escape is pressed
-                    $('html').on({
-                        keyup: function(e) {
-                            // Check for escape
-                            if (e.keyCode == 27) { closeModalHandler(e); }
-                        }
+                    // Close the modal when escape is pressed
+                    document.documentElement.addEventListener('keyup', function(e) {
+                        if (e.key === 'Escape') { closeModalHandler(e); }
                     });
                 }
             };

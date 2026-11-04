@@ -26,13 +26,13 @@ $headings-color: $primary-color;
 // Links
 $link-color: $primary-color !default;
 
-// Fonts (loaded from Google Fonts by the layouts)
-$font-family-sans-serif: "Inter", sans-serif, -apple-system, system-ui,
+// Fonts (from our own server, see resources/assets/css/vendor.css)
+$font-family-sans-serif: "Inter Variable", "Inter", sans-serif, -apple-system, system-ui,
   BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $font-family-base: $font-family-sans-serif !default;
 
 // Headings
-$headings-font-family: "Space Grotesk", sans-serif !default;
+$headings-font-family: "Space Grotesk Variable", "Space Grotesk", sans-serif !default;
 
 // Buttons
 $btn-primary-bg: $brand-primary !default;

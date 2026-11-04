@@ -23,7 +23,7 @@ services:
 
   # The development server of Vite, which updates the pages as soon as a stylesheet
   # changes. It runs Vite itself instead of npm run dev, so that it removes
-  # public/vite.hot when it stops and the pages load the built stylesheets again
+  # public/hot when it stops and the pages load the built stylesheets again
   vite:
     image: node:20
     init: true

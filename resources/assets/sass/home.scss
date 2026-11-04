@@ -7,8 +7,8 @@ $home-crimson-light: #f0889a;
 // The board photo is tinted with this color
 $home-photo-tint: $home-navy-light;
 
-$home-heading-font: "Space Grotesk", $font-family-sans-serif;
-$home-body-font: "Inter", $font-family-sans-serif;
+$home-heading-font: "Space Grotesk Variable", "Space Grotesk", $font-family-sans-serif;
+$home-body-font: "Inter Variable", "Inter", $font-family-sans-serif;
 
 $stripe-width: 14px;
 $stripe-angle: 120deg;
@@ -65,7 +65,7 @@ $logo-block-big-from: 1600px;
 // A faint FCC lattice behind an element that (optionally) fades out towards the
 // bottom; the element needs position: relative and its content has to be positioned
 // above it. The lattice is white, on navy as well as on crimson.
-// The lattice is a background pattern, which public/js/FccLattice.js replaces by a
+// The lattice is a background pattern, which resources/assets/js/FccLattice.js replaces by a
 // canvas with the same lattice (in a .home-lattice element) that reacts to the mouse
 @mixin fcc-lattice(
     $center-color: "rgba(255,255,255,0.8)",
@@ -1118,7 +1118,7 @@ $site-menu-speed: 0.3s;
     }
     // The lattice lies over the levels (which have their own navy background, as they slide
     // over each other on phones), faintly, and fades out from halfway up to the top. It
-    // reacts to the mouse (public/js/FccLattice.js)
+    // reacts to the mouse (resources/assets/js/FccLattice.js)
     @include fcc-lattice($fade-to: top, $fade-from: 50%, $fade-until: 100%);
 
     &::before,
@@ -4971,7 +4971,7 @@ $menu-card-banner-height: 11rem;
     }
 }
 
-// The photos of the boards fade in from top to bottom (public/js/BoardPhotos.js); without
+// The photos of the boards fade in from top to bottom (resources/assets/js/BoardPhotos.js); without
 // javascript they are shown right away
 .is-revealing [data-board-photo] {
     opacity: 0;

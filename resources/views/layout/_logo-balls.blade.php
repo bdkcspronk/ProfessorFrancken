@@ -1,6 +1,6 @@
 {{--
     The logo built from separate balls of an FCC unit cell (back, middle and front layer), so
-    that public/js/LogoBalls.js can let them shrink near the mouse. The balls are filled with
+    that resources/assets/js/LogoBalls.js can let them shrink near the mouse. The balls are filled with
     the current color so that front balls cover those behind. The coat of arms is a separate
     file, which browsers keep, as it is most of the size of the logo
 --}}

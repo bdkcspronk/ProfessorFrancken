@@ -7,7 +7,7 @@
 @section('title', "404 - Page not found - T.F.V. ‘Professor Francken’")
 
 @section('content')
-    {{-- A simulation of colliding particles (public/js/404.js), on navy like the page hero --}}
+    {{-- A simulation of colliding particles (resources/assets/js/404.js), on navy like the page hero --}}
     <div class="not-found">
         <canvas id="mpcCanvas" class="not-found__canvas" width="1600" height="680" aria-hidden="true"></canvas>
     </div>
@@ -25,5 +25,5 @@
         </div>
     </div>
 
-    <script src="/js/404.js?v={{ filemtime(public_path('js/404.js')) }}"></script>
+    @vite('resources/assets/js/404.js')
 @endsection
