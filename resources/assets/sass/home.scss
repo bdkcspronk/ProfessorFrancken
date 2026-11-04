@@ -3366,6 +3366,50 @@ $menu-card-banner-height: 11rem;
     }
 }
 
+// The almanak: the book on navy, with the buttons to turn its pages below it
+.almanak {
+    margin-bottom: 3rem;
+    font-family: $home-body-font;
+}
+
+.almanak__stage {
+    // turn.js gives the pages high z-indexes; this keeps them below the menus of the header
+    position: relative;
+    z-index: 0;
+    isolation: isolate;
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem 2rem;
+    background: $home-navy;
+    border-bottom: 4px solid $home-crimson;
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+
+.almanak__page {
+    background-color: white;
+    background-size: 100% 100%;
+}
+
+.almanak__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    max-width: 40rem;
+    margin: 1.5rem auto 0;
+}
+
+.almanak__count {
+    color: $home-navy;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.almanak__download {
+    margin-top: 1.25rem;
+    text-align: center;
+}
+
 // The 404 page: the particles of the simulation on navy, like the page hero
 .not-found {
     margin-bottom: 2rem;
@@ -3745,6 +3789,22 @@ $menu-card-banner-height: 11rem;
     &:hover,
     &:focus {
         color: $home-crimson;
+    }
+}
+
+// A button that removes something, such as a sign up or a comment
+.danger-button {
+    padding: 0.5rem 1rem;
+    border: 2px solid $home-crimson;
+    border-radius: 0;
+    background: transparent;
+    color: $home-crimson;
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+        background: $home-crimson;
+        color: white;
     }
 }
 
@@ -4345,6 +4405,10 @@ $menu-card-banner-height: 11rem;
         grid-template-columns: 1fr;
     }
 
+    .almanak__stage {
+        padding: 1rem;
+    }
+
     .album-latest {
         .album-card {
             aspect-ratio: 4 / 3;
@@ -4426,21 +4490,5 @@ $menu-card-banner-height: 11rem;
 
     .job-card__logo {
         justify-content: flex-start;
-    }
-}
-
-// A button that removes something, such as a sign up or a comment
-.danger-button {
-    padding: 0.5rem 1rem;
-    border: 2px solid $home-crimson;
-    border-radius: 0;
-    background: transparent;
-    color: $home-crimson;
-    font-weight: 600;
-
-    &:hover,
-    &:focus {
-        background: $home-crimson;
-        color: white;
     }
 }
