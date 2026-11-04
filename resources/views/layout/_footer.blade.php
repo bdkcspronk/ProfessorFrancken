@@ -19,7 +19,10 @@
             <div class="row">
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <a class="home-footer__brand" href="/">
-                        @svg('LOGO_FRANCKEN_STATIC', 'home-footer__logo')
+                        {{-- The logo is a separate file, which browsers keep; it takes the color of the link --}}
+                        <svg class="home-footer__logo" viewBox="0 0 200 158" aria-hidden="true" focusable="false">
+                            <use href="/logo/francken-logo.svg?v={{ filemtime(public_path('logo/francken-logo.svg')) }}#logo"/>
+                        </svg>
                         <span class="home-footer__name">T.F.V. ‘Professor<br><span class="home-hero__name">Francken</span><span class="home-hero__quote">’</span></span>
                     </a>
                     <p class="home-footer__tagline">

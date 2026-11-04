@@ -12,7 +12,7 @@
 <header class="home-header">
     <a class="home-header__brand" href="/" aria-label="T.F.V. ‘Professor Francken’, home">
         <span class="home-header__logo">
-            @svg('LOGO_FRANCKEN_BALLS', 'home-header__logo-svg', ['data-logo-balls' => 'true'])
+            @include('layout._logo-balls')
         </span>
     </a>
 

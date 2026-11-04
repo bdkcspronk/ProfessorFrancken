@@ -1,4 +1,4 @@
-// Lets the balls of the logo in the header (resources/assets/svg/LOGO_FRANCKEN_BALLS.svg)
+// Lets the balls of the logo in the header (resources/views/layout/_logo-balls.blade.php)
 // shrink when the mouse comes near, revealing the balls behind them. When the mouse
 // is away the balls have their original size, so the logo looks exactly as usual
 (function () {
