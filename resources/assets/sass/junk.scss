@@ -129,7 +129,7 @@ footer .header__title {
 .board-container {
   height: 350px;
   position: relative;
-  background-color: #173249;
+  background-color: $primary-color;
 
   border-radius: 0.5rem;
   z-index: -2;
@@ -222,7 +222,7 @@ footer .header__title {
 .excursion-container {
   height: 200px;
   position: relative;
-  background-color: #173249;
+  background-color: $primary-color;
 
   border-radius: 0.5rem;
 

@@ -13,7 +13,6 @@ use Francken\Shared\Settings\Settings;
 use Francken\Shared\Settings\ValueStoreSettings;
 use Francken\Shared\Vite;
 use Francken\Shared\ViewComponents\Admin\Navigation;
-use Francken\Shared\ViewComponents\Admin\NavigationGroup;
 use Francken\Shared\ViewComponents\AutocompleteMemberComponent;
 use Francken\Shared\ViewComponents\BorrelcieNotificationsComponent;
 use Francken\Shared\ViewComponents\FooterSponsorsComponent;
@@ -85,9 +84,6 @@ final class AppServiceProvider extends ServiceProvider
         Blade::component('autocomplete-member', AutocompleteMemberComponent::class, 'forms');
         Blade::component('borrelcie-notifications', BorrelcieNotificationsComponent::class);
 
-        Blade::components([
-            Navigation::class,
-            NavigationGroup::class,
-        ], 'admin');
+        Blade::component('admin-navigation', Navigation::class);
     }
 }

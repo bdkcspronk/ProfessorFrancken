@@ -31,7 +31,7 @@ class EmailDeductionsFeature extends TestCase
     public function a_new_deduction_can_be_uploaded() : void
     {
         $this->visit(action([DeductionsController::class, 'create']))
-            ->see('Start');
+            ->see('Upload a new deduction');
 
         $this->assertResponseOk();
         $this->type('2019-07-24', 'deducted_at')
@@ -60,7 +60,7 @@ class EmailDeductionsFeature extends TestCase
     public function a_validation_message_is_shown() : void
     {
         $this->visit(action([DeductionsController::class, 'create']))
-            ->see('Start');
+            ->see('Upload a new deduction');
 
         $this->withoutExceptionHandling();
         $this->expectException(ValidationException::class);

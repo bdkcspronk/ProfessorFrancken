@@ -1,125 +1,73 @@
-<div class="mobile-navigation d-flex d-md-none justify-content-end align-items-center bg-dark-primary">
-    <div class="ml-3 py-3 px-4 bg-primary text-white mobile-menu-button">
-        <i class="fas fa-bars"></i>
-    </div>
-</div>
+{{--
+    The pages of the admin, grouped by section: as tabs in the header and below it, and as
+    cards on the dashboard, see Francken\Shared\ViewComponents\Admin\Navigation
+--}}
+@switch ($variant)
+    @case('sections')
+        <nav class="admin-tabs" aria-label="Sections of the admin">
+            <a href="/admin" @class(['admin-tabs__tab', 'is-active' => request()->is('admin', 'admin/dashboard/*')])>
+                <i class="fas fa-th-large" aria-hidden="true"></i>
+                Overview
+            </a>
+            @foreach ($groups as $group)
+                <a
+                    href="{{ $group['href'] }}"
+                    @class(['admin-tabs__tab', 'is-active' => $group['active']])
+                    @if ($group['active']) aria-current="true" @endif
+                >{{ $group['name'] }}</a>
+            @endforeach
+        </nav>
+        @break
 
-<nav class="styled-navigation francken-navigation">
-    <div class="d-flex d-md-none justify-content-end align-items-center bg-dark-primary">
-        <div class="ml-3 py-3 px-4 bg-primary text-white mobile-menu-button">
-            <i class="fas fa-bars"></i>
+    @case('section-pages')
+        @if ($currentGroup !== null)
+            <nav class="admin-subtabs" aria-label="Pages of {{ $currentGroup['name'] }}">
+                <div class="admin-subtabs__list">
+                    @foreach ($currentGroup['items'] as $item)
+                        <a
+                            href="{{ $item['href'] }}"
+                            @class(['admin-subtabs__tab', 'is-active' => $item['active']])
+                            @if ($item['active']) aria-current="page" @endif
+                        >
+                            <i class="{{ $item['icon'] ?? 'fas fa-circle' }} fa-fw" aria-hidden="true"></i>
+                            {{ $item['name'] }}
+                        </a>
+                    @endforeach
+                </div>
+            </nav>
+        @endif
+        @break
+
+    @default
+        <div class="admin-pages">
+            @foreach ($columns() as $column)
+                <div class="admin-pages__column">
+                    @foreach ($column as $group)
+                        <section class="admin-pages__group">
+                            <h2 class="admin-pages__heading">{{ $group['name'] }}</h2>
+                            <ul class="admin-pages__list">
+                                @foreach ($group['items'] as $item)
+                                    <li>
+                                        <a href="{{ $item['href'] }}" class="admin-pages__link">
+                                            <i class="{{ $item['icon'] ?? 'fas fa-circle' }} fa-fw admin-pages__icon" aria-hidden="true"></i>
+                                            <span>
+                                                <span class="admin-pages__name">
+                                                    {{ $item['name'] }}
+                                                    @if (isset($item['works']) && ! $item['works'])
+                                                        <small class="admin-pages__unfinished">(not finished)</small>
+                                                    @endif
+                                                </span>
+                                                @if (($item['description'] ?? '') !== '')
+                                                    <small class="admin-pages__description">{{ $item['description'] }}</small>
+                                                @endif
+                                            </span>
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </section>
+                    @endforeach
+                </div>
+            @endforeach
         </div>
-    </div>
-    <ul class="navigation-items list-unstyled text-left d-md-flex flex-column mb-0 pb-2 text-muted bg-primary list-unstyled w-100">
-        @foreach ($menu as $item)
-            <x-admin-navigation-group :item="$item" />
-        @endforeach
-    </ul>
-</nav>
-
-@push('scripts')
-<script type="text/javascript">
-// From gsvnet
-    const Menu = (function(){
-        var activeClass = 'navigation-list__item--active-sub-list';
-        var $mainMenu;
-
-        function collapse(e){
-            if (e.isPropagationStopped()) {
-                return;
-            }
-
-            collapseSubMenu();
-            $mainMenu.removeClass('navigation-active');
-        }
-
-        function collapseSubMenu() {
-            $('.' + activeClass).removeClass(activeClass);
-        }
-
-        function showSubMenu(e){
-            // Stop bubbling up the DOM.
-            e.stopPropagation();
-            e.preventDefault();
-
-            // Check if event is already handled
-            if(e.handled !== true) {
-                // Save jQuery instance of element
-                $this = $(this);
-                $parent = $this.parent();
-
-                // Check if current menu is active
-                if($parent.hasClass(activeClass)){
-                    $this.attr('aria-expanded', false);
-                    $parent.removeClass(activeClass);
-                } else {
-                    // Remove active class from other menu
-                    collapseSubMenu();
-
-                    // Make menu active
-                    $this.attr('aria-expanded', true);
-                    $parent.addClass(activeClass);
-                }
-
-                e.handled = true;
-            } else {
-                return false;
-            }
-        }
-
-        function showMenu(e){
-            console.log("showing menu")
-            // Stop bubbling up the DOM.
-            e.stopPropagation();
-            e.preventDefault();
-
-            // Check if event is already handled
-            if(e.handled !== true) {
-                $mainMenu.toggleClass('navigation-active');
-                e.handled = true;
-            } else {
-                return false;
-            }
-        }
-
-        return {
-            // Initializes the menu
-            init: function(menu, carets, toggler) {
-                $mainMenu = menu;
-
-                if (Modernizr.touch)
-                {
-                    carets.on('touchstart', showSubMenu);
-                    toggler.on('touchstart', showMenu);
-                } else {
-                    carets.on('click', showSubMenu);
-                    toggler.on('click', showMenu);
-                }
-
-                menu.click(function(e){
-                    e.stopPropagation();
-                });
-
-                // Remove menu when document clicked or when escape is pressed
-                $('html').on({
-                    click: collapse,
-                    keyup: function(e) {
-                        // Check for escape
-                        if (e.keyCode == 27) { collapse(e); }
-                    }
-                });
-            }
-        }
-    })();
-
-    function overall() {
-        $mainMenu = $('.francken-navigation');
-
-        Menu.init($mainMenu, $('.navigation-sub-list__toggle'), $('.mobile-menu-button'));
-    }
-
-    overall();
-</script>
-
-
-@endpush
+@endswitch

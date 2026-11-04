@@ -2,5 +2,5 @@
 <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="/manifest.json">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#011842">
-<meta name="theme-color" content="#011842">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#14213d">
+<meta name="theme-color" content="#14213d">

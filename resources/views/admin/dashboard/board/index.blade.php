@@ -2,18 +2,11 @@
 @section('page-title', 'Hoi, ' . $board->board_name->toString())
 
 @section('content')
-    <div class="row">
-        <div class="col">
-            <p class="lead">
-                Welcome to the adtministration page of T.F.V. 'Professor Francken'.
-            </p>
+    <x-admin-navigation variant="page" />
 
-            <p>
-                This page is currently quite empty as I'm not sure what to put here yet.
-                On the right you can find notifications as well as a short to do list of the website.
-            </p>
-        </div>
-        <div class="col-4">
+    {{-- The notifications and the to-do list below the pages, as wide as the pages --}}
+    <div class="row admin-dashboard__extra mt-5">
+        <div class="col-lg-6">
             <div class="card">
                 <div class='card-body'>
                     <h4 class="h5 font-weight-bold d-flex justify-content-start">
@@ -84,7 +77,9 @@
                 </div>
             </div>
 
-            <div class="card my-4">
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
                 <div class='card-body'>
                     <h4 class="h5 font-weight-bold">
                         Website todo list

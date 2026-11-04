@@ -14,7 +14,7 @@ class MemberDashboardController extends Controller
         return view('admin.dashboard.member.index', [
             'member' => $request->user()->member,
             'breadcrumbs' => [
-                ['url' => action([self::class, 'index']), 'text' => 'Adtministration'],
+                ['url' => action([self::class, 'index']), 'text' => 'Administration'],
             ]
         ]);
     }

@@ -9,97 +9,75 @@
         @include('layout._favicon')
         @include('admin._styles')
     </head>
-    <body class=" admin-page">
-        <div class="francken-layout">
-            <div class="styled-header francken-header shadow-sm">
-                <div class="styled_header__logo text-white bg-dark-primary d-flex justify-content-center aligh-items-center h-100 px-2 mx-1 mx-md-0 px-md-0">
-                    <a class="d-inline-flex align-items-center" href="/admin">
-                        @svg('LOGO_KAAL', 'svg-logo scaleUp--hover', ['height' => '120px'])
-                    </a>
+    <body class="admin-page">
+        {{-- The header of the website, with a tab for every section of the admin, a link back
+             to the website and a button to log out --}}
+        <header class="home-header admin-header">
+            <a class="home-header__brand" href="/admin" aria-label="Administration of T.F.V. ‘Professor Francken’">
+                <span class="home-header__logo">
+                    @include('layout._logo-balls')
+                </span>
+            </a>
+
+            <x-admin-navigation variant="sections" />
+
+            <div class="home-header__actions">
+                <a class="home-header__action" href="/" title="Back to the website">
+                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                    <span class="d-none d-xl-inline">Website</span>
+                </a>
+
+                <a class="home-header__action" href="{{ route('get-logout') }}" title="Log out">
+                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
+                    <span class="d-none d-xl-inline">Log out</span>
+                </a>
+            </div>
+        </header>
+
+        {{-- The title of the page and its buttons in a crimson hero, like on the website --}}
+        <section class="page-hero admin-hero" data-fcc-lattice>
+            <div class="admin-container">
+                <div class="admin-hero__row">
+                    <h1 class="page-hero__title">@yield('page-title', 'Administration')</h1>
+
+                    <div class="admin-hero__actions">
+                        @yield('actions')
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <x-admin-navigation />
+        {{-- The pages of the section of this page, as tabs below the hero --}}
+        <x-admin-navigation variant="section-pages" />
 
-            @isset ($breadcrumbs)
-            <div class="francken-breadcrumbs-background bg-white">
-                {{--
-                    This empty space is used to make sure that the white
-                    background of the breadcrumbs continue underneath the logo
-                --}}
-            </div>
-            <div class="francken-breadcrumbs">
-                <nav aria-label="breadcrumb" class="d-print-none bg-white rounded-0 pl-4 pl-md-0 h-100 d-flex align-items-center">
-                    <div class=" container-fluid d-flex justify-content-between">
-                        <ol class="breadcrumb bg-white py-2 py-md-4 mb-0" style="">
-                            @foreach ($breadcrumbs as $breadcrumb)
-                                @if (! $loop->last)
-                                    <li class="breadcrumb-item">
-                                        <a href="{{ $breadcrumb['url'] }}">{{ $breadcrumb['text'] }}</a>
-                                    </li>
-                                @else
-                                    <li class="breadcrumb-item active" aria-current="page">
-                                        {{ $breadcrumb['text'] }}
-                                    </li>
-                                @endif
+        <main class="admin-content admin-container">
+            @if (session('status'))
+                <p class="alert alert-success mb-3">
+                    {{ session('status') }}
+                </p>
+            @endif
+
+            @if (session('error'))
+                <p class="alert alert-danger mb-3">
+                    <strong>Error: </strong> {{ session('error') }}
+                </p>
+            @endif
+
+            @section('alerts')
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <h3 class='h5'>We've found some validation errors while processing your request</h3>
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
                             @endforeach
-                        </ol>
-
-                        <div class="breadcrumb-item">
-                            <a href="/" class=" d-flex align-items-center px-4 text-muted">
-                                Back to Francken
-                            </a>
-                        </div>
+                        </ul>
                     </div>
-                </nav>
-            </div>
-            @endisset
+                @endif
+            @show
 
-            <main class="francken-content">
-
-                <div class="p-4 pt-2">
-                    <div class="d-flex justify-content-between align-itmes-center mb-4">
-                        <h1 class="section-header">
-                            @yield('page-title', 'Administration panel')
-                        </h1>
-
-                        @section('actions')
-                        @show
-                    </div>
-
-                    @if (session('status'))
-                        <p class="alert alert-success mb-3">
-                            {{ session('status') }}
-                        </p>
-                    @endif
-
-                    @if (session('error'))
-                        <p class="alert alert-danger mb-3">
-                            <strong>Error: </strong> {{ session('error') }}
-                        </p>
-                    @endif
-
-
-                    @section('alerts')
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <h3 class='h5'>We've found some validation errors while processing your request</h3>
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                                <p>
-                                    <strong>Note</strong>: I'm sorry for the crappy user feedback.
-                                </p>
-                            </div>
-                        @endif
-                    @show
-
-                    @yield('content')
-                </div>
-            </main>
-        </div>
+            @yield('content')
+        </main>
 
         @include('admin._scripts')
     </body>

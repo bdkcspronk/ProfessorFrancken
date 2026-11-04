@@ -1,13 +1,14 @@
 .admin-page {
-    --primary: #173249;
-    --primary-dark: #0e283e;
-    --primary-darkest: #0a1d2d;
+    // The navy of the website
+    --primary: #{$primary-color};
+    --primary-dark: #{$primary-color-dark};
+    --primary-darkest: #{darken($primary-color-dark, 4%)};
 
     .bg-light-primary {
-        background-color: hsla(173, 32%, 82%, 0.15) !important;
+        background-color: rgba(white, 0.08) !important;
     }
     .bg-lighter-primary {
-        background-color: hsla(173, 45%, 94%, 0.15) !important;
+        background-color: rgba($primary-color, 0.04) !important;
     }
 
     .navigation__sub-menu {
@@ -18,11 +19,7 @@
   // Set the border width of the border above the navigation
   --top-stroke-width: 0.75em;
   --navigation-margin-right: 0em;
-  // --border-color: #173249;
-  --border-color: #9edad3;
-  --border-color: #7ebcb5;
-  --border-color: #173249;
-  --border-color: #0a1d2d;
+  --border-color: #{$primary-color-dark};
 
   min-height: 100vh;
   min-width: 100%;
@@ -124,9 +121,6 @@
 .styled-header {
   --skew-degrees: 30deg;
   --negative-skew-degrees: -30deg;
-  --bg-color: #0e283e; //#173249;
-  --bg-color: #0a1d2d;
-
   --bg-color: var(--primary);
 
   background-color: var(--bg-color);
@@ -172,7 +166,6 @@
   }
 }
 
---primary-dark: #0e283e;
 .bg-dark-primary {
     background-color: var(--primary-dark);
 }

@@ -1,0 +1,320 @@
+// The admin in the style of the website (admin/layout.blade.php): the header with the logo
+// block and a tab per section, the title of the page in a crimson hero with the pages of the
+// section as tabs below it, and all pages as cards on the dashboard. The content is at most
+// this wide, in the middle of wide screens, so that tables don't stretch over the whole screen
+$admin-content-width: 1400px;
+
+// The space between the edge of the window and the content: the padding, or more on screens
+// that are wider than the content
+$admin-gutter: 1rem;
+$admin-gutter-md: 2rem;
+$admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) / 2)");
+
+.admin-container {
+    width: 100%;
+    max-width: calc(#{$admin-content-width} + 2 * #{$admin-gutter-md});
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 $admin-gutter;
+
+    @include media-breakpoint-up(md) {
+        padding: 0 $admin-gutter-md;
+    }
+}
+
+// The items of the header end at the right edge of the content, like on the website (minus
+// the padding of the last item)
+.admin-page .home-header__actions {
+    padding-right: 0;
+
+    @include media-breakpoint-up(md) {
+        padding-right: calc(#{$admin-side} - 1rem);
+    }
+}
+
+// The hero: the title on the left and the buttons of the page on the right
+.admin-hero__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+}
+
+.admin-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+    &:empty {
+        display: none;
+    }
+
+    // Navy buttons on the crimson, like the buttons of the hero of the homepage
+    .btn {
+        border-color: $home-navy;
+        background: $home-navy;
+        color: white;
+
+        &:hover,
+        &:focus {
+            border-color: white;
+            background: white;
+            color: $home-navy;
+        }
+    }
+
+    form {
+        margin: 0;
+    }
+
+    // Labels of fields in the hero, like the board on the page of committees
+    label,
+    .text-muted {
+        margin: 0;
+        color: rgba(white, 0.85) !important;
+    }
+}
+
+// On wide screens the logo block hangs into the hero, so the title starts right of it
+// On wide screens the logo block hangs into the hero, so the title starts right of it: at
+// 280px from the edge of the window, or at the left edge of the content when that is further
+@media (min-width: $logo-block-big-from) {
+    .admin-hero .admin-container {
+        padding-left: unquote("max(#{$admin-gutter-md}, 280px - (100vw - #{$admin-content-width} - 2 * #{$admin-gutter-md}) / 2)");
+    }
+}
+
+.admin-content {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+// The sections as tabs in the header, with a crimson line at the bottom of the header on the
+// open section and on hover, like the items of the header of the website. When they don't fit
+// they scroll sideways
+.admin-tabs {
+    display: flex;
+    align-items: stretch;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.admin-tabs__tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
+    border-bottom: 3px solid transparent;
+    color: rgba(white, 0.8);
+    font-family: $home-heading-font;
+    font-size: 1.05rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus-visible {
+        border-bottom-color: rgba($home-crimson, 0.6);
+        color: white;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        border-bottom-color: $home-crimson;
+        color: white;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    i {
+        font-size: 0.9em;
+    }
+}
+
+// On wide screens the logo block hangs below the header, so the tabs get some space next to it
+@media (min-width: $logo-block-big-from) {
+    .admin-tabs {
+        padding-left: 0.5rem;
+    }
+}
+
+// The pages of the open section as tabs on a white bar below the hero
+.admin-subtabs {
+    border-bottom: 1px solid $gray-300;
+    background: white;
+}
+
+.admin-subtabs__list {
+    display: flex;
+    overflow-x: auto;
+    max-width: calc(#{$admin-content-width} + 2 * #{$admin-gutter-md});
+    margin: 0 auto;
+    padding: 0 $admin-gutter;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include media-breakpoint-up(md) {
+        padding: 0 $admin-gutter-md;
+    }
+}
+
+.admin-subtabs__tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.9rem 0.75rem;
+    font-size: 0.95rem;
+    border-bottom: 3px solid transparent;
+    color: $gray-700;
+    font-family: $home-heading-font;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &:first-child {
+        margin-left: -0.75rem;
+    }
+
+    i {
+        color: $gray-500;
+    }
+
+    &:hover,
+    &:focus-visible {
+        border-bottom-color: rgba($home-crimson, 0.4);
+        color: $home-navy;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        border-bottom-color: $home-crimson;
+        color: $home-navy;
+
+        i {
+            color: $home-crimson;
+        }
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+// All pages on the dashboard: the sections in three columns of about the same length (see
+// the Navigation component) in the middle of the screen, each with an outline around its
+// cards, so that it is easy to see which pages belong together
+.admin-pages {
+    display: grid;
+    gap: 2rem;
+    max-width: 66rem;
+    margin: 0 auto;
+
+    @include media-breakpoint-up(md) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.admin-pages__column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.admin-pages__group {
+    padding: 1.25rem;
+    border: 1px solid $gray-300;
+    background: rgba(white, 0.5);
+}
+
+.admin-pages__heading {
+    margin-bottom: 1rem;
+    color: $home-crimson;
+    font-family: $home-heading-font;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.admin-pages__list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// The pages are white cards with a crimson edge, like the cards of the website
+.admin-pages__link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.9rem 1rem;
+    border-left: 3px solid $home-crimson;
+    background: white;
+    box-shadow: 0 1px 3px rgba(black, 0.08);
+    color: $home-navy;
+    transition: box-shadow 0.15s ease-in-out, color 0.15s ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+        box-shadow: 0 0.5rem 1rem rgba(black, 0.12);
+        color: $home-crimson;
+        text-decoration: none;
+    }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.admin-pages__icon {
+    margin-top: 0.2rem;
+    color: $home-crimson;
+}
+
+.admin-pages__name {
+    display: block;
+    font-family: $home-heading-font;
+    font-weight: 600;
+}
+
+.admin-pages__unfinished {
+    font-family: $home-body-font;
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+.admin-pages__description {
+    display: block;
+    margin-top: 0.1rem;
+    color: $gray-600;
+    font-size: 0.8rem;
+    line-height: 1.35;
+}
+
+// The notifications and to-do list of the board dashboard, below the pages
+.admin-dashboard__extra {
+    max-width: calc(66rem + #{$grid-gutter-width});
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// The text of buttons stays on one line, like "Apply filters" next to the fields of a search
+.admin-page .btn {
+    white-space: nowrap;
+}

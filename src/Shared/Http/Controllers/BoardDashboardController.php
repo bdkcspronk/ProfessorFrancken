@@ -19,7 +19,7 @@ class BoardDashboardController extends Controller
             'notifications' => $notifications,
             'total_notifications' => $board->unreadNotifications()->count(),
             'breadcrumbs' => [
-                ['url' => action([self::class, 'index']), 'text' => 'Adtministration'],
+                ['url' => action([self::class, 'index']), 'text' => 'Administration'],
             ]
         ]);
     }

@@ -4,7 +4,7 @@
 .styled-header {
   --skew-degrees: 30deg;
   --negative-skew-degrees: -30deg;
-  --bg-color: #173249;
+  --bg-color: #{$primary-color};
 
   background-color: var(--bg-color);
   position: relative;
@@ -56,7 +56,7 @@
   // Set the border width of the border above the navigation
   --top-stroke-width: 0.75em;
   --navigation-margin-right: 0em;
-  --border-color: #173249;
+  --border-color: #{$primary-color};
 
   border-top: var(--top-stroke-width) solid var(--border-color);
 
@@ -132,7 +132,7 @@
 }
 
 .styled-navigation {
-    --primary-dark: #011842;
+    --primary-dark: #{$primary-color-dark};
   .bg-dark-primary {
       background-color: var(--primary-dark);
   }
