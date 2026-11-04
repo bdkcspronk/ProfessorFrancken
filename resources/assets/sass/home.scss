@@ -5,7 +5,7 @@ $home-crimson: #a51c30;
 $home-crimson-dark: #7d1424;
 $home-crimson-light: #f0889a;
 // The board photo is tinted with this color
-$home-photo-tint: #d0596c;
+$home-photo-tint: $home-navy-light;
 
 $home-heading-font: "Space Grotesk", $font-family-sans-serif;
 $home-body-font: "Inter", $font-family-sans-serif;
@@ -17,8 +17,13 @@ $stripe-angle: 120deg;
 $slant: 0.57735; // tan(30deg)
 $hero-height: 500px;
 $header-height: 76px;
-// The logo block hangs below the header on larger screens
+// The space at the top of the heroes, for a logo block of this height that hangs below the
+// header
 $logo-block-height: 144px;
+// On wide screens the logo block hangs below the header and is a bit bigger; it then fits
+// to the left of the text of the heroes. On narrower screens it stays in the header
+$logo-block-big-height: 180px;
+$logo-block-big-from: 1600px;
 
 @function stripes($first: $home-navy, $second: $home-crimson) {
     @return repeating-linear-gradient(
@@ -59,15 +64,20 @@ $logo-block-height: 144px;
 
 // A faint FCC lattice behind an element that (optionally) fades out towards the
 // bottom; the element needs position: relative and its content has to be positioned
-// above it. By default the center atoms are light crimson, for use on navy.
+// above it. The lattice is white, on navy as well as on crimson.
 // The lattice is a background pattern, which public/js/FccLattice.js replaces by a
 // canvas with the same lattice (in a .home-lattice element) that reacts to the mouse
 @mixin fcc-lattice(
-    $center-color: "rgba(240,136,154,0.9)",
+    $center-color: "rgba(255,255,255,0.8)",
     $opacity: 0.1,
     $fade: true,
     $corner-color: "rgba(255,255,255,0.8)",
-    $edge-color: "rgba(255,255,255,0.35)"
+    $edge-color: "rgba(255,255,255,0.35)",
+    // The lattice fades out towards the bottom, or towards the top, between these parts of
+    // the height
+    $fade-to: bottom,
+    $fade-from: 0%,
+    $fade-until: 85%
 ) {
     &::before {
         content: "";
@@ -82,7 +92,7 @@ $logo-block-height: 144px;
         pointer-events: none;
 
         @if $fade {
-            mask-image: linear-gradient(to bottom, black, transparent 85%);
+            mask-image: linear-gradient(to $fade-to, black $fade-from, transparent $fade-until);
         }
     }
 
@@ -103,7 +113,7 @@ $logo-block-height: 144px;
         --lattice-edge: #{$edge-color};
 
         @if $fade {
-            mask-image: linear-gradient(to bottom, black, transparent 85%);
+            mask-image: linear-gradient(to $fade-to, black $fade-from, transparent $fade-until);
         }
     }
 }
@@ -218,10 +228,23 @@ $logo-block-height: 144px;
     position: relative;
     overflow: hidden;
     padding: 2.5rem 0 4.5rem;
-    // The navy gets a bit lighter towards the bottom of the hero
-    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
-    @include fcc-lattice($fade: false);
+    // The lattice fades out towards the header, the other way around than in the footer
+    background: $home-crimson;
+    @include fcc-lattice($fade-to: top, $fade-from: 50%, $fade-until: 100%);
     color: white;
+}
+
+// The crimson button would not stand out on the crimson hero
+.home-hero .home-btn--crimson {
+    background: $home-navy;
+    border-color: $home-navy;
+
+    &:hover,
+    &:focus {
+        background: white;
+        border-color: white;
+        color: $home-navy;
+    }
 }
 
 .home-hero__photo-frame {
@@ -259,7 +282,7 @@ $hero-eyebrow-ratio-lg: 0.2645;
 
 .home-hero__eyebrow {
     margin-bottom: 0.5rem;
-    color: $home-crimson-light;
+    color: rgba(white, 0.85);
     font-size: $hero-title-size * $hero-eyebrow-ratio;
     font-weight: bold;
     letter-spacing: 0.0717em;
@@ -318,7 +341,7 @@ $hero-eyebrow-ratio-lg: 0.2645;
             right: 0;
             bottom: 0;
             left: 0;
-            background: linear-gradient(to right, rgba($home-navy, 0.5), rgba($home-navy, 0) 45%);
+            background: linear-gradient(to right, rgba($home-crimson, 0.5), rgba($home-crimson, 0) 45%);
         }
     }
 
@@ -536,15 +559,8 @@ $covers-half-height: 0.3045;
     padding: 3.5rem 0;
     background: $home-crimson;
     color: rgba(white, 0.9);
-    // On crimson the whole lattice is light crimson; it contrasts less than white
-    // so it is a bit stronger, and it covers the whole band
-    @include fcc-lattice(
-        $center-color: "rgba(240,136,154,0.9)",
-        $corner-color: "rgba(240,136,154,0.9)",
-        $edge-color: "rgba(240,136,154,0.5)",
-        $opacity: 0.25,
-        $fade: false
-    );
+    // The lattice covers the whole band
+    @include fcc-lattice($fade: false);
 
     .container {
         position: relative;
@@ -715,13 +731,13 @@ $covers-half-height: 0.3045;
     margin-top: 0;
 }
 
-// The other pages show their title in a navy hero below the header, like the hero of
+// The other pages show their title in a crimson hero below the header, like the hero of
 // the homepage (layout/_page-hero.blade.php)
 .page-hero {
     position: relative;
     padding: 2.5rem 0;
-    background: linear-gradient(to bottom, $home-navy, lighten($home-navy, 7%));
-    @include fcc-lattice($fade: false);
+    background: $home-crimson;
+    @include fcc-lattice($fade-to: top, $fade-from: 50%, $fade-until: 100%);
 
     .container {
         position: relative;
@@ -737,12 +753,13 @@ $covers-half-height: 0.3045;
 
     i {
         margin-right: 0.5rem;
-        color: $home-crimson-light;
+        color: rgba(white, 0.75);
         font-size: 0.8em;
     }
 }
 
-// On larger screens the logo block hangs below the header, into the hero
+// On larger screens there is space at the top of the hero, where the logo block hangs on
+// wide screens
 @include media-breakpoint-up(md) {
     .page-hero {
         padding: calc(#{$logo-block-height - $header-height} + 1.5rem) 0 3rem;
@@ -753,7 +770,8 @@ $covers-half-height: 0.3045;
     }
 }
 
-// Header: a crimson logo block with a slanted edge, and the navigation on navy
+// Header: white icons on navy, with a navy logo block with a slanted edge that hangs into
+// the crimson hero below it
 .home-header {
     position: relative;
     z-index: 10;
@@ -775,7 +793,7 @@ $covers-half-height: 0.3045;
     }
 }
 
-// The crimson block is a skewed layer behind the logo, so that its slanted corner can
+// The logo block is a skewed layer behind the logo, so that its slanted corner can
 // be rounded like on the rest of the website (skew-md--top-right)
 .home-header__logo {
     position: relative;
@@ -791,7 +809,7 @@ $covers-half-height: 0.3045;
         right: 0;
         bottom: 0;
         left: 0;
-        background: $home-crimson;
+        background: $home-navy;
         border-radius: 0 0 10px 0;
         transform: skewX(-30deg);
         transform-origin: top right;
@@ -807,220 +825,566 @@ $covers-half-height: 0.3045;
 .home-header__logo-svg {
     height: 48px;
     width: auto;
-    color: $home-crimson;
+    // Like the logo in the footer (home-footer__logo)
+    overflow: visible;
+    color: $home-navy;
 }
 
-@include media-breakpoint-up(md) {
+@media (min-width: $logo-block-big-from) {
     .home-header__logo {
-        height: $logo-block-height;
-        padding: 0 calc(#{$logo-block-height * $slant} + 1.5rem) 0 2rem;
+        height: $logo-block-big-height;
+        padding: 0 calc(#{$logo-block-big-height * $slant} + 1.5rem) 0 2rem;
     }
 
     .home-header__logo-svg {
-        height: 96px;
+        height: 120px;
     }
 }
 
-.home-nav {
-    display: none;
+// The items of the header: Search, Login (or the profile) and Menu
+.home-header__actions {
+    display: flex;
     align-items: stretch;
     margin-left: auto;
-    padding-right: 1rem;
 }
 
-.home-nav__item {
-    position: relative;
-    display: flex;
+// The items end at the right edge of the content of the page (the container), minus the
+// padding of the last item, so that the Menu icon lines up with the edge of the content
+@each $breakpoint, $container-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+        .home-header__actions {
+            padding-right: calc((100% - #{$container-width - $grid-gutter-width}) / 2 - 1rem);
+        }
+    }
 }
 
-.home-nav__link {
+.home-header__action {
     display: flex;
     align-items: center;
+    gap: 0.6rem;
     padding: 0 1rem;
+    border: 0;
     border-bottom: 3px solid transparent;
-    color: rgba(white, 0.85);
+    background: transparent;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.15rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+        border-bottom-color: $home-crimson;
+        color: white;
+        text-decoration: none;
+    }
+
+    // No outline after a click, only when it is reached with the keyboard
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+.site-menu-toggle__icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 1.35rem;
+
+    span {
+        display: block;
+        height: 2px;
+        background: currentColor;
+        transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    }
+}
+
+// While the menu is open the outer lines turn into a cross: they move 6px (the gap plus a
+// line) to the middle and rotate, and the middle line disappears
+.site-menu-toggle[aria-expanded="true"] .site-menu-toggle__icon span {
+    &:nth-child(1) {
+        transform: translateY(6px) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+        opacity: 0;
+    }
+
+    &:nth-child(3) {
+        transform: translateY(-6px) rotate(-45deg);
+    }
+}
+
+// The icons are closer together on phones
+@include media-breakpoint-down(xs) {
+    .home-header__action {
+        padding: 0 0.75rem;
+    }
+}
+
+// The pages of the profile below the person of the header, when logged in
+.account-menu {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+.account-menu__list {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 13rem;
+    margin: 0;
+    padding: 0.5rem 0;
+    list-style: none;
+    background: $home-navy;
+    box-shadow: 0 0.75rem 1.5rem rgba(black, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.5rem);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, visibility 0s linear 0.2s;
+
+    .is-open > & {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition-delay: 0s;
+    }
+}
+
+.account-menu__link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 1.25rem;
+    border-left: 3px solid transparent;
+    color: white;
     font-family: $home-heading-font;
     font-weight: 500;
     white-space: nowrap;
 
     &:hover,
-    &:focus {
-        border-bottom-color: $home-crimson;
+    &:focus-visible {
+        border-left-color: $home-crimson;
+        background: rgba(white, 0.06);
         color: white;
         text-decoration: none;
     }
+
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
 }
 
-.home-nav__chevron {
-    margin-left: 0.4rem;
-    font-size: 0.65rem;
-    opacity: 0.6;
+.account-menu__icon {
+    color: $home-crimson-light;
 }
 
-.home-nav .login-link {
+@media (prefers-reduced-motion: reduce) {
+    .account-menu__list {
+        transition: none;
+    }
+}
+
+// The search in the header: the icon opens a field to its left
+.header-search {
+    display: flex;
+    // The button is as tall as the header, so that its crimson line on hover is at the
+    // bottom of the header, like the other items
+    align-items: stretch;
+}
+
+.header-search__input {
     align-self: center;
-    margin-left: 0.75rem;
-    padding: 0.5rem 1.25rem;
-    border-bottom: 0;
-    background: $home-crimson;
+    width: 0;
+    min-width: 0;
+    padding: 0.45rem 0;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    border-radius: 0;
+    background: rgba(white, 0.08);
     color: white;
+    font-family: $home-body-font;
+    opacity: 0;
+    transition: width 0.3s ease-in-out, padding 0.3s ease-in-out, opacity 0.2s ease-in-out;
 
-    &:hover,
+    &::placeholder {
+        color: rgba(white, 0.6);
+    }
+
     &:focus {
-        background: white;
-        color: $home-navy;
-    }
-}
-
-.home-nav__dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    min-width: 18rem;
-    padding: 0.5rem 0;
-    background: white;
-    border-top: 3px solid $home-crimson;
-    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15);
-}
-
-// The last item (Profile when logged in) is at the right edge of the window, so its
-// dropdown opens to the left instead of sticking out of the window
-.home-nav__item:last-child .home-nav__dropdown {
-    right: 0;
-    left: auto;
-}
-
-.home-nav__item:hover .home-nav__dropdown,
-.home-nav__item:focus-within .home-nav__dropdown {
-    display: block;
-}
-
-.home-nav__sub-link {
-    display: flex;
-    align-items: baseline;
-    padding: 0.6rem 1.25rem;
-    color: $home-navy;
-    font-weight: 500;
-
-    i {
-        margin-right: 0.75rem;
-        color: $home-crimson;
+        border-bottom-color: $home-crimson;
+        outline: none;
     }
 
-    small {
-        display: block;
-        color: $gray-600;
-        font-weight: normal;
-    }
-
-    &:hover,
-    &:focus {
-        background: $gray-100;
-        color: $home-navy;
-        text-decoration: none;
-    }
-}
-
-.home-menu {
-    margin-left: auto;
-}
-
-.home-menu__toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: $header-height;
-    height: $header-height;
-    padding: 0 1.5rem;
-    cursor: pointer;
-    list-style: none;
-
-    &::-webkit-details-marker {
+    // The browser's own clear button does not fit the dark header
+    &::-webkit-search-cancel-button {
         display: none;
     }
 
-    span {
-        display: block;
-        height: 2px;
-        margin: 3px 0;
-        background: white;
+    .is-open > & {
+        width: min(16rem, 40vw);
+        padding: 0.45rem 0.75rem;
+        opacity: 1;
     }
 }
 
-.home-menu__panel {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    padding: 1rem 1.5rem 1.5rem;
-    background: $home-navy;
+// On phones the field takes the room between the logo and the three icons
+@include media-breakpoint-down(xs) {
+    .is-open > .header-search__input {
+        width: calc(100vw - 17.5rem);
+    }
 }
 
-.home-menu__link,
-.home-menu__sub-link {
-    display: block;
+@media (prefers-reduced-motion: reduce) {
+    .header-search__input {
+        transition: none;
+    }
+}
+
+// The menu with all pages: a white panel that slides in from the right over a dark backdrop.
+// It reaches from the edge of the window, and its content ends below the Menu button
+$site-menu-speed: 0.3s;
+
+.site-menu {
+    position: fixed;
+    z-index: 1060;
+    // Below the header, so that the Menu button stays in view as the cross that closes it
+    inset: $header-height 0 0;
+    // The panel comes from outside the window
+    overflow: hidden;
+    visibility: hidden;
+    transition: visibility 0s linear $site-menu-speed;
+
+    &.is-open {
+        visibility: visible;
+        transition-delay: 0s;
+    }
+}
+
+// The page behind the menu does not scroll, and the header (with the logo block that hangs
+// below it) stays above the backdrop. When the menu closes, the header only goes back down
+// after the backdrop has faded out, so that the backdrop doesn't cover the logo block
+.home-header {
+    transition: z-index 0s linear $site-menu-speed;
+}
+
+.site-menu-is-open {
+    overflow: hidden;
+
+    .home-header {
+        z-index: 1070;
+        transition-delay: 0s;
+    }
+}
+
+.site-menu__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba($home-navy, 0.6);
+    opacity: 0;
+    transition: opacity $site-menu-speed ease-in-out;
+
+    .is-open > & {
+        opacity: 1;
+    }
+}
+
+.site-menu__panel {
+    // The space between the content of the page and the right edge of the window (below).
+    // The panel is wider by this space, and its content ends there, below the Menu button.
+    // In vw, which matches the header while the menu is open: the page then has no scrollbar
+    --site-menu-right: 0px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(calc(26rem + var(--site-menu-right)), 100%);
+    // Clip instead of hidden: a hidden overflow can still be scrolled by the browser, which
+    // would move the levels sideways
+    overflow: hidden;
+    overflow: clip;
+    background: $home-navy;
+    border-left: 4px solid $home-crimson;
+    box-shadow: -0.5rem 0 2rem rgba(0, 0, 0, 0.2);
+    font-family: $home-body-font;
+    transform: translateX(100%);
+    transition: transform $site-menu-speed ease-in-out;
+
+    .is-open > & {
+        transform: none;
+    }
+    // The lattice lies over the levels (which have their own navy background, as they slide
+    // over each other on phones), faintly, and fades out from halfway up to the top. It
+    // reacts to the mouse (public/js/FccLattice.js)
+    @include fcc-lattice($fade-to: top, $fade-from: 50%, $fade-until: 100%);
+
+    &::before,
+    > .home-lattice {
+        z-index: 1;
+    }
+}
+
+// The content of the panel ends at the right edge of the content of the page, like the
+// Menu icon (see .home-header__actions)
+@each $breakpoint, $container-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint) {
+        .site-menu__panel {
+            --site-menu-right: calc((100vw - #{$container-width - $grid-gutter-width}) / 2);
+        }
+    }
+}
+
+// The levels lie on top of each other: the sections slide a bit to the left when the pages
+// of a section slide in from the right
+.site-menu__level {
+    position: absolute;
+    inset: 0;
+    padding: 0 max(2rem, var(--site-menu-right)) 2rem 2rem;
+    overflow-y: auto;
+    background: $home-navy;
+    transform: translateX(100%);
+    transition: transform $site-menu-speed ease-in-out;
+
+    &.is-active {
+        transform: none;
+    }
+
+    &.is-behind {
+        transform: translateX(-30%);
+    }
+}
+
+.site-menu__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    margin-bottom: 1rem;
+}
+
+.site-menu__back {
+    padding: 0.5rem;
+    border: 0;
+    background: transparent;
     color: white;
+    cursor: pointer;
 
     &:hover,
-    &:focus {
+    &:focus-visible {
+        color: $home-crimson-light;
+    }
+
+    &:focus-visible {
+        outline: 2px solid $home-crimson-light;
+        outline-offset: 2px;
+    }
+}
+
+.site-menu__back {
+    margin-left: -0.5rem;
+    font-weight: 600;
+
+    i {
+        margin-right: 0.35rem;
+    }
+}
+
+.site-menu__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-menu__level > .site-menu__list:first-child {
+    margin-top: 1rem;
+}
+
+// A section of the menu: a link, or a button that slides in the pages of the section
+.site-menu__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 0;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.35rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
         color: $home-crimson-light;
         text-decoration: none;
     }
 }
 
-.home-menu__link {
-    margin-top: 0.75rem;
-    font-family: $home-heading-font;
-    font-size: 1.15rem;
-    font-weight: bold;
-}
-
-.home-menu__sub-link {
-    padding: 0.2rem 0 0.2rem 1rem;
-    color: rgba(white, 0.75);
-}
-
-// The items with a dropdown open and close when they are tapped
-.home-menu__group {
-    > summary {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-        list-style: none;
-
-        &::-webkit-details-marker {
-            display: none;
-        }
-    }
-
-    &[open] {
-        padding-bottom: 0.25rem;
-
-        > summary {
-            color: $home-crimson-light;
-        }
-
-        .home-menu__chevron {
-            transform: rotate(180deg);
-        }
-    }
-}
-
-.home-menu__chevron {
-    font-size: 0.8rem;
-    opacity: 0.7;
+.site-menu__arrow {
+    color: $home-crimson-light;
+    font-size: 0.9rem;
     transition: transform 0.15s ease-in-out;
 }
 
-@include media-breakpoint-up(lg) {
-    .home-nav {
-        display: flex;
+.site-menu__section {
+    display: block;
+    margin-bottom: 1rem;
+    color: white;
+    font-family: $home-heading-font;
+    font-size: 1.75rem;
+    font-weight: bold;
+
+    &:hover,
+    &:focus-visible {
+        color: white;
+        text-decoration: none;
+
+        .site-menu__overview {
+            color: white;
+        }
+    }
+}
+
+.site-menu__overview {
+    display: block;
+    color: $home-crimson-light;
+    font-family: $home-body-font;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.site-menu__sub-link {
+    display: flex;
+    align-items: baseline;
+    padding: 0.75rem 0;
+    color: white;
+    font-weight: 600;
+
+    small {
+        display: block;
+        color: rgba(white, 0.6);
+        font-weight: normal;
     }
 
-    .home-menu {
-        display: none;
+    &:hover,
+    &:focus-visible {
+        color: $home-crimson-light;
+        text-decoration: none;
+    }
+}
+
+.site-menu__icon {
+    margin-right: 0.85rem;
+    color: $home-crimson-light;
+}
+
+.site-menu__link,
+.site-menu__section,
+.site-menu__sub-link {
+    &:focus-visible {
+        outline: 2px solid $home-crimson-light;
+        outline-offset: 2px;
+    }
+
+    // No dotted outline after a click (Firefox draws one around a clicked button)
+    &:focus:not(:focus-visible) {
+        outline: none;
+    }
+}
+
+// On wide screens the pages of a section come out in a column next to the sections, like on
+// the website of ASML (mirrored, as the Menu button is on the right): the panel grows to the
+// left, the sections stay where they are below the Menu button, and the pages appear in the
+// new column on the left
+@include media-breakpoint-up(lg) {
+    .site-menu__panel {
+        transition: transform $site-menu-speed ease-in-out, width $site-menu-speed ease-in-out;
+
+        .has-section > & {
+            width: min(calc(52rem + var(--site-menu-right)), 100%);
+        }
+    }
+
+    // The sections: always at the right of the panel, ending below the Menu button
+    .site-menu__level[data-site-menu-level="main"] {
+        left: auto;
+        width: calc(26rem + var(--site-menu-right));
+        transform: none;
+    }
+
+    // The pages of a section: a column at the left, which fades in while the panel grows
+    .site-menu__level:not([data-site-menu-level="main"]) {
+        right: auto;
+        width: 26rem;
+        padding-right: 2rem;
+        border-right: 1px solid rgba(white, 0.15);
+        opacity: 0;
+        transform: none;
+        transition: opacity $site-menu-speed ease-in-out;
+
+        &.is-active {
+            opacity: 1;
+        }
+
+        // No Back button: the sections are next to it
+        .site-menu__top {
+            display: none;
+        }
+
+        .site-menu__section {
+            margin-top: 1.5rem;
+        }
+    }
+
+    // The section whose pages are shown
+    .site-menu__link.is-current {
+        color: $home-crimson-light;
+
+        .site-menu__arrow {
+            transform: translateX(-0.25rem) rotate(180deg);
+        }
+    }
+}
+
+// On very wide screens the space between the content of the page and the edge of the window
+// has room for the pages (22rem: (1814px - 1110px) / 2), so they come out to the right of the
+// sections, in the panel that already reaches the edge of the window
+@media (min-width: 1814px) {
+    .site-menu__panel {
+        .has-section > & {
+            width: min(calc(26rem + var(--site-menu-right)), 100%);
+        }
+    }
+
+    .site-menu__level:not([data-site-menu-level="main"]) {
+        right: 0;
+        left: auto;
+        // 0.75rem narrower, so that its line stays clear of the arrows of the sections
+        width: calc(var(--site-menu-right) - 0.75rem);
+        padding: 0 2rem;
+        border-right: 0;
+        border-left: 1px solid rgba(white, 0.15);
+    }
+
+    .site-menu__link.is-current .site-menu__arrow {
+        transform: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .site-menu,
+    .site-menu__backdrop,
+    .site-menu__panel,
+    .site-menu__level,
+    .site-menu__level:not([data-site-menu-level="main"]),
+    .site-menu__arrow,
+    .site-menu-toggle__icon span {
+        transition: none;
     }
 }
 
@@ -1156,7 +1520,11 @@ $covers-half-height: 0.3045;
 .home-footer__logo {
     height: 56px;
     width: auto;
-    color: $home-navy;
+    // The outlines of the outer balls end right at the edge of the drawing; without this a
+    // sliver of them is cut off when the edge falls between two pixels
+    overflow: visible;
+    // The logo has the color of the link, so that it turns crimson on hover with the name
+    color: inherit;
 }
 
 .home-footer__tagline {
@@ -1330,6 +1698,129 @@ $covers-half-height: 0.3045;
 .activity-calendar__ical {
     display: inline-block;
     margin-top: 1.5rem;
+}
+
+// The search page: a large field, followed by the results grouped by their kind
+.search-form {
+    display: flex;
+    max-width: 50rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+
+    .home-btn {
+        flex-shrink: 0;
+    }
+}
+
+.search-form__input {
+    flex-grow: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border: 2px solid white;
+    border-radius: 0;
+    color: $home-navy;
+    font-family: $home-body-font;
+    font-size: 1.15rem;
+
+    &:focus {
+        border-color: $home-navy;
+        outline: none;
+    }
+}
+
+.search-summary {
+    margin-bottom: 2rem;
+    color: $gray-700;
+    font-family: $home-body-font;
+}
+
+.search-group {
+    max-width: 50rem;
+    margin-bottom: 2.5rem;
+    font-family: $home-body-font;
+}
+
+.search-group__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.35rem;
+    font-weight: bold;
+
+    i {
+        margin-right: 0.5rem;
+        color: $home-crimson;
+        font-size: 1.1rem;
+    }
+}
+
+.search-group__count {
+    margin-left: 0.6rem;
+    padding: 0.1rem 0.55rem;
+    background: $home-navy;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.search-result {
+    display: block;
+    margin-bottom: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-left: 4px solid $gray-200;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.05);
+    color: $gray-700;
+    transition: all 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        border-left-color: $home-crimson;
+        box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+        color: $gray-700;
+        text-decoration: none;
+
+        .search-result__title {
+            color: $home-crimson;
+        }
+    }
+
+    mark {
+        padding: 0 0.1em;
+        background: rgba($home-crimson-light, 0.35);
+        color: inherit;
+    }
+}
+
+.search-result__title {
+    display: block;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: color 0.15s ease-in-out;
+}
+
+.search-result__meta {
+    display: block;
+    margin-top: 0.15rem;
+    color: $home-crimson;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.search-result__snippet {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.95rem;
+}
+
+@include media-breakpoint-down(sm) {
+    .search-form .home-btn {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
 }
 
 // The history in periods that fold open: a white heading per period, with its own timeline
@@ -2621,10 +3112,6 @@ $menu-card-banner-height: 11rem;
     opacity: 0.6;
 }
 
-.home-nav__sub-link .home-nav__external-note {
-    color: $home-crimson;
-}
-
 .public-site,
 .home {
     .external-link::after {
@@ -3704,15 +4191,6 @@ $menu-card-banner-height: 11rem;
         i {
             color: $gray-400;
         }
-    }
-}
-
-.profile-nav__icon {
-    margin-right: 0.75rem;
-    color: $home-crimson;
-
-    .is-active & {
-        color: white;
     }
 }
 

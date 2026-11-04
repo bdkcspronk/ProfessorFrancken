@@ -48,6 +48,9 @@
         <script src="/js/FccLattice.js?v={{ filemtime(public_path('js/FccLattice.js')) }}"></script>
         <script src="/js/LogoBalls.js?v={{ filemtime(public_path('js/LogoBalls.js')) }}"></script>
         <script src="/js/ExternalLinks.js?v={{ filemtime(public_path('js/ExternalLinks.js')) }}"></script>
+        <script src="/js/SiteMenu.js?v={{ filemtime(public_path('js/SiteMenu.js')) }}"></script>
+        <script src="/js/AccountMenu.js?v={{ filemtime(public_path('js/AccountMenu.js')) }}"></script>
+        <script src="/js/SiteSearch.js?v={{ filemtime(public_path('js/SiteSearch.js')) }}"></script>
 
         <script type="text/javascript">
          // Render  any latex currently loaded in our dom
