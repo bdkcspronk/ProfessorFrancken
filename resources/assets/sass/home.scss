@@ -1332,6 +1332,77 @@ $covers-half-height: 0.3045;
     margin-top: 1.5rem;
 }
 
+// The history in periods that fold open: a white heading per period, with its own timeline
+.history-era {
+    margin-bottom: 1rem;
+    font-family: $home-body-font;
+
+    &[open] {
+        margin-bottom: 3rem;
+
+        .history-era__summary {
+            margin-bottom: 2rem;
+        }
+
+        .history-era__chevron {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.history-era__summary {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem 4rem 1.25rem 1.5rem;
+    background: white;
+    border-left: 4px solid $home-crimson;
+    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
+    color: $home-navy;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.15s ease-in-out;
+
+    &::-webkit-details-marker {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        border-left-color: $home-navy;
+        box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.1);
+    }
+}
+
+.history-era__years {
+    color: $home-crimson;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.history-era__title {
+    font-family: $home-heading-font;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.history-era__description {
+    margin-top: 0.25rem;
+    color: $gray-600;
+}
+
+.history-era__chevron {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    margin-top: -0.5rem;
+    color: $home-crimson;
+    transition: transform 0.2s ease-in-out;
+}
+
 // The history page as a timeline: the years in crimson next to a navy line with dots,
 // the text in white cards and the most important moments as navy milestones
 $timeline-year-width: 6rem;
@@ -1341,14 +1412,15 @@ $timeline-gap: 2.5rem;
     position: relative;
     font-family: $home-body-font;
 
-    // The line through the dots
+    // The line through the dots: an even width, so that its center falls on a whole pixel
+    // like the centers of the dots
     &::before {
         content: "";
         position: absolute;
         top: 0.5rem;
         bottom: 0.5rem;
-        left: calc(#{$timeline-year-width} + #{$timeline-gap / 2} - 1.5px);
-        width: 3px;
+        left: calc(#{$timeline-year-width} + #{$timeline-gap / 2} - 2px);
+        width: 4px;
         background: $home-navy;
     }
 }
@@ -1435,8 +1507,9 @@ $timeline-gap: 2.5rem;
 
 // On phones the years are above the cards, and the line is at the left
 @include media-breakpoint-down(sm) {
+    // Centered on the dots, which are centered 0.5rem from the left
     .history-timeline::before {
-        left: 0.5rem;
+        left: calc(0.5rem - 2px);
     }
 
     .history-entry {
@@ -2805,89 +2878,6 @@ $menu-card-banner-height: 11rem;
     font-size: 1.05rem;
     font-weight: bold;
 }
-
-// The buildings of the association, as navy outlines next to the moves in the history:
-// below the card, or beside the timeline on wide screens
-$history-building-width: 13rem;
-
-.history-building {
-    // Below the card: the last column of the entry, also when the years are above the
-    // cards on a phone
-    grid-column: -2;
-    max-width: 20rem;
-    margin: 1rem 0 0;
-    padding: 1.25rem 1.25rem 1rem;
-    background: white;
-    border-top: 4px solid $home-crimson;
-    box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.06);
-    font-family: $home-body-font;
-
-    figcaption {
-        margin-top: 0.75rem;
-        color: $gray-600;
-        font-size: 0.85rem;
-
-        strong {
-            display: block;
-            color: $home-navy;
-            font-family: $home-heading-font;
-            font-size: 1.1rem;
-        }
-    }
-}
-
-@include media-breakpoint-up(xl) {
-    // Narrower, so that there is room for the buildings on both sides
-    .history-timeline {
-        max-width: 40rem;
-        margin: 0 auto;
-    }
-
-    // Not in a column of the entry, so that it is positioned against the whole entry
-    .history-building {
-        position: absolute;
-        top: 0;
-        grid-column: auto;
-        width: $history-building-width;
-        margin: 0;
-        padding: 1rem 1rem 0.85rem;
-    }
-
-    .history-building--left {
-        right: calc(100% + 1.5rem);
-    }
-
-    .history-building--right {
-        left: calc(100% + 1.5rem);
-    }
-}
-
-.history-building__svg {
-    display: block;
-    width: 100%;
-    height: auto;
-    color: $home-navy;
-
-    .building-accent {
-        fill: rgba($home-crimson, 0.15);
-        stroke: $home-crimson;
-    }
-
-    .building-accent--solid {
-        fill: $home-crimson;
-    }
-
-    .building-accent--yellow {
-        fill: #f2c94c;
-        stroke: currentColor;
-    }
-
-    .building-ground {
-        stroke: $home-crimson;
-        stroke-width: 3;
-    }
-}
-
 
 // News: cards on the overview, the article with its author, and the archive
 .news-card {
