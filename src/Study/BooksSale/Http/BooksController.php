@@ -14,7 +14,7 @@ class BooksController extends Controller
 {
     public function index(Request $request) : View
     {
-        $search = trim((string) $request->input('search', ''));
+        $search = $request->string('search')->trim()->toString();
 
         $books = Book::query()
             ->available()

@@ -15,6 +15,20 @@ use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 use Webmozart\Assert\Assert;
 
+/**
+ * @property int $id
+ * @property int $board_id
+ * @property int|null $photo_media_id
+ * @property string $name
+ * @property string $goal
+ * @property string $slug
+ * @property string|null $email
+ * @property bool $is_public
+ * @property string|null $source_content
+ * @property string|null $compiled_content
+ * @property-read Board $board
+ * @property-read Media|null $photoMedia
+ */
 final class Committee extends Model
 {
     use Mediable;

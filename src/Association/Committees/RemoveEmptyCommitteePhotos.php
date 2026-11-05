@@ -31,6 +31,7 @@ final class RemoveEmptyCommitteePhotos extends Command
 
     public function handle() : void
     {
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Committee> $committees */
         $committees = Committee::query()
             ->with(['board', 'photoMedia'])
             ->whereHas('photoMedia', fn ($query) => $query->where('size', '<=', self::MAX_SIZE_OF_AN_EMPTY_PHOTO))
@@ -41,7 +42,7 @@ final class RemoveEmptyCommitteePhotos extends Command
                 '%s (%s): %d bytes',
                 $committee->name,
                 $committee->board->board_year->toString(),
-                $committee->photoMedia->size
+                $committee->photoMedia?->size ?? 0
             ));
 
             if ($this->option('dry-run')) {

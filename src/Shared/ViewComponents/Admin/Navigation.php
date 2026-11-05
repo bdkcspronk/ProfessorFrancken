@@ -28,6 +28,9 @@ final class Navigation extends Component
         $account = $auth->user();
         Assert::isInstanceOf($account, Account::class);
 
+        /** @var array<int, array{name: string, url: string, items: array<int, array<string, mixed>>}> $menu */
+        $menu = config('francken.navigation.admin-menu');
+
         $groups = array_map(
             function (array $group) use ($account, $request) : array {
                 $items = array_filter(
@@ -35,28 +38,32 @@ final class Navigation extends Component
                     // Pages that don't work yet are only shown to super admins
                     fn (array $item) : bool => isset($item['works']) && ! $item['works']
                         ? $account->can('super-admin-read')
-                        : $account->can($item['can'] ?? 'can-access-dashboard')
+                        : $account->can(is_string($item['can'] ?? null) ? $item['can'] : 'can-access-dashboard')
                 );
 
                 $group['items'] = array_map(function (array $item) use ($group, $request) : array {
                     $path = 'admin/' . $group['url'] . '/' . $item['url'];
                     $item['href'] = '/' . $path;
-                    $item['match'] = $this->match($request, [$path, ...($item['also'] ?? [])]);
+                    /** @var string[] $also */
+                    $also = $item['also'] ?? [];
+                    $item['match'] = $this->match($request, [$path, ...$also]);
 
                     return $item;
                 }, array_values($items));
 
                 return $group;
             },
-            config('francken.navigation.admin-menu')
+            $menu
         );
 
         // The page is the one whose url matches best, as the pages of committees are also
         // pages of a board
-        $best = max([0, ...array_merge(...array_map(
-            fn (array $group) : array => array_column($group['items'], 'match'),
-            $groups
-        ))]);
+        $best = 0;
+        foreach ($groups as $group) {
+            foreach ($group['items'] as $item) {
+                $best = max($best, $item['match']);
+            }
+        }
 
         $groups = array_map(function (array $group) use ($best) : array {
             $group['items'] = array_map(function (array $item) use ($best) : array {
@@ -78,20 +85,6 @@ final class Navigation extends Component
         ));
 
         $this->currentGroup = collect($this->groups)->firstWhere('active', true);
-    }
-
-    /**
-     * How well the url of the request matches one of the paths (the length of the longest
-     * path it is on or below), or 0 when it matches none
-     */
-    private function match(Request $request, array $paths) : int
-    {
-        $lengths = array_map(
-            fn (string $path) : int => $request->is($path, $path . '/*') ? strlen($path) : 0,
-            $paths
-        );
-
-        return max([0, ...$lengths]);
     }
 
     /**
@@ -122,5 +115,19 @@ final class Navigation extends Component
     public function render() : View
     {
         return view('admin.components.navigation');
+    }
+
+    /**
+     * How well the url of the request matches one of the paths (the length of the longest
+     * path it is on or below), or 0 when it matches none
+     */
+    private function match(Request $request, array $paths) : int
+    {
+        $lengths = array_map(
+            fn (string $path) : int => $request->is($path, $path . '/*') ? strlen($path) : 0,
+            $paths
+        );
+
+        return max([0, ...$lengths]);
     }
 }

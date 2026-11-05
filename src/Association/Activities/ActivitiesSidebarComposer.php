@@ -55,7 +55,9 @@ class ActivitiesSidebarComposer
             ->where('start_date', '<', $end)
             ->pluck('start_date')
             // The dates are formatted as "Y-m-d H:i:s", so the first 7 characters are "Y-m"
-            ->countBy(fn ($date) : string => substr((string) $date, 0, 7))
+            ->countBy(fn ($date) : string => $date instanceof \DateTimeInterface
+                ? $date->format('Y-m')
+                : substr(is_string($date) ? $date : '', 0, 7))
             ->all();
     }
 

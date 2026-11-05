@@ -58,7 +58,7 @@ final class SearchController
 
     public function index(Request $request, Clock $clock) : View
     {
-        $query = trim((string) $request->input('q', ''));
+        $query = $request->string('q')->trim()->toString();
         $words = $this->words($query);
 
         $groups = [];
@@ -132,13 +132,17 @@ final class SearchController
 
         $customPages = $this->whereWords(Page::public(), ['title', 'description', 'source_content'], $words)
             ->get()
+            ->toBase()
             ->map(fn (Page $page) : array => [
                 'title' => $page->title,
                 'url' => '/' . $page->slug,
                 'text' => $this->plainText((string) $page->compiled_content),
             ]);
 
-        return $pages->concat($customPages)
+        /** @var Collection<int, array{url: string, title: string, text: string}> $results */
+        $results = $pages->concat($customPages);
+
+        return $results
             ->map(fn (array $page) : array => $page + ['score' => $this->score($page, $words)])
             ->filter(fn (array $page) : bool => $page['score'] > 0)
             ->sortByDesc('score')
@@ -151,6 +155,7 @@ final class SearchController
             ->orderByDesc('start_date')
             ->limit(self::MAX_RESULTS_PER_GROUP)
             ->get()
+            ->toBase()
             ->map(fn (Activity $activity) : array => [
                 'title' => $activity->name,
                 'url' => action([ActivitiesController::class, 'show'], ['activity' => $activity]),
@@ -166,11 +171,15 @@ final class SearchController
      */
     private function committees(array $words, Clock $clock) : Collection
     {
-        return $this->whereWords(Committee::query(), ['name', 'goal', 'source_content'], $words)
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Committee> $committees */
+        $committees = $this->whereWords(Committee::query(), ['name', 'goal', 'source_content'], $words)
             ->where('is_public', true)
             ->whereHas('board', fn (Builder $query) => $query->where('installed_at', '<', $clock->now()))
             ->with('board')
-            ->get()
+            ->get();
+
+        return $committees
+            ->toBase()
             ->sortByDesc(fn (Committee $committee) => $committee->board->installed_at)
             ->unique('slug')
             ->values()
@@ -187,6 +196,7 @@ final class SearchController
             ->orderBy('title')
             ->limit(self::MAX_RESULTS_PER_GROUP)
             ->get()
+            ->toBase()
             ->map(fn (Book $book) : array => [
                 'title' => $book->title,
                 'url' => action([BooksController::class, 'show'], ['book' => $book]),
@@ -203,17 +213,19 @@ final class SearchController
             ->recent()
             ->limit(self::MAX_RESULTS_PER_GROUP)
             ->get()
+            ->toBase()
             ->map(fn (News $news) : array => [
                 'title' => $news->title,
                 'url' => action([NewsController::class, 'show'], ['news' => $news]),
                 'text' => $this->plainText($news->exerpt . ' ' . $news->compiled_contents),
-                'meta' => $news->published_at->format('j F Y'),
+                'meta' => $news->published_at?->format('j F Y'),
             ]);
     }
 
     private function companies(array $words) : Collection
     {
-        return Partner::query()
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Partner> $partners */
+        $partners = Partner::query()
             ->whereHas('companyProfile', fn (Builder $query) => $query->where('is_enabled', true))
             ->where(function (Builder $query) use ($words) : void {
                 $this->whereWords($query, ['name'], $words)
@@ -222,21 +234,28 @@ final class SearchController
             ->with('companyProfile')
             ->orderBy('name')
             ->limit(self::MAX_RESULTS_PER_GROUP)
-            ->get()
+            ->get();
+
+        return $partners
+            ->toBase()
             ->map(fn (Partner $partner) : array => [
-                'title' => $partner->companyProfile->display_name,
+                'title' => (string) $partner->companyProfile?->display_name,
                 'url' => action([CompaniesController::class, 'show'], ['partner' => $partner]),
-                'text' => $this->plainText((string) $partner->companyProfile->compiled_content),
+                'text' => $this->plainText((string) $partner->companyProfile?->compiled_content),
             ]);
     }
 
     private function jobOpenings(array $words) : Collection
     {
-        return $this->whereWords(Vacancy::query(), ['title', 'description'], $words)
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Vacancy> $vacancies */
+        $vacancies = $this->whereWords(Vacancy::query(), ['title', 'description'], $words)
             ->with('partner')
             ->orderBy('title')
             ->limit(self::MAX_RESULTS_PER_GROUP)
-            ->get()
+            ->get();
+
+        return $vacancies
+            ->toBase()
             ->map(fn (Vacancy $vacancy) : array => [
                 'title' => $vacancy->title,
                 'url' => $vacancy->vacancy_url ?: '/career/job-openings',
@@ -248,8 +267,11 @@ final class SearchController
     /**
      * Every word has to be in one of the columns
      *
+     * @template TModel of \Illuminate\Database\Eloquent\Model
+     * @param Builder<TModel> $query
      * @param string[] $columns
      * @param string[] $words
+     * @return Builder<TModel>
      */
     private function whereWords(Builder $query, array $columns, array $words) : Builder
     {
@@ -269,7 +291,7 @@ final class SearchController
     /**
      * Pages that contain every word, where words in the title count more
      *
-     * @param array{title: string, text: string} $page
+     * @param array{title: string, text: string, ...} $page
      * @param string[] $words
      */
     private function score(array $page, array $words) : int
@@ -345,7 +367,7 @@ final class SearchController
         $positions = array_filter(array_map(fn (string $word) => mb_strpos($lowerText, $word), $words), fn ($position) : bool => $position !== false);
         $position = count($positions) > 0 ? min($positions) : 0;
 
-        $start = max(0, $position - (int) (self::SNIPPET_LENGTH / 3));
+        $start = max(0, $position - intdiv(self::SNIPPET_LENGTH, 3));
         if ($start > 0) {
             // Start at the beginning of a word
             $space = mb_strpos($text, ' ', $start);
