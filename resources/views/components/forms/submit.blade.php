@@ -1,5 +1,5 @@
 @props([
-    'class' => 'btn btn-outline-success',
+    'class' => 'btn btn-primary',
     'disabled' => false,
     'block' => false,
     'text' => '',

@@ -1,0 +1,24 @@
+/* The calendar of the date fields (see date-inputs.js), in the navy and crimson of the website */
+@import 'flatpickr/dist/flatpickr.min.css';
+
+.flatpickr-calendar {
+    font-family: inherit;
+}
+
+.flatpickr-day.selected,
+.flatpickr-day.selected:hover,
+.flatpickr-day.selected:focus {
+    border-color: #a51c30;
+    background: #a51c30;
+}
+
+.flatpickr-day.today {
+    border-color: #14213d;
+}
+
+.flatpickr-day.today:hover,
+.flatpickr-day.today:focus {
+    border-color: #14213d;
+    background: #14213d;
+    color: white;
+}

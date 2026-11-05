@@ -5,7 +5,8 @@ import './ExternalLinks.js';
 import './SiteMenu.js';
 import './AccountMenu.js';
 import './SiteSearch.js';
-
 import { renderMath, SITE_DELIMITERS } from './math.js';
+import { setupDateInputs } from './date-inputs.js';
 
 renderMath(SITE_DELIMITERS);
+setupDateInputs();
