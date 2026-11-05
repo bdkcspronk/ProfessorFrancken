@@ -8,9 +8,9 @@ return [
             'url' => '/about',
             'title' => 'About',
             'subItems' => [
-                ['url' => "/association/history", 'title' => 'History', 'description' => 'Curious about the history of our association, read it here', 'icon' => 'far fa-clock'],
-                ['url' => "/association/honorary-members", 'title' => 'Honorary members', 'description' => 'Francken knows two honorary members: Francken and De Hosson', 'icon' => 'fas fa-award'],
                 ['url' => "/association/boards", 'title' => 'Boards', 'description' => 'Current and previous board members', 'icon' => 'fas fa-user-tie'],
+                ['url' => "/association/honorary-members", 'title' => 'Honorary members', 'description' => 'Francken knows two honorary members: Francken and De Hosson', 'icon' => 'fas fa-award'],
+                ['url' => "/association/history", 'title' => 'History', 'description' => 'Curious about the history of our association, read it here', 'icon' => 'far fa-clock'],
                 ['url' => "/association/sustainability", 'title' => 'Sustainability', 'description' => 'How we make our association more sustainable', 'icon' => 'fas fa-solar-panel'],
                 ['url' => "/association/mental-health", 'title' => 'Mental health', 'description' => 'Where to find help, and our confidential contact persons', 'icon' => 'fas fa-heartbeat'],
                 ['url' => "/contact", 'title' => 'Contact', 'description' => 'How to reach the board', 'icon' => 'fas fa-envelope'],
@@ -22,20 +22,29 @@ return [
             'title' => 'Study',
             'subItems' => [
                 ['url' => "/study/books", 'title' => 'Books', 'description' => 'Buy or sell second hand books', 'icon' => 'fas fa-book'],
+                ['url' => "/study/internationals", 'title' => 'Internationals', 'description' => 'Useful information about studying and living in Groningen', 'icon' => 'fas fa-globe-europe'],
                 ['url' => "/study/research-groups", 'title' => 'Research Groups', 'description' => 'Find a research group for your bachelor or master thesis', 'icon' => 'fas fa-flask'],
                 ['url' => "https://www.rug.nl/about-ug/organization/administrative-organization/participation-decision-making/uraad/composition?lang=en", 'title' => 'University Council', 'description' => 'Read about the parties that represent students within the university', 'icon' => 'fas fa-user-tie'],
                 ['url' => "https://student.portal.rug.nl/infonet/studenten/regelingen-klacht-inspraak/medezeggenschap/faculteitsraden/faculty-council-fwn", 'title' => 'Faculty Council', 'description' => 'See who is representing students from the FSE', 'icon' => 'fas fa-person-booth'],
-                ['url' => "/study/internationals", 'title' => 'Internationals', 'description' => 'Useful information about studying and living in Groningen', 'icon' => 'fas fa-globe-europe'],
             ],
             'icon' => 'graduation-cap',
+        ],
+        [
+            'url' => '/career',
+            'title' => 'Career',
+            'subItems' => [
+                ['url' => "/career/companies", 'title' => 'Company profiles', 'icon' => 'fas fa-building', 'description' => ''],
+                ['url' => "/career/job-openings", 'title' => 'Job openings', 'icon' => 'fas fa-search-dollar', 'description' => 'Curious about your job opportunities, check these job openings!'],
+            ],
+            'icon' => 'suitcase',
         ],
         [
             'url' => '/association',
             'title' => 'Association',
             'subItems' => [
                 ['url' => "/association/activities", 'title' => 'Activities', 'description' => 'Upcoming career, study and social activities', 'icon' => 'fas fa-calendar-week'],
-                ['url' => "/association/news", 'title' => 'News', 'description' => 'The latest news from the association', 'icon' => 'fas fa-newspaper'],
                 ['url' => "/association/committees", 'title' => 'Committees', 'description' => 'Want to join a committee?', 'icon' => 'fas fa-users'],
+                ['url' => "/association/news", 'title' => 'News', 'description' => 'The latest news from the association', 'icon' => 'fas fa-newspaper'],
                 ['url' => "/association/francken-vrij", 'title' => 'Francken Vrij', 'description' => 'Our popular science magazine', 'icon' => 'fas fa-book-open'],
             ],
             //    'icon' => 'beer',
@@ -46,16 +55,6 @@ return [
             'title' => 'Photos',
             'subItems' => [],
             'icon' => 'camera',
-        ],
-        [
-            'url' => '/career',
-            'title' => 'Career',
-            'subItems' => [
-                // Job prospects
-                ['url' => "/career/job-openings", 'title' => 'Job openings', 'icon' => 'fas fa-search-dollar', 'description' => 'Curious about your job opportunities, check these job openings!'],
-                ['url' => "/career/companies", 'title' => 'Company profiles', 'icon' => 'fas fa-building', 'description' => ''],
-            ],
-            'icon' => 'suitcase',
         ],
     ],
 

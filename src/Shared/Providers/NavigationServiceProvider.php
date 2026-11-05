@@ -40,18 +40,18 @@ final class NavigationServiceProvider extends ServiceProvider
                     'icon' => 'child'
                 ];
             }
-            if ($settings->isSymposiumShownInNavigation()) {
-                $menu[] = [
-                    'url' => 'https://franckensymposium.nl',
-                    'title' => 'Symposium',
-                    'subItems' => [],
-                    'icon' => 'globe-europe',
-                ];
-            }
             if ($settings->isSlefShownInNavigation()) {
                 $menu[] = [
                     'url' => 'https://slef.nl',
                     'title' => 'SLEF',
+                    'subItems' => [],
+                    'icon' => 'globe-europe',
+                ];
+            }
+            if ($settings->isSymposiumShownInNavigation()) {
+                $menu[] = [
+                    'url' => 'https://franckensymposium.nl',
+                    'title' => 'Symposium',
                     'subItems' => [],
                     'icon' => 'globe-europe',
                 ];
