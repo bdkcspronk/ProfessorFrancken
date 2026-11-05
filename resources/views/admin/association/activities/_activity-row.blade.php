@@ -24,6 +24,11 @@
                 @endif
                 signed up
             </div>
+            @if ($activity->waiting_list_sign_ups->isNotEmpty())
+                <div class="text-muted">
+                    + {{ $activity->waiting_list_sign_ups->count() }} on the waiting list
+                </div>
+            @endif
             <small class="text-muted">
                 @if ($activity->signUpSettings->deadline_at->isFuture())
                     Closes {{ $activity->signUpSettings->deadline_at->diffForHumans() }}

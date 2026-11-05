@@ -16,12 +16,22 @@
 @endif
 
 @if ($activity->signUpSettings->allows_plus_ones)
+    @php
+        $plusOnesHelp = $activity->signUpSettings->max_plus_ones_per_member !== null
+            ? 'You can bring up to ' . $activity->signUpSettings->max_plus_ones_per_member . ' ' . \Illuminate\Support\Str::plural('person', $activity->signUpSettings->max_plus_ones_per_member) . '.'
+            : '';
+
+        // Tell new sign ups when bringing people would put them on the waiting list
+        $maxSignUps = $activity->signUpSettings->max_sign_ups;
+        if (($isNewSignUp ?? false) && $maxSignUps !== null && ! $activity->is_full) {
+            $placesLeft = $maxSignUps - $activity->total_sign_ups;
+            $plusOnesHelp .= ' There ' . ($placesLeft === 1 ? 'is 1 place' : 'are ' . $placesLeft . ' places') . ' left, including your own; if you bring more people than that, you go on the waiting list together.';
+        }
+    @endphp
     <x-forms.number
         name="plus_ones"
         label="Are you bringing anyone?"
-        :help="$activity->signUpSettings->max_plus_ones_per_member !== null
-            ? 'You can bring up to ' . $activity->signUpSettings->max_plus_ones_per_member . ' ' . \Illuminate\Support\Str::plural('person', $activity->signUpSettings->max_plus_ones_per_member) . '.'
-            : ''"
+        :help="trim($plusOnesHelp)"
     />
 @endif
 

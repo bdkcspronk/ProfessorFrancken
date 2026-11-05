@@ -106,6 +106,8 @@ Route::group(['prefix' => 'association'], function () : void {
         ->middleware('can:update,sign_up');
     Route::put('activities/{activity:slug}/sign-ups/{sign_up}', [SignUpsController::class, 'update'])
         ->middleware('can:update,sign_up');
+    Route::post('activities/{activity:slug}/sign-ups/{sign_up}/accept', [SignUpsController::class, 'accept'])
+        ->middleware('can:accept,sign_up');
     Route::delete('activities/{activity:slug}/sign-ups/{sign_up}', [SignUpsController::class, 'destroy'])
         ->middleware('can:delete,sign_up');
 

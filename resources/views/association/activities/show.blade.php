@@ -19,6 +19,13 @@
         </div>
 
         @auth
+            @php
+                $ownSignUp = $activity->signUps->firstWhere('member_id', auth()->user()->member_id);
+            @endphp
+            @if ($ownSignUp !== null && $ownSignUp->is_offered)
+                @include('association.activities.sign-ups._offered', ['signUp' => $ownSignUp])
+            @endif
+
             @can('create', [\Francken\Association\Activities\SignUp::class, $activity])
             @if ($activity->signUpSettings !== null)
             <div class="activity-page__sign-up">
@@ -34,6 +41,10 @@
                         @if ($activity->totalSignUps === 0)
                             <a href="{{ action([\Francken\Auth\Http\Controllers\LoginController::class, 'showLoginForm']) }}">Log in</a>
                             and be the first to sign up for this activity!
+                        @elseif ($activity->is_full)
+                            This activity is full.
+                            <a href="{{ action([\Francken\Auth\Http\Controllers\LoginController::class, 'showLoginForm']) }}">Log in</a>
+                            to sign up for the waiting list.
                         @else
                             {{ $activity->totalSignUps }} Francken members are joining this activity.
                             <a href="{{ action([\Francken\Auth\Http\Controllers\LoginController::class, 'showLoginForm']) }}">Log in</a>
@@ -66,24 +77,20 @@
             </h2>
 
             @auth
-                <ul class="activity-attendees__list">
-                    @foreach ($activity->signUps as $signUp)
-                        <li>
-                            <span>
-                                <i class="fas fa-user" aria-hidden="true"></i>
-                                {{ $signUp->member->fullname }}
-                                @if ($signUp->plus_ones > 0)
-                                    (+{{ $signUp->plus_ones }})
-                                @endif
-                            </span>
-                            @can('update', $signUp)
-                                <a class="home-link" href="{{ action([\Francken\Association\Activities\Http\SignUpsController::class, 'edit'], ['activity' => $activity, 'sign_up' => $signUp]) }}">
-                                    <i class="fas fa-edit" aria-hidden="true"></i> Edit
-                                </a>
-                            @endcan
-                        </li>
-                    @endforeach
-                </ul>
+                @include('association.activities._attendees-list', ['signUps' => $activity->placed_sign_ups])
+
+                @if ($activity->waiting_list_sign_ups->isNotEmpty())
+                    <h3 class="activity-attendees__subtitle">
+                        Waiting list
+                        <span class="activity-attendees__count activity-attendees__count--muted">
+                            {{ $activity->waiting_list_sign_ups->count() }}
+                        </span>
+                    </h3>
+                    <p class="activity-attendees__help">
+                        When someone cancels, the first ones on the waiting list get their place.
+                    </p>
+                    @include('association.activities._attendees-list', ['signUps' => $activity->waiting_list_sign_ups, 'numbered' => true])
+                @endif
             @else
                 <p class="mb-0">Log in to see who has signed up.</p>
             @endauth

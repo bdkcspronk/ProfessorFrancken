@@ -38,6 +38,9 @@
                     <span class="mr-3">
                         <i class="fas fa-users fa-fw" aria-hidden="true"></i>
                         {{ $activity->totalSignUps }} / {{ $activity->signUpSettings->max_sign_ups ?? '∞' }}
+                        @if ($activity->is_full)
+                            · Full
+                        @endif
                     </span>
                 @endif
                 @if ($activity->comments_count > 0)
@@ -52,7 +55,7 @@
         @if ($activity->signUpSettings !== null && $activity->signUpSettings->deadline_at->isFuture())
             <div class="home-activity__sign-up">
                 <i class="fas fa-user-plus" aria-hidden="true"></i>
-                Sign up before {{ $activity->signUpSettings->deadline_at->format('j M') }}
+                {{ $activity->is_full ? 'Waiting list open until' : 'Sign up before' }} {{ $activity->signUpSettings->deadline_at->format('j M') }}
             </div>
         @endif
     </div>

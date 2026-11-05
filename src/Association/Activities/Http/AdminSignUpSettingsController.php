@@ -70,6 +70,9 @@ final class AdminSignUpSettingsController
             ]
         );
 
+        // A higher maximum offers the new places to the waiting list
+        $activity->offerFreePlaces();
+
         return redirect()->action([AdminActivitiesController::class, 'show'], ['activity' => $activity]);
     }
 

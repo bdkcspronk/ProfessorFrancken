@@ -27,11 +27,13 @@ class SignUpsExport implements FromView, WithStyles, ShouldAutoSize, WithColumnF
     public function view() : View
     {
         $activity = $this->activity;
+        // Only those with an official place pay, so leave out the waiting list and places not yet accepted
+        $signUps = $activity->signUps->filter(fn (SignUp $signUp) : bool => $signUp->is_placed);
 
         return view('admin.association.activities.sign-ups.export', [
             'activity' => $activity,
-            'totalCosts' => $activity->signUps->map(fn (SignUp $signUp) => $signUp->costs)->sum(),
-            'signUps' => $activity->signUps->sortBy(fn (SignUp $signUp) => optional($signUp->member)->achternaam)
+            'totalCosts' => $signUps->map(fn (SignUp $signUp) => $signUp->costs)->sum(),
+            'signUps' => $signUps->sortBy(fn (SignUp $signUp) => optional($signUp->member)->achternaam)
         ]);
     }
 

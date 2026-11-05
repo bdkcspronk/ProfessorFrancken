@@ -95,4 +95,63 @@ class AdminSignUpsFeature extends TestCase
 
         $this->assertCount(0, $activity->signUps);
     }
+
+    /** @test */
+    public function it_allows_replacing_a_member_with_someone_from_the_waiting_list() : void
+    {
+        $activity = factory(Activity::class)->create();
+        factory(SignUpSettings::class)->create([
+            'activity_id' => $activity->id,
+            'max_sign_ups' => 1,
+        ]);
+        $placed = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0]);
+        $first = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0, 'status' => SignUp::STATUS_WAITING]);
+        $second = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0, 'status' => SignUp::STATUS_WAITING]);
+
+        $this->visit(action([AdminActivitiesController::class, 'show'], ['activity' => $activity]))
+            ->see('Replace with someone from the waiting list')
+            ->select($second->id, 'replacement_id')
+            ->press('Replace')
+            ->seePageIs(action([AdminActivitiesController::class, 'show'], ['activity' => $activity]));
+
+        $this->assertNull($placed->fresh());
+        // The admin chose who gets the place, so it's official right away
+        $this->assertEquals(SignUp::STATUS_PLACED, $second->fresh()->status);
+        $this->assertEquals(SignUp::STATUS_WAITING, $first->fresh()->status);
+    }
+
+    /** @test */
+    public function it_allows_approving_a_place_that_was_offered_to_a_member() : void
+    {
+        $activity = factory(Activity::class)->create();
+        factory(SignUpSettings::class)->create([
+            'activity_id' => $activity->id,
+            'max_sign_ups' => 1,
+        ]);
+        $offered = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0, 'status' => SignUp::STATUS_OFFERED]);
+
+        $this->visit(action([AdminActivitiesController::class, 'show'], ['activity' => $activity]))
+            ->see('Place offered, not yet accepted')
+            ->press('Approve')
+            ->seePageIs(action([AdminActivitiesController::class, 'show'], ['activity' => $activity]));
+
+        $this->assertEquals(SignUp::STATUS_PLACED, $offered->fresh()->status);
+    }
+
+    /** @test */
+    public function it_offers_places_to_the_waiting_list_when_removing_a_sign_up() : void
+    {
+        $activity = factory(Activity::class)->create();
+        factory(SignUpSettings::class)->create([
+            'activity_id' => $activity->id,
+            'max_sign_ups' => 1,
+        ]);
+        $placed = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0]);
+        $waiting = factory(SignUp::class)->create(['activity_id' => $activity->id, 'plus_ones' => 0, 'status' => SignUp::STATUS_WAITING]);
+
+        $this->delete(action([AdminSignUpsController::class, 'destroy'], ['activity' => $activity, 'sign_up' => $placed]));
+
+        $this->assertNull($placed->fresh());
+        $this->assertEquals(SignUp::STATUS_OFFERED, $waiting->fresh()->status);
+    }
 }

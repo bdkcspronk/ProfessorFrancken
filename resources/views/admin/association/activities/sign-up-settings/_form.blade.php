@@ -21,9 +21,14 @@
         </x-forms.number>
     </div>
     <div class="col-6">
-        <x-forms.number name="costs_per_person" label="Costs per person">
+        <x-forms.number
+            name="costs_per_person"
+            label="Costs per person (&euro;)"
+            step="0.01"
+            :value="$signUpSettings->costs_per_person !== null ? number_format($signUpSettings->costs_per_person / 100, 2, '.', '') : null"
+        >
             <x-slot name="help">
-                Costs per person in cents (i.e. if the costs are &euro;5,-, fill in 500)
+                Costs per person in euros
             </x-slot>
         </x-forms.number>
         <x-forms.number name="max_plus_ones_per_member" label="Max plus ones per member" />

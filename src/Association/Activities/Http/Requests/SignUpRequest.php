@@ -59,13 +59,14 @@ class SignUpRequest extends FormRequest
 
         $maxSignUps = $activity->signUpSettings->max_sign_ups;
         if ($maxSignUps !== null) {
-            // Make sure a member can't have more plus ones than the max total sign ups
-            $placesLeft = (int)$maxSignUps - $activity->total_sign_ups - 1;
+            // A sign up can never be larger than the activity itself
+            $placesLeft = (int)$maxSignUps - 1;
 
-            // make sure the current sign up is not counted in the max
+            // Someone who has a place can't bring so many people that they would lose it;
+            // new sign ups that don't fit go on the waiting list instead
             $signUp = $this->route('sign_up');
-            if ($signUp instanceof SignUp) {
-                $placesLeft += 1 + (int)$signUp->plus_ones;
+            if ($signUp instanceof SignUp && ! $activity->isOnWaitingList($signUp)) {
+                $placesLeft = (int)$maxSignUps - $activity->total_sign_ups + (int)$signUp->plus_ones;
             }
 
             $maxPlusOnes = $maxPlusOnes === null ? $placesLeft : min($maxPlusOnes, $placesLeft);

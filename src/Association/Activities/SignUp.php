@@ -11,6 +11,15 @@ use Webmozart\Assert\Assert;
 
 final class SignUp extends Model
 {
+    /** The member has a place */
+    public const STATUS_PLACED = 'placed';
+
+    /** A place opened up for this member, which they or an admin still have to accept */
+    public const STATUS_OFFERED = 'offered';
+
+    /** The member is on the waiting list */
+    public const STATUS_WAITING = 'waiting';
+
     /**
      * @var string
      */
@@ -22,6 +31,7 @@ final class SignUp extends Model
     protected $fillable = [
         'member_id',
         'plus_ones',
+        'status',
         'dietary_wishes',
         'has_drivers_license',
         'discount',
@@ -35,6 +45,44 @@ final class SignUp extends Model
         'has_drivers_license' => 'boolean',
         'discount' => 'int',
     ];
+
+    /**
+     * @var array<string, mixed>
+     */
+    protected $attributes = [
+        'status' => self::STATUS_PLACED,
+    ];
+
+    /**
+     * The number of people this sign up counts for: the member and their plus ones
+     */
+    public function getPeopleAttribute() : int
+    {
+        return 1 + (int)$this->plus_ones;
+    }
+
+    public function getIsPlacedAttribute() : bool
+    {
+        return $this->status === self::STATUS_PLACED;
+    }
+
+    public function getIsOfferedAttribute() : bool
+    {
+        return $this->status === self::STATUS_OFFERED;
+    }
+
+    public function getIsWaitingAttribute() : bool
+    {
+        return $this->status === self::STATUS_WAITING;
+    }
+
+    /**
+     * Placed and offered sign ups both take up places
+     */
+    public function getHasPlaceAttribute() : bool
+    {
+        return ! $this->is_waiting;
+    }
 
     public function member() : BelongsTo
     {

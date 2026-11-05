@@ -17,7 +17,7 @@ class AdminSignUpSettingsRequest extends FormRequest
     {
         return [
             'max_sign_ups' => ['nullable', 'min:1'],
-            'costs_per_person' => ['nullable', 'min:1'],
+            'costs_per_person' => ['nullable', 'numeric', 'min:0'],
             'max_plus_ones_per_member' => ['nullable', 'min:1'],
             'ask_for_dietary_wishes' => ['nullable', 'boolean'],
             'ask_for_drivers_license' => ['nullable', 'boolean'],
@@ -34,13 +34,20 @@ class AdminSignUpSettingsRequest extends FormRequest
         return (int)$this->input('max_sign_ups');
     }
 
+    /**
+     * The costs are filled in in euros (i.e. 5 or 5.50), but stored in cents
+     */
     public function costsPerPerson() : ?int
     {
         if ( ! $this->has('costs_per_person')) {
             return null;
         }
 
-        return (int)$this->input('costs_per_person');
+        // Round instead of casting, since for example 19.99 * 100 = 1998.9999...
+        $euros = $this->input('costs_per_person');
+        Assert::nullOrNumeric($euros);
+
+        return (int)round((float)$euros * 100);
     }
 
     public function maxPlusOnesPerMember() : ?int

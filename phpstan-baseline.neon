@@ -67,7 +67,7 @@ parameters:
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
-			count: 3
+			count: 2
 			path: src/Association/Activities/Http/Requests/AdminSignUpSettingsRequest.php
 
 		-

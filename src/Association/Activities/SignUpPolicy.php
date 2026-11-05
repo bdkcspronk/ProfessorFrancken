@@ -42,6 +42,15 @@ class SignUpPolicy
     }
 
     /**
+     * Determine whether the user can accept the place that has been offered to them.
+     * This is possible after the deadline as well, since a place can open up at any time.
+     */
+    public function accept(Account $account, SignUp $signUp) : bool
+    {
+        return $signUp->is_offered && $signUp->member_id === $account->member_id;
+    }
+
+    /**
      * Determine whether the user can delete the model.
      */
     public function delete(Account $account, SignUp $signUp) : bool

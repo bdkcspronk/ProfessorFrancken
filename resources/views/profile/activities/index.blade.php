@@ -30,6 +30,18 @@
                                 {{ $activity->location }}
                             </li>
                         @endif
+                        @if ($signUp !== null && $signUp->is_waiting)
+                            <li>
+                                <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+                                Number {{ $activity->waitingListPosition($signUp) }} on the waiting list
+                            </li>
+                        @elseif ($signUp !== null && $signUp->is_offered)
+                            <li class="profile-activity__offer">
+                                <i class="fas fa-star" aria-hidden="true"></i>
+                                A place opened up for you:
+                                <a href="{{ action([\Francken\Association\Activities\Http\ActivitiesController::class, 'show'], ['activity' => $activity]) }}">accept it</a>
+                            </li>
+                        @endif
                         @if ($activity->signUpSettings !== null && ! $activity->signUpSettings->is_free)
                             <li>
                                 <i class="fas fa-euro-sign" aria-hidden="true"></i>

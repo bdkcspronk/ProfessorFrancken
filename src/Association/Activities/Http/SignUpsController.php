@@ -51,12 +51,28 @@ final class SignUpsController
             'has_drivers_license' => $request->hasDriversLicense(),
         ]);
 
+        // Bringing fewer people may leave places for the waiting list
+        $activity->offerFreePlaces();
+
         return redirect()->action([ActivitiesController::class, 'show'], ['activity' => $activity]);
     }
 
+    /**
+     * The member accepts the place that opened up for them on the waiting list
+     */
+    public function accept(Activity $activity, SignUp $signUp) : RedirectResponse
+    {
+        $activity->acceptOfferedPlace($signUp);
+
+        return redirect()->action([ActivitiesController::class, 'show'], ['activity' => $activity]);
+    }
+
+    /**
+     * Cancelling a sign up, which is also how a member declines a place offered to them
+     */
     public function destroy(Activity $activity, SignUp $signUp) : RedirectResponse
     {
-        $signUp->delete();
+        $activity->cancelSignUp($signUp);
 
         return redirect()->action([ActivitiesController::class, 'show'], ['activity' => $activity]);
     }

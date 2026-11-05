@@ -8,6 +8,7 @@ use Francken\Association\Activities\Activity;
 use Francken\Association\Activities\Http\Requests\AdminSignUpRequest;
 use Francken\Association\Activities\SignUp;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 final class AdminSignUpsController
@@ -32,6 +33,7 @@ final class AdminSignUpsController
             new SignUp([
                 'member_id' => $request->memberId(),
                 'plus_ones' => $request->plusOnes(),
+                'status' => $activity->statusForNewSignUp(1 + $request->plusOnes()),
                 'discount' => $request->discount(),
                 'dietary_wishes' => $request->dietaryWishes(),
                 'has_drivers_license' => $request->hasDriversLicense(),
@@ -66,12 +68,44 @@ final class AdminSignUpsController
             'notes' => $request->notes()
         ]);
 
+        // Bringing fewer people may leave places for the waiting list
+        $activity->offerFreePlaces();
+
+        return redirect()->action([AdminActivitiesController::class, 'show'], ['activity' => $activity]);
+    }
+
+    /**
+     * Makes the place that was offered to someone from the waiting list official
+     */
+    public function approve(Activity $activity, SignUp $signUp) : RedirectResponse
+    {
+        abort_unless($signUp->activity_id === $activity->id && $signUp->is_offered, 404);
+
+        $activity->acceptOfferedPlace($signUp);
+
+        return redirect()->action([AdminActivitiesController::class, 'show'], ['activity' => $activity]);
+    }
+
+    /**
+     * Removes a member with a place and gives it to someone from the waiting list
+     */
+    public function replace(Request $request, Activity $activity, SignUp $signUp) : RedirectResponse
+    {
+        abort_unless($signUp->activity_id === $activity->id && $signUp->has_place, 404);
+
+        $request->validate(['replacement_id' => ['required', 'integer']]);
+        $replacement = $activity->signUps()
+            ->where('status', SignUp::STATUS_WAITING)
+            ->findOrFail($request->integer('replacement_id'));
+
+        $activity->replaceSignUp($signUp, $replacement);
+
         return redirect()->action([AdminActivitiesController::class, 'show'], ['activity' => $activity]);
     }
 
     public function destroy(Activity $activity, SignUp $signUp) : RedirectResponse
     {
-        $signUp->delete();
+        $activity->cancelSignUp($signUp);
 
         return redirect()->action([AdminActivitiesController::class, 'show'], ['activity' => $activity]);
     }

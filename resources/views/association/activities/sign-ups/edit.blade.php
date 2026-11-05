@@ -20,6 +20,16 @@
         @if ($signUp->member !== null)
             <p>Sign up of <strong>{{ $signUp->member->fullname }}</strong></p>
         @endif
+        @if ($signUp->is_offered)
+            @include('association.activities.sign-ups._offered')
+        @elseif ($signUp->is_waiting)
+            <p class="activity-page__full">
+                <i class="fas fa-hourglass-half" aria-hidden="true"></i>
+                You are number {{ $activity->waitingListPosition($signUp) }}
+                on the waiting list.
+                When someone cancels, the first ones on the waiting list get their place.
+            </p>
+        @endif
 
         {!!
                Form::model($signUp, [

@@ -191,6 +191,8 @@ Route::group(['prefix' => 'association'], function () : void {
         Route::delete('activities/{activity}/sign-up-settings', [AdminSignUpSettingsController::class, 'destroy']);
 
         Route::get('activities/{activity}/sign-ups/export', [AdminActivitySignUpsExportController::class, 'index']);
+        Route::post('activities/{activity}/sign-ups/{sign_up}/approve', [AdminSignUpsController::class, 'approve']);
+        Route::post('activities/{activity}/sign-ups/{sign_up}/replace', [AdminSignUpsController::class, 'replace']);
         Route::resource('activities.sign-ups', AdminSignUpsController::class);
         Route::resource('activities', AdminActivitiesController::class);
     });
