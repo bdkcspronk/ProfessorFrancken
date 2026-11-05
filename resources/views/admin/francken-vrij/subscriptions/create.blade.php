@@ -13,7 +13,7 @@
                        ])
                     !!}
 
-                        {{-- TODO: allow setting via ?member_id so we can creaete it from member view--}}
+                        {{-- TODO: allow setting via ?member_id so we can create it from member view--}}
                         <x-forms-autocomplete-member :value_id="$member->id" :value="$member->fullname" />
 
                         @include('admin.francken-vrij.subscriptions._form', ['subscription' => $subscription])

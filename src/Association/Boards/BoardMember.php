@@ -117,7 +117,7 @@ final class BoardMember extends Model
 
     public function getFullnameAttribute() : string
     {
-        return optional($this->member)->fullname ?? 'Unkown member';
+        return optional($this->member)->fullname ?? 'Unknown member';
     }
 
     /**
@@ -158,7 +158,7 @@ final class BoardMember extends Model
 
     /**
      * Changes the status of the board member to their actual status
-     * Will dispatch appropriate events and save the model if the stauts was changed.
+     * Will dispatch appropriate events and save the model if the status was changed.
      */
     public function refreshStatus() : void
     {
@@ -172,7 +172,7 @@ final class BoardMember extends Model
 
         $this->board_member_status = $status;
 
-        // Since this method is also called when intalling a member we will
+        // Since this method is also called when installing a member we will
         // have to save the model beforehand to guarantee that we he a valid id
         $this->save();
 

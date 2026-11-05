@@ -14,7 +14,7 @@
                 <table class="table">
                     <thead class="">
                         <tr>
-                            <th scope="col">Particpant</th>
+                            <th scope="col">Participant</th>
                             <th scope="col">NNV</th>
                             <th scope="col">Francken</th>
                             <th scope="col">Has paid</th>

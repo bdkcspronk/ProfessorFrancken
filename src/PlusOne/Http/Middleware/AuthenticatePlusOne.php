@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Response;
 final class AuthenticatePlusOne
 {
     /**
-     * Handle an incoming reques And verify if token exists and is valid
+     * Handle an incoming request and verify if token exists and is valid
      */
     public function handle(Request $request, Closure $next) : Response
     {

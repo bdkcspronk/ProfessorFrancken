@@ -105,7 +105,7 @@ final class Product extends Model
             'Fris' => 'Soda',
         ];
 
-        return $dutchToEnglish[$this->categorie] ?? 'Unkown';
+        return $dutchToEnglish[$this->categorie] ?? 'Unknown';
     }
 
     public function getCategoryIconAttribute() : string

@@ -5,7 +5,7 @@
         </h4>
         <p>
             Use this form to add a committee based on a committee from a previous year.
-            This will keep the logo, photo, description etc. from the previous committee so that you don't have to reuplaod all of their settings.
+            This will keep the logo, photo, description etc. from the previous committee so that you don't have to re-upload all of their settings.
         </p>
         <p>
             The list below shows all of our previous committees, which may be useful as inspiration for starting new committees.

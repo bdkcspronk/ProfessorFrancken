@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('page-title', 'Pages / create')
+@section('page-title', 'Pages / Create')
 
 @section('content')
     <div class="row">

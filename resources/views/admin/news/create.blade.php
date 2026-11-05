@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('page-title', 'News / create')
+@section('page-title', 'News / Create')
 
 @section('content')
     {!!

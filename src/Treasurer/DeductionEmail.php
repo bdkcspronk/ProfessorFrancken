@@ -15,7 +15,7 @@ use Plank\Mediable\Media;
 use Plank\Mediable\Mediable;
 
 /**
- * We keep track of each deduction that has occured.
+ * We keep track of each deduction that has occurred.
  *
  * For each deduction there will be one or more members
  *

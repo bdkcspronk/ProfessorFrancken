@@ -41,7 +41,7 @@ class NotifyBoardAboutAddressChange extends Notification
 
         $from = $this->event->oldAddress() !== null
               ? $this->event->oldAddress()->toString()
-              : "Unkown address";
+              : "Unknown address";
         $to = $this->event->address()->toString();
 
         return [

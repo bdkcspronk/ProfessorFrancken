@@ -107,7 +107,7 @@ final class Album extends Model
 
     public function addView() : void
     {
-        // Faking this impelementation for now
+        // Faking this implementation for now
     }
 
     /**

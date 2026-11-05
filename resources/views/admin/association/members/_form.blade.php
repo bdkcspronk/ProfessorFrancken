@@ -175,7 +175,7 @@
     
     <div class="col col-md-4">
 
-        <h6>Ohter</h6>
+        <h6>Other</h6>
         <x-forms.text name="werkgever" label="Employer" />
         <x-forms.text name="nnvnummer" label="NNV Number" />
         <x-forms.textarea name="notities" label="Notes" />

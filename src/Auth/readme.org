@@ -55,6 +55,6 @@ this role.
 
 We could use a Alumni role to give certain users less access than members.
 
-*** Commitee
+*** Committee
 
 Some committees will have special permissions.

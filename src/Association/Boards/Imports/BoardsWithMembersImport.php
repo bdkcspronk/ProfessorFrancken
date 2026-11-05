@@ -36,9 +36,9 @@ final class BoardsWithMembersImport implements WithMultipleSheets, WithEvents
     {
         return [
             /**
-             * Since our spreadsheet contains a board members sheet wich reference
+             * Since our spreadsheet contains a board members sheet which reference
              * the board that the member is in by its id we will first have to
-             * truncate the boards table so that we can explicitely wet the ids
+             * truncate the boards table so that we can explicitly wet the ids
              * of the board and board members, without having to deal with
              * duplicate keys.
              */

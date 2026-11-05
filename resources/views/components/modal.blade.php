@@ -29,7 +29,7 @@
                 // show the modal
                 $modal.classList.add("login-modal--visible");
 
-                // Focus the first element within the modal. Make sure the element is visible and doesnt have focus disabled (tabindex=-1);
+                // Focus the first element within the modal. Make sure the element is visible and doesn't have focus disabled (tabindex=-1);
                 $modal.querySelector(FOCUSABLE_SELECTORS).focus();
 
                 // Trap the tab focus by disable tabbing on all elements outside of your modal.  Because the modal is a sibling of main, this is easier. Make sure to check if the element is visible, or already has a tabindex so you can restore it when you untrap.

@@ -39,7 +39,7 @@
             <thead>
                 <tr>
                     <th>Fullname</th>
-                    <th class="text-right">Submited at</th>
+                    <th class="text-right">Submitted at</th>
                     <th class="text-right">Form signed at</th>
                     <th class="text-right">Approved at</th>
                     <th class="text-right">Actions</th>

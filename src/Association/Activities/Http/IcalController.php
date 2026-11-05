@@ -31,7 +31,7 @@ final class IcalController
     }
 
     /**
-     * This is currently a simple wrapper arround the ical from Google calendar,
+     * This is currently a simple wrapper around the ical from Google calendar,
      * however later we will replace this with a custom ical
      */
     public function show() : Response

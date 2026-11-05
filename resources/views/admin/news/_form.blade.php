@@ -3,7 +3,7 @@
 
         <x-forms.text name="title" label="Title" :value="$news->title" />
         <x-forms.markdown name="content" label="Content" :value="$news->source_contents" />
-        <x-forms.textarea name="exerpt" label="Exerpt" :value="$news->exerpt">
+        <x-forms.textarea name="exerpt" label="Excerpt" :value="$news->exerpt">
             <x-slot name="help">
                 Note try to keep the exerpt short and make it either a nice summary or a short introduction to the news post. Don't use any Markdown formatting.
             </x-slot>

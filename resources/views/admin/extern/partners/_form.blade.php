@@ -19,7 +19,7 @@
         <x-forms.text name="homepage_url" label="Homepage url" placeholder="https://scriptcie.nl" />
         <x-forms.text name="referral_url" label="Referral url" placeholder="https://scriptcie.nl">
             <x-slot name="help">
-                The refferal url is used when linking to the partner's website in our footer, company profile etc.
+                The referral URL is used when linking to the partner's website in our footer, company profile etc.
                 Partners can use this to determine the amount of trafick that they receive from out website.
             </x-slot>
         </x-forms.text>

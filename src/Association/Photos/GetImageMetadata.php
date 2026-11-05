@@ -30,7 +30,7 @@ class GetImageMetadata
                 $creationDate = DateTimeImmutable::createFromMutable($datetime);
             }
         } catch (\Throwable $e) {
-            // igore
+            // ignore
         }
 
         $image  = Image::make($path);

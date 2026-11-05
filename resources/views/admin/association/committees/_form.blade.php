@@ -44,7 +44,7 @@
                     :options="$parent_committees"
                 >
                     <x-slot name="help">
-                        Setting the parent committee to a pervious committee will allow us to suggest members for this committee based on its previous committee members.
+                        Setting the parent committee to a previous committee will allow us to suggest members for this committee based on its previous committee members.
                     </x-slot>
                 </x-forms.select>
             </div>

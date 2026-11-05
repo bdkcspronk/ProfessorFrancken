@@ -47,6 +47,6 @@ final class DeductionEmailsController
         $deduction->save();
 
         return redirect()->action([DeductionsController::class, 'show'], $deduction->id)
-            ->with('status', 'Deduction emails are being send');
+            ->with('status', 'Deduction emails are being sent');
     }
 }

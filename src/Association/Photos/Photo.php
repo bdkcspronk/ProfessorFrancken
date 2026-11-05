@@ -46,7 +46,7 @@ final class Photo extends Model
     public function src() : string
     {
         // This is a rare edge case where an album is created without any photos
-        // in this case its coverPhoto will be an ampty Photo whose id is null
+        // in this case its coverPhoto will be an empty Photo whose id is null
         if ($this->id === null) {
             return '';
         }

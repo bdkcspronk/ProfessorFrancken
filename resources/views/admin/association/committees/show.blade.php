@@ -47,7 +47,7 @@
                                 @if ($committee->is_public)
                                     <p class="my-1">
                                         <i class="far fa-check-square"></i>
-                                        This committe is shown on the <a href={{ action(
+                                        This committee is shown on the <a href={{ action(
                                                                                  [\Francken\Association\Committees\Http\CommitteesController::class, 'show'],
                                                                                  ['committee' => $committee, 'board' => $committee->board]
                                                                                  ) }}>
@@ -56,7 +56,7 @@
                                     </p>
                                 @else
                                     <i class="far fa-square"></i>
-                                    This committe is not shown on the <a href={{ action(
+                                    This committee is not shown on the <a href={{ action(
                                                                                  [\Francken\Association\Committees\Http\CommitteesController::class, 'index'],
                                                                                  ['board' => $committee->board]
                                                                                  ) }}>

@@ -9,7 +9,7 @@ use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Contracts\Session\Session;
 
 /**
- * We use this class to check whether someone has succesfully loged into the
+ * We use this class to check whether someone has successfully logged into the
  * private photos section
  */
 class PhotosAuthentication

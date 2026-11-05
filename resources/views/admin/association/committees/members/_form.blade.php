@@ -20,7 +20,7 @@
     <div class="col">
         <x-forms.date name="installed_at" label="Install date" :value="$committee->board->installed_at->format('Y-m-d')">
             <x-slot name="help">
-                By defautl we've selected the install dater of the board, but you can ofcourse choose a different install date
+                By default we've selected the install date of the board, but you can of course choose a different install date
             </x-slot>
         </x-forms.date>
     </div>
@@ -36,7 +36,7 @@
            );
         !!}
         <small class="form-text text-muted">
-            Typically this is the same date as the committee's board is demissioned, unless the member has left the committe earlier.
+            Typically this is the same date as the committee's board is demissioned, unless the member has left the committee earlier.
         </small>
     </div>
     @endisset

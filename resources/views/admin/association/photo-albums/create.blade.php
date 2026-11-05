@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('page-title', 'Albums / create / ' . $year)
+@section('page-title', 'Albums / Create / ' . $year)
 
 @section('content')
     <div class="row">

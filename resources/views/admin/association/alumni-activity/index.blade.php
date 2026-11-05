@@ -3,7 +3,7 @@
 
 @section('content')
     <p class="lead">
-        Participants of the the alumni activity 2022
+        Participants of the alumni activity 2022
     </p>
     <div class="card">
         <table class="table table-hover">

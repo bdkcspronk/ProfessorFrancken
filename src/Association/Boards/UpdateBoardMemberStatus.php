@@ -36,8 +36,8 @@ final class UpdateBoardMemberStatus extends Command
         // requires us to (among others) look for all members whose demissioned
         // and decharged date hasn't been set, install date is later than today
         // and whose status isn't BoardMemberStatus::BOARD_MEMBER
-        // But since we don't have that many board members and this commadn will
-        // likely only be run once per day, I'm fine whith this simple implementation
+        // But since we don't have that many board members and this command will
+        // likely only be run once per day, I'm fine with this simple implementation
         /** @var Collection */
         $members = BoardMember::all();
 

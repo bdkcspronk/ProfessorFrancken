@@ -238,7 +238,7 @@ final class Registration extends Model
     }
 
     /**
-     * These attribute helpes were made to make updating the registration request easier
+     * These attribute helps were made to make updating the registration request easier
      */
     public function getStudyNameAttribute() : array
     {

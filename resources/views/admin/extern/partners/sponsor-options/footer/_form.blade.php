@@ -6,7 +6,7 @@
     :value="$footer->referral_url ?? $partner->referral_url"
 >
     <x-slot name="help">
-        The refferal url is used when linking to the partner's website in our footer.
+        The referral URL is used when linking to the partner's website in our footer.
         Partners can use this to determine the amount of trafick that they receive from out website.
     </x-slot>
 </x-forms.text>

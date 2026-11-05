@@ -3,7 +3,7 @@
 
 @section('content')
     <p>
-        When printing the registration form make sure that, when usign Google Chrome, to set the <em>Margins</em> to <em>None</em> and enable <em>Background graphics</em>.
+        When printing the registration form make sure, when using Google Chrome, to set the <em>Margins</em> to <em>None</em> and enable <em>Background graphics</em>.
     </p>
 
     <div class="row">

@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('page-title', 'Symposia / create')
+@section('page-title', 'Symposia / Create')
 
 @section('content')
     <div class="row">

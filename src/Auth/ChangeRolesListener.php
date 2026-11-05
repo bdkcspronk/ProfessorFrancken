@@ -144,7 +144,7 @@ final class ChangeRolesListener extends EventHandler
             case BoardMemberStatus::DECHARGED_BOARD_MEMBER: return static::DECHARGED_BOARD_ROLE;
             default:
                 throw new UnexpectedValueException(
-                    "Member has an unkown board member status: [{$member->board_member_status}]"
+                    "Member has an unknown board member status: [{$member->board_member_status}]"
                 );
         }
     }

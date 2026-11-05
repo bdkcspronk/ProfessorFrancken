@@ -39,7 +39,7 @@
                             @elseif ($key === 'V')
                                 Female
                             @else
-                                Unkown
+                                Unknown
                             @endif
                         </dt>
                         <dd class="col-sm-3">{{ $gender->count() }}</dd>

@@ -13,7 +13,7 @@
                         <th>initialen</th>
                         <th>tussenvoegsel</th>
                         <th>achternaam</th>
-                        <th>rekenignnummer</th>
+                        <th>rekeningnummer</th>
                         <th>plaats_bank</th>
                         <th>adres</th>
                         <th>plaats</th>

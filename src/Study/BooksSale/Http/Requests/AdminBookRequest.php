@@ -142,7 +142,7 @@ class AdminBookRequest extends FormRequest
 
         $sanitizedIsbn = preg_replace("/[^0-9x]/i", '', $isbn);
 
-        Assert::string($sanitizedIsbn, 'An error occured while sanitizing the isbn');
+        Assert::string($sanitizedIsbn, 'An error occurred while sanitizing the isbn');
 
         return $sanitizedIsbn;
     }

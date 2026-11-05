@@ -20,7 +20,7 @@ final class LoginToViewPhotos
     }
 
     /**
-     * Handle an incoming reques And verify if token exists and is valid
+     * Handle an incoming request And verify if token exists and is valid
      */
     public function handle(Request $request, Closure $next) : Response
     {
