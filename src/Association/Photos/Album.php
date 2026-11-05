@@ -21,16 +21,6 @@ final class Album extends Model
     /**
      * @var string[]
      */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-        'published_at',
-    ];
-
-    /**
-     * @var string[]
-     */
     protected $fillable = [
         'title',
         'description',

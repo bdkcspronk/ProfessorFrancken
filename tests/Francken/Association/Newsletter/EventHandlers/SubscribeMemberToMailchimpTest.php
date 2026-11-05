@@ -8,9 +8,9 @@ use Francken\Association\LegacyMember;
 use Francken\Association\Members\Registration\Events\MemberWasRegistered;
 use Francken\Association\Members\Registration\Registration;
 use Francken\Association\Newsletter\EventHandlers\SubscribeMemberToMailchimp;
+use Francken\Association\Newsletter\Newsletter;
 use Francken\Features\TestCase;
 use Prophecy\PhpUnit\ProphecyTrait;
-use Spatie\Newsletter\Newsletter;
 
 final class SubscribeMemberToMailchimpTest extends TestCase
 {

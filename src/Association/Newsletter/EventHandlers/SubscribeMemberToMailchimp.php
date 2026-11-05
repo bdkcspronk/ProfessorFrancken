@@ -6,8 +6,8 @@ namespace Francken\Association\Newsletter\EventHandlers;
 
 use Francken\Association\LegacyMember;
 use Francken\Association\Members\Registration\Events\MemberWasRegistered;
+use Francken\Association\Newsletter\Newsletter;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Spatie\Newsletter\Newsletter;
 
 final class SubscribeMemberToMailchimp implements ShouldQueue
 {

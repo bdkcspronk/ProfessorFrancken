@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Francken\Features;
 
+use Francken\Association\Newsletter\Newsletter;
 use Francken\Tests\Association\Newsletter\NullDriver;
 use Illuminate\Contracts\Console\Kernel;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\BrowserKitTesting\TestCase as LaravelTestCase;
-use Spatie\Newsletter\Newsletter;
 
 abstract class TestCase extends LaravelTestCase
 {

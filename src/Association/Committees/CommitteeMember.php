@@ -38,14 +38,6 @@ final class CommitteeMember extends Model
      */
     protected $touches = ['committee'];
 
-    /**
-     * @var string[]
-     */
-    protected $dates = [
-        'installed_at',
-        'decharged_at',
-    ];
-
     public function committee() : BelongsTo
     {
         return $this->belongsTo(Committee::class);

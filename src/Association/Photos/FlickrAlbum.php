@@ -17,13 +17,11 @@ final class FlickrAlbum extends Model
     protected $table = 'albums';
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'published_at',
-        'activity_date',
+    protected $casts = [
+        'published_at' => 'datetime',
+        'activity_date' => 'datetime',
     ];
 
     public function photos() : HasMany

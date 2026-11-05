@@ -46,13 +46,15 @@ final class Deduction extends Model
     /**
      * @var string[]
      */
-    protected $dates = ['tijd'];
-
-    /**
-     * @var string[]
-     */
     protected $fillable = [
         'id', 'tijd', 'created_at', 'updated_at'
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'tijd' => 'datetime',
     ];
 
     public function previousDeduction() : self | null

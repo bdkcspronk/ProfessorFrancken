@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Francken\Shared\Providers;
 
 use Barryvdh\Debugbar\ServiceProvider as DebugbarServiceProvider;
+use Francken\Association\Newsletter\Newsletter;
 use Francken\Tests\Association\Newsletter\NullDriver;
 use Illuminate\Support\ServiceProvider;
 use Spatie\LaravelIgnition\IgnitionServiceProvider;
-use Spatie\Newsletter\Newsletter;
 
 final class DevelopmentServiceProvider extends ServiceProvider
 {

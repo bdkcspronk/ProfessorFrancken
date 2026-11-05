@@ -49,12 +49,6 @@ final class Book extends Model
         'paid_off' => 'boolean',
     ];
 
-    /**
-     * @var string[]
-     */
-    protected $dates = [
-    ];
-
     public function seller() : BelongsTo
     {
         return $this->belongsTo(BookSeller::class);

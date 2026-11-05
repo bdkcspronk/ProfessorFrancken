@@ -7,10 +7,10 @@ namespace Francken\Tests\Association\Newsletter\EventHandlers;
 use Francken\Association\LegacyMember;
 use Francken\Association\Members\Events\MemberEmailWasChanged;
 use Francken\Association\Newsletter\EventHandlers\UpdateMailchimpSubscription;
+use Francken\Association\Newsletter\Newsletter;
 use Francken\Features\TestCase;
 use Francken\Shared\Email;
 use Prophecy\PhpUnit\ProphecyTrait;
-use Spatie\Newsletter\Newsletter;
 
 final class UpdateMailchimpSubscriptionTest extends TestCase
 {
@@ -66,8 +66,8 @@ final class UpdateMailchimpSubscriptionTest extends TestCase
         $newsletter->hasMember($member->email->toString())->willReturn(true);
         $newsletter->isSubscribed($member->email->toString())->willReturn(true);
         $newsletter->updateEmailAddress(
-            $member->email,
-            $newEmail
+            $member->email->toString(),
+            $newEmail->toString()
         )->shouldBeCalledOnce();
 
         $handler = new UpdateMailchimpSubscription($newsletter->reveal());

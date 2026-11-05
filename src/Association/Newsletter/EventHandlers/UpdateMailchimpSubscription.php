@@ -6,9 +6,9 @@ namespace Francken\Association\Newsletter\EventHandlers;
 
 use Francken\Association\LegacyMember;
 use Francken\Association\Members\Events\MemberEmailWasChanged;
+use Francken\Association\Newsletter\Newsletter;
 use Francken\Shared\Email;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Spatie\Newsletter\Newsletter;
 
 final class UpdateMailchimpSubscription implements ShouldQueue
 {

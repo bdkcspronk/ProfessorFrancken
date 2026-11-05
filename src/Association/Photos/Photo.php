@@ -28,13 +28,10 @@ final class Photo extends Model
     ];
 
     /**
-     * @var string[]
+     * @var array<string, string>
      */
-    protected $dates = [
-        'taken_at',
-        'created_at',
-        'updated_at',
-        'deleted_at',
+    protected $casts = [
+        'taken_at' => 'datetime',
     ];
 
     /** @return BelongsTo<Album, Photo> */

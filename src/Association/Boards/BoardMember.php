@@ -55,12 +55,6 @@ final class BoardMember extends Model
         'decharged_at' => 'date:Y-m-d',
     ];
 
-    /**
-     * @var mixed[]
-     */
-    protected $dates = [
-    ];
-
     public static function install(
         Board $board,
         int $memberId,
@@ -89,7 +83,6 @@ final class BoardMember extends Model
         if ($photo !== null) {
             $member->attachMedia($photo, static::BOARD_MEMBER_PHOTO_TAG);
         }
-
 
         return $member;
     }

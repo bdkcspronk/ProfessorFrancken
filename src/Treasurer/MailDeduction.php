@@ -42,13 +42,15 @@ final class MailDeduction extends Model
     /**
      * @var string[]
      */
-    protected $dates = ['datum'];
-
-    /**
-     * @var string[]
-     */
     protected $fillable = [
         'id', 'aantal_leden', 'bestand', 'datum'
+    ];
+
+    /**
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'datum' => 'datetime',
     ];
 
     public function deduction() : Deduction
