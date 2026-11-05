@@ -21,24 +21,41 @@ final class AdminPhotoAlbumsController
 {
     private const ROOT = 'remote.php/dav/files/compucie/';
 
-    public function index(Clock $clock) : View
+    /**
+     * The albums of one year, the newest first, with a tab for every year that has albums
+     */
+    public function index(Request $request, Clock $clock) : View
     {
-        $flickrAlbums = FlickrAlbum::query()
-            ->orderBy('activity_date', 'desc')
-            ->paginate(10, ['*'], 'flickr');
+        $years = Album::query()
+            ->whereNotNull('published_at')
+            ->pluck('published_at')
+            ->merge(FlickrAlbum::query()->whereNotNull('activity_date')->pluck('activity_date'))
+            ->map(fn ($date) : int => $date instanceof \DateTimeInterface
+                ? (int) $date->format('Y')
+                : (int) substr(is_string($date) ? $date : '', 0, 4))
+            ->unique()
+            ->sortDesc()
+            ->values();
+
+        $year = $request->integer('year') ?: (int) ($years->first() ?? $clock->now()->format('Y'));
 
         $albums = Album::query()
+            ->whereYear('published_at', (string) $year)
             ->orderBy('published_at', 'desc')
             ->withCount('photos')
-            ->paginate(10);
+            ->with('coverPhoto')
+            ->get();
+
+        $flickrAlbums = FlickrAlbum::query()
+            ->whereYear('activity_date', (string) $year)
+            ->orderBy('activity_date', 'desc')
+            ->get();
 
         return view('admin.association.photo-albums.index', [
             'albums' => $albums,
-            'year' => $clock->now()->format('Y'),
             'flickrAlbums' => $flickrAlbums,
-            'breadcrumbs' => [
-                ['url' => action([self::class, 'index']), 'text' => 'Photo albums'],
-            ]
+            'years' => $years,
+            'year' => $year,
         ]);
     }
 
@@ -63,7 +80,8 @@ final class AdminPhotoAlbumsController
         }
 
         return view('admin.association.photo-albums.create', [
-            'album' => new Album(),
+            // New albums are only visible to members, unless the board chooses otherwise
+            'album' => new Album(['visibility' => 'members-only']),
             'albumDirectories' => $albumDirectories,
             'year' => $year,
             'breadcrumbs' => [

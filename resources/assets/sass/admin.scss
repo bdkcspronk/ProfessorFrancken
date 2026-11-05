@@ -314,6 +314,61 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
     margin-left: auto;
 }
 
+// The photo albums of the admin: a tab for every year, and the albums of a year as cards like
+// on the photos page of the website (admin/association/photo-albums/index.blade.php)
+.album-years {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.album-years__year {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid $gray-300;
+    background: white;
+    color: $home-navy;
+    font-family: $home-heading-font;
+    font-weight: 600;
+
+    &:hover,
+    &:focus-visible {
+        border-color: $home-crimson;
+        color: $home-crimson;
+        text-decoration: none;
+    }
+
+    &.is-active {
+        border-color: $home-crimson;
+        background: $home-crimson;
+        color: white;
+    }
+}
+
+.album-year__count {
+    margin-left: 0.5rem;
+    color: $gray-600;
+    font-family: $home-body-font;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.album-grid--admin {
+    grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+}
+
+// The visibility of an album at the top of its card
+.album-card__badge {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    background: rgba($home-navy, 0.85);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
 // The text of buttons stays on one line, like "Apply filters" next to the fields of a search
 .admin-page .btn {
     white-space: nowrap;
