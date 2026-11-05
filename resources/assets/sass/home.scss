@@ -3217,6 +3217,11 @@ $menu-card-banner-height: 11rem;
     }
 }
 
+.activity-page__no-description {
+    color: $gray-600;
+    font-style: italic;
+}
+
 .activity-page__sign-up {
     padding: 2rem;
     background: $gray-100;

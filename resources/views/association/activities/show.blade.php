@@ -8,7 +8,14 @@
 @section('content')
     <article class="activity-page">
         <div class="activity-page__content">
-            {!! $activity->compiled_content !!}
+            @if (trim(strip_tags($activity->compiled_content ?? '')) !== '')
+                {!! $activity->compiled_content !!}
+            @else
+                <p class="activity-page__no-description">
+                    No description has been given for this activity yet.
+                    See the details of this activity for when and where it takes place.
+                </p>
+            @endif
         </div>
 
         @auth
