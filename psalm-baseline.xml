@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.26.1@d747f6500b38ac4f7dfc5edbcae6e4b637d7add0">
   <file src="src/Association/Activities/ActivitiesRepository.php">
     <InvalidArgument>
-      <code>CalendarEvent::fromEvent($event)</code>
+      <code><![CDATA[CalendarEvent::fromEvent($event)]]></code>
     </InvalidArgument>
   </file>
   <file src="src/Association/Boards/Board.php">
@@ -63,6 +63,9 @@
                 }
             )]]></code>
     </InvalidArgument>
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::orderBy('installed_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->id]]></code>
       <code><![CDATA[$board->name]]></code>
@@ -216,6 +219,11 @@
             ->map(fn ($year) => $year->groupBy(fn ($member) => $member['day']->format('F')))]]></code>
     </InvalidTemplateParam>
   </file>
+  <file src="src/Association/Boards/Http/Requests/KandiTotoRequest.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[BoardMember::whereMemberId($this->user()->member_id)]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Association/Boards/Imports/BoardMembersImport.php">
     <UndefinedMagicPropertyAssignment>
       <code><![CDATA[$member->photo_media_id]]></code>
@@ -231,6 +239,11 @@
       <code><![CDATA[$member->member_id]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
+  <file src="src/Association/Borrelcie/EventHandlers/HandOutAnytimers.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Association/Borrelcie/Http/AnytimersController.php">
     <InvalidTemplateParam>
       <code><![CDATA[BorrelcieAccount::query()
@@ -243,6 +256,11 @@
             ])]]></code>
     </InvalidTemplateParam>
   </file>
+  <file src="src/Association/Borrelcie/Http/BorrelcieAccountActivationController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[BorrelcieAccount::inRandomOrder()]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Association/Committees/Committee.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$toBoardYear->id]]></code>
@@ -252,24 +270,25 @@
       <code><![CDATA[$this->parent_committee_id]]></code>
     </UndefinedThisPropertyFetch>
   </file>
-  <file src="src/Association/Committees/Exports/CommitteeMembersExport.php">
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$committee->name]]></code>
-    </UndefinedMagicPropertyFetch>
+  <file src="src/Association/Committees/Exports/ActiveMembersExport.php">
+    <MissingTemplateParam>
+      <code><![CDATA[WithMapping]]></code>
+    </MissingTemplateParam>
   </file>
-  <file src="src/Association/Committees/FileUploader.php">
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$committee->name]]></code>
-      <code><![CDATA[$committee->name]]></code>
-    </UndefinedMagicPropertyFetch>
+  <file src="src/Association/Committees/Exports/CommitteeMembersExport.php">
+    <MissingTemplateParam>
+      <code><![CDATA[WithMapping]]></code>
+    </MissingTemplateParam>
   </file>
   <file src="src/Association/Committees/Http/AdminCommitteeMembersController.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->name]]></code>
-      <code><![CDATA[$committee->name]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/Association/Committees/Http/AdminCommitteesController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::orderBy('installed_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->id]]></code>
       <code><![CDATA[$board->id]]></code>
@@ -279,15 +298,17 @@
       <code><![CDATA[$board->name]]></code>
       <code><![CDATA[$board->name]]></code>
       <code><![CDATA[$board->name]]></code>
-      <code><![CDATA[$committee->name]]></code>
-      <code><![CDATA[$committee->name]]></code>
     </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/Association/Committees/Http/AdminRedirectCommitteesController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/Association/Committees/Http/CommitteesController.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->installed_at]]></code>
       <code><![CDATA[$board->installed_at]]></code>
-      <code><![CDATA[$committee->name]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/Association/FranckenVrij/Http/AdminSubscriptionsController.php">
@@ -311,30 +332,32 @@
             }]]></code>
     </InvalidArgument>
   </file>
-  <file src="src/Association/FranckenVrij/Http/AdminSubscriptionsExportController.php">
-    <InvalidArgument>
-      <code>$subscriptions</code>
-    </InvalidArgument>
-  </file>
-  <file src="src/Association/FranckenVrij/Http/FranckenVrijController.php">
-    <InvalidMethodCall>
-      <code>editions</code>
-    </InvalidMethodCall>
+  <file src="src/Association/Members/EventHandlers/NotifyBoardAboutProfileChanges.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+      <code><![CDATA[Board::current()]]></code>
+      <code><![CDATA[Board::current()]]></code>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/Association/Members/Http/Controllers/Admin/MembersController.php">
     <InvalidArrayOffset>
       <code><![CDATA[[$study->studierichting => $study->studierichting]]]></code>
       <code><![CDATA[[$study->type_lid => $study->type_lid]]]></code>
     </InvalidArrayOffset>
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$member->committee->board_id]]></code>
-    </UndefinedMagicPropertyFetch>
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+      <code><![CDATA[Board::current()]]></code>
+      <code><![CDATA[LegacyMember::distinct()]]></code>
+      <code><![CDATA[LegacyMember::distinct()]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/Association/Members/Http/Controllers/Admin/RegistrationRequestsController.php">
-    <NoInterfaceProperties>
-      <code><![CDATA[$account->member_id]]></code>
-      <code><![CDATA[$account->member_id]]></code>
-    </NoInterfaceProperties>
+    <UndefinedMagicMethod>
+      <code><![CDATA[BoardMember::whereMemberId($account->member_id)]]></code>
+      <code><![CDATA[BoardMember::whereMemberId($account->member_id)]]></code>
+      <code><![CDATA[Registration::orderBy('created_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/Association/Members/Http/FranckenVrijSubscriptionController.php">
     <InvalidArgument>
@@ -367,6 +390,13 @@
       <code><![CDATA[BelongsTo<Album, Photo>]]></code>
     </TooManyTemplateParams>
   </file>
+  <file src="src/Association/Photos/PhotosServiceProvider.php">
+    <InvalidArgument>
+      <code><![CDATA[[PhotosPolicy::class, 'view']]]></code>
+      <code><![CDATA[[PhotosPolicy::class, 'viewMembersOnly']]]></code>
+      <code><![CDATA[[PhotosPolicy::class, 'viewPrivate']]]></code>
+    </InvalidArgument>
+  </file>
   <file src="src/Association/Soundboards/FileUploader.php">
     <UndefinedMagicPropertyAssignment>
       <code><![CDATA[$sound->audio_media_id]]></code>
@@ -377,15 +407,43 @@
       <code><![CDATA[$sound->name]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
-  <file src="src/Auth/ChangeRolesListener.php">
-    <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$committee->name]]></code>
-      <code><![CDATA[$member->board_member_status]]></code>
-    </UndefinedMagicPropertyFetch>
+  <file src="src/Association/Soundboards/Http/Requests/SoundRequest.php">
+    <NullableReturnStatement>
+      <code><![CDATA[$this->user()->member_id]]></code>
+    </NullableReturnStatement>
   </file>
-  <file src="src/Auth/Role.php">
+  <file src="src/Association/Symposium/Http/AdminSymposiaController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Symposium::create([
+            'name' => $request->name(),
+            'start_date' => $request->startDate(),
+            'end_date' => $request->endDate(),
+            'location' => $request->location(),
+            'location_google_maps_url' => $request->locationGoogleMapsUrl(),
+            'website_url' => $request->websiteUrl(),
+            'open_for_registration' => $request->openForRegistration(),
+            'promote_on_agenda' => $request->promoteOnAgenda(),
+        ])]]></code>
+      <code><![CDATA[Symposium::orderBy('start_date', 'DESC')]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Association/Symposium/NotifySymposiumCommittee.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[AdCount::create([
+            'symposium_id' => $event->participant->symposium_id,
+            'participant_id' => $event->participant->id,
+            'name' => $whoNeedsToTakeAnAdt,
+            'consumed' => false,
+        ])]]></code>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Auth/ChangeRolesListener.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::orderBy('installed_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
-      <code><![CDATA[$committee->name]]></code>
+      <code><![CDATA[$member->board_member_status]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/Extern/Alumnus.php">
@@ -400,9 +458,14 @@
       <code><![CDATA[$this->surname]]></code>
     </UndefinedThisPropertyFetch>
   </file>
+  <file src="src/Extern/FactSheet/ActiveMembersStatistics.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::orderBy('installed_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Extern/FactSheet/StudiesStatistic.php">
     <InvalidArgument>
-      <code>collect($studies)</code>
+      <code><![CDATA[collect($studies)]]></code>
       <code><![CDATA[fn (StudyStatistic $study) : bool => in_array($study->study(), $relatedStudies, true)]]></code>
     </InvalidArgument>
   </file>
@@ -531,13 +594,18 @@
                 // Let transactions between 00:00 and 06:00 count for the previous day
                 return $purchaseDate->sub(new DateInterval('PT6H'))->format('l');
             })]]></code>
-      <code>collect(range(2013, 2020))</code>
+      <code><![CDATA[collect(range(2013, 2020))]]></code>
     </InvalidArgument>
   </file>
   <file src="src/Extern/LogoUploader.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$partner->name]]></code>
     </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/Extern/Partner.php">
+    <UndefinedThisPropertyFetch>
+      <code><![CDATA[$this->status]]></code>
+    </UndefinedThisPropertyFetch>
   </file>
   <file src="src/Extern/SponsorOptions/FccFooter.php">
     <TooManyTemplateParams>
@@ -566,15 +634,12 @@
   <file src="src/PlusOne/Http/CommitteesController.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->installed_at]]></code>
-      <code><![CDATA[$committee->name]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/PlusOne/Http/CommitteesStatisticsController.php">
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$board->demissioned_at]]></code>
       <code><![CDATA[$board->installed_at]]></code>
-      <code><![CDATA[$committee->id]]></code>
-      <code><![CDATA[$committee->name]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
   <file src="src/PlusOne/Http/ProductsController.php">
@@ -619,28 +684,52 @@
   </file>
   <file src="src/Shared/ExceptionsHandler.php">
     <UndefinedMethod>
-      <code>whoopsHandler</code>
+      <code><![CDATA[whoopsHandler]]></code>
     </UndefinedMethod>
   </file>
   <file src="src/Shared/Http/Controllers/DashboardController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$member->member_id]]></code>
     </UndefinedMagicPropertyFetch>
+  </file>
+  <file src="src/Shared/Http/Controllers/SearchController.php">
+    <ReservedWord>
+      <code><![CDATA[Page]]></code>
+    </ReservedWord>
   </file>
   <file src="src/Shared/Http/Middleware/TrustProxies.php">
     <UndefinedConstant>
-      <code>Request::HEADER_X_FORWARDED_ALL</code>
+      <code><![CDATA[Request::HEADER_X_FORWARDED_ALL]]></code>
     </UndefinedConstant>
   </file>
   <file src="src/Shared/Http/Requests/BoardDashboardRequest.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Board::current()]]></code>
+    </UndefinedMagicMethod>
     <UndefinedMagicPropertyFetch>
       <code><![CDATA[$member->member_id]]></code>
     </UndefinedMagicPropertyFetch>
   </file>
+  <file src="src/Shared/Providers/NavigationServiceProvider.php">
+    <RedundantCondition>
+      <code><![CDATA[$account !== null && $account instanceof Account]]></code>
+    </RedundantCondition>
+  </file>
   <file src="src/Shared/Settings/Settings.php">
     <MissingTemplateParam>
-      <code>IteratorAggregate</code>
+      <code><![CDATA[IteratorAggregate]]></code>
     </MissingTemplateParam>
+  </file>
+  <file src="src/Shared/ViewComponents/BorrelcieNotificationsComponent.php">
+    <InvalidArgument>
+      <code><![CDATA[fn ($q) => $q->where('context', 'given')->where('owner_id', $account->id)]]></code>
+    </InvalidArgument>
+    <UndefinedMethod>
+      <code><![CDATA[where]]></code>
+    </UndefinedMethod>
   </file>
   <file src="src/Shared/ViewComponents/FooterSponsorsComponent.php">
     <InvalidTemplateParam>
@@ -671,11 +760,22 @@
             )]]></code>
     </InvalidTemplateParam>
   </file>
+  <file src="src/Study/BooksSale/Http/Requests/AdminBookSearchRequest.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[BookBuyer::find($this->buyerId())]]></code>
+      <code><![CDATA[BookSeller::find($this->sellerId())]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Treasurer/Deduction.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[self::orderBy('tijd', 'desc')]]></code>
+    </UndefinedMagicMethod>
+  </file>
   <file src="src/Treasurer/Http/Controllers/AdminProductsController.php">
     <UndefinedMagicMethod>
-      <code>beer</code>
-      <code>food</code>
-      <code>soda</code>
+      <code><![CDATA[beer]]></code>
+      <code><![CDATA[food]]></code>
+      <code><![CDATA[soda]]></code>
     </UndefinedMagicMethod>
   </file>
   <file src="src/Treasurer/Http/Controllers/AdminTransactionsController.php">
@@ -683,10 +783,46 @@
       <code><![CDATA[Product::all()
             ->mapWithKeys(fn ($product) => [$product->id => $product->name])]]></code>
     </InvalidTemplateParam>
+    <UndefinedMagicMethod>
+      <code><![CDATA[Product::orderBy('naam')]]></code>
+      <code><![CDATA[Product::orderBy('naam')]]></code>
+      <code><![CDATA[Transaction::create([
+            "lid_id" => $request->memberId(),
+            "product_id" => $request->productId(),
+            "aantal" => 1,
+            "prijs" => $product->prijs,
+            "totaalprijs" => $product->prijs,
+            "tijd" => $request->time(),
+        ])]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Treasurer/Http/Controllers/AdminTransactionsExportsController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Deduction::create(['tijd' => $request->until()])]]></code>
+      <code><![CDATA[Deduction::orderBy('tijd', 'desc')]]></code>
+      <code><![CDATA[Deduction::orderBy('tijd', 'desc')]]></code>
+      <code><![CDATA[Deduction::orderBy('tijd', 'desc')]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Treasurer/Http/Controllers/DeductionsController.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[DeductionEmail::orderBy('deducted_at', 'desc')]]></code>
+    </UndefinedMagicMethod>
   </file>
   <file src="src/Treasurer/Imports/ImportDeductions.php">
     <InvalidArgument>
-      <code>$what</code>
+      <code><![CDATA[$what]]></code>
     </InvalidArgument>
+  </file>
+  <file src="src/Treasurer/MailDeduction.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[Deduction::orderBy('tijd', 'desc')]]></code>
+      <code><![CDATA[self::orderBy('datum', 'desc')]]></code>
+    </UndefinedMagicMethod>
+  </file>
+  <file src="src/Treasurer/SendDeductionNotification.php">
+    <UndefinedMagicMethod>
+      <code><![CDATA[DeductionEmailToMember::findOrFail($this->deductionMemberId)]]></code>
+    </UndefinedMagicMethod>
   </file>
 </files>

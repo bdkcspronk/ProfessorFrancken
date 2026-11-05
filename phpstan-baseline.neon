@@ -11,6 +11,11 @@ parameters:
 			path: src/Association/Activities/Activity.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Activities\\\\Activity\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Activities/Activity.php
+
+		-
 			message: "#^Cannot call method getDateTime\\(\\) on mixed\\.$#"
 			count: 2
 			path: src/Association/Activities/CalendarEvent.php
@@ -19,6 +24,11 @@ parameters:
 			message: "#^Cannot cast mixed to string\\.$#"
 			count: 6
 			path: src/Association/Activities/CalendarEvent.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Activities\\\\Comment\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Activities/Comment.php
 
 		-
 			message: "#^Cannot access property \\$achternaam on mixed\\.$#"
@@ -96,6 +106,21 @@ parameters:
 			path: src/Association/Activities/ImportActivitiesFromCalendar.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Activities\\\\SignUp\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Activities/SignUp.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Activities\\\\SignUpSettings\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Activities/SignUpSettings.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\AlumniActivity\\\\Alumnus\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/AlumniActivity/Alumnus.php
+
+		-
 			message: "#^Cannot cast mixed to int\\.$#"
 			count: 2
 			path: src/Association/AlumniActivity/Http/AdminAlumnusRequest.php
@@ -131,6 +156,11 @@ parameters:
 			path: src/Association/Boards/Board.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Boards\\\\Board\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Boards/Board.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:each\\(\\) expects callable\\(mixed, int\\|string\\)\\: mixed, Closure\\(array\\)\\: void given\\.$#"
 			count: 1
 			path: src/Association/Boards/Board.php
@@ -161,9 +191,24 @@ parameters:
 			path: src/Association/Boards/BoardMember.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Boards\\\\BoardMember\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Boards/BoardMember.php
+
+		-
 			message: "#^Property Francken\\\\Association\\\\Boards\\\\BoardMember\\:\\:\\$installed_at \\(Carbon\\\\Carbon\\) does not accept DateTimeImmutable\\.$#"
 			count: 1
 			path: src/Association/Boards/BoardMember.php
+
+		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-falsy\\-string&numeric\\-string, 2\\?\\: non\\-falsy\\-string&numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Association/Boards/BoardYear.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-falsy\\-string&numeric\\-string, 2\\?\\: non\\-falsy\\-string&numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Association/Boards/BoardYear.php
 
 		-
 			message: "#^Parameter \\#1 \\$startDate of class League\\\\Period\\\\Period constructor expects DateTimeInterface\\|int\\|string, DateTimeImmutable\\|false given\\.$#"
@@ -371,6 +416,16 @@ parameters:
 			path: src/Association/Boards/UpdateBoardMemberStatus.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Borrelcie\\\\Anytimer\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Borrelcie/Anytimer.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Borrelcie\\\\BorrelcieAccount\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Borrelcie/BorrelcieAccount.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:each\\(\\) expects callable\\(mixed, int\\|string\\)\\: mixed, Closure\\(Francken\\\\Association\\\\Borrelcie\\\\BorrelcieAccount\\)\\: void given\\.$#"
 			count: 1
 			path: src/Association/Borrelcie/EventHandlers/HandOutAnytimers.php
@@ -441,6 +496,16 @@ parameters:
 			path: src/Association/Committees/Committee.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Committees\\\\Committee\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Committees/Committee.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Committees\\\\CommitteeMember\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Committees/CommitteeMember.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<\\(int\\|string\\),Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:mapWithKeys\\(\\) expects callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: array\\<int, string\\>, Closure\\(Francken\\\\Association\\\\Boards\\\\Board\\)\\: non\\-empty\\-array\\<int, string\\> given\\.$#"
 			count: 1
 			path: src/Association/Committees/Http/AdminCommitteesController.php
@@ -501,8 +566,28 @@ parameters:
 			path: src/Association/Committees/Http/Requests/AdminCommitteeRequest.php
 
 		-
-			message: "#^Parameter \\#2 \\$editions of class Francken\\\\Association\\\\FranckenVrij\\\\Volume constructor expects array\\<Francken\\\\Association\\\\FranckenVrij\\\\Edition\\>, array given\\.$#"
+			message: "#^Cannot cast mixed to int\\.$#"
+			count: 2
+			path: src/Association/FranckenVrij/Edition.php
+
+		-
+			message: "#^Method Francken\\\\Association\\\\FranckenVrij\\\\Edition\\:\\:getId\\(\\) should return string but returns mixed\\.$#"
 			count: 1
+			path: src/Association/FranckenVrij/Edition.php
+
+		-
+			message: "#^Method Francken\\\\Association\\\\FranckenVrij\\\\Edition\\:\\:title\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Association/FranckenVrij/Edition.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\FranckenVrij\\\\Edition\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/FranckenVrij/Edition.php
+
+		-
+			message: "#^Parameter \\#1 \\$url of class Francken\\\\Shared\\\\Url constructor expects string, mixed given\\.$#"
+			count: 2
 			path: src/Association/FranckenVrij/Edition.php
 
 		-
@@ -539,6 +624,11 @@ parameters:
 			message: "#^Method Francken\\\\Association\\\\FranckenVrij\\\\Http\\\\Requests\\\\FranckenVrijRequest\\:\\:title\\(\\) should return string but returns mixed\\.$#"
 			count: 1
 			path: src/Association/FranckenVrij/Http/Requests/FranckenVrijRequest.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\FranckenVrij\\\\Subscription\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/FranckenVrij/Subscription.php
 
 		-
 			message: "#^PHPDoc type array of property Francken\\\\Association\\\\LegacyMember\\:\\:\\$guarded is not covariant with PHPDoc type array\\<string\\>\\|bool of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$guarded\\.$#"
@@ -601,11 +691,6 @@ parameters:
 			path: src/Association/Members/Http/Controllers/Admin/RegistrationRequestsController.php
 
 		-
-			message: "#^Cannot access property \\$aantal on mixed\\.$#"
-			count: 4
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
 			message: "#^Cannot access property \\$id on Francken\\\\Association\\\\LegacyMember\\|null\\.$#"
 			count: 2
 			path: src/Association/Members/Http/ExpensesController.php
@@ -613,31 +698,6 @@ parameters:
 		-
 			message: "#^Cannot access property \\$member on Francken\\\\Auth\\\\Account\\|null\\.$#"
 			count: 2
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
-			message: "#^Cannot access property \\$naam on mixed\\.$#"
-			count: 2
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
-			message: "#^Cannot access property \\$price on mixed\\.$#"
-			count: 1
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
-			message: "#^Cannot access property \\$prijs on mixed\\.$#"
-			count: 1
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
-			message: "#^Cannot access property \\$tijd on mixed\\.$#"
-			count: 4
-			path: src/Association/Members/Http/ExpensesController.php
-
-		-
-			message: "#^Cannot access property \\$totaalprijs on mixed\\.$#"
-			count: 1
 			path: src/Association/Members/Http/ExpensesController.php
 
 		-
@@ -1076,6 +1136,16 @@ parameters:
 			path: src/Association/Members/Registration/Registration.php
 
 		-
+			message: "#^Parameter \\#1 \\$email of class Francken\\\\Shared\\\\Email constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Association/Members/Registration/Registration.php
+
+		-
+			message: "#^Parameter \\#1 \\$json of function json_decode expects string, mixed given\\.$#"
+			count: 1
+			path: src/Association/Members/Registration/Registration.php
+
+		-
 			message: "#^Parameter \\#2 \\$array of function array_map expects array, mixed given\\.$#"
 			count: 1
 			path: src/Association/Members/Registration/Registration.php
@@ -1156,6 +1226,16 @@ parameters:
 			path: src/Association/News/News.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\News\\\\News\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/News/News.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Photos\\\\Album\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Photos/Album.php
+
+		-
 			message: "#^Property Francken\\\\Association\\\\Photos\\\\Flickr\\\\Response\\:\\:\\$contents \\(array\\) does not accept mixed\\.$#"
 			count: 1
 			path: src/Association/Photos/Flickr/Response.php
@@ -1194,6 +1274,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$password of method Francken\\\\Association\\\\Photos\\\\PhotosAuthentication\\:\\:login\\(\\) expects string, mixed given\\.$#"
 			count: 1
 			path: src/Association/Photos/Http/Controllers/AuthenticationController.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Photos\\\\Photo\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Photos/Photo.php
 
 		-
 			message: "#^Method Francken\\\\Association\\\\Photos\\\\PhotosAuthentication\\:\\:isLoggedIn\\(\\) should return bool but returns mixed\\.$#"
@@ -1306,6 +1391,21 @@ parameters:
 			path: src/Association/Soundboards/Http/SoundsController.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Soundboards\\\\Sound\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Soundboards/Sound.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Soundboards\\\\Soundboard\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Soundboards/Soundboard.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Symposium\\\\AdCount\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Symposium/AdCount.php
+
+		-
 			message: "#^Parameter \\#1 \\$logo of method Francken\\\\Association\\\\Symposium\\\\FileUploader\\:\\:uploadLogo\\(\\) expects Illuminate\\\\Http\\\\UploadedFile\\|null, mixed given\\.$#"
 			count: 2
 			path: src/Association/Symposium/Http/AdminSymposiaController.php
@@ -1406,6 +1506,16 @@ parameters:
 			path: src/Association/Symposium/Http/Requests/SymposiumRequest.php
 
 		-
+			message: "#^Cannot access property \\$location_google_maps_url on Francken\\\\Association\\\\Symposium\\\\Symposium\\|null\\.$#"
+			count: 1
+			path: src/Association/Symposium/Mail/InformationEmail.php
+
+		-
+			message: "#^Cannot access property \\$location_google_maps_url on Francken\\\\Association\\\\Symposium\\\\Symposium\\|null\\.$#"
+			count: 1
+			path: src/Association/Symposium/Mail/VerifyRegistration.php
+
+		-
 			message: "#^Parameter \\#2 \\$whoNeedsToTakeAnAdt of class Francken\\\\Association\\\\Symposium\\\\Mail\\\\NotifyCommittee constructor expects string, mixed given\\.$#"
 			count: 1
 			path: src/Association/Symposium/NotifySymposiumCommittee.php
@@ -1416,9 +1526,24 @@ parameters:
 			path: src/Association/Symposium/Participant.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Symposium\\\\Participant\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Symposium/Participant.php
+
+		-
 			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Symposium\\\\Symposium\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
 			count: 1
 			path: src/Association/Symposium/Symposium.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Association\\\\Symposium\\\\Symposium\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Association/Symposium/Symposium.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Auth\\\\Account\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Auth/Account.php
 
 		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:each\\(\\) expects callable\\(mixed, int\\|string\\)\\: mixed, Closure\\(Francken\\\\Association\\\\Boards\\\\BoardMember\\)\\: void given\\.$#"
@@ -1471,6 +1596,21 @@ parameters:
 			path: src/Extern/Alumnus.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\Alumnus\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/Alumnus.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\Contact\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/Contact.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\ContactDetails\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/ContactDetails.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:flatMap\\(\\) expects callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: \\(array\\<int, int\\>\\|Illuminate\\\\Support\\\\Collection\\<int, int\\>\\), Closure\\(Francken\\\\Association\\\\Committees\\\\Committee\\)\\: Illuminate\\\\Support\\\\Collection\\<int, int\\> given\\.$#"
 			count: 1
 			path: src/Extern/FactSheet/ActiveMembersStatistics.php
@@ -1491,7 +1631,12 @@ parameters:
 			path: src/Extern/FactSheet/StudentsByStudyAndStudyPhase.php
 
 		-
-			message: "#^Cannot call method push\\(\\) on Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), mixed\\>\\|null\\.$#"
+			message: "#^Unable to resolve the template type TGroupKey in call to method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:groupBy\\(\\)$#"
+			count: 1
+			path: src/Extern/FactSheet/StudentsByStudyAndStudyPhase.php
+
+		-
+			message: "#^Cannot call method push\\(\\) on Illuminate\\\\Support\\\\Collection\\<int, mixed\\>\\|null\\.$#"
 			count: 1
 			path: src/Extern/FactSheet/StudiesStatistic.php
 
@@ -1501,7 +1646,7 @@ parameters:
 			path: src/Extern/FactSheet/StudiesStatistic.php
 
 		-
-			message: "#^Method Francken\\\\Extern\\\\FactSheet\\\\StudiesStatistic\\:\\:filterUnrelatedStudies\\(\\) should return Illuminate\\\\Support\\\\Collection but returns Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\), mixed\\>\\|null\\.$#"
+			message: "#^Method Francken\\\\Extern\\\\FactSheet\\\\StudiesStatistic\\:\\:filterUnrelatedStudies\\(\\) should return Illuminate\\\\Support\\\\Collection but returns Illuminate\\\\Support\\\\Collection\\<int, mixed\\>\\|null\\.$#"
 			count: 2
 			path: src/Extern/FactSheet/StudiesStatistic.php
 
@@ -1512,6 +1657,11 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$groupBy of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:groupBy\\(\\) expects array\\|\\(callable\\(mixed, int\\|string\\)\\: \\(int\\|string\\)\\)\\|string, Closure\\(Francken\\\\Extern\\\\FactSheet\\\\StudyStatistic\\)\\: bool given\\.$#"
+			count: 1
+			path: src/Extern/FactSheet/StudiesStatistic.php
+
+		-
+			message: "#^Unable to resolve the template type TGroupKey in call to method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:groupBy\\(\\)$#"
 			count: 1
 			path: src/Extern/FactSheet/StudiesStatistic.php
 
@@ -1548,6 +1698,11 @@ parameters:
 		-
 			message: "#^Cannot call method format\\(\\) on DateTimeInterface\\|null\\.$#"
 			count: 3
+			path: src/Extern/Http/FactSheetController.php
+
+		-
+			message: "#^Parameter \\#1 \\$items of method Illuminate\\\\Support\\\\Collection\\<string,null\\>\\:\\:merge\\(\\) expects Illuminate\\\\Contracts\\\\Support\\\\Arrayable\\<string, null\\>\\|iterable\\<string, null\\>, Illuminate\\\\Support\\\\Collection\\<string, Illuminate\\\\Support\\\\Collection\\<int, mixed\\>\\> given\\.$#"
+			count: 1
 			path: src/Extern/Http/FactSheetController.php
 
 		-
@@ -1716,14 +1871,54 @@ parameters:
 			path: src/Extern/Http/Requests/VacancyRequest.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\Note\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/Note.php
+
+		-
+			message: "#^Method Francken\\\\Extern\\\\Partner\\:\\:getReferralUrlAttribute\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Extern/Partner.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\Partner\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/Partner.php
+
+		-
+			message: "#^Method Francken\\\\Extern\\\\SponsorOptions\\\\CompanyProfile\\:\\:getDisplayNameAttribute\\(\\) should return string but returns mixed\\.$#"
+			count: 1
+			path: src/Extern/SponsorOptions/CompanyProfile.php
+
+		-
 			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\CompanyProfile\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
 			count: 1
 			path: src/Extern/SponsorOptions/CompanyProfile.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\CompanyProfile\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/SponsorOptions/CompanyProfile.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\FccFooter\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/SponsorOptions/FccFooter.php
+
+		-
 			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\Footer\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
 			count: 1
 			path: src/Extern/SponsorOptions/Footer.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\Footer\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/SponsorOptions/Footer.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Extern\\\\SponsorOptions\\\\Vacancy\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Extern/SponsorOptions/Vacancy.php
 
 		-
 			message: "#^Parameter \\#1 \\$key of class Francken\\\\PlusOne\\\\JwtToken constructor expects string, mixed given\\.$#"
@@ -1751,23 +1946,13 @@ parameters:
 			path: src/PlusOne/Http/BoardsController.php
 
 		-
-			message: "#^Cannot access property \\$amount on mixed\\.$#"
-			count: 3
-			path: src/PlusOne/Http/CategoryStatisticsController.php
-
-		-
-			message: "#^Cannot access property \\$categorie on mixed\\.$#"
-			count: 3
-			path: src/PlusOne/Http/CategoryStatisticsController.php
-
-		-
-			message: "#^Cannot access property \\$date on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/CategoryStatisticsController.php
-
-		-
 			message: "#^Parameter \\#2 \\$datetime of static method DateTimeImmutable\\:\\:createFromFormat\\(\\) expects string, mixed given\\.$#"
 			count: 2
+			path: src/PlusOne/Http/CategoryStatisticsController.php
+
+		-
+			message: "#^Unable to resolve the template type TGroupKey in call to method Illuminate\\\\Support\\\\Collection\\<int,stdClass\\>\\:\\:groupBy\\(\\)$#"
+			count: 1
 			path: src/PlusOne/Http/CategoryStatisticsController.php
 
 		-
@@ -1776,9 +1961,24 @@ parameters:
 			path: src/PlusOne/Http/CommitteesController.php
 
 		-
-			message: "#^Cannot access property \\$afbeelding on mixed\\.$#"
-			count: 4
-			path: src/PlusOne/Http/MembersController.php
+			message: "#^Offset 'Bier' does not exist on Francken\\\\Association\\\\Committees\\\\Committee\\|Illuminate\\\\Support\\\\Collection\\<string, int\\|string\\>\\|null\\.$#"
+			count: 1
+			path: src/PlusOne/Http/CommitteesStatisticsController.php
+
+		-
+			message: "#^Offset 'Eten' does not exist on Francken\\\\Association\\\\Committees\\\\Committee\\|Illuminate\\\\Support\\\\Collection\\<string, int\\|string\\>\\|null\\.$#"
+			count: 1
+			path: src/PlusOne/Http/CommitteesStatisticsController.php
+
+		-
+			message: "#^Offset 'Fris' does not exist on Francken\\\\Association\\\\Committees\\\\Committee\\|Illuminate\\\\Support\\\\Collection\\<string, int\\|string\\>\\|null\\.$#"
+			count: 1
+			path: src/PlusOne/Http/CommitteesStatisticsController.php
+
+		-
+			message: "#^Offset 'name' does not exist on Francken\\\\Association\\\\Committees\\\\Committee\\|Illuminate\\\\Support\\\\Collection\\<string, int\\|string\\>\\|null\\.$#"
+			count: 1
+			path: src/PlusOne/Http/CommitteesStatisticsController.php
 
 		-
 			message: "#^Parameter \\#1 \\$contents of static method Lcobucci\\\\JWT\\\\Signer\\\\Key\\\\InMemory\\:\\:plainText\\(\\) expects non\\-empty\\-string, mixed given\\.$#"
@@ -1811,36 +2011,6 @@ parameters:
 			path: src/PlusOne/Http/OrdersController.php
 
 		-
-			message: "#^Cannot access property \\$aantal on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
-			message: "#^Cannot access property \\$id on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
-			message: "#^Cannot access property \\$lid_id on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
-			message: "#^Cannot access property \\$product_id on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
-			message: "#^Cannot access property \\$tijd on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
-			message: "#^Cannot access property \\$totaalprijs on mixed\\.$#"
-			count: 1
-			path: src/PlusOne/Http/OrdersController.php
-
-		-
 			message: "#^Parameter \\#2 \\$context of static method Illuminate\\\\Log\\\\Logger\\:\\:error\\(\\) expects array, mixed given\\.$#"
 			count: 1
 			path: src/PlusOne/Http/OrdersController.php
@@ -1849,6 +2019,16 @@ parameters:
 			message: "#^Parameter \\#1 \\$contents of static method Lcobucci\\\\JWT\\\\Signer\\\\Key\\\\InMemory\\:\\:plainText\\(\\) expects non\\-empty\\-string, string given\\.$#"
 			count: 1
 			path: src/PlusOne/JwtToken.php
+
+		-
+			message: "#^Offset 1 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-falsy\\-string&numeric\\-string, 2\\?\\: non\\-falsy\\-string&numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Shared/AcademicYear.php
+
+		-
+			message: "#^Offset 2 does not exist on array\\{0\\?\\: string, 1\\?\\: non\\-falsy\\-string&numeric\\-string, 2\\?\\: non\\-falsy\\-string&numeric\\-string\\}\\.$#"
+			count: 1
+			path: src/Shared/AcademicYear.php
 
 		-
 			message: "#^Call to an undefined static method Illuminate\\\\Foundation\\\\Exceptions\\\\Handler\\:\\:whoopsHandler\\(\\)\\.$#"
@@ -1956,17 +2136,12 @@ parameters:
 			path: src/Shared/Markdown/ResponsiveImageRenderer.php
 
 		-
-			message: "#^Property Francken\\\\Shared\\\\Media\\\\Directory\\:\\:\\$name \\(string\\) does not accept Illuminate\\\\Support\\\\Collection\\<int, string\\>\\|string\\|null\\.$#"
+			message: "#^Property Francken\\\\Shared\\\\Media\\\\Directory\\:\\:\\$name \\(string\\) does not accept string\\|null\\.$#"
 			count: 1
 			path: src/Shared/Media/Directory.php
 
 		-
-			message: "#^Cannot access property \\$mediable_type on mixed\\.$#"
-			count: 2
-			path: src/Shared/Media/Http/Controllers/MediaController.php
-
-		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<mixed,mixed\\>\\:\\:transform\\(\\) expects callable\\(mixed, mixed\\)\\: mixed, Closure\\(Plank\\\\Mediable\\\\Media\\)\\: Francken\\\\Shared\\\\Media\\\\MediaPresenter given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:transform\\(\\) expects callable\\(mixed, int\\|string\\)\\: mixed, Closure\\(Plank\\\\Mediable\\\\Media\\)\\: Francken\\\\Shared\\\\Media\\\\MediaPresenter given\\.$#"
 			count: 1
 			path: src/Shared/Media/Http/Controllers/MediaController.php
 
@@ -1974,6 +2149,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$directory of method Francken\\\\Shared\\\\Media\\\\Http\\\\Controllers\\\\MediaController\\:\\:breadcrumbs\\(\\) expects string, string\\|null given\\.$#"
 			count: 1
 			path: src/Shared/Media/Http/Controllers/MediaController.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Shared\\\\Page\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Shared/Page.php
 
 		-
 			message: "#^Cannot access property \\$name on mixed\\.$#"
@@ -1984,6 +2164,11 @@ parameters:
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Database\\\\Eloquent\\\\Collection\\<\\(int\\|string\\),Illuminate\\\\Database\\\\Eloquent\\\\Model\\>\\:\\:map\\(\\) expects callable\\(Illuminate\\\\Database\\\\Eloquent\\\\Model, int\\|string\\)\\: array\\{footer\\-link\\: string, footer\\-logo\\: string\\|null, name\\: mixed\\}, Closure\\(Francken\\\\Extern\\\\SponsorOptions\\\\Footer\\)\\: array\\{footer\\-link\\: string, footer\\-logo\\: string\\|null, name\\: mixed\\} given\\.$#"
 			count: 1
 			path: src/Shared/ViewComponents/FooterSponsorsComponent.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Study\\\\BooksSale\\\\Book\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Study/BooksSale/Book.php
 
 		-
 			message: "#^Cannot cast mixed to int\\.$#"
@@ -2036,6 +2221,11 @@ parameters:
 			path: src/Study/BooksSale/Http/Requests/AdminBookSearchRequest.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\Deduction\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/Deduction.php
+
+		-
 			message: "#^Cannot access property \\$id on mixed\\.$#"
 			count: 1
 			path: src/Treasurer/DeductionEmail.php
@@ -2051,12 +2241,22 @@ parameters:
 			path: src/Treasurer/DeductionEmail.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\DeductionEmail\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/DeductionEmail.php
+
+		-
 			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\|string\\)\\: array\\{member_id\\: mixed, description\\: mixed, amount_in_cents\\: mixed, contained_errors\\: mixed\\}, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: array\\{member_id\\: mixed, description\\: mixed, amount_in_cents\\: mixed, contained_errors\\: mixed\\} given\\.$#"
 			count: 1
 			path: src/Treasurer/DeductionEmail.php
 
 		-
 			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\DeductionEmailToMember\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
+			count: 1
+			path: src/Treasurer/DeductionEmailToMember.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\DeductionEmailToMember\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
 			count: 1
 			path: src/Treasurer/DeductionEmailToMember.php
 
@@ -2171,17 +2371,17 @@ parameters:
 			path: src/Treasurer/Imports/ImportDeductions.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\|string\\)\\: Illuminate\\\\Support\\\\Collection, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: Illuminate\\\\Support\\\\Collection given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\)\\: Illuminate\\\\Support\\\\Collection, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: Illuminate\\\\Support\\\\Collection given\\.$#"
 			count: 1
 			path: src/Treasurer/Imports/ImportDeductions.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\|string\\)\\: int, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: int given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\)\\: int, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: int given\\.$#"
 			count: 1
 			path: src/Treasurer/Imports/ImportDeductions.php
 
 		-
-			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<\\(int\\|string\\),mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\|string\\)\\: string, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: string given\\.$#"
+			message: "#^Parameter \\#1 \\$callback of method Illuminate\\\\Support\\\\Collection\\<int,mixed\\>\\:\\:map\\(\\) expects callable\\(mixed, int\\)\\: string, Closure\\(Illuminate\\\\Support\\\\Collection\\)\\: string given\\.$#"
 			count: 1
 			path: src/Treasurer/Imports/ImportDeductions.php
 
@@ -2211,6 +2411,31 @@ parameters:
 			path: src/Treasurer/Imports/ImportDeductions.php
 
 		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\MailDeduction\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/MailDeduction.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\MemberExtra\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/MemberExtra.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\Product\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/Product.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\ProductExtra\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
+			count: 1
+			path: src/Treasurer/ProductExtra.php
+
+		-
 			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\Transaction\\:\\:\\$casts is not covariant with PHPDoc type array\\<string, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$casts\\.$#"
+			count: 1
+			path: src/Treasurer/Transaction.php
+
+		-
+			message: "#^PHPDoc type array\\<string\\> of property Francken\\\\Treasurer\\\\Transaction\\:\\:\\$fillable is not covariant with PHPDoc type array\\<int, string\\> of overridden property Illuminate\\\\Database\\\\Eloquent\\\\Model\\:\\:\\$fillable\\.$#"
 			count: 1
 			path: src/Treasurer/Transaction.php

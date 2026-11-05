@@ -138,7 +138,7 @@ the website has been deployed so far):
 
 1. Install the PHP dependencies:
    `docker compose -f docker-compose.prod.yaml run --rm php composer install`
-2. Build the stylesheets and scripts with Vite (Node 20.19 or newer, which the `npm` service
+2. Build the stylesheets and scripts with Vite (Node 22, which the `npm` service
    of `docker-compose.prod.yaml` has):
    `docker compose -f docker-compose.prod.yaml run --rm npm sh -c "npm ci && npm run build"`.
    The files are placed in `public/build/`.

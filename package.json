@@ -30,5 +30,8 @@
     "katex": "^0.19.1",
     "magnific-popup": "^1.2.0"
   },
-  "type": "module"
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  }
 }

@@ -56,6 +56,11 @@ jobs:
           cp .env.ci .env
           php artisan key:generate
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Install NPM dependencies
         run: npm ci
 

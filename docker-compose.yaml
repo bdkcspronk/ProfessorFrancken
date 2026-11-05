@@ -14,7 +14,7 @@ services:
     image: francken/php-base:v8.2
 
   npm:
-    image: node:20
+    image: node:22
     volumes:
       - ./:/var/www/francken
       - ./docker/volumes/npm/:/var/www/.npm
@@ -25,7 +25,7 @@ services:
   # changes. It runs Vite itself instead of npm run dev, so that it removes
   # public/hot when it stops and the pages load the built stylesheets again
   vite:
-    image: node:20
+    image: node:22
     init: true
     user: "${USER_ID:-1000}"
     command: node_modules/.bin/vite
