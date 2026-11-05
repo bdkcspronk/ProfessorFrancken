@@ -19,6 +19,10 @@ You can find some high quality introductory videos on
     - [Code style](#code-style)
     - [Git Usage](#git-usage)
 
+## Documentation
+How the website is put together, how to work on the front end and the admin, and how to
+deploy: see [docs/](docs/README.md).
+
 ## Getting started
 
 If you want to get started working on our website, first clone the repository
