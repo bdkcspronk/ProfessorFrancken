@@ -454,6 +454,18 @@ $hero-eyebrow-ratio-lg: 0.2645;
     color: $home-navy;
     font-size: 1rem;
     font-weight: bold;
+
+    // On the homepage, long names are cut off after two lines, and short names
+    // keep the room of two lines, so all cards in the agenda have the same height
+    .home-agenda & {
+        display: -webkit-box;
+        overflow: hidden;
+        min-height: 2.5em;
+        line-height: 1.25;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
 }
 
 .home-activity__sign-up {

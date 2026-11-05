@@ -14,12 +14,6 @@
             @endif
             · {{ $activity->start_date->format('H:i') }}
         </div>
-        <h4 class="home-activity__name">{{ $activity->name }}</h4>
-        @if ($activity->signUpSettings !== null && $activity->signUpSettings->deadline_at->isFuture())
-            <div class="home-activity__sign-up">
-                <i class="fas fa-user-plus" aria-hidden="true"></i>
-                Sign up before {{ $activity->signUpSettings->deadline_at->format('j M') }}
-            </div>
-        @endif
+        <h4 class="home-activity__name" title="{{ $activity->name }}">{{ $activity->name }}</h4>
     </div>
 </a>
