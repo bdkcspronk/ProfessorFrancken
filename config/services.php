@@ -22,6 +22,12 @@ return [
         'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
     ],
 
+    // The map with the location of an activity on its page in the admin. The key is restricted
+    // to the Maps Embed API in the Google Cloud console
+    'google_maps' => [
+        'embed_key' => env('GOOGLE_MAPS_EMBED_KEY'),
+    ],
+
     'mandrill' => [
         'secret' => env('MANDRILL_SECRET'),
     ],

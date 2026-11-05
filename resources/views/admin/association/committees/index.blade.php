@@ -2,79 +2,75 @@
 @section('page-title', 'Committees')
 
 @section('content')
-    <div class="row">
-        <div class="col-9">
-            <div class="card">
-                <table class="table table-hover mb-0">
-                    <thead>
-                        <tr>
-                            <th colspan="2">Committee</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($committees as $committee)
-                            <tbody>
-                                <tr class=" border-bottom-0">
-                                    <td style="width: 200px;" class="align-middle">
-                                        <img
-                                            class="rounded ml-2 my-2"
-                                            src="{{ $committee->logo }}"
-                                            alt="Logo of {{ $committee->name }}"
-                                            style="
-                                                   width: 150px;
-                                                   max-width: 150px;
-                                                   max-height: 80px;
-                                                   object-fit: contain;"
-                                        />
-                                    </td>
-                                    <td>
-                                        <a href="{{ action(
-                                                    [\Francken\Association\Committees\Http\AdminCommitteesController::class, 'show'],
-                                                    ['committee' => $committee, 'board' => $board]
-                                                    ) }}"
-                                        >
-                                            <h4 class='d-flex flex-column h6'>
-                                                <span>
-                                                    {{ $committee->name }}
-                                                </span>
-                                                <small class="text-muted mt-1">
-                                                    Last updated
-                                                    {{ $committee->updated_at->diffForHumans() }}
-                                                </small>
-                                            </h4>
-                                        </a>
-                                        @if ($committee->email)
-                                        <small class="mt-1">
-                                            <a class="text-muted" href="malto: {{ $committee-> email }}">
-                                                {{ $committee->email }}
-                                            </a>
-                                        </small>
-                                        @endif
-                                        @if ($committee->goal)
-                                        <small class="mt-1">
-                                            {{ $committee->goal }}
-                                        </small>
-                                        @endif
-                                    </td>
-                                </tr>
-                                <tr class="border-top-0">
-                                    <td colspan="2" class="border-top-0 bg-light">
-                                        @foreach ($committee->committeeMembers() as $member)
-                                            <span class="badge badge-light bg-white font-weight-light font-weight-light">
-                                                {{ $member->member->fullname }}
-                                            </span>
-                                        @endforeach
-                                    </td>
-                                </tr>
-                            </tbody>
-                        @endforeach
-                    </tbody>
-                </table>
+    <div class="admin-committees">
+        <div>
+            <p class="admin-committees__summary">
+                {{ $committees->count() }} {{ Str::plural('committee', $committees->count()) }} of the board
+                <strong>{{ $board->board_name->toString() }}</strong>,
+                with {{ $committees->sum(fn ($committee) => $committee->committeeMembers()->count()) }} committee members.
+            </p>
+
+            @if ($committees->isEmpty())
+                <p class="text-muted">
+                    This board doesn't have any committees yet. Start one with the button above, or continue a committee of a previous board on the right.
+                </p>
+            @endif
+
+            {{-- A card for every committee, with its members --}}
+            <div class="admin-committee-grid">
+                @foreach ($committees as $committee)
+                    @php
+                        $url = action([\Francken\Association\Committees\Http\AdminCommitteesController::class, 'show'], ['committee' => $committee, 'board' => $board]);
+                        $members = $committee->committeeMembers();
+                    @endphp
+                    <article class="admin-committee">
+                        <a href="{{ $url }}" class="admin-committee__header">
+                            <span class="admin-committee__logo">
+                                @if ($committee->logo)
+                                    <img src="{{ $committee->logo }}" alt="" loading="lazy">
+                                @else
+                                    <i class="fas fa-users" aria-hidden="true"></i>
+                                @endif
+                            </span>
+                            <span class="admin-committee__name">
+                                {{ $committee->name }}
+                                @unless ($committee->is_public)
+                                    <span class="badge badge-secondary" title="Not shown on the website">Hidden</span>
+                                @endunless
+                            </span>
+                        </a>
+
+                        @if ($committee->email)
+                            <a class="admin-committee__email" href="mailto:{{ $committee->email }}">
+                                <i class="far fa-envelope" aria-hidden="true"></i> {{ $committee->email }}
+                            </a>
+                        @endif
+
+                        <div class="admin-committee__members">
+                            <span class="admin-committee__count">
+                                <i class="fas fa-user-friends" aria-hidden="true"></i>
+                                {{ $members->count() }} {{ Str::plural('member', $members->count()) }}
+                            </span>
+                            @if ($members->isNotEmpty())
+                                <ul class="admin-committee__member-list">
+                                    @foreach ($members as $member)
+                                        <li>{{ $member->member->fullname }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                        </div>
+
+                        <span class="admin-committee__updated">
+                            Last updated {{ $committee->updated_at->diffForHumans() }}
+                        </span>
+                    </article>
+                @endforeach
             </div>
         </div>
-        <div class="col-3">
+
+        <aside>
             @include('admin.association.committees._continuable-committees', ['continueable_committees' => $continueable_committees])
-        </div>
+        </aside>
     </div>
 @endsection
 
@@ -98,7 +94,8 @@
             </x-slot>
         </x-forms.select>
 
-        <button class='btn btn-primary btn-sm ml-3'>
+        {{-- Without javascript the board is opened with this button --}}
+        <button class='btn btn-primary btn-sm ml-3' data-board-view>
             <i class="fas fa-eye"></i>
             View
         </button>
@@ -119,3 +116,18 @@
         </a>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        // Choosing a board opens its committees right away, so the View button isn't needed
+        document.querySelectorAll('select[name="board_id"]').forEach(function (select) {
+            var view = select.form.querySelector('[data-board-view]');
+            if (view) {
+                view.hidden = true;
+            }
+            select.addEventListener('change', function () {
+                select.form.submit();
+            });
+        });
+    </script>
+@endpush

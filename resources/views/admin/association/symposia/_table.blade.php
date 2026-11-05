@@ -1,5 +1,5 @@
 @if (count($symposia) > 0)
-    <table class="table table-hover table-small">
+    <table class="table table-hover admin-clickable-rows mb-0">
         <thead>
             <tr>
                 <th>Logo</th>
@@ -11,17 +11,17 @@
         @foreach ($symposia as $symposium)
             <tr>
                 <td style="width: 200px;" class="align-middle">
-                    <a href="{{ action([\Francken\Association\Symposium\Http\AdminSymposiaController::class, 'show'], $symposium->id) }}">
+                    <a href="{{ action([\Francken\Association\Symposium\Http\AdminSymposiaController::class, 'show'], $symposium->id) }}" tabindex="-1" aria-hidden="true">
                         <img
                             class="rounded ml-2 my-2"
                             src="{{ $symposium->logo }}"
-                            alt="Logo of {{ $symposium->name }}"
+                            alt=""
                             style="width: 150px; max-width: 150px; max-height: 80px; object-fit: cover;"
                         />
                     </a>
                 </td>
                 <td>
-                    <a href="{{ action([\Francken\Association\Symposium\Http\AdminSymposiaController::class, 'show'], $symposium->id) }}">
+                    <a class="admin-row-link font-weight-bold" href="{{ action([\Francken\Association\Symposium\Http\AdminSymposiaController::class, 'show'], $symposium->id) }}">
                         {{ $symposium->name }}
                     </a>
                 </td>

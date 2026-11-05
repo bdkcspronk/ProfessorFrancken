@@ -9,10 +9,6 @@
 
            --}}
 @section('content')
-    <p>
-        When printing the registration form make sure, when using Google Chrome, to set the <em>Margins</em> to <em>None</em> and enable <em>Background graphics</em>.
-    </p>
-
     <div class="card">
         <div class="card-body">
             <!-- <div class="bg-white p-4 rounded"> -->
@@ -67,7 +63,7 @@
                 !!}
                 <button
                     type="submit"
-                    class="btn btn-outline-success"
+                    class="btn btn-primary"
                     onClick='return confirm("Are you sure you want to approve this registration request?");'
                 >
                     Sign registration form
@@ -103,7 +99,7 @@
                 !!}
                 <button
                     type="submit"
-                    class="btn btn-outline-success"
+                    class="btn btn-primary"
                     onClick='return confirm("Are you sure you want to approve this registration request?");'
                 >
                     Approve
@@ -128,11 +124,14 @@
     !!}
     @method('DELETE')
 
-    <p class="mt-2 text-muted d-flex align-items-center justify-content-end">
-        Click <button
-                  class="btn btn-text px-1"
-                  onclick='return confirm("Are you sure you want to remove this registration request?");'
-              >here</button> to remove this registration.
+    <p class="mt-3 d-flex justify-content-end">
+        <button
+            class="btn btn-sm btn-outline-danger"
+            onclick='return confirm("Are you sure you want to delete this registration request?");'
+        >
+            <i class="fas fa-trash-alt" aria-hidden="true"></i>
+            Delete registration request
+        </button>
     </p>
 
     {!! Form::close() !!}
@@ -147,6 +146,7 @@
                        ['registration' => $registration->id]
                    ) }}"
             target="_blank"
+            title="In Google Chrome, set the margins to None and turn on Background graphics"
         >
             <i class="fas fa-print"></i>
             Print

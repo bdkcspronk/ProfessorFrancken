@@ -21,30 +21,31 @@
         </div>
     </div>
 
-    <div class="overflow-hidden bg-primary d-flex align-items-start rounded mt-2" style="height: 300px">
+    {{-- The photo of the board next to its members; the list grows with the number of members,
+         so that boards of more than five members fit as well --}}
+    <div class="admin-board mt-2">
         <img
+            class="admin-board__photo"
             src="{{ board_banner_image($board->photo, ['vertical-offset' => $board->photo_position]) }}"
-            class="img-fluid h-100"
-            style="object-fit: contain; max-height: 100%"
+            alt="Photo of the board {{ $board->name }}"
+            loading="lazy"
         >
 
-        <ul class="p-3 list-unstyled d-flex flex-column justify-content-between h-100">
+        <ul class="admin-board__members">
             @foreach($board->members as $member)
-                <li class="d-flex align-items-center my-1">
+                <li class="admin-board__member">
                     @if (isset($member->photo))
                         <img
-                            class="rounded-circle mr-3"
-                            src="{{ image($member->photo, ['width' => 45, 'height' => 45]) }}"
-                            alt="Photo of {{ $member->name }}"
-                            style="width: 45px; height: 45px; object-fit: cover;"
+                            class="admin-board__member-photo"
+                            src="{{ image($member->photo, ['width' => 90, 'height' => 90]) }}"
+                            alt=""
+                            loading="lazy"
                         >
+                    @else
+                        <span class="admin-board__member-photo" aria-hidden="true"></span>
                     @endif
-                    <span class="text-white font-weight-bold mr-3">
-                        {{ $member->name }}
-                    </span>
-                    <span class="text-white font-weight-light">
-                        {{ $member->title }}
-                    </span>
+                    <span class="admin-board__member-name">{{ $member->name }}</span>
+                    <span class="admin-board__member-title">{{ $member->title }}</span>
                 </li>
             @endforeach
         </ul>

@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body">
-        <h3>Miscelanious</h3>
+        <h3>Miscellaneous</h3>
 
         <x-forms.text name="link" :value="$news->slug" disabled>
             <x-slot name="label">

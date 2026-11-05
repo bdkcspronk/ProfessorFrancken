@@ -5,36 +5,50 @@ declare(strict_types=1);
 namespace Francken\Association\Activities\Http;
 
 use Francken\Association\Activities\Activity;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
-use SimpleSoftwareIO\QrCode\Generator;
 
 final class AdminActivitiesController
 {
-    public function index() : View
+    /**
+     * The upcoming activities, the soonest first, above the past activities, the most recent
+     * first, optionally only those whose name contains the search
+     */
+    public function index(Request $request) : View
     {
-        $activities = Activity::query()
+        $search = $request->string('search')->trim()->toString();
+        $now = now();
+
+        $query = fn () => Activity::query()
             ->with(['signUpSettings', 'signUps'])
+            ->when($search !== '', fn (Builder $query) => $query->where('name', 'like', '%' . $search . '%'));
+
+        $upcomingActivities = $query()
+            ->where('start_date', '>=', $now)
+            ->orderBy('start_date', 'asc')
+            ->get();
+
+        $pastActivities = $query()
+            ->where('start_date', '<', $now)
             ->orderBy('start_date', 'desc')
-            ->paginate(50);
+            ->paginate(30)
+            ->appends($request->only('search'));
 
         return view('admin.association.activities.index')
             ->with([
-                'activities' => $activities,
-                'breadcrumbs' => [
-                    ['url' => action([self::class, 'index']), 'text' => 'Activities'],
-                ]
+                'upcomingActivities' => $upcomingActivities,
+                'pastActivities' => $pastActivities,
+                'search' => $search,
             ]);
     }
 
-    public function show(Activity $activity, Generator $qrCodeGenerator) : View
+    public function show(Activity $activity) : View
     {
-        $qrCode = base64_encode($this->qrCode($activity, $qrCodeGenerator));
-
         return view('admin.association.activities.show')
             ->with([
                 'activity' => $activity,
-                'qrCode' => $qrCode,
                 'breadcrumbs' => [
                     ['url' => action([self::class, 'index']), 'text' => 'Activities'],
                     ['url' => action([static::class, 'show'], ['activity' => $activity]), 'text' => $activity->name],
@@ -77,21 +91,5 @@ final class AdminActivitiesController
         $activity->delete();
 
         return redirect()->action([self::class, 'index']);
-    }
-
-    private function qrCode(Activity $activity, Generator $qrCodeGenerator) : string
-    {
-        /** @psalm-suppress UndefinedDocblockClass */
-        $qrCodeImage = $qrCodeGenerator
-            ->format('png')
-            ->size(330)
-            ->generate(
-                action(
-                    [ActivitiesController::class, 'redirect'],
-                    ['activity' => $activity]
-                )
-            );
-
-        return is_string($qrCodeImage) ? $qrCodeImage : '';
     }
 }

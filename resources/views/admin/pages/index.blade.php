@@ -2,41 +2,38 @@
 @section('page-title', 'Pages')
 
 @section('content')
-    <p>
-        Below you can edit the contents of some of our pages.
+    <p class="text-muted small">
+        Pages of the website with their own text. Click a page to see or edit it.
     </p>
     <div class="card">
-        <table class="table table-hover table-small">
+        <table class="table table-hover admin-clickable-rows mb-0">
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Url</th>
-                    <th class="text-right">Actions</th>
+                    <th>Address on the website</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pages as $page)
+                @forelse ($pages as $page)
                     <tr>
-                        <td>{{ $page->title }}</td>
                         <td>
-                            <a href="{{ url($page->slug)}}">
-                                /{{ $page->slug }}
+                            <a class="admin-row-link font-weight-bold" href="{{ action([\Francken\Shared\Http\Controllers\Admin\PagesController::class, 'show'], ['page' => $page]) }}">
+                                {{ $page->title }}
                             </a>
                         </td>
-                        <td class="text-right">
-                            <a href="{{ action([\Francken\Shared\Http\Controllers\Admin\PagesController::class, 'show'], ['page' => $page]) }}"
-                                class="btn btn-primary btn-sm"
-                            >
-                                Show
-                            </a>
-                            <a href="{{ action([\Francken\Shared\Http\Controllers\Admin\PagesController::class, 'edit'], ['page' => $page]) }}"
-                                class="btn btn-primary btn-sm"
-                            >
-                                Edit
+                        <td>
+                            <a href="{{ url($page->slug) }}" target="_blank" rel="noopener" class="text-muted">
+                                /{{ $page->slug }}
+                                <i class="fas fa-external-link-alt fa-xs" aria-hidden="true"></i>
+                                <span class="sr-only">(opens in a new tab)</span>
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="2" class="text-center text-muted py-4">There are no custom pages yet.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>

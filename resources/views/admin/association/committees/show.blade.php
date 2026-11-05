@@ -50,18 +50,14 @@
                                         This committee is shown on the <a href={{ action(
                                                                                  [\Francken\Association\Committees\Http\CommitteesController::class, 'show'],
                                                                                  ['committee' => $committee, 'board' => $committee->board]
-                                                                                 ) }}>
-                                            committees page
-                                        </a>.
+                                                                                 ) }}>committees page</a>.
                                     </p>
                                 @else
                                     <i class="far fa-square"></i>
                                     This committee is not shown on the <a href={{ action(
                                                                                  [\Francken\Association\Committees\Http\CommitteesController::class, 'index'],
                                                                                  ['board' => $committee->board]
-                                                                                 ) }}>
-                                        committees page
-                                    </a>.
+                                                                                 ) }}>committees page</a>.
                                 @endif
                             </div>
 
@@ -73,7 +69,7 @@
                             Page content
                         </h5>
                         <div
-                            style="max-height: 330px; height: 330px; overflow: auto;"
+                            style="max-height: 330px; overflow: auto;"
                         >
                             @if ($committee->compiled_content)
                                 {!! $committee->compiled_content !!}

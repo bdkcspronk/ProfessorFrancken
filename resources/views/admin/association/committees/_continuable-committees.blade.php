@@ -1,18 +1,21 @@
 <div class="card">
     <div class="card-body">
-        <h4 class="font-weight-bold">
-            Continue committee from a previous year
+        <h4 class="font-weight-bold h5">
+            Continue a committee
         </h4>
-        <p>
-            Use this form to add a committee based on a committee from a previous year.
-            This will keep the logo, photo, description etc. from the previous committee so that you don't have to re-upload all of their settings.
+        <p class="small text-muted">
+            Add a committee of a previous board to this board, with its logo, photo and description, so that you don't have to fill those in again.
         </p>
-        <p>
-            The list below shows all of our previous committees, which may be useful as inspiration for starting new committees.
-        </p>
-        <ul class="list-unstyled" id="continuable-committees">
+        <input
+            type="search"
+            class="form-control form-control-sm mb-2"
+            placeholder="Search previous committees"
+            aria-label="Search previous committees"
+            data-filter-committees
+        >
+        <ul class="list-unstyled admin-continuable" id="continuable-committees">
             @foreach ($continueable_committees as $committee)
-                <li class="p-2 my-2 bg-light">
+                <li class="p-2 my-2 bg-light" data-committee-name="{{ strtolower($committee->name) }}">
             {!!
                Form::model(
                    $committee,
@@ -67,3 +70,17 @@
         </ul>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        // Only the previous committees whose name contains the search
+        document.querySelectorAll('[data-filter-committees]').forEach(function (input) {
+            input.addEventListener('input', function () {
+                var search = input.value.trim().toLowerCase();
+                document.querySelectorAll('[data-committee-name]').forEach(function (committee) {
+                    committee.hidden = search !== '' && committee.dataset.committeeName.indexOf(search) === -1;
+                });
+            });
+        });
+    </script>
+@endpush

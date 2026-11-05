@@ -9,13 +9,13 @@ use Francken\Association\News\Http\AdminNewsController;
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <p>
-                        Here you can add news, which can be a blog, information from the association, advertisement or perhaps something else which I haven't thought about yet...
+                    <p class="text-muted small mb-0">
+                        News, blogs and announcements of the association. Click a news item to edit it.
                     </p>
 
                     @if (count($drafts) > 0)
-                        <h3 class="card-title" >
-                            Drafts
+                        <h3 class="h5 mt-4 mb-0">
+                            Drafts <small class="text-muted">{{ count($drafts) }}</small>
                         </h3>
                     @endif
                 </div>
@@ -23,14 +23,18 @@ use Francken\Association\News\Http\AdminNewsController;
                 @include('admin.news._table', ['news' => $drafts])
 
                 <div class="card-body">
-                    <h3 class="card-title mt-4" >
+                    <h3 class="h5 mb-0">
                         Published news
                     </h3>
                 </div>
 
                 @include('admin.news._table', ['news' => $news])
 
-                @if ($news->hasMorePages())
+                @if ($news->isEmpty())
+                    <p class="text-center text-muted py-4 mb-0">No news found.</p>
+                @endif
+
+                @if ($news->hasPages())
                     <div class="card-footer">
                         {!! $news->links() !!}
                     </div>

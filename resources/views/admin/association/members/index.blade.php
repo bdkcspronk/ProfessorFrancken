@@ -74,7 +74,8 @@
                     </div>
                 @endif
 
-                <table class="table table-hover">
+                {{-- The whole row opens the member --}}
+                <table class="table table-hover admin-clickable-rows mb-0">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -82,20 +83,19 @@
                             <th>Email</th>
                             <th>Study</th>
                             <th>Last updated at</th>
-                            <th class="text-right">Show</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($members as $member)
+                        @forelse ($members as $member)
                             <tr class="subscription">
                                 <td  class="text-muted">
                                     {{ $member->id }}
                                 </td>
                                 <td>
-                                    <div>
+                                    <a class="admin-row-link font-weight-bold" href="{{ action([\Francken\Association\Members\Http\Controllers\Admin\MembersController::class, 'show'], ['member' => $member]) }}">
                                         {{ $member->fullname  }}
-                                    </div>
-                                    <div>
+                                    </a>
+                                    <div class="text-muted small">
                                         {{ $member->type_lid  }}
                                     </div>
                                 </td>
@@ -110,16 +110,15 @@
                                         {{ $member->studentnummer  }}
                                     </small>
                                 </td>
-                                <td>
+                                <td class="text-nowrap">
                                     {{ $member->updated_at->diffForHumans()  }}
                                 </td>
-                                <td class="text-right">
-                                    <a href="{{ action([\Francken\Association\Members\Http\Controllers\Admin\MembersController::class, 'show'], ['member' => $member])  }}" class="text-muted">
-                                        <i class="far fa-eye"></i>
-                                    </a>
-                                </td>
                             </tr>
-                        @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No members found.</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
 

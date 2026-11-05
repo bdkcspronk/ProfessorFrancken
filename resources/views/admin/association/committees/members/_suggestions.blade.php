@@ -56,6 +56,12 @@
     @endforeach
 
     </ul>
+
+    @if ($committee->suggestedCommitteeMembers->isEmpty())
+        <p class="small text-muted mb-0">
+            No suggestions. Members of the previous committee are suggested here, when this committee continues a committee of a previous board.
+        </p>
+    @endif
     </div>
 
 </div>

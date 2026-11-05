@@ -8,9 +8,9 @@
             <div class="card-body">
                 <p>
                     <i class="fas fa-clock"></i>
-                    {{ $activity->start_date->format("d F H:i") }}
+                    {{ $activity->start_date->format('D j F Y, H:i') }}
                     to
-                    {{ $activity->end_date->format("d F H:i") }}
+                    {{ $activity->end_date->isSameDay($activity->start_date) ? $activity->end_date->format('H:i') : $activity->end_date->format('D j F Y, H:i') }}
                 </p>
 
                 <div>
@@ -34,11 +34,14 @@
                )
         !!}
         @method('DELETE')
-        <p class="mt-2 text-muted d-flex align-items-center justify-content-end">
-            Click <button
-                      class="btn btn-text px-1"
-                      onclick='return confirm("Are you sure you want to remove this activity?");'
-                  >here</button> to remove this activity.
+        <p class="mt-3 d-flex justify-content-end">
+            <button
+                class="btn btn-sm btn-outline-danger"
+                onclick='return confirm("Are you sure you want to delete this activity?");'
+            >
+                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                Delete activity
+            </button>
         </p>
         {!! Form::close() !!}
     </div>
@@ -51,26 +54,6 @@
         @include('admin.association.activities._photo_album', ['activity' => $activity])
         --}}
         @include('admin.association.activities._location', ['activity' => $activity])
-
-        <div class="card mb-4">
-            <div class="card-body">
-                <h4 class="font-weight-bold">
-                    <i class="fas fa-qrcode"></i>
-                    QR Code
-                </h4>
-
-                <p>
-                    This QR code sends people to the public activity page. Use it for posters and such.
-                </p>
-
-                <div class="text-center">
-                    <img
-                        class="my-3"
-                        src="data:image/png;base64, {!! $qrCode !!} "
-                    />
-                </div>
-            </div>
-        </div>
 
     </div>
 </div>

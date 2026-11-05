@@ -43,12 +43,22 @@ final class Activity extends Model
         'end_date' => 'datetime',
     ];
 
-    public function getGoogleMapsEmbedUriAttribute() : string
+    /**
+     * The address of a map of the location of the activity, or null when there is no location or
+     * no key for Google Maps (GOOGLE_MAPS_EMBED_KEY in .env)
+     */
+    public function getGoogleMapsEmbedUriAttribute() : ?string
     {
+        $key = config('services.google_maps.embed_key');
+
+        if ( ! is_string($key) || $key === '' || trim((string) $this->location) === '') {
+            return null;
+        }
+
         return 'https://www.google.com/maps/embed/v1/place?' . http_build_query([
             'q' => $this->location,
             'zoom' => 13,
-            'key' => 'AIzaSyBmxy9LR0IeIDPmfVY_2ZQOLSbgNz_jDpw'
+            'key' => $key,
         ]);
     }
 

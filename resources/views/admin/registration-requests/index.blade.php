@@ -32,13 +32,13 @@
             </ul>
         </div>
 
-        <table class="table table-hover">
-            <caption class="card-body">
-                Open registration requests, you can either inspect a request (and possibly complete the registration), or mark it as spam in which case the request will be deleted.
-            </caption>
+        <p class="card-body text-muted small mb-0">
+            Inspect a request to complete the registration, or mark it as spam to delete it.
+        </p>
+        <table class="table table-hover mb-0">
             <thead>
                 <tr>
-                    <th>Fullname</th>
+                    <th>Name</th>
                     <th class="text-right">Submitted at</th>
                     <th class="text-right">Form signed at</th>
                     <th class="text-right">Approved at</th>
@@ -46,49 +46,54 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($requests as $request)
+                @forelse ($requests as $registration)
+                    @php
+                        $url = action([\Francken\Association\Members\Http\Controllers\Admin\RegistrationRequestsController::class, 'show'], ['registration' => $registration]);
+                    @endphp
                     <tr>
                         <th scope="row">
-                            <a href="{{ action(
-                                        [\Francken\Association\Members\Http\Controllers\Admin\RegistrationRequestsController::class, 'show'],
-                                        ['registration' => $request]
-                                        )}}">
+                            <a href="{{ $url }}">
                                 <div>
-                                    {{ $request->fullname->toString() }}
+                                    {{ $registration->fullname->toString() }}
                                 </div>
                                 <small>
-                                    {{ $request->email->toString() }}
-                                    @if ($request->email_verified_at === null)
+                                    {{ $registration->email->toString() }}
+                                    @if ($registration->email_verified_at === null)
                                         <small class="text-danger font-weight-bold">(not yet verified)</small>
                                     @endif
                                 </small>
                             </a>
                         </th>
                         <td class="text-right">
-                            {{ $request->created_at->format('Y-m-d') }}
+                            {{ $registration->created_at->format('Y-m-d') }}
                         </td>
                         <td class="text-right">
-                            {{ optional($request->registration_form_signed_at)->format('Y-m-d') }}
+                            {{ optional($registration->registration_form_signed_at)->format('Y-m-d') ?? '–' }}
                         </td>
                         <td class="text-right">
-                            {{ optional($request->registration_accepted_at)->format('Y-m-d') }}
+                            {{ optional($registration->registration_accepted_at)->format('Y-m-d') ?? '–' }}
                         </td>
                         <td class="text-right">
-                            <a class="btn btn-outline-success" href="{{ action(
-                                        [\Francken\Association\Members\Http\Controllers\Admin\RegistrationRequestsController::class, 'show'],
-                                        ['registration' => $request]
-                                        )}}">
+                            <a class="btn btn-sm btn-outline-primary" href="{{ $url }}">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                                 Inspect
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-center text-muted py-4">
+                            There are no registration requests here.
+                        </td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
-        <div class="card-footer">
-            {{ $requests->links() }}
-        </div>
+        @if ($requests->hasPages())
+            <div class="card-footer">
+                {{ $requests->links() }}
+            </div>
+        @endif
     </div>
 @endsection
 

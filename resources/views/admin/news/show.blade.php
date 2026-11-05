@@ -3,13 +3,6 @@
 
 @section('content')
 
-    <div class="alert alert-secondary">
-        <a href="{{ action([\Francken\Association\News\Http\AdminNewsController::class, 'index']) }}" >
-            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-            Back to news
-        </a>
-    </div>
-
     {!! Form::model($news, ['url' => action([\Francken\Association\News\Http\AdminNewsController::class, 'update'], ['news' => $news]), 'method' => 'put']) !!}
     <div class="row">
         <div class="col-md-8">
