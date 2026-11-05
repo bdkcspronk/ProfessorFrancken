@@ -7,7 +7,7 @@
 @section('description', "Synchronize the calendar of T.F.V. ‘Professor Francken’ with your own online agenda.")
 
 @section('content')
-    <div class="committee-page cms-page ical-page">
+    <div class="committee-page cms-page">
         <p>
             Synchronize our calendar by importing its url into your preferred external calendar.
         </p>
