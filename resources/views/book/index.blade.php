@@ -68,7 +68,7 @@
                             <span>{{ $book->title }}</span>
                         </span>
                         <img src="{{ image($book->cover_path, ['height' => 300, 'width' => 220]) }}" alt="Cover of {{ $book->title }}" onerror="this.remove()">
-                        <span class="book-card__price">€{{ number_format($book->price, 2, ",", "") }}</span>
+                        <span class="book-card__price">€{{ number_format($book->price, 2) }}</span>
                     </span>
                     <span class="book-card__title">{{ $book->title }}</span>
                     <span class="book-card__author">{{ $book->author }}</span>

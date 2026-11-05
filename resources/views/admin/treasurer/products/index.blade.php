@@ -44,6 +44,8 @@
                   method="GET"
                   class="form"
             >
+                {{-- Searching stays in the category that is open --}}
+                <input type="hidden" name="category" value="{{ $request->input('category', 'all') }}">
                 <div class="d-flex mb-3">
                     <div class="form-group mr-2 mb-0">
                         <label for="name">Name</label>
@@ -54,7 +56,7 @@
                             <i class="fas fa-search"></i>
                             Apply filters
                         </button>
-                        <a href="{{ action([\Francken\Treasurer\Http\Controllers\AdminProductsController::class, 'index'])  }}"
+                        <a href="{{ action([\Francken\Treasurer\Http\Controllers\AdminProductsController::class, 'index'], ['category' => $request->input('category', 'all')])  }}"
                            class="btn btn-sm btn-text text-primary"
                         >
                             <i class="fas fa-times"></i>
@@ -62,64 +64,61 @@
                         </a>
                     </div>
                 </div>
-                <div class="d-flex justify-conten-between">
+                <div class="d-flex justify-content-between">
                     <div class="form-group form-check mx-2">
                         {!! Form::checkbox('unavailable', true, $request->unavailable(), ['class' => 'form-check-input', 'id' => 'unavailable'])  !!}
-                        <label class="form-check-label" for="unavailable">Show unavailable products</label>
+                        <label class="form-check-label" for="unavailable">Also show unavailable products</label>
                     </div>
                 </div>
             </form>
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-hover table-sm mb-0 treasurer-table">
             <thead>
                 <tr>
                     <th colspan="2">Product</th>
+                    <th>Category</th>
+                    <th class="text-right">Price</th>
+                    <th class="text-right">VAT</th>
+                    <th class="text-right">Available</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($products as $product)
+                @forelse ($products as $product)
+                    @php
+                        $url = action([\Francken\Treasurer\Http\Controllers\AdminProductsController::class, 'show'], ['product' => $product]);
+                        // The VAT is a fraction, like 0.21 for 21%
+                        $vat = $product->btw <= 1 ? $product->btw * 100 : $product->btw;
+                    @endphp
                     <tr>
-                        <td style="width: 200px;" class="align-middle">
-                                <img
-                                    class="rounded ml-2 my-2"
-                                    src="{{ $product->photo_url }}"
-                                    alt="Photo of {{ $product->name }}"
-                                    style="width: 150px; max-width: 150px; max-height: 80px; object-fit: cover;"
-                                />
+                        <td class="treasurer-table__photo">
+                            <a href="{{ $url }}" tabindex="-1" aria-hidden="true">
+                                {{-- The photos are on the old website; without a photo the icon of its category is shown --}}
+                                <span class="treasurer-product-photo">
+                                    <i class="fas fa-{{ $product->category_icon }}"></i>
+                                    <img src="{{ $product->photo_url }}" alt="" loading="lazy" onerror="this.remove()">
+                                </span>
+                            </a>
                         </td>
                         <td>
-                            <a href="{{ action(
-                                        [\Francken\Treasurer\Http\Controllers\AdminProductsController::class, 'show'],
-                                        ['product' => $product]
-                                        ) }}"
-                            >
-                                <h4 class='d-flex flex-column h6'>
-                                    <span>
-                                        <i class="fas fa-{{ $product->category_icon }} fa-sm mr-1 text-muted"></i>
-                                        {{ $product->name }}
-                                    </span>
-                                </h4>
-
-                                <p class='my-2'>
-                                    <span class="font-weight-normal">
-                                        &euro;{{ number_format($product->price / 100, 2) }}
-                                    </span>
-                                    @if (! $product->available)
-                                        <small>
-                                            (Not available)
-                                        </small>
-                                    @endif
-                                </p>
-                                <p class='mb-0'>
-                                    <span class="font-weight-normal">
-                                        Btw: {{ $product->btw }}
-                                    </span>
-                                </p>
-                        </a>
-                    </td>
-                </tr>
-                @endforeach
+                            <a href="{{ $url }}" class="font-weight-bold">{{ $product->name }}</a>
+                        </td>
+                        <td class="text-muted">{{ $product->category }}</td>
+                        <td class="text-right text-nowrap">&euro;{{ number_format($product->price / 100, 2) }}</td>
+                        <td class="text-right text-nowrap">{{ rtrim(rtrim(number_format($vat, 2), '0'), '.') }}%</td>
+                        <td class="text-right">
+                            @if ($product->available)
+                                <span class="badge badge-success">Available</span>
+                            @else
+                                <span class="badge badge-secondary">Not available</span>
+                            @endif
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center text-muted py-4">No products found.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
 

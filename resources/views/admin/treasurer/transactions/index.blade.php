@@ -21,6 +21,9 @@
                     />
 
                     <div class="mx-2">
+                        <x-forms.select name="category" label="Category" :options="['' => 'All', 'beer' => 'Beer', 'food' => 'Food', 'soda' => 'Soda']" :value="$request->category()" />
+                    </div>
+                    <div class="mx-2">
                         <x-forms.select name="product_id" label="Product" :options="$products" :value="$request->productId()" />
                     </div>
                     <div class="mx-2">
@@ -71,10 +74,10 @@
                             </a>
                         </td>
                         <td>
-                            €{{ number_format($transaction->totaalprijs, 2, ",", "") }}
+                            &euro;{{ number_format($transaction->totaalprijs, 2) }}
                         </td>
-                        <td>
-                            {{ $transaction->tijd }}
+                        <td class="text-nowrap">
+                            {{ $transaction->tijd->format('Y-m-d H:i') }}
                         </td>
                         <td class="text-right">
                             <a href="{{ action([\Francken\Treasurer\Http\Controllers\AdminTransactionsController::class, 'edit'], ['transaction' => $transaction])  }}" class="text-muted">
@@ -90,7 +93,7 @@
                         Total transactions: {{ $total }}
                     </th>
                     <th colspan="2">
-                        €{{ number_format($totalRevenue, 2, ",", "") }}
+                        &euro;{{ number_format($totalRevenue, 2) }}
                     </th>
                 </tr>
             </tfoot>

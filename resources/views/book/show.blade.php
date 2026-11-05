@@ -23,7 +23,7 @@
                 <h2 class="book-detail__title">{{ $book->title }}</h2>
                 <div class="book-detail__author">{{ $book->author }}</div>
 
-                <div class="book-detail__price">€{{ number_format($book->price, 2, ",", "") }}</div>
+                <div class="book-detail__price">€{{ number_format($book->price, 2) }}</div>
 
                 <dl class="book-detail__facts">
                     <dt>ISBN</dt>

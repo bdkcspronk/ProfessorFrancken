@@ -369,6 +369,37 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
     font-weight: 600;
 }
 
+// The tables of the treasurer (admin/treasurer)
+.treasurer-table td {
+    vertical-align: middle;
+}
+
+.treasurer-table__photo {
+    width: 4rem;
+}
+
+// A small photo of a product, with the icon of its category behind it for when the photo
+// can't be loaded
+.treasurer-product-photo {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    background: $gray-100;
+    color: $gray-500;
+
+    img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
 // The text of buttons stays on one line, like "Apply filters" next to the fields of a search
 .admin-page .btn {
     white-space: nowrap;

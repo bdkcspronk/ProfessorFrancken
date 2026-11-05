@@ -201,7 +201,7 @@ final class SearchController
                 'title' => $book->title,
                 'url' => action([BooksController::class, 'show'], ['book' => $book]),
                 'text' => $book->author . ' · ISBN ' . $book->isbn,
-                'meta' => '€' . number_format($book->price, 2, ',', ''),
+                'meta' => '€' . number_format($book->price, 2),
             ]);
     }
 

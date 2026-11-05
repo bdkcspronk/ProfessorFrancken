@@ -67,7 +67,7 @@ class ProfileFeature extends TestCase
             ]);
 
         $this->visit('/profile/expenses/' . $now->format('Y') . '/' . $now->format('m'))
-            ->see('€10000');
+            ->see('€10,000.00');
 
         // Cleanup
         \DB::connection('francken-legacy')->table('transacties')

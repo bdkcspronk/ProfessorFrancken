@@ -46,7 +46,7 @@
                     @endif
                 </td>
                 <td class="text-left align-middle">
-                    €{{ number_format($book->price, 2, ",", "") }}
+                    €{{ number_format($book->price, 2) }}
                 </td>
                 <td class="text-right align-middle">
                     <a

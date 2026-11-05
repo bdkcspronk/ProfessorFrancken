@@ -9,21 +9,34 @@ use Francken\Treasurer\Http\Controllers\DeductionsController;
     <div class="row">
         <div class="col">
             <div class="card">
-                <table class="table table-hover table-small">
+                <table class="table table-hover mb-0 treasurer-table">
                     <thead>
                         <tr>
-                            <th>Dedction date</th>
+                            <th>Deduction date</th>
+                            <th>Emails</th>
                             <th class="text-right">Members</th>
                             <th class="text-right">Total amount</th>
                         </tr>
                     </thead>
 
-                    @each('admin.treasurer.deductions._deduction-row', $deductions, 'deduction')
+                    <tbody>
+                        @forelse ($deductions as $deduction)
+                            @include('admin.treasurer.deductions._deduction-row', ['deduction' => $deduction])
+                        @empty
+                            <tr>
+                                <td colspan="4" class="text-center text-muted py-4">
+                                    No deductions yet. Upload the first one with the form on the right.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
                 </table>
 
-                <div class="card-footer">
-                    {{ $deductions->links() }}
-                </div>
+                @if ($deductions->hasPages())
+                    <div class="card-footer">
+                        {{ $deductions->links() }}
+                    </div>
+                @endif
             </div>
         </div>
         <div class="col-md-4">

@@ -35,7 +35,7 @@
                         <td>{{ $transaction->plaats }}</td>
                         <td>{{ $transaction->land }}</td>
                         <td>{{ $transaction->start_lidmaatschap }}</td>
-                        <td>€{{ number_format($transaction->totale_kosten, 2, ",", "") }}</td>
+                        <td>€{{ number_format($transaction->totale_kosten, 2) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
@@ -45,7 +45,7 @@
                             Total
                         </th>
                         <th colspan="1">
-                            €{{ number_format($transactions->map(fn ($d) => floatval($d->totale_kosten))->sum(), 2, ",", "") }}
+                            €{{ number_format($transactions->map(fn ($d) => floatval($d->totale_kosten))->sum(), 2) }}
                         </th>
                     </tr>
                 </tfoot>

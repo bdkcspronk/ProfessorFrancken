@@ -18,6 +18,7 @@ class AdminSearchTransactionsRequest extends FormRequest
         return [
             'member_id' => ['nullable', 'integer', 'exists:francken-legacy.leden,id'],
             'product_id' => ['nullable', 'integer', 'exists:francken-legacy.producten,id'],
+            'category' => ['nullable', 'in:beer,food,soda'],
 
             'from' => ['nullable', 'date_format:Y-m-d'],
             'until' => ['nullable', 'date_format:Y-m-d'],
@@ -49,6 +50,16 @@ class AdminSearchTransactionsRequest extends FormRequest
         }
 
         return (int)$this->input('product_id', '');
+    }
+
+    /**
+     * The category of the products: beer, food or soda, or null for all products
+     */
+    public function category() : ?string
+    {
+        $category = $this->string('category')->toString();
+
+        return in_array($category, ['beer', 'food', 'soda'], true) ? $category : null;
     }
 
     public function from() : ?DateTimeImmutable

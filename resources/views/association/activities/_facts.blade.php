@@ -28,7 +28,7 @@
                 @if ($activity->signUpSettings->is_free)
                     Free
                 @else
-                    €{{ number_format($activity->signUpSettings->costs_per_person / 100, 2, ',', '') }} per person
+                    €{{ number_format($activity->signUpSettings->costs_per_person / 100, 2) }} per person
                 @endif
             </dd>
 

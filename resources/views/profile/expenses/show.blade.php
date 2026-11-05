@@ -14,7 +14,7 @@
                     <span class="profile-list__meta">{{ $transactions->first()['time']->format('j F') }}</span>
                 </h3>
                 <strong class="profile-table__price">
-                    €{{ number_format($transactions->sum('price'), 2, '.', '') }}
+                    €{{ number_format($transactions->sum('price'), 2) }}
                 </strong>
             </header>
             <table class="table profile-table mb-0">
@@ -31,7 +31,7 @@
                         <tr>
                             <td>{{ $transaction['time']->format('H:i') }}</td>
                             <td>{{ $transaction['product'] }}</td>
-                            <td class="text-right">€{{ number_format($transaction['price'], 2, '.', '') }}</td>
+                            <td class="text-right">€{{ number_format($transaction['price'], 2) }}</td>
                             <td class="text-right">{{ $transaction['deducted_at'] }}</td>
                         </tr>
                     @endforeach

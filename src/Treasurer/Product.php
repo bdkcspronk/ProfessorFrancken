@@ -155,11 +155,8 @@ final class Product extends Model
             ->when($request->name(), function (Builder $query, string $name) : void {
                 $query->where('naam', 'LIKE', "%{$name}%");
             })
-            ->when($request->unavailable(), function (Builder $query, bool $unavailable) : void {
-                if ($unavailable) {
-                    $query->where('beschikbaar', '=', false);
-                }
-            }, function (Builder $query) : void {
+            // Only the available products, unless unavailable products should be shown as well
+            ->unless($request->unavailable(), function (Builder $query) : void {
                 $query->where('beschikbaar', '=', true);
             });
     }

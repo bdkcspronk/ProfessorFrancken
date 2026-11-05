@@ -24,6 +24,9 @@ final class AdminTransactionsController
             ->when($request->productId(), function (Builder $query, int $productId) : void {
                 $query->where('product_id', $productId);
             })
+            ->when($request->category(), function (Builder $query, string $category) : void {
+                $query->whereHas('product', fn (Builder $product) => $product->{$category}());
+            })
             ->when($request->from(), function (Builder $query, DateTimeImmutable $from) : void {
                 $query->whereDate('tijd', '>=', $from);
             })
