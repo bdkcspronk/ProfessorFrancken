@@ -88,28 +88,35 @@ final class Navigation extends Component
     }
 
     /**
-     * The sections divided over three columns of about the same length (a section with
-     * its heading counts as its pages plus one), keeping their order
+     * The sections divided over three columns, keeping their order, such that the longest
+     * column is as short as possible (a section with its heading counts as its pages plus one)
      */
     public function columns() : array
     {
         $weights = array_map(fn (array $group) : int => count($group['items']) + 1, $this->groups);
-        $target = (int) ceil(array_sum($weights) / 3);
+        $count = count($weights);
+        $length = fn (int $from, int $to) : int => array_sum(array_slice($weights, $from, $to - $from));
 
-        $columns = [[]];
-        $length = 0;
-        foreach ($this->groups as $index => $group) {
-            $last = count($columns) - 1;
-            if ($columns[$last] !== [] && $length + $weights[$index] > $target && count($columns) < 3) {
-                $columns[] = [];
-                $last++;
-                $length = 0;
+        // Try every way of splitting the sections at two points into three columns
+        $best = [$count, $count];
+        $shortest = PHP_INT_MAX;
+        for ($first = 0; $first <= $count; $first++) {
+            for ($second = $first; $second <= $count; $second++) {
+                $longest = max($length(0, $first), $length($first, $second), $length($second, $count));
+                if ($longest < $shortest) {
+                    $shortest = $longest;
+                    $best = [$first, $second];
+                }
             }
-            $columns[$last][] = $group;
-            $length += $weights[$index];
         }
 
-        return $columns;
+        [$first, $second] = $best;
+
+        return array_values(array_filter([
+            array_slice($this->groups, 0, $first),
+            array_slice($this->groups, $first, $second - $first),
+            array_slice($this->groups, $second),
+        ]));
     }
 
     public function render() : View

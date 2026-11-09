@@ -98,6 +98,20 @@ return [
                     "can" => "dashboard:committees-read",
                 ],
                 [
+                    "name" => "Alumni activity",
+                    "url" => "alumni-activity",
+                    "icon" => "fas fa-user-graduate",
+                    "description" => "Who comes to the alumni activity",
+                    "works" => true,
+                    "can" => "dashboard:alumni-activity",
+                ],
+            ]
+        ],
+        [
+            "name" => "Content",
+            "url" => "association",
+            "items" => [
+                [
                     "name" => "Activities",
                     "url" => "activities",
                     "icon" => "fas fa-calendar-alt",
@@ -128,14 +142,6 @@ return [
                     "description" => "Symposia and their participants",
                     "works" => true,
                     "can" => "dashboard:symposia-read",
-                ],
-                [
-                    "name" => "Alumni activity",
-                    "url" => "alumni-activity",
-                    "icon" => "fas fa-user-graduate",
-                    "description" => "Who comes to the alumni activity",
-                    "works" => true,
-                    "can" => "dashboard:alumni-activity",
                 ],
                 [
                     "name" => "Custom pages",
