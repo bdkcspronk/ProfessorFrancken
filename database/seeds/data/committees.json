@@ -1,0 +1,1697 @@
+{
+  "2022-2023": [
+    {
+      "slug": "advisory-board",
+      "name": "Advisory board",
+      "description": "<p>When the board is at loss about what to do, the Advisory board saves the day! This committee consists of old board members and, who would have thought, advises the board.</p>",
+      "logo": "images/association/committees/advisory-board/logo_advisory-board-2.png",
+      "photo": null,
+      "members": [
+        "Jeanne van Zuilen",
+        "Tabitha Minett",
+        "Pieter Wolff",
+        "Kathinka Frieswijk",
+        "Hester Braaksma",
+        "Frank Pietersen"
+      ]
+    },
+    {
+      "slug": "almanacie",
+      "name": "Almanacie",
+      "description": "<p>If you do not know how to klaverjas or do not know the meaning of a certain word, you can look it up in our almanac. However the last one was published nearly five years ago and thus it is time to work on a new one! This is what this committee is doing right now so that a new one can be published in 2023.</p>",
+      "logo": "images/association/committees/almanacie/logo_almanacie-2.png",
+      "photo": null,
+      "members": [
+        "Annabelle van Berlo",
+        "Charlotte Broekmeulen",
+        "Sjoerd Buitjes",
+        "Berthe Beersma",
+        "Filippo Carretta",
+        "Sibren Wobben",
+        "Ciska van Elsberg",
+        "Puck Planje",
+        "Emiel de Wit",
+        "Ian Soede"
+      ]
+    },
+    {
+      "slug": "ap-committee",
+      "name": "AP Committee",
+      "description": "<p>This committee is not only a lot of fun but also looks good on your CV. The members of this committee give feedback to the program directors about courses, organise the bi-weekly coffee hours and also the famous Applied Physics Dinner where members can enjoy a lovely meal with their professors.</p>",
+      "logo": "images/association/committees/ap-committee/logo_ap-committee-2.png",
+      "photo": null,
+      "members": [
+        "Ian Soede",
+        "Emiel de Wit",
+        "Filippo Carretta",
+        "Aryaman Bordoloi",
+        "Julian Bernat",
+        "Julia Aizpún",
+        "Andrada Valea",
+        "Mads Madsen",
+        "Jennifer Gabriela Gonzalez Bazan",
+        "Yoana Savova"
+      ]
+    },
+    {
+      "slug": "audit-committee",
+      "name": "Audit Committee",
+      "description": "<p>The Audit Committee helps out the Treasurer of the association. They the financial plan and updates and make sure everything is allright. This committee exists only of (old) board treasures.</p>",
+      "logo": "images/association/committees/audit-committee/logo_audit-committee-2.png",
+      "photo": null,
+      "members": [
+        "Rosa de Graaff",
+        "Melvin Mijnlieff",
+        "Carla Olsthoorn",
+        "Bradley Spronk"
+      ]
+    },
+    {
+      "slug": "borrelcie",
+      "name": "Borrelcie",
+      "description": "<p>You must have been at one of our borrels before, the Borrelcie organises eight borrels a year. Additionally they keep the fridge full and order food every week so you can always streep your favourite snack!</p>",
+      "logo": "images/association/committees/borrelcie/logo_borrelcie-16.png",
+      "photo": null,
+      "members": [
+        "Julian Bernat",
+        "Adriana van Harten",
+        "David Dijkman",
+        "Camiel Koning",
+        "Tim Zuidema",
+        "Andrada Valea",
+        "Dāvis Melvags",
+        "Youri Kwakkel",
+        "Eline Mijnlieff",
+        "Jente Bergsma",
+        "Thijs Westerveld",
+        "Harmen de Beurs",
+        "Prakhar Agarwal"
+      ]
+    },
+    {
+      "slug": "brouwcie",
+      "name": "Brouwcie",
+      "description": "<p>You can streep Gebouw 13 in the room. This lovely drink is the home-brewed beer from the Brouwcie! Every batch is a new delicious flavour so feel free to try one after four.</p>",
+      "logo": "images/association/committees/brouwcie/logo_brouwcie-5.png",
+      "photo": null,
+      "members": [
+        "Bo Gruppen",
+        "Marcel Verkade",
+        "Dennis Francke",
+        "Csilla Tijssen",
+        "Christian Berg",
+        "Roy Rodenburg",
+        "Sander Bouma",
+        "Jinsheng Xu"
+      ]
+    },
+    {
+      "slug": "buixie",
+      "name": "Buixie",
+      "description": "<p>Every year you can sign up for the Buixie trip where you get to travel to another country! The Buixie organises this trip and makes sure that there are educational and fun activities planned for the entire week.</p>",
+      "logo": "images/association/committees/buixie/logo_buixie-15.png",
+      "photo": null,
+      "members": [
+        "Petra Navarcikova",
+        "Victor Bakker",
+        "Marc Coll Puig",
+        "Sam Herz",
+        "Ioannis Angelo Tassioulas",
+        "Sergio Dharamraj"
+      ]
+    },
+    {
+      "slug": "cheescie",
+      "name": "Cheescie",
+      "description": "<p>The Cheescie has regular meetings where they make Cheese. It is a new committee that exists of people who love... cheese of course! Hopefully there will be a few occasions where you can try our delicious cheese.</p>",
+      "logo": "images/association/committees/cheescie/logo_cheescie.png",
+      "photo": null,
+      "members": [
+        "Ian Soede",
+        "Sergio Dharamraj",
+        "Samuel Valdez",
+        "Annabelle van Berlo",
+        "Matias Santacruz Vallejo",
+        "Joëlle Wubben",
+        "Sabine van den Brom",
+        "Hannelys Posthumus"
+      ]
+    },
+    {
+      "slug": "compucie",
+      "name": "Compucie",
+      "description": "<p>If you ever have trouble with the computers in the room, just call for Compucie. They know the computers through and through and can hopefully help you out.</p>",
+      "logo": "images/association/committees/compucie/logo_compucie-18.png",
+      "photo": null,
+      "members": [
+        "Jeanne van Zuilen",
+        "Mark Redeman",
+        "Ian Soede",
+        "Rutger Haan",
+        "Sjoerd Buitjes",
+        "Lars Bokkers",
+        "Christian Berg",
+        "Gerjan Wielink"
+      ]
+    },
+    {
+      "slug": "fikscie",
+      "name": "Fikscie",
+      "description": "<p>The name says it all, the Fixcie fixes things. Tables that break by board members jumping on them, the fridges and anything else that is breakable.</p>",
+      "logo": "images/association/committees/fikscie/logo_fikscie-3.png",
+      "photo": null,
+      "members": [
+        "Rutger Haan",
+        "Emiel de Wit",
+        "Goos Mulder",
+        "Christian Berg"
+      ]
+    },
+    {
+      "slug": "fotocie",
+      "name": "Fotocie",
+      "description": "<p>Isn't it lovely to be able to look back on events and see your friends getting drunk? That is why we have the Fotocie, they take pictures at every event so you can always look back and smile at the stupid things that happened.</p>",
+      "logo": "images/association/committees/fotocie/logo_fotocie-14.png",
+      "photo": null,
+      "members": [
+        "Emiel de Wit",
+        "Carlos Bril",
+        "Frank Pietersen",
+        "Mirthe Winter",
+        "Sayed Rayan Rakibuzzaman",
+        "Sergio Dharamraj",
+        "Charlotte Broekmeulen",
+        "Ciska van Elsberg",
+        "Maikel Veld",
+        "Andrada Valea",
+        "Prakhar Agarwal"
+      ]
+    },
+    {
+      "slug": "fraccie",
+      "name": "Fraccie",
+      "description": "<p>The beachparty, a jamsession, maybe a pubquiz, the Fraccie does it all. This committee can do whatever they want, as long as they organise an event for the members. It is always a lot of fun and a great place to make new friends and get to now the other members.</p>",
+      "logo": "images/association/committees/fraccie/logo_fraccie-9.png",
+      "photo": null,
+      "members": [
+        "Hannelys Posthumus",
+        "Annabelle van Berlo",
+        "Mirthe Winter",
+        "Ioannis Angelo Tassioulas",
+        "Gideon Wiersma",
+        "Tycho Hebels",
+        "Thies Ristjouw",
+        "Mara Heibrink"
+      ]
+    },
+    {
+      "slug": "francken-vrij",
+      "name": "Francken Vrij",
+      "description": "<p>The Francken Vrij is of course Francken's own science magazine. This committee makes sure that there are 3 on your doorstep every year, filled with knowledge and fun.</p>",
+      "logo": "images/association/committees/francken-vrij/logo_francken-vrij-18.png",
+      "photo": null,
+      "members": [
+        "Hester Braaksma",
+        "Filippo Carretta",
+        "Hannelys Posthumus",
+        "Sjoukje de Jong",
+        "Sibren Wobben",
+        "Rosa de Graaff",
+        "Wout Trox",
+        "Siem Kuijpers"
+      ]
+    },
+    {
+      "slug": "intercie",
+      "name": "Intercie",
+      "description": "<p>The Intercie organises 4 events, it can be anything they want it to be, as long as it has to do with sharing culture and nationalities. They might organise a hitch-hicking event or a language workshop, anyway it will be a lot of fun.</p>",
+      "logo": "images/association/committees/intercie/logo_intercie-5.png",
+      "photo": null,
+      "members": [
+        "Csilla Tijssen",
+        "Elsa Herranz",
+        "Aylan Kaya",
+        "Gerrit Boonstra",
+        "Dennis Francke",
+        "Adriana van Harten",
+        "Yoana Savova"
+      ]
+    },
+    {
+      "slug": "representacie",
+      "name": "Representacie",
+      "description": "<p>To let everyone know that there is an upcoming event, the Representacie makes posters! It is a fun committee that does not need regular meetings and where you can learn a new skill.</p>",
+      "logo": "images/association/committees/representacie/logo_representacie-12.png",
+      "photo": null,
+      "members": [
+        "Bradley Spronk",
+        "Hester Braaksma",
+        "Rosa de Graaff",
+        "Annabelle van Berlo",
+        "Charlotte Broekmeulen",
+        "Julia Aizpún",
+        "Tetiana Ovramenko"
+      ]
+    },
+    {
+      "slug": "sjaarscie",
+      "name": "Sjaarscie",
+      "description": "<p>The committee for aspiring active Francken members, this is a great way to get to know the association. Together with other first years the Sjaarscie organizes a dinner and a party for fellow first years.</p>",
+      "logo": "images/association/committees/sjaarscie/logo_sjaarscie-13.png",
+      "photo": null,
+      "members": [
+        "Thies Ristjouw",
+        "Maris Maathuis",
+        "Eline Mijnlieff",
+        "Rebecca Bult",
+        "Youri Kwakkel",
+        "Nijs van Zoest",
+        "Harmen Fokkema",
+        "Angelo Ramautarsing",
+        "Mads Madsen",
+        "Dāvis Melvags",
+        "Andrada Valea",
+        "lucia Garde",
+        "Ynte van der Zee",
+        "Lukas Pool",
+        "Fernando Castañeda"
+      ]
+    },
+    {
+      "slug": "sympcie",
+      "name": "Sympcie",
+      "description": "<p>The Sympcie organises the yearly symposium. This is one of Francken's greatest events and gives you an entire day of learning while enjoying it, so make sure you will be there.</p>",
+      "logo": "images/association/committees/sympcie/logo_sympcie.png",
+      "photo": null,
+      "members": [
+        "Matias Santacruz Vallejo",
+        "Maartje Boon",
+        "Hamza Reedy",
+        "Sietse Klamer"
+      ]
+    },
+    {
+      "slug": "wiecksie",
+      "name": "Wiecksie",
+      "description": "<p>Because 5 days of Francken per week isn’t always enough for everyone, for those people there are the members weekends. What can be better then a weekend of relaxation and beer with fellow Francken members? The Wiecksie takes this need seriously and organises two weekends per year full of entertainment.</p>\n<p><img src=\"https://images.professorfrancken.nl/crop?extend=background,background=250,250,250&amp;width=600&amp;height=600&amp;url=https://live.staticflickr.com/1804/43047845251_73df83e941_k.jpg\" alt=\"\" class=\"img-fluid\" /></p>",
+      "logo": "images/association/committees/wiecksie/logo_wiecksie-7.png",
+      "photo": null,
+      "members": [
+        "Lilly-Anne Kalderen",
+        "Christian Berg",
+        "Sjoerd Buitjes",
+        "Melvin Mijnlieff",
+        "Mara Heibrink",
+        "Goos Mulder"
+      ]
+    }
+  ],
+  "2023-2024": [
+    {
+      "slug": "acquisicie",
+      "name": "Acquisicie",
+      "description": "<p>This committee will consist of members, who have experience with acquisition and they will provide continuous support for the current Extern of Francken.</p>",
+      "logo": "images/association/committees/acquisicie/logo_acquisicie.png",
+      "photo": "images/association/committees/acquisicie/photo_acquisicie.jpg",
+      "members": [
+        "Sjoerd Buitjes",
+        "Hester Braaksma",
+        "Pieter Wolff",
+        "Charlotte Broekmeulen"
+      ]
+    },
+    {
+      "slug": "advisory-board",
+      "name": "Advisory board",
+      "description": "<p>When the board is at loss about what to do, the Advisory board saves the day! This committee consists of old board members and, who would have thought, advises the board.</p>",
+      "logo": "images/association/committees/advisory-board/logo_advisory-board-2.png",
+      "photo": "images/association/committees/advisory-board/photo_advisory-board.jpg",
+      "members": [
+        "Tabitha Minett",
+        "Kathinka Frieswijk",
+        "Pieter Wolff",
+        "Sjoukje de Jong",
+        "Rick Geling",
+        "Csilla Tijssen",
+        "Filippo Carretta"
+      ]
+    },
+    {
+      "slug": "almanacie",
+      "name": "Almanacie",
+      "description": "<p>If you do not know how to klaverjas or do not know the meaning of a certain word, you can look it up in our almanac. However the last one was published nearly five years ago and thus it is time to work on a new one!</p>",
+      "logo": "images/association/committees/almanacie/logo_almanacie-2.png",
+      "photo": "images/association/committees/almanacie/photo_almanacie.jpg",
+      "members": [
+        "Annabelle van Berlo",
+        "Sjoerd Buitjes",
+        "Filippo Carretta",
+        "Sibren Wobben",
+        "Ciska van Elsberg",
+        "Puck Planje",
+        "Emiel de Wit"
+      ]
+    },
+    {
+      "slug": "ap-committee",
+      "name": "AP Committee",
+      "description": "<p>This committee is not only a lot of fun but also looks good on your CV. The members of this committee give feedback to the program directors about courses, organise the coffee hours and also the famous Applied Physics Dinner where members can enjoy a lovely meal with their professors.</p>",
+      "logo": "images/association/committees/ap-committee/logo_ap-committee-4.png",
+      "photo": "images/association/committees/ap-committee/photo_ap-committee.jpg",
+      "members": [
+        "David Dijkman",
+        "Eline Mijnlieff",
+        "Julian Bernat",
+        "Dennis Francke",
+        "Emiel de Wit",
+        "Giulia-Miriam Mihaica"
+      ]
+    },
+    {
+      "slug": "audit-committee",
+      "name": "Audit Committee",
+      "description": "<p>The Audit Committee helps out the Treasurer of the association. They check the financial plan, give updates, and make sure everything is alright. This committee exists of (old) board treasures.</p>",
+      "logo": "images/association/committees/audit-committee/logo_audit-committee-3.png",
+      "photo": "images/association/committees/audit-committee/photo_audit-committee.jpeg",
+      "members": [
+        "Rosa de Graaff",
+        "Melvin Mijnlieff",
+        "Bradley Spronk",
+        "Christian Berg"
+      ]
+    },
+    {
+      "slug": "borrelcie",
+      "name": "Borrelcie",
+      "description": "<p>You must have been at least at one of our borrels before. These borrels are organized by the Borrelcie, that also keeps the fridge full so you can always streep your favourite snack!</p>",
+      "logo": "images/association/committees/borrelcie/logo_borrelcie-16.png",
+      "photo": "images/association/committees/borrelcie/photo_borrelcie-2.jpg",
+      "members": [
+        "Julian Bernat",
+        "Adriana van Harten",
+        "David Dijkman",
+        "Camiel Koning",
+        "Youri Kwakkel",
+        "Prakhar Agarwal",
+        "Victor Bakker",
+        "Marcel Verkade",
+        "Jasmijn Kool",
+        "Matko Majstorović"
+      ]
+    },
+    {
+      "slug": "brouwcie",
+      "name": "Brouwcie",
+      "description": "<p>You can streep Gebouw 13 in the room. This lovely drink is the home-brewed beer from the Brouwcie! Every batch is a new delicious flavour so feel free to try one after four.</p>",
+      "logo": "images/association/committees/brouwcie/logo_brouwcie-5.png",
+      "photo": "images/association/committees/brouwcie/photo_brouwcie.jpeg",
+      "members": [
+        "Dennis Francke",
+        "Csilla Tijssen",
+        "Christian Berg",
+        "Sander Bouma",
+        "Emily Geekie",
+        "Camiel Koning",
+        "Annabelle van Berlo",
+        "Thies Ristjouw",
+        "Séamus Ó Muirthile"
+      ]
+    },
+    {
+      "slug": "buixie",
+      "name": "Buixie",
+      "description": "<p>Every year you can sign up for the Buixie trip where you get to travel to another country! The Buixie organises this trip and makes sure that there are educational and fun activities planned for the entire week.</p>",
+      "logo": "images/association/committees/buixie/logo_buixie.jpg",
+      "photo": "images/association/committees/buixie/photo_buixie-1.jpg",
+      "members": [
+        "Csilla Tijssen",
+        "Sjoerd Buitjes",
+        "Annabelle van Berlo",
+        "Prakhar Agarwal",
+        "Hannah Busche",
+        "Tetiana Ovramenko",
+        "Lucía Martínez"
+      ]
+    },
+    {
+      "slug": "compucie",
+      "name": "Compucie",
+      "description": "<p>If you ever have trouble with the computers in the room, just call for Compucie. They know the computers through and through and can hopefully help you out.</p>",
+      "logo": "images/association/committees/compucie/logo_compucie-19.png",
+      "photo": "images/association/committees/compucie/photo_compucie-1.jpg",
+      "members": [
+        "Mark Redeman",
+        "Christian Berg",
+        "Sjoerd Buitjes",
+        "Rutger Haan",
+        "Carlos Bril",
+        "David Dijkman"
+      ]
+    },
+    {
+      "slug": "fikscie",
+      "name": "Fikscie",
+      "description": "<p>The name says it all, the Fixcie fixes things. Tables that break by board members jumping on them, the fridges and anything else that is breakable.</p>",
+      "logo": "images/association/committees/fikscie/logo_fikscie-4.png",
+      "photo": "images/association/committees/fikscie/photo_fikscie.png",
+      "members": [
+        "Christian Berg",
+        "Rutger Haan",
+        "Emiel de Wit",
+        "Goos Mulder",
+        "David Dijkman"
+      ]
+    },
+    {
+      "slug": "fotocie",
+      "name": "Fotocie",
+      "description": "<p>Isn't it lovely to be able to look back on events and see your friends getting drunk? That is why we have the Fotocie, they take pictures at every event so you can always look back and smile at the stupid things that happened.</p>",
+      "logo": "images/association/committees/fotocie/logo_fotocie-15.png",
+      "photo": "images/association/committees/fotocie/photo_fotocie-1.jpg",
+      "members": [
+        "Carlos Bril",
+        "Emiel de Wit",
+        "Sayed Rayan Rakibuzzaman",
+        "Ciska van Elsberg",
+        "Maikel Veld",
+        "Hannelys Posthumus",
+        "Eline Mijnlieff",
+        "Marc Coll Puig",
+        "Giulia-Miriam Mihaica",
+        "Maartje Boon",
+        "Javier Batista Espla"
+      ]
+    },
+    {
+      "slug": "fraccie",
+      "name": "Fraccie",
+      "description": "<p>The beachparty, the gala, a jamsession, maybe a pubquiz, the Fraccie does it all. These events are always a lot of fun and a great place to make new friends and get to now the other members.</p>",
+      "logo": "images/association/committees/fraccie/logo_fraccie-9.png",
+      "photo": "images/association/committees/fraccie/photo_fraccie.jpg",
+      "members": [
+        "Hannelys Posthumus",
+        "Annabelle van Berlo",
+        "Thies Ristjouw",
+        "Gerrit Boonstra",
+        "Eelco Obdeijn",
+        "Harmen de Beurs",
+        "Joel Alexander De Haan Sánchez",
+        "Rebecca Bult"
+      ]
+    },
+    {
+      "slug": "francken-vrij",
+      "name": "Francken Vrij",
+      "description": "<p>The Francken Vrij is of course Francken's own science magazine. This committee makes sure that there are 3 on your doorstep every year, filled with knowledge and fun.</p>",
+      "logo": "images/association/committees/francken-vrij/logo_francken-vrij-19.png",
+      "photo": "images/association/committees/francken-vrij/photo_francken-vrij.jpeg",
+      "members": [
+        "Siem Kuijpers",
+        "Filippo Carretta",
+        "Hannelys Posthumus",
+        "Charlotte Broekmeulen",
+        "Hamza Reedy",
+        "Marc Coll Puig",
+        "Eline Mijnlieff",
+        "Omar Gutierrez Laafou",
+        "Malo Blömker",
+        "Bradley Spronk"
+      ]
+    },
+    {
+      "slug": "intercie",
+      "name": "Intercie",
+      "description": "<p>The Intercie organises 4 events, it can be anything they want it to be, as long as it has to do with sharing culture and nationalities. They might organise a hitch-hicking event or a language workshop, anyway it will be a lot of fun.</p>",
+      "logo": "images/association/committees/intercie/logo_intercie-7.png",
+      "photo": "images/association/committees/intercie/photo_intercie.jpeg",
+      "members": [
+        "Dennis Francke",
+        "Liz Titz",
+        "Ciska van Elsberg",
+        "Lilly-Anne Kalderen",
+        "Lazarina Kostadinova"
+      ]
+    },
+    {
+      "slug": "lustrum-book-committee",
+      "name": "Lustrum Book Committee",
+      "description": "",
+      "logo": null,
+      "photo": "images/association/committees/lustrum-book-committee/photo_lustrum-book-committee.jpeg",
+      "members": [
+        "Eline Mijnlieff",
+        "David Dijkman",
+        "Marcel Verkade",
+        "Ciska van Elsberg",
+        "Rebecca Bult",
+        "Liz Titz",
+        "Adriana van Harten"
+      ]
+    },
+    {
+      "slug": "lustrumcie",
+      "name": "Lustrumcie",
+      "description": "<p>This amazing committee will organize a week full of fun activities in order to celebrate our beloved association's Lustrum.</p>",
+      "logo": "images/association/committees/lustrumcie/logo_lustrumcie-1.png",
+      "photo": "images/association/committees/lustrumcie/photo_lustrumcie.jpeg",
+      "members": [
+        "Sibren Wobben",
+        "Prakhar Agarwal",
+        "Rebecca Bult",
+        "Liz Titz",
+        "Marcel Verkade",
+        "Gerrit Boonstra",
+        "Thies Ristjouw",
+        "Adriana van Harten"
+      ]
+    },
+    {
+      "slug": "mapcie",
+      "name": "MAPcie",
+      "description": "<p>MAPcie is responsible for writing a new multi-annual plan, since the last one has run its course.</p>",
+      "logo": "images/association/committees/mapcie/logo_mapcie-1.png",
+      "photo": "images/association/committees/mapcie/photo_mapcie-3.png",
+      "members": [
+        "Sibren Wobben",
+        "Lilly-Anne Kalderen",
+        "Csilla Tijssen",
+        "Carlos Bril",
+        "Thies Ristjouw"
+      ]
+    },
+    {
+      "slug": "representacie",
+      "name": "Representacie",
+      "description": "<p>To let everyone know that there is an upcoming event, the Representacie makes posters! It is a fun committee that does not need regular meetings and where you can learn a useful new skill.</p>",
+      "logo": "images/association/committees/representacie/logo_representacie-13.png",
+      "photo": "images/association/committees/representacie/photo_representacie.jpeg",
+      "members": [
+        "Bradley Spronk",
+        "Hester Braaksma",
+        "Rosa de Graaff",
+        "Dennis Francke",
+        "Csilla Tijssen",
+        "Tetiana Ovramenko",
+        "Marcel Verkade",
+        "Siem Kuijpers"
+      ]
+    },
+    {
+      "slug": "sjaarscie",
+      "name": "Sjaarscie",
+      "description": "<p>The committee for aspiring active Francken members, this is a great way to get to know the association. Together with other first years the Sjaarscie organizes a dinner and a party for fellow first years.</p>",
+      "logo": "images/association/committees/sjaarscie/logo_sjaarscie-14.png",
+      "photo": "images/association/committees/sjaarscie/photo_sjaarscie.jpeg",
+      "members": [
+        "Florence Reymondet",
+        "Emily Geekie",
+        "Jasmijn Kool",
+        "Javier Batista Espla",
+        "Javier Riscado Batista",
+        "Joel Alexander De Haan Sánchez",
+        "Laurens Hesp",
+        "Malo Blömker",
+        "Rinta Yoshikura",
+        "Sara Momcilovic",
+        "Valentin Jäger-Waldau",
+        "Bartosz Fibakiewicz",
+        "Emma Robertson",
+        "Solène van der Schot"
+      ]
+    },
+    {
+      "slug": "sportcie",
+      "name": "Sportcie",
+      "description": "<p>This committee will recruit a team of 25 members to take part in the Batavierenrace, which is the biggest relay race in the world. They will also organize other sport events during the year, so make sure to participate</p>",
+      "logo": "images/association/committees/sportcie/logo_sportcie-6.png",
+      "photo": "images/association/committees/sportcie/photo_sportcie.png",
+      "members": [
+        "Christian Berg",
+        "Csilla Tijssen",
+        "Bradley Spronk",
+        "Ian Soede"
+      ]
+    },
+    {
+      "slug": "sympcie",
+      "name": "Sympcie",
+      "description": "<p>The Sympcie organises the yearly symposium. This is one of Francken's greatest events and gives you an entire day of learning while enjoying it, so make sure you're there</p>",
+      "logo": "images/association/committees/sympcie/logo_sympcie-1.png",
+      "photo": "images/association/committees/sympcie/photo_sympcie-1.jpg",
+      "members": [
+        "Dennis Francke",
+        "Filippo Carretta",
+        "Giulia-Miriam Mihaica",
+        "Hamza Reedy",
+        "Noah van der Ploeg",
+        "Marc Coll Puig",
+        "Mads Madsen"
+      ]
+    },
+    {
+      "slug": "wiecksie",
+      "name": "Wiecksie",
+      "description": "<p>Because 5 days of Francken per week isn’t always enough for everyone, for those people there are the members weekends. What can be better then a weekend of relaxation and beer with fellow Francken members? The Wiecksie takes this need seriously and organises two weekends per year full of entertainment.</p>",
+      "logo": "images/association/committees/wiecksie/logo_wiecksie-8.png",
+      "photo": "images/association/committees/wiecksie/photo_wiecksie.png",
+      "members": [
+        "Lilly-Anne Kalderen",
+        "Christian Berg",
+        "Sjoerd Buitjes",
+        "Melvin Mijnlieff",
+        "Thies Ristjouw",
+        "Siem Kuijpers",
+        "Liz Titz"
+      ]
+    }
+  ],
+  "2024-2025": [
+    {
+      "slug": "acquisicie",
+      "name": "Acquisicie",
+      "description": "<p>This committee will consist of members, who have experience with acquisition and they will provide continuous support for the current Extern of Francken.</p>",
+      "logo": "images/association/committees/acquisicie/logo_acquisicie.png",
+      "photo": null,
+      "members": [
+        "Sjoerd Buitjes",
+        "Lilly-Anne Kalderen",
+        "Charlotte Broekmeulen",
+        "Mark Redeman",
+        "Pieter Wolff"
+      ]
+    },
+    {
+      "slug": "advisory-board",
+      "name": "Advisory board",
+      "description": "<p>When the board is at loss about what to do, the Advisory board saves the day! This committee consists of old board members and, who would have thought, advises the board.</p>",
+      "logo": "images/association/committees/advisory-board/logo_advisory-board-2.png",
+      "photo": "images/association/committees/advisory-board/photo_advisory-board-1.png",
+      "members": [
+        "Tabitha Minett",
+        "Kathinka Frieswijk",
+        "Csilla Tijssen",
+        "Filippo Carretta",
+        "Ian Soede",
+        "Jasper te Walvaart"
+      ]
+    },
+    {
+      "slug": "ap-committee",
+      "name": "AP Committee",
+      "description": "<p>This committee is not only a lot of fun but also looks good on your CV. The members of this committee give feedback to the program directors about courses, organise the coffee hours and also the famous Applied Physics Dinner where members can enjoy a lovely meal with their professors.</p>",
+      "logo": "images/association/committees/ap-committee/logo_ap-committee-4.png",
+      "photo": "images/association/committees/ap-committee/photo_ap-committee.png",
+      "members": [
+        "David Dijkman",
+        "Eline Mijnlieff",
+        "Dennis Francke",
+        "Emiel de Wit",
+        "Giulia-Miriam Mihaica",
+        "Gabriel Platzer",
+        "Jennifer Gabriela Gonzalez Bazan",
+        "Pedro Sáez Díaz"
+      ]
+    },
+    {
+      "slug": "audit-committee",
+      "name": "Audit Committee",
+      "description": "<p>The Audit Committee helps out the Treasurer of the association. They check the financial plan, give updates, and make sure everything is alright. This committee exists of (old) board treasures.</p>",
+      "logo": "images/association/committees/audit-committee/logo_audit-committee-3.png",
+      "photo": "images/association/committees/audit-committee/photo_audit-committee.jpeg",
+      "members": [
+        "Melvin Mijnlieff",
+        "Bradley Spronk",
+        "Christian Berg",
+        "Siem Kuijpers"
+      ]
+    },
+    {
+      "slug": "borrelcie",
+      "name": "Borrelcie",
+      "description": "<p>You must have been at least at one of our borrels before. These borrels are organized by the Borrelcie, that also keeps the fridge full so you can always streep your favourite snack!</p>",
+      "logo": "images/association/committees/borrelcie/logo_borrelcie-16.png",
+      "photo": "images/association/committees/borrelcie/photo_borrelcie-4.jpg",
+      "members": [
+        "Adriana van Harten",
+        "Camiel Koning",
+        "Youri Kwakkel",
+        "Prakhar Agarwal",
+        "Victor Bakker",
+        "Jasmijn Kool",
+        "Matko Majstorović",
+        "Emma Robertson",
+        "Javier Batista Espla",
+        "Nik Joshua Carnelio",
+        "Giulia-Miriam Mihaica",
+        "Emily Geekie",
+        "Wim Drenth"
+      ]
+    },
+    {
+      "slug": "brouwcie",
+      "name": "Brouwcie",
+      "description": "<p>You can streep Gebouw 13 in the room. This lovely drink is the home-brewed beer from the Brouwcie! Every batch is a new delicious flavour so feel free to try one after four.</p>",
+      "logo": "images/association/committees/brouwcie/logo_brouwcie-5.png",
+      "photo": "images/association/committees/brouwcie/photo_brouwcie.png",
+      "members": [
+        "Camiel Koning",
+        "Dennis Francke",
+        "Emily Geekie",
+        "Séamus Ó Muirthile",
+        "Csilla Tijssen",
+        "Zoltán Hermann"
+      ]
+    },
+    {
+      "slug": "compucie",
+      "name": "Compucie",
+      "description": "<p>If you ever have trouble with the computers in the room, just call for Compucie. They know the computers through and through and can hopefully help you out.</p>",
+      "logo": "images/association/committees/compucie/logo_compucie-19.png",
+      "photo": "images/association/committees/compucie/photo_compucie-1.jpg",
+      "members": [
+        "David Dijkman",
+        "Mark Redeman",
+        "Sjoerd Buitjes",
+        "Thies Ristjouw"
+      ]
+    },
+    {
+      "slug": "fikscie",
+      "name": "Fikscie",
+      "description": "<p>The name says it all, the Fixcie fixes things. Tables that break by board members jumping on them, the fridges and anything else that is breakable.</p>",
+      "logo": "images/association/committees/fikscie/logo_fikscie-4.png",
+      "photo": "images/association/committees/fikscie/photo_fikscie.png",
+      "members": [
+        "Christian Berg",
+        "David Dijkman",
+        "Dennis Francke",
+        "Emiel de Wit",
+        "Goos Mulder",
+        "Thies Ristjouw"
+      ]
+    },
+    {
+      "slug": "fotocie",
+      "name": "Fotocie",
+      "description": "<p>Isn't it lovely to be able to look back on events and see your friends getting drunk? That is why we have the Fotocie, they take pictures at every event so you can always look back and smile at the stupid things that happened.</p>",
+      "logo": "images/association/committees/fotocie/logo_fotocie-15.png",
+      "photo": "images/association/committees/fotocie/photo_fotocie.png",
+      "members": [
+        "Carlos Bril",
+        "Eline Mijnlieff",
+        "Emiel de Wit",
+        "Giulia-Miriam Mihaica",
+        "Hannelys Posthumus",
+        "Javier Batista Espla",
+        "Maartje Boon",
+        "Maikel Veld",
+        "Prakhar Agarwal",
+        "Sayed Rayan Rakibuzzaman",
+        "Tetiana Ovramenko",
+        "Marcel Verkade",
+        "Rebecca Bult"
+      ]
+    },
+    {
+      "slug": "fraccie",
+      "name": "Fraccie",
+      "description": "<p>The beachparty, the gala, a jamsession, maybe a pubquiz, the Fraccie does it all. These events are always a lot of fun and a great place to make new friends and get to now the other members.</p>",
+      "logo": "images/association/committees/fraccie/logo_fraccie-9.png",
+      "photo": "images/association/committees/fraccie/photo_fraccie.png",
+      "members": [
+        "Eelco Obdeijn",
+        "Joel Alexander De Haan Sánchez",
+        "Rebecca Bult",
+        "Jennifer Gabriela Gonzalez Bazan",
+        "Lucía Martínez",
+        "Solène van der Schot",
+        "Jose Roces Yang"
+      ]
+    },
+    {
+      "slug": "francken-vrij",
+      "name": "Francken Vrij",
+      "description": "<p>The Francken Vrij is of course Francken's own science magazine. This committee makes sure that there are 3 on your doorstep every year, filled with knowledge and fun.</p>",
+      "logo": "images/association/committees/francken-vrij/logo_francken-vrij-19.png",
+      "photo": "images/association/committees/francken-vrij/photo_francken-vrij.jpg",
+      "members": [
+        "Bradley Spronk",
+        "Eline Mijnlieff",
+        "Gerrit Boonstra",
+        "Hannelys Posthumus",
+        "Malo Blömker",
+        "Omar Gutierrez Laafou",
+        "Tetiana Ovramenko",
+        "Zoltán Hermann"
+      ]
+    },
+    {
+      "slug": "lustrum-book-committee",
+      "name": "Lustrum Book Committee",
+      "description": "",
+      "logo": null,
+      "photo": "images/association/committees/lustrum-book-committee/photo_lustrum-book-committee.jpeg",
+      "members": [
+        "Adriana van Harten",
+        "Ciska van Elsberg",
+        "David Dijkman",
+        "Eline Mijnlieff",
+        "Liz Titz",
+        "Marcel Verkade",
+        "Rebecca Bult"
+      ]
+    },
+    {
+      "slug": "lustrumcie",
+      "name": "Lustrumcie",
+      "description": "<p>This amazing committee will organize a week full of fun activities in order to celebrate our beloved association's Lustrum.</p>",
+      "logo": "images/association/committees/lustrumcie/logo_lustrumcie-1.png",
+      "photo": "images/association/committees/lustrumcie/photo_lustrumcie.png",
+      "members": [
+        "Adriana van Harten",
+        "Gerrit Boonstra",
+        "Liz Titz",
+        "Marcel Verkade",
+        "Prakhar Agarwal",
+        "Rebecca Bult",
+        "Sibren Wobben",
+        "Thies Ristjouw"
+      ]
+    },
+    {
+      "slug": "mapcie",
+      "name": "MAPcie",
+      "description": "<p>MAPcie is responsible for writing a new multi-annual plan, since the last one has run its course.</p>",
+      "logo": "images/association/committees/mapcie/logo_mapcie-1.png",
+      "photo": "images/association/committees/mapcie/photo_mapcie-2.png",
+      "members": [
+        "Carlos Bril",
+        "Csilla Tijssen",
+        "Lilly-Anne Kalderen",
+        "Sibren Wobben",
+        "Thies Ristjouw",
+        "Eline Mijnlieff"
+      ]
+    },
+    {
+      "slug": "mscie",
+      "name": "MScie",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Christian Berg",
+        "Alwin Jansen",
+        "Filippo Carretta",
+        "Julian Bernat",
+        "Melvin Mijnlieff",
+        "Sayed Rayan Rakibuzzaman",
+        "Sjoerd Buitjes",
+        "Virun Malalasena"
+      ]
+    },
+    {
+      "slug": "representacie",
+      "name": "Representacie",
+      "description": "<p>To let everyone know that there is an upcoming event, the Representacie makes posters! It is a fun committee that does not need regular meetings and where you can learn a useful new skill.</p>",
+      "logo": "images/association/committees/representacie/logo_representacie-13.png",
+      "photo": "images/association/committees/representacie/photo_representacie.jpg",
+      "members": [
+        "Bradley Spronk",
+        "Dennis Francke",
+        "Emma Robertson",
+        "Hannelys Posthumus",
+        "Marcel Verkade",
+        "Siem Kuijpers",
+        "Tetiana Ovramenko",
+        "Csilla Tijssen",
+        "Liz Titz"
+      ]
+    },
+    {
+      "slug": "sjaarscie",
+      "name": "Sjaarscie",
+      "description": "<p>The committee for aspiring active Francken members, this is a great way to get to know the association. Together with other first years the Sjaarscie organizes a dinner and a party for fellow first years.</p>",
+      "logo": "images/association/committees/sjaarscie/logo_sjaarscie-14.png",
+      "photo": "images/association/committees/sjaarscie/photo_sjaarscie.jpg",
+      "members": [
+        "Alexander Hanke",
+        "Bent Blokland",
+        "Fedde Barten",
+        "Heidi van der Neut",
+        "Jaco Haak",
+        "Leo Bosman",
+        "Mats Ruiter",
+        "Mats Poortstra",
+        "Nick Niemeijer",
+        "Nienke Wilharms",
+        "Pelle van der Woude",
+        "Sep Epema",
+        "Herke de Groot",
+        "Nuria Ottevanger",
+        "Maud Smit"
+      ]
+    },
+    {
+      "slug": "slef",
+      "name": "S.L.E.F.",
+      "description": "",
+      "logo": null,
+      "photo": "images/association/committees/slef/photo_slef.jpg",
+      "members": [
+        "Christian Berg",
+        "David Dijkman",
+        "Emma Robertson",
+        "Joel Alexander De Haan Sánchez",
+        "Liz Titz",
+        "Solène van der Schot"
+      ]
+    },
+    {
+      "slug": "sportcie",
+      "name": "Sportcie",
+      "description": "<p>This committee will also organize sport events during the year, to keep you all moving! So make sure to participate</p>",
+      "logo": "images/association/committees/sportcie/logo_sportcie-6.png",
+      "photo": "images/association/committees/sportcie/photo_sportcie.jpg",
+      "members": [
+        "Camiel Koning",
+        "Liz Titz",
+        "Melvin Mijnlieff",
+        "Rebecca Bult",
+        "Siem Kuijpers"
+      ]
+    },
+    {
+      "slug": "sympcie",
+      "name": "Sympcie",
+      "description": "<p>The Sympcie organises the yearly symposium. This is one of Francken's greatest events and gives you an entire day of learning while enjoying it, so make sure you're there</p>",
+      "logo": "images/association/committees/sympcie/logo_sympcie.jpg",
+      "photo": "images/association/committees/sympcie/photo_sympcie-2.jpg",
+      "members": [
+        "Jasmijn Kool",
+        "Joel Alexander De Haan Sánchez",
+        "Lucía Martínez",
+        "Marcel Verkade",
+        "Prakhar Agarwal"
+      ]
+    },
+    {
+      "slug": "takcie",
+      "name": "Takcie",
+      "description": "",
+      "logo": "images/association/committees/takcie/logo_takcie-4.png",
+      "photo": null,
+      "members": [
+        "Annabelle van Berlo",
+        "Ciska van Elsberg",
+        "Lucía Martínez",
+        "Marcel Verkade",
+        "Hamza Reedy"
+      ]
+    },
+    {
+      "slug": "wiecksie",
+      "name": "Wiecksie",
+      "description": "<p>Because 5 days of Francken per week isn’t always enough for everyone, for those people there are the members weekends. What can be better then a weekend of relaxation and beer with fellow Francken members? The Wiecksie takes this need seriously and organises two weekends per year full of entertainment.</p>",
+      "logo": "images/association/committees/wiecksie/logo_wiecksie-8.png",
+      "photo": "images/association/committees/wiecksie/photo_wiecksie-1.png",
+      "members": [
+        "Adriana van Harten",
+        "Marcel Verkade",
+        "Nijs van Zoest",
+        "Puck Planje",
+        "Youri Kwakkel",
+        "Bent Blokland",
+        "Jaco Haak",
+        "Nienke Wilharms"
+      ]
+    }
+  ],
+  "2025-2026": [
+    {
+      "slug": "acquisicie",
+      "name": "Acquisicie",
+      "description": "<p>This committee will consist of members, who have experience with acquisition and they will provide continuous support for the current Extern of Francken.</p>",
+      "logo": "images/association/committees/acquisicie/logo_acquisicie.png",
+      "photo": null,
+      "members": [
+        "Charlotte Broekmeulen",
+        "Lilly-Anne Kalderen",
+        "Eline Mijnlieff",
+        "Pieter Wolff",
+        "Mark Redeman",
+        "Sibren Wobben",
+        "Sjoerd Buitjes"
+      ]
+    },
+    {
+      "slug": "advisory-board",
+      "name": "Advisory board",
+      "description": "<p>When the board is at loss about what to do, the Advisory board saves the day! This committee consists of old board members and, who would have thought, advises the board.</p>",
+      "logo": "images/association/committees/advisory-board/logo_advisory-board-2.png",
+      "photo": "images/association/committees/advisory-board/photo_advisory-board-1.png",
+      "members": [
+        "Kathinka Frieswijk",
+        "Csilla Tijssen",
+        "Filippo Carretta",
+        "Ian Soede",
+        "Jasper te Walvaart",
+        "Siem Kuijpers",
+        "Ciska van Elsberg",
+        "Emiel de Wit"
+      ]
+    },
+    {
+      "slug": "ap-committee",
+      "name": "AP Committee",
+      "description": "<p>This committee is not only a lot of fun but also looks good on your CV. The members of this committee give feedback to the program directors about courses, organise the coffee hours and also the famous Applied Physics Dinner where members can enjoy a lovely meal with their professors.</p>",
+      "logo": "images/association/committees/ap-committee/logo_ap-committee-4.png",
+      "photo": "images/association/committees/ap-committee/photo_ap-committee.png",
+      "members": [
+        "Dennis Francke",
+        "Lara Nicol",
+        "Emily Geekie",
+        "Marit van Zetten",
+        "Marrit Smit",
+        "Chara Siekkeri",
+        "Pedro Fialho"
+      ]
+    },
+    {
+      "slug": "audit-committee",
+      "name": "Audit Committee",
+      "description": "<p>The Audit Committee helps out the Treasurer of the association. They check the financial plan, give updates, and make sure everything is alright. This committee exists of (old) board treasures.</p>",
+      "logo": "images/association/committees/audit-committee/logo_audit-committee-3.png",
+      "photo": "images/association/committees/audit-committee/photo_audit-committee.jpeg",
+      "members": [
+        "Christian Berg",
+        "Melvin Mijnlieff",
+        "Siem Kuijpers",
+        "Camiel Koning",
+        "Tim Duker"
+      ]
+    },
+    {
+      "slug": "borrelcie",
+      "name": "Borrelcie",
+      "description": "<p>You must have been at least at one of our borrels before. These borrels are organized by the Borrelcie, that also keeps the fridge full so you can always streep your favourite snack!</p>",
+      "logo": "images/association/committees/borrelcie/logo_borrelcie-16.png",
+      "photo": "images/association/committees/borrelcie/photo_borrelcie-4.jpg",
+      "members": [
+        "Camiel Koning",
+        "Youri Kwakkel",
+        "Prakhar Agarwal",
+        "Jasmijn Kool",
+        "Matko Majstorović",
+        "Emma Robertson",
+        "Javier Batista Espla",
+        "Nik Joshua Carnelio",
+        "Emily Geekie",
+        "Wim Drenth",
+        "Victor Bakker",
+        "Noel Kahn",
+        "Rayaan Neem",
+        "Kemran Amirov",
+        "Urtė Jocaitė",
+        "Shichao Zhou",
+        "Bence Kakuszi",
+        "Óscar van Meggelen",
+        "Ylou Mesu"
+      ]
+    },
+    {
+      "slug": "brouwcie",
+      "name": "Brouwcie",
+      "description": "<p>You can streep Gebouw 13 in the room. This lovely drink is the home-brewed beer from the Brouwcie! Every batch is a new delicious flavour so feel free to try one after four.</p>",
+      "logo": "images/association/committees/brouwcie/logo_brouwcie-5.png",
+      "photo": "images/association/committees/brouwcie/photo_brouwcie.png",
+      "members": [
+        "Dennis Francke",
+        "Emily Geekie",
+        "Séamus Ó Muirthile",
+        "Csilla Tijssen",
+        "Zoltán Hermann",
+        "Sibren Wobben",
+        "Puck Planje",
+        "Jasmijn Kool",
+        "Daniel Baukema",
+        "Rayaan Neem"
+      ]
+    },
+    {
+      "slug": "complaints-committee",
+      "name": "Complaints Committee",
+      "description": "<p>An independent organ from board a level above the confidential contact persons which give advice to board within two weeks in the case of an 'incident’.</p>",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Filippo Carretta",
+        "Jasper te Walvaart",
+        "Emiel de Wit",
+        "Siem Kuijpers",
+        "Ciska van Elsberg",
+        "Liz Titz"
+      ]
+    },
+    {
+      "slug": "compucie",
+      "name": "Compucie",
+      "description": "<p>If you ever have trouble with the computers in the room, just call for Compucie. They know the computers through and through and can hopefully help you out.</p>",
+      "logo": "images/association/committees/compucie/logo_compucie-19.png",
+      "photo": "images/association/committees/compucie/photo_compucie-1.jpg",
+      "members": [
+        "David Dijkman",
+        "Mark Redeman",
+        "Sjoerd Buitjes",
+        "Thies Ristjouw",
+        "Jeremy Zhou",
+        "Joel Alexander De Haan Sánchez"
+      ]
+    },
+    {
+      "slug": "fikscie",
+      "name": "Fikscie",
+      "description": "<p>The name says it all, the Fixcie fixes things. Tables that break by board members jumping on them, the fridges and anything else that is breakable.</p>",
+      "logo": "images/association/committees/fikscie/logo_fikscie-4.png",
+      "photo": "images/association/committees/fikscie/photo_fikscie.png",
+      "members": [
+        "David Dijkman",
+        "Dennis Francke",
+        "Emiel de Wit",
+        "Goos Mulder",
+        "Thies Ristjouw",
+        "Zoltán Hermann"
+      ]
+    },
+    {
+      "slug": "fotocie",
+      "name": "Fotocie",
+      "description": "<p>Isn't it lovely to be able to look back on events and see your friends getting drunk? That is why we have the Fotocie, they take pictures at every event so you can always look back and smile at the stupid things that happened.</p>",
+      "logo": "images/association/committees/fotocie/logo_fotocie-15.png",
+      "photo": "images/association/committees/fotocie/photo_fotocie.png",
+      "members": [
+        "Eline Mijnlieff",
+        "Sayed Rayan Rakibuzzaman",
+        "Rebecca Bult",
+        "Javier Batista Espla",
+        "Zoltán Hermann",
+        "Jeremy Zhou",
+        "Shichao Zhou",
+        "Andrius Gineika",
+        "Alexander Hanke",
+        "Mariia Tarabarova"
+      ]
+    },
+    {
+      "slug": "fraccie",
+      "name": "Fraccie",
+      "description": "<p>The beachparty, the gala, a jamsession, maybe a pubquiz, the Fraccie does it all. These events are always a lot of fun and a great place to make new friends and get to now the other members.</p>",
+      "logo": "images/association/committees/fraccie/logo_fraccie-9.png",
+      "photo": "images/association/committees/fraccie/photo_fraccie.png",
+      "members": [
+        "Joel Alexander De Haan Sánchez",
+        "Rebecca Bult",
+        "Solène van der Schot",
+        "Liz Titz",
+        "Maud Smit",
+        "Lucía Fernández Hernández",
+        "Bradley Spronk",
+        "Eelco Obdeijn"
+      ]
+    },
+    {
+      "slug": "francken-vrij",
+      "name": "Francken Vrij",
+      "description": "<p>The Francken Vrij is of course Francken's own science magazine. This committee makes sure that there are 3 on your doorstep every year, filled with knowledge and fun.</p>",
+      "logo": "images/association/committees/francken-vrij/logo_francken-vrij-19.png",
+      "photo": "images/association/committees/francken-vrij/photo_francken-vrij.jpg",
+      "members": [
+        "Gerrit Boonstra",
+        "Zoltán Hermann",
+        "Eline Mijnlieff",
+        "Lara Nicol",
+        "Kata Luca Nyíri",
+        "Herke de Groot",
+        "Chara Siekkeri",
+        "Eszter Bianka Bartucz",
+        "Mats den Haan",
+        "Charlotte Broekmeulen",
+        "Tuna Yumrukuz"
+      ]
+    },
+    {
+      "slug": "lustrum-book-committee",
+      "name": "Lustrum Book Committee",
+      "description": "",
+      "logo": null,
+      "photo": "images/association/committees/lustrum-book-committee/photo_lustrum-book-committee.jpeg",
+      "members": [
+        "Adriana van Harten",
+        "Ciska van Elsberg",
+        "David Dijkman",
+        "Eline Mijnlieff",
+        "Liz Titz",
+        "Marcel Verkade",
+        "Rebecca Bult"
+      ]
+    },
+    {
+      "slug": "mscie",
+      "name": "MScie",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Filippo Carretta",
+        "Julian Bernat",
+        "Camiel Koning",
+        "Dennis Francke",
+        "Gerrit Boonstra",
+        "Noah van der Ploeg",
+        "Sayed Rayan Rakibuzzaman",
+        "Ilija Gjerapić",
+        "Giulia-Miriam Mihaica",
+        "Tim van de Vendel",
+        "Annabelle van Berlo",
+        "Magdalena Janewska"
+      ]
+    },
+    {
+      "slug": "representacie",
+      "name": "Representacie",
+      "description": "<p>To let everyone know that there is an upcoming event, the Representacie makes posters! It is a fun committee that does not need regular meetings and where you can learn a useful new skill.</p>",
+      "logo": "images/association/committees/representacie/logo_representacie-13.png",
+      "photo": "images/association/committees/representacie/photo_representacie.jpg",
+      "members": [
+        "Bradley Spronk",
+        "Emma Robertson",
+        "Csilla Tijssen",
+        "Liz Titz",
+        "Charlotte Broekmeulen",
+        "Kara van der Meulen",
+        "Matko Majstorović",
+        "Borbála Balás"
+      ]
+    },
+    {
+      "slug": "sjaarscie",
+      "name": "Sjaarscie",
+      "description": "<p>The committee for aspiring active Francken members, this is a great way to get to know the association. Together with other first years the Sjaarscie organizes a dinner and a party for fellow first years.</p>",
+      "logo": "images/association/committees/sjaarscie/logo_sjaarscie-14.png",
+      "photo": "images/association/committees/sjaarscie/photo_sjaarscie.jpg",
+      "members": [
+        "Julius Dennissen",
+        "Imogen Legge",
+        "Ylou Mesu",
+        "María Quintero Mesa",
+        "Andreas Oberreit",
+        "Andreas Oberreit",
+        "Juliette Whelan",
+        "Andrius Gineika",
+        "Mats den Haan",
+        "Bence Kakuszi",
+        "Pedro Fialho",
+        "Konstantinos Alexopoulos",
+        "Óscar van Meggelen",
+        "Carol-Petru Stepanov",
+        "Dominik De Wit",
+        "Jan Jager",
+        "Urtė Jocaitė",
+        "Álvaro González Muñoz",
+        "Erika Dumitrascu",
+        "Gabriela Sałata",
+        "elise prins",
+        "Guusje Hangelbroek",
+        "Kemran Amirov",
+        "Tim Mulder",
+        "Niels Visser"
+      ]
+    },
+    {
+      "slug": "sportcie",
+      "name": "Sportcie",
+      "description": "<p>This committee will also organize sport events during the year, to keep you all moving! So make sure to participate</p>",
+      "logo": "images/association/committees/sportcie/logo_sportcie-7.png",
+      "photo": "images/association/committees/sportcie/photo_sportcie-1.jpg",
+      "members": [
+        "Camiel Koning",
+        "Liz Titz",
+        "Csilla Tijssen",
+        "Eelco Obdeijn",
+        "Floris Ram"
+      ]
+    },
+    {
+      "slug": "sympcie",
+      "name": "Sympcie",
+      "description": "<p>The Sympcie organises the yearly symposium. This is one of Francken's greatest events and gives you an entire day of learning while enjoying it, so make sure you're there</p>",
+      "logo": "images/association/committees/sympcie/logo_sympcie.jpg",
+      "photo": "images/association/committees/sympcie/photo_sympcie-2.jpg",
+      "members": [
+        "Riccardo Carlini",
+        "Lara Nicol",
+        "Noa Krosse",
+        "Dominik De Wit",
+        "Jan Jager",
+        "Imogen Legge"
+      ]
+    },
+    {
+      "slug": "wiecksie",
+      "name": "Wiecksie",
+      "description": "<p>Because 5 days of Francken per week isn’t always enough for everyone, for those people there are the members weekends. What can be better then a weekend of relaxation and beer with fellow Francken members? The Wiecksie takes this need seriously and organises two weekends per year full of entertainment.</p>",
+      "logo": "images/association/committees/wiecksie/logo_wiecksie-8.png",
+      "photo": "images/association/committees/wiecksie/photo_wiecksie-1.png",
+      "members": [
+        "Youri Kwakkel",
+        "Bent Blokland",
+        "Jaco Haak",
+        "Nuria Ottevanger",
+        "Pelle van der Woude",
+        "Noa Krosse",
+        "Ylou Mesu",
+        "Alexander Hanke"
+      ]
+    }
+  ],
+  "2026-2027": [
+    {
+      "slug": "acquisicie",
+      "name": "Acquisicie",
+      "description": "<p>This committee will consist of members, who have experience with acquisition and they will provide continuous support for the current Extern of Francken.</p>",
+      "logo": "images/association/committees/acquisicie/logo_acquisicie.png",
+      "photo": null,
+      "members": [
+        "Lilly-Anne Kalderen",
+        "Eline Mijnlieff",
+        "Pieter Wolff",
+        "Mark Redeman",
+        "Sibren Wobben",
+        "Sjoerd Buitjes",
+        "Solène van der Schot"
+      ]
+    },
+    {
+      "slug": "advisory-board",
+      "name": "Advisory board",
+      "description": "<p>When the board is at loss about what to do, the Advisory board saves the day! This committee consists of old board members and, who would have thought, advises the board.</p>",
+      "logo": "images/association/committees/advisory-board/logo_advisory-board-2.png",
+      "photo": "images/association/committees/advisory-board/photo_advisory-board-1.png",
+      "members": [
+        "Ciska van Elsberg",
+        "Christian Berg",
+        "Calin-Mihai Sagarceanu",
+        "Dennis Francke",
+        "Emily Geekie",
+        "Rebecca Bult",
+        "Solène van der Schot"
+      ]
+    },
+    {
+      "slug": "ap-committee",
+      "name": "AP Committee",
+      "description": "<p>This committee is not only a lot of fun but also looks good on your CV. The members of this committee give feedback to the program directors about courses, organise the coffee hours and also the famous Applied Physics Dinner where members can enjoy a lovely meal with their professors.</p>",
+      "logo": "images/association/committees/ap-committee/logo_ap-committee-4.png",
+      "photo": "images/association/committees/ap-committee/photo_ap-committee.png",
+      "members": [
+        "Lara Nicol",
+        "Emily Geekie",
+        "Marit van Zetten",
+        "Chara Siekkeri",
+        "Pedro Fialho",
+        "Mats den Haan"
+      ]
+    },
+    {
+      "slug": "audit-committee",
+      "name": "Audit Committee",
+      "description": "<p>The Audit Committee helps out the Treasurer of the association. They check the financial plan, give updates, and make sure everything is alright. This committee exists of (old) board treasures.</p>",
+      "logo": "images/association/committees/audit-committee/logo_audit-committee-3.png",
+      "photo": "images/association/committees/audit-committee/photo_audit-committee.jpeg",
+      "members": [
+        "Christian Berg",
+        "Melvin Mijnlieff",
+        "Siem Kuijpers",
+        "Camiel Koning",
+        "Tim Duker"
+      ]
+    },
+    {
+      "slug": "borrelcie",
+      "name": "Borrelcie",
+      "description": "<p>You must have been at least at one of our borrels before. These borrels are organized by the Borrelcie, that also keeps the fridge full so you can always streep your favourite snack!</p>",
+      "logo": "images/association/committees/borrelcie/logo_borrelcie-16.png",
+      "photo": "images/association/committees/borrelcie/photo_borrelcie-4.jpg",
+      "members": [
+        "Camiel Koning",
+        "Youri Kwakkel",
+        "Jasmijn Kool",
+        "Matko Majstorović",
+        "Emma Robertson",
+        "Javier Batista Espla",
+        "Emily Geekie",
+        "Wim Drenth",
+        "Noel Kahn",
+        "Rayaan Neem",
+        "Ylou Mesu",
+        "Pedro Fialho",
+        "Mats den Haan",
+        "Tuna Yumrukuz",
+        "Dominik De Wit",
+        "Kylian Wolterman",
+        "Francisco Mancellos"
+      ]
+    },
+    {
+      "slug": "brouwcie",
+      "name": "Brouwcie",
+      "description": "<p>You can streep Gebouw 13 in the room. This lovely drink is the home-brewed beer from the Brouwcie! Every batch is a new delicious flavour so feel free to try one after four.</p>",
+      "logo": "images/association/committees/brouwcie/logo_brouwcie-5.png",
+      "photo": "images/association/committees/brouwcie/photo_brouwcie.png",
+      "members": [
+        "Dennis Francke",
+        "Emily Geekie",
+        "Séamus Ó Muirthile",
+        "Zoltán Hermann",
+        "Sibren Wobben",
+        "Puck Planje",
+        "Jasmijn Kool",
+        "Daniel Baukema",
+        "Rayaan Neem",
+        "Camiel Koning",
+        "Wim Drenth",
+        "Floris Ram"
+      ]
+    },
+    {
+      "slug": "complaints-committee",
+      "name": "Complaints Committee",
+      "description": "<p>An independent organ from board a level above the confidential contact persons which give advice to board within two weeks in the case of an 'incident’.</p>",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Emiel de Wit",
+        "Solène van der Schot",
+        "Ciska van Elsberg"
+      ]
+    },
+    {
+      "slug": "compucie",
+      "name": "Compucie",
+      "description": "<p>If you ever have trouble with the computers in the room, just call for Compucie. They know the computers through and through and can hopefully help you out.</p>",
+      "logo": "images/association/committees/compucie/logo_compucie-19.png",
+      "photo": "images/association/committees/compucie/photo_compucie-1.jpg",
+      "members": [
+        "David Dijkman",
+        "Mark Redeman",
+        "Sjoerd Buitjes",
+        "Thies Ristjouw",
+        "Jeremy Zhou",
+        "Zoltán Hermann"
+      ]
+    },
+    {
+      "slug": "feedback-committee",
+      "name": "Feedback Committee",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Joel Alexander De Haan Sánchez",
+        "Kata Luca Nyíri",
+        "Bálint Schweibert",
+        "Mats den Haan",
+        "Nathan Desobry",
+        "Daniel Sade"
+      ]
+    },
+    {
+      "slug": "fikscie",
+      "name": "Fikscie",
+      "description": "<p>The name says it all, the Fixcie fixes things. Tables that break by board members jumping on them, the fridges and anything else that is breakable.</p>",
+      "logo": "images/association/committees/fikscie/logo_fikscie-4.png",
+      "photo": "images/association/committees/fikscie/photo_fikscie.png",
+      "members": [
+        "David Dijkman",
+        "Dennis Francke",
+        "Thies Ristjouw",
+        "Zoltán Hermann"
+      ]
+    },
+    {
+      "slug": "fotocie",
+      "name": "Fotocie",
+      "description": "<p>Isn't it lovely to be able to look back on events and see your friends getting drunk? That is why we have the Fotocie, they take pictures at every event so you can always look back and smile at the stupid things that happened.</p>",
+      "logo": "images/association/committees/fotocie/logo_fotocie-15.png",
+      "photo": "images/association/committees/fotocie/photo_fotocie.png",
+      "members": [
+        "Eline Mijnlieff",
+        "Zoltán Hermann",
+        "Emily Geekie",
+        "Matko Majstorović",
+        "Bradley Spronk"
+      ]
+    },
+    {
+      "slug": "fraccie",
+      "name": "Fraccie",
+      "description": "<p>The beachparty, the gala, a jamsession, maybe a pubquiz, the Fraccie does it all. These events are always a lot of fun and a great place to make new friends and get to now the other members.</p>",
+      "logo": "images/association/committees/fraccie/logo_fraccie-9.png",
+      "photo": "images/association/committees/fraccie/photo_fraccie.png",
+      "members": [
+        "Joel Alexander De Haan Sánchez",
+        "Rebecca Bult",
+        "Solène van der Schot",
+        "Maud Smit",
+        "Lucía Fernández Hernández",
+        "Eelco Obdeijn",
+        "Youri Kwakkel",
+        "Riccardo Carlini",
+        "Bent Blokland",
+        "Nuria Ottevanger"
+      ]
+    },
+    {
+      "slug": "francken-vrij",
+      "name": "Francken Vrij",
+      "description": "<p>The Francken Vrij is of course Francken's own science magazine. This committee makes sure that there are 3 on your doorstep every year, filled with knowledge and fun.</p>",
+      "logo": "images/association/committees/francken-vrij/logo_francken-vrij-19.png",
+      "photo": "images/association/committees/francken-vrij/photo_francken-vrij.jpg",
+      "members": [
+        "Zoltán Hermann",
+        "Kata Luca Nyíri",
+        "Mats den Haan",
+        "Tuna Yumrukuz"
+      ]
+    },
+    {
+      "slug": "lustrum-book-committee",
+      "name": "Lustrum Book Committee",
+      "description": "",
+      "logo": null,
+      "photo": "images/association/committees/lustrum-book-committee/photo_lustrum-book-committee.jpeg",
+      "members": [
+        "Adriana van Harten",
+        "Ciska van Elsberg",
+        "David Dijkman",
+        "Eline Mijnlieff",
+        "Marcel Verkade",
+        "Rebecca Bult"
+      ]
+    },
+    {
+      "slug": "mscie",
+      "name": "MScie",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Tim van de Vendel",
+        "Magdalena Janewska"
+      ]
+    },
+    {
+      "slug": "representacie",
+      "name": "Representacie",
+      "description": "<p>To let everyone know that there is an upcoming event, the Representacie makes posters! It is a fun committee that does not need regular meetings and where you can learn a useful new skill.</p>",
+      "logo": "images/association/committees/representacie/logo_representacie-13.png",
+      "photo": "images/association/committees/representacie/photo_representacie-1.jpeg",
+      "members": [
+        "Bradley Spronk",
+        "Emma Robertson",
+        "Liz Titz",
+        "Matko Majstorović",
+        "Borbála Balás",
+        "Jasmijn Kool",
+        "Noa Krosse"
+      ]
+    },
+    {
+      "slug": "sjaarscie",
+      "name": "Sjaarscie",
+      "description": "<p>The committee for aspiring active Francken members, this is a great way to get to know the association. Together with other first years the Sjaarscie organizes a dinner and a party for fellow first years.</p>",
+      "logo": "images/association/committees/sjaarscie/logo_sjaarscie-14.png",
+      "photo": "images/association/committees/sjaarscie/photo_sjaarscie.jpg",
+      "members": [
+        "Imogen Legge"
+      ]
+    },
+    {
+      "slug": "socialcie",
+      "name": "Socialcie",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Emma Robertson",
+        "Borbála Balás",
+        "Imogen Legge",
+        "Jasmijn Kool",
+        "Matko Majstorović"
+      ]
+    },
+    {
+      "slug": "sportcie",
+      "name": "Sportcie",
+      "description": "",
+      "logo": null,
+      "photo": null,
+      "members": [
+        "Camiel Koning",
+        "Emma Robertson",
+        "Andreas Oberreit",
+        "Riccardo Carlini"
+      ]
+    },
+    {
+      "slug": "sympcie",
+      "name": "Sympcie",
+      "description": "<p>The Sympcie organises the yearly symposium. This is one of Francken's greatest events and gives you an entire day of learning while enjoying it, so make sure you're there</p>",
+      "logo": "images/association/committees/sympcie/logo_sympcie.jpg",
+      "photo": "images/association/committees/sympcie/photo_sympcie-2.jpg",
+      "members": [
+        "Lara Nicol",
+        "Chara Siekkeri",
+        "Herke de Groot",
+        "Jeremy Zhou",
+        "Imogen Legge"
+      ]
+    },
+    {
+      "slug": "wiecksie",
+      "name": "Wiecksie",
+      "description": "<p>Because 5 days of Francken per week isn’t always enough for everyone, for those people there are the members weekends. What can be better then a weekend of relaxation and beer with fellow Francken members? The Wiecksie takes this need seriously and organises two weekends per year full of entertainment.</p>",
+      "logo": "images/association/committees/wiecksie/logo_wiecksie-8.png",
+      "photo": "images/association/committees/wiecksie/photo_wiecksie-1.png",
+      "members": [
+        "Youri Kwakkel",
+        "Bent Blokland",
+        "Jaco Haak",
+        "Nuria Ottevanger",
+        "Pelle van der Woude",
+        "Noa Krosse",
+        "Ylou Mesu"
+      ]
+    }
+  ]
+}
