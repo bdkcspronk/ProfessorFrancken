@@ -36,14 +36,16 @@ class FrontPageController extends Controller
             ->limit(8)
             ->get();
 
-        // Group the activities that start this week or next week apart from those that
-        // start later, activities that started before this week but are still going on
-        // count as this week
+        // Activities that start this week or next week are upcoming, those that start
+        // later are only shown when there are no upcoming activities. Activities that
+        // started before this week but are still going on are upcoming
         $startOfWeekAfterNext = $today->modify('monday next week')->setTime(0, 0)->modify('+1 week');
 
-        $agenda = $activities->groupBy(fn (Activity $activity) : string => $activity->start_date < $startOfWeekAfterNext
-            ? 'Upcoming weeks'
-            : 'Later');
+        $upcoming = $activities->filter(fn (Activity $activity) : bool => $activity->start_date < $startOfWeekAfterNext);
+
+        $agenda = $upcoming->isNotEmpty()
+            ? collect(['Upcoming activities' => $upcoming])
+            : collect($activities->isNotEmpty() ? ['Later' => $activities] : []);
 
         $covid = Page::covid()->where('is_published', true)->first();
 

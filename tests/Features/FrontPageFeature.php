@@ -27,40 +27,38 @@ class FrontPageFeature extends TestCase
     }
 
     /** @test */
-    public function the_agenda_is_grouped_by_week() : void
-    {
-        $now = new DateTimeImmutable('now', new DateTimeZone('Europe/Amsterdam'));
-        $startOfNextWeek = $now->modify('monday next week')->setTime(0, 0);
-
-        $this->createActivity('Borrel today', $now, $now->modify('+2 hours'));
-        $this->createActivity('Lab tour next week', $startOfNextWeek->modify('+1 day 12:00'));
-        $this->createActivity('Symposium later on', $startOfNextWeek->modify('+3 weeks'));
-
-        $this->visit('/')
-            ->seeInElement('.home-agenda', 'This week')
-            ->seeInElement('.home-agenda', 'Next week')
-            ->seeInElement('.home-agenda', 'Upcoming');
-
-        $this->assertTextOrder([
-            'This week', 'Borrel today',
-            'Next week', 'Lab tour next week',
-            'Upcoming', 'Symposium later on',
-        ]);
-    }
-
-    /** @test */
-    public function the_agenda_only_shows_weeks_with_activities() : void
+    public function the_agenda_only_shows_upcoming_activities_when_there_are_any() : void
     {
         $startOfNextWeek = (new DateTimeImmutable('now', new DateTimeZone('Europe/Amsterdam')))
             ->modify('monday next week')
             ->setTime(0, 0);
 
-        $this->createActivity('Lab tour next week', $startOfNextWeek->modify('+1 day 12:00'));
+        $this->createActivity('Upcoming activity', $startOfNextWeek->modify('+1 day 12:00'));
+        $this->createActivity('Later activity', $startOfNextWeek->modify('+2 weeks'));
 
         $this->visit('/')
-            ->seeInElement('.home-agenda', 'Next week')
-            ->dontSeeInElement('.home-agenda', 'This week')
-            ->dontSeeInElement('.home-agenda', 'Upcoming');
+            ->seeInElement('.home-agenda', 'Upcoming activities')
+            ->seeInElement('.home-agenda', 'Upcoming activity')
+            ->dontSeeInElement('.home-agenda', 'Later');
+    }
+
+    /** @test */
+    public function the_agenda_shows_later_activities_when_there_are_no_upcoming_ones() : void
+    {
+        $startOfNextWeek = (new DateTimeImmutable('now', new DateTimeZone('Europe/Amsterdam')))
+            ->modify('monday next week')
+            ->setTime(0, 0);
+
+        foreach (range(1, 9) as $day) {
+            $this->createActivity("Later activity {$day}", $startOfNextWeek->modify("+1 week {$day} days"));
+        }
+
+        $this->visit('/')
+            ->seeInElement('.home-agenda', 'Later')
+            ->dontSeeInElement('.home-agenda', 'Upcoming activities')
+            ->dontSeeInElement('.home-agenda', 'Later activity 9');
+
+        $this->assertTextOrder(['Later', 'Later activity 1', 'Later activity 8']);
     }
 
     private function createActivity(string $name, DateTimeImmutable $start, ?DateTimeImmutable $end = null) : void
