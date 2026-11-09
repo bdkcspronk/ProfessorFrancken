@@ -30,7 +30,7 @@
 </div>
 @if ($partner->fccFooter && $partner->fccFooter->is_enabled)
     <img
-        class="rounded m-3"
+        class="admin-logo rounded m-3"
         src="{{ $partner->fccFooter->logo }}"
         alt="Logo of {{ $partner->name }}"
         style="max-height: 150px; max-width: 300px;"

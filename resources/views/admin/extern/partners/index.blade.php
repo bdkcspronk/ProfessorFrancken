@@ -135,10 +135,10 @@
                     <tr>
                         <td style="width: 200px;" class="align-middle">
                                 <img
-                                    class="rounded ml-2 my-2"
+                                    class="admin-logo rounded ml-2 my-2"
                                     src="{{ $partner->logo }}"
                                     alt="Logo of {{ $partner->name }}"
-                                    style="width: 150px; max-width: 150px; max-height: 80px; object-fit: cover;"
+                                    style="width: 150px; max-width: 150px; max-height: 80px;"
                                 />
                         </td>
                         <td>

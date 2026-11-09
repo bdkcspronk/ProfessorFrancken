@@ -656,3 +656,13 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
 .admin-activities-heading small {
     font-size: 0.6em;
 }
+
+// Logos of partners lie on a checkered background, so that white logos and the
+// transparent parts of a logo can be seen as well
+.admin-logo {
+    padding: 0.25rem;
+    background-color: white;
+    background-image: conic-gradient(#d0d4da 25%, white 0 50%, #d0d4da 0 75%, white 0);
+    background-size: 16px 16px;
+    object-fit: contain;
+}

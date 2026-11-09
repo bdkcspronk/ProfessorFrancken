@@ -31,7 +31,7 @@
                     id="partner-logo"
                     alt="Logo of the partner"
                     src="{{ optional($partner)->logo }}"
-                    class="mb-3 img-fluid rounded"
+                    class="admin-logo mb-3 img-fluid rounded"
                     style="object-fit: cover"
                 />
             </div>
