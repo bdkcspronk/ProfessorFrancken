@@ -296,6 +296,15 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
     gap: 2rem;
 }
 
+// On narrow screens the columns would be below each other, so that the sections at the top
+// of the second and third column end up far down. There the sections are in the order of the
+// navigation instead (the order of a section is its position, see the Navigation component)
+@include media-breakpoint-down(md) {
+    .admin-pages__column {
+        display: contents;
+    }
+}
+
 .admin-pages__group {
     padding: 1.25rem;
     border: 1px solid $gray-300;

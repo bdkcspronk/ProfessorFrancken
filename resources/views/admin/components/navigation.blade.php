@@ -43,7 +43,7 @@
             @foreach ($columns() as $column)
                 <div class="admin-pages__column">
                     @foreach ($column as $group)
-                        <section class="admin-pages__group">
+                        <section class="admin-pages__group" style="order: {{ $group['position'] }}">
                             <h2 class="admin-pages__heading">{{ $group['name'] }}</h2>
                             <ul class="admin-pages__list">
                                 @foreach ($group['items'] as $item)

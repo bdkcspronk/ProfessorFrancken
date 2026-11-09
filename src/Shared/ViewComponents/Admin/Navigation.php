@@ -84,39 +84,52 @@ final class Navigation extends Component
             fn (array $group) : bool => count($group['items']) > 0
         ));
 
+        // On narrow screens the sections on the dashboard are in this order, not in columns
+        foreach ($this->groups as $position => &$group) {
+            $group['position'] = $position;
+        }
+        unset($group);
+
         $this->currentGroup = collect($this->groups)->firstWhere('active', true);
     }
 
     /**
-     * The sections divided over three columns, keeping their order, such that the longest
-     * column is as short as possible (a section with its heading counts as its pages plus one)
+     * The sections divided over three columns: the first three sections (see
+     * config/francken/navigation.php) are at the top of the columns, and the others are
+     * below them, keeping their order, such that the longest column is as short as possible
+     * (a section with its heading counts as its pages plus one)
      */
     public function columns() : array
     {
-        $weights = array_map(fn (array $group) : int => count($group['items']) + 1, $this->groups);
-        $count = count($weights);
-        $length = fn (int $from, int $to) : int => array_sum(array_slice($weights, $from, $to - $from));
+        $tops = array_slice($this->groups, 0, 3);
+        $others = array_slice($this->groups, 3);
+        if ($tops === []) {
+            return [];
+        }
+        $weight = fn (array $group) : int => count($group['items']) + 1;
 
-        // Try every way of splitting the sections at two points into three columns
-        $best = [$count, $count];
+        // Try every way of putting the other sections in the columns, there are only a few
+        $best = [];
         $shortest = PHP_INT_MAX;
-        for ($first = 0; $first <= $count; $first++) {
-            for ($second = $first; $second <= $count; $second++) {
-                $longest = max($length(0, $first), $length($first, $second), $length($second, $count));
-                if ($longest < $shortest) {
-                    $shortest = $longest;
-                    $best = [$first, $second];
-                }
+        for ($way = 0; $way < 3 ** count($others); $way++) {
+            $columns = array_map(fn (array $group) : array => [$group], $tops);
+            $code = $way;
+            foreach ($others as $group) {
+                $columns[$code % 3][] = $group;
+                $code = intdiv($code, 3);
+            }
+
+            $longest = max(array_map(
+                fn (array $column) : int => array_sum(array_map($weight, $column)),
+                $columns
+            ));
+            if ($longest < $shortest) {
+                $shortest = $longest;
+                $best = $columns;
             }
         }
 
-        [$first, $second] = $best;
-
-        return array_values(array_filter([
-            array_slice($this->groups, 0, $first),
-            array_slice($this->groups, $first, $second - $first),
-            array_slice($this->groups, $second),
-        ]));
+        return $best;
     }
 
     public function render() : View

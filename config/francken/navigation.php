@@ -97,14 +97,6 @@ return [
                     "works" => true,
                     "can" => "dashboard:committees-read",
                 ],
-                [
-                    "name" => "Alumni activity",
-                    "url" => "alumni-activity",
-                    "icon" => "fas fa-user-graduate",
-                    "description" => "Who comes to the alumni activity",
-                    "works" => true,
-                    "can" => "dashboard:alumni-activity",
-                ],
             ]
         ],
         [
@@ -154,48 +146,6 @@ return [
             ]
         ],
         [
-            "name" => "Study",
-            "url" => "study",
-            "items" => [
-                [
-                    "name" => "Research Groups",
-                    "url" => "research-groups",
-                    "icon" => "fas fa-flask",
-                    "description" => "Research groups of the study",
-                    "works" => false,
-                    "can" => "dashboard:research-groups-read",
-                ],
-                [
-                    "name" => "Books",
-                    "url" => "books",
-                    "icon" => "fas fa-book",
-                    "description" => "Second-hand books for sale",
-                    "works" => true,
-                    "can" => "dashboard:books-read",
-                ],
-            ]
-        ], [
-            "name" => "Francken Vrij",
-            "url" => "association/francken-vrij",
-            "items" => [
-                [
-                    "name" => "Editions",
-                    "url" => "editions",
-                    "icon" => "fas fa-book-open",
-                    "description" => "Editions of the Francken Vrij",
-                    "works" => true,
-                    "can" => "dashboard:francken-vrij-read",
-                ],
-                [
-                    "name" => "Subscriptions",
-                    "url" => "subscriptions",
-                    "icon" => "fas fa-envelope-open-text",
-                    "description" => "Who receives the Francken Vrij",
-                    "works" => true,
-                    "can" => "dashboard:francken-vrij-subscriptions-read",
-                ],
-                ],
-            ], [
             "name" => "Treasurer",
             "url" => "treasurer",
             "items" => [
@@ -224,7 +174,8 @@ return [
                     "can" => "board-treasurer",
                 ],
             ]
-        ], [
+        ],
+        [
             "name" => "Extern",
             "url" => "extern",
             "items" => [
@@ -244,6 +195,48 @@ return [
                     "works" => true,
                     "can" => "dashboard:fact-sheet-read",
                 ]
+            ]
+        ], [
+            "name" => "Francken Vrij",
+            "url" => "association/francken-vrij",
+            "items" => [
+                [
+                    "name" => "Editions",
+                    "url" => "editions",
+                    "icon" => "fas fa-book-open",
+                    "description" => "Editions of the Francken Vrij",
+                    "works" => true,
+                    "can" => "dashboard:francken-vrij-read",
+                ],
+                [
+                    "name" => "Subscriptions",
+                    "url" => "subscriptions",
+                    "icon" => "fas fa-envelope-open-text",
+                    "description" => "Who receives the Francken Vrij",
+                    "works" => true,
+                    "can" => "dashboard:francken-vrij-subscriptions-read",
+                ],
+                ],
+            ], [
+            "name" => "Study",
+            "url" => "study",
+            "items" => [
+                [
+                    "name" => "Research Groups",
+                    "url" => "research-groups",
+                    "icon" => "fas fa-flask",
+                    "description" => "Research groups of the study",
+                    "works" => false,
+                    "can" => "dashboard:research-groups-read",
+                ],
+                [
+                    "name" => "Books",
+                    "url" => "books",
+                    "icon" => "fas fa-book",
+                    "description" => "Second-hand books for sale",
+                    "works" => true,
+                    "can" => "dashboard:books-read",
+                ],
             ]
         ], [
             "name" => "Compucie",
