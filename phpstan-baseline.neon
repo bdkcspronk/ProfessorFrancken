@@ -2056,11 +2056,6 @@ parameters:
 			path: src/Shared/Http/Controllers/MemberDashboardController.php
 
 		-
-			message: "#^Cannot access offset 'title' on mixed\\.$#"
-			count: 1
-			path: src/Shared/Http/Controllers/ResearchGroupsController.php
-
-		-
 			message: "#^PHPDoc type array\\<string, array\\<string\\>\\> of property Francken\\\\Shared\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups is not covariant with PHPDoc type array\\<string, array\\<int, string\\>\\> of overridden property Illuminate\\\\Foundation\\\\Http\\\\Kernel\\:\\:\\$middlewareGroups\\.$#"
 			count: 1
 			path: src/Shared/Http/Kernel.php

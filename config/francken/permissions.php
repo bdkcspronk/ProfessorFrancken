@@ -51,6 +51,9 @@ return [
         'dashboard:books-read',
         'dashboard:books-write',
 
+        'dashboard:research-groups-read',
+        'dashboard:research-groups-write',
+
         'dashboard:symposia-read',
         'dashboard:symposia-write',
 

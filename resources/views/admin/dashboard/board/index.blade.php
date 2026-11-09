@@ -89,7 +89,6 @@
                         <li>Member login system</li>
                         <li>Managing members</li>
                         <li>Streepsysteem 2.0</li>
-                        <li>Research groups</li>
                         <li>Sister & brother associations</li>
                     </ul>
                 </div>

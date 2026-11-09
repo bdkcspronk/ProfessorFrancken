@@ -39,9 +39,9 @@ use Francken\Extern\Http\CareerController;
 use Francken\Extern\Http\CompaniesController;
 use Francken\Shared\Http\Controllers\FrontPageController;
 use Francken\Shared\Http\Controllers\RedirectController;
-use Francken\Shared\Http\Controllers\ResearchGroupsController;
 use Francken\Shared\Http\Controllers\SearchController;
 use Francken\Study\BooksSale\Http\BooksController;
+use Francken\Study\ResearchGroups\Http\ResearchGroupsController;
 
 Route::redirect('/blog', '/association/news');
 Route::permanentRedirect('/wordpress', '/');

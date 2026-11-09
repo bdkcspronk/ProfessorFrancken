@@ -54,6 +54,8 @@ use Francken\Shared\Http\Controllers\MemberDashboardController;
 use Francken\Shared\Media\Http\Controllers\MediaController;
 use Francken\Shared\Settings\Http\Controllers\SettingsController;
 use Francken\Study\BooksSale\Http\AdminBooksController;
+use Francken\Study\ResearchGroups\Http\AdminResearchGroupsController;
+use Francken\Study\ResearchGroups\Http\AdminResearchUnitsController;
 use Francken\Treasurer\Http\Controllers\AdminProductExtrasController;
 use Francken\Treasurer\Http\Controllers\AdminProductsController;
 use Francken\Treasurer\Http\Controllers\AdminTransactionsController;
@@ -69,7 +71,28 @@ Route::get('dashboard/member', [MemberDashboardController::class, 'index']);
 Route::delete('dashboard/board/notifications/{notification}', [BoardNotificationsController::class, 'destroy']);
 
 Route::group(['prefix' => 'study'], function () : void {
-    Route::get('research-groups', [AdminController::class, 'showPageIsUnavailable']);
+    Route::group(['middleware' => 'can:dashboard:research-groups-write'], function () : void {
+        Route::get('research-groups/introduction', [AdminResearchGroupsController::class, 'editIntroduction']);
+        Route::put('research-groups/introduction', [AdminResearchGroupsController::class, 'updateIntroduction']);
+
+        Route::get('research-groups/create', [AdminResearchGroupsController::class, 'create']);
+        Route::post('research-groups', [AdminResearchGroupsController::class, 'store']);
+        Route::get('research-groups/{researchGroup}/edit', [AdminResearchGroupsController::class, 'edit']);
+        Route::put('research-groups/{researchGroup}', [AdminResearchGroupsController::class, 'update']);
+        Route::delete('research-groups/{researchGroup}', [AdminResearchGroupsController::class, 'destroy']);
+
+        Route::scopeBindings()->group(function () : void {
+            Route::post('research-groups/{researchGroup}/units', [AdminResearchUnitsController::class, 'store']);
+            Route::get('research-groups/{researchGroup}/units/{unit}/edit', [AdminResearchUnitsController::class, 'edit']);
+            Route::put('research-groups/{researchGroup}/units/{unit}', [AdminResearchUnitsController::class, 'update']);
+            Route::delete('research-groups/{researchGroup}/units/{unit}', [AdminResearchUnitsController::class, 'destroy']);
+        });
+    });
+
+    Route::group(['middleware' => 'can:dashboard:research-groups-read'], function () : void {
+        Route::get('research-groups', [AdminResearchGroupsController::class, 'index']);
+        Route::get('research-groups/{researchGroup}', [AdminResearchGroupsController::class, 'show']);
+    });
 
     Route::group(['middleware' => 'can:dashboard:books-write'], function () : void {
         Route::get('books/create', [AdminBooksController::class, 'create']);

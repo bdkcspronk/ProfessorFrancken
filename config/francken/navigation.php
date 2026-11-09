@@ -226,7 +226,7 @@ return [
                     "url" => "research-groups",
                     "icon" => "fas fa-flask",
                     "description" => "Research groups of the study",
-                    "works" => false,
+                    "works" => true,
                     "can" => "dashboard:research-groups-read",
                 ],
                 [
