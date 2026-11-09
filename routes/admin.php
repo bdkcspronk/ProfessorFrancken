@@ -312,7 +312,6 @@ Route::group(['prefix' => 'compucie'], function () : void {
     Route::group(['middleware' => 'can:dashboard:permissions-write'], function () : void {
         Route::get('roles', [RolesController::class, 'index']);
         Route::get('roles/{role}', [RolesController::class, 'show']);
-        Route::get('permissions', [AccountsController::class, 'index']);
     });
 
     Route::group(['middleware' => 'can:dashboard:permissions-write'], function () : void {

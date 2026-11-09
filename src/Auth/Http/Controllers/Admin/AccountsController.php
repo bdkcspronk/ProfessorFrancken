@@ -9,6 +9,7 @@ use Francken\Auth\Account;
 use Francken\Auth\Permission;
 use Francken\Auth\Role;
 use Hash;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -17,13 +18,53 @@ use Webmozart\Assert\Assert;
 
 final class AccountsController
 {
-    public function index() : View
+    /**
+     * The columns by which the accounts can be sorted
+     *
+     * @var string[]
+     */
+    private const SORTABLE = ['email', 'member', 'member_id', 'roles', 'permissions'];
+
+    public function index(Request $request) : View
     {
-        $accounts = Account::with(['roles', 'permissions'])
-            ->paginate(30);
+        $search = trim($request->string('search')->toString());
+        $sort = in_array($request->input('sort'), self::SORTABLE, true) ? $request->string('sort')->toString() : 'email';
+        $direction = $request->input('direction') === 'desc' ? 'desc' : 'asc';
+
+        $accounts = Account::with('member')
+            ->withCount(['roles', 'permissions'])
+            ->when($search !== '', function (Builder $query) use ($search) : void {
+                $query->where(function (Builder $query) use ($search) : void {
+                    $query->where('email', 'like', '%' . $search . '%')
+                        ->orWhereIn('member_id', $this->idsOfMembersNamed($search));
+
+                    if (ctype_digit($search)) {
+                        $query->orWhere('member_id', (int) $search);
+                    }
+                });
+            })
+            ->when(
+                $sort === 'member',
+                function (Builder $query) use ($direction) : void {
+                    $this->orderByMemberName($query, $direction);
+                },
+                function (Builder $query) use ($sort, $direction) : void {
+                    $query->orderBy(match ($sort) {
+                        'roles' => 'roles_count',
+                        'permissions' => 'permissions_count',
+                        default => $sort,
+                    }, $direction);
+                }
+            )
+            ->orderBy('email')
+            ->paginate(30)
+            ->withQueryString();
 
         return view('admin.compucie.accounts.index', [
             'accounts' => $accounts,
+            'search' => $search,
+            'sort' => $sort,
+            'direction' => $direction,
             'breadcrumbs' => [
                 ['url' => action([static::class, 'index']), 'text' => 'Accounts'],
             ]
@@ -75,5 +116,52 @@ final class AccountsController
             self::class,
             'index'
         ]);
+    }
+
+    /**
+     * The ids of the members whose name contains every word of the search, as the members are
+     * in another database than the accounts
+     *
+     * @return int[]
+     */
+    private function idsOfMembersNamed(string $search) : array
+    {
+        $words = preg_split('/\s+/', $search) ?: [];
+
+        return LegacyMember::query()
+            ->where(function (Builder $query) use ($words) : void {
+                foreach ($words as $word) {
+                    $query->where(function (Builder $query) use ($word) : void {
+                        $query->where('voornaam', 'like', '%' . $word . '%')
+                            ->orWhere('tussenvoegsel', 'like', '%' . $word . '%')
+                            ->orWhere('achternaam', 'like', '%' . $word . '%');
+                    });
+                }
+            })
+            ->pluck('id')
+            ->map(fn ($id) : int => is_numeric($id) ? (int) $id : 0)
+            ->all();
+    }
+
+    /**
+     * Order the accounts by the surname and first name of their members, which are in another
+     * database than the accounts, so the members are put in order first
+     */
+    private function orderByMemberName(Builder $query, string $direction) : void
+    {
+        $memberIds = LegacyMember::query()
+            ->whereIn('id', Account::query()->pluck('member_id'))
+            ->orderBy('achternaam', $direction)
+            ->orderBy('voornaam', $direction)
+            ->pluck('id')
+            ->map(fn ($id) : int => is_numeric($id) ? (int) $id : 0);
+
+        if ($memberIds->isEmpty()) {
+            return;
+        }
+
+        $cases = $memberIds->map(fn (int $id, int $position) : string => "WHEN {$id} THEN {$position}")->implode(' ');
+
+        $query->orderByRaw("CASE member_id {$cases} ELSE {$memberIds->count()} END");
     }
 }
