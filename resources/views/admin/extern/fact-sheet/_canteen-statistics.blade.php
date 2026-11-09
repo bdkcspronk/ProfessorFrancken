@@ -1,16 +1,16 @@
 <div class="card my-3">
     <div class="card-body">
-        <h4 class="card-title">Active member statistics per week</h4>
+        <h4 class="card-title">Active member statistics per {{ $period }}</h4>
 
         <p class="card-text">
-            The following shows a listing of the amount of members that have purchased one or more products form our "streep system" in the given day or week.
+            The number of members that bought one or more products from our "streep system" in each {{ $period === 'week' ? 'day' : 'week' }} of the {{ $period }}, and in the whole {{ $period }}.
         </p>
 
     </div>
     <table class="table table-hover mb-0">
         <thead class="thead-inverse">
             <tr>
-                <th>Week</th>
+                <th>{{ ucfirst($period) }}</th>
                 @foreach ($weeklyStats[0]['stats'] as $statsOfDay)
                     @if ($loop->last)
                     <th class="text-right">
@@ -34,7 +34,7 @@
                         @else
                         <td class="text-left">
                         @endif
-                            {{ $statsOfDay['members'] }}
+                            {{ $statsOfDay['members'] ?? '–' }}
                         </td>
                     @endforeach
                 </tr>

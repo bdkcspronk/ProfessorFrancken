@@ -81,52 +81,38 @@ final class FactSheetController
         });
     }
 
+    /**
+     * The number of members that bought something in each week of the month, and in the
+     * whole month. A month touches at most six weeks, every month has six of them so that
+     * the columns of the table line up, the weeks that a month doesn't have are null
+     */
     private function transactionsDuringMonth(int $year, int $monthNumber) : Collection
     {
-        // Note that since sometimes a product is purchased after midnight
-        // we will have to "shift" the time of a transaction when we group
-        // the transactions by day so that it gives a more realistic view
-
         $period = Period::fromMonth($year, $monthNumber);
 
         $transactions = $this->transactionsInPeriod($period);
 
-        // difference wrt week
-        // $datePeriod = '1 WEEK';
-        // $format = 'W';
+        $weeks = [];
+        foreach ($period->getDatePeriod(new DateInterval('P1D')) as $day) {
+            $weeks[] = $day->format('o-W');
+        }
+        $weeks = array_values(array_unique($weeks));
 
-        $weeks = collect($period->getDatePeriod(new DateInterval('P1W')))->mapWithKeys(function ($week) : array {
-            return [$week->format('W') => null];
+        $transactionsPerWeek = $transactions->groupBy(function ($transaction) : string {
+            $purchaseDate = new DateTimeImmutable($transaction->tijd);
+
+            // Let transactions between 00:00 and 06:00 count for the previous day
+            return $purchaseDate->sub(new DateInterval('PT6H'))->format('o-W');
         });
 
-        $days = collect($period->getDatePeriod(new DateInterval('P1D')))->mapWithKeys(function ($day) : array {
-            return [$day->format('l') => null];
-        });
-
-        // Should change to transactiosn per week
-        $transactionsPerDay =
-            $transactions->groupBy(function ($transaction) : string {
-                $purchaseDate = new DateTimeImmutable($transaction->tijd);
-
-                // Let transactions between 00:00 and 06:00 count for the previous day
-                return $purchaseDate->format('W');
-            });
-
-
-        return $transactionsPerDay->map(
-            function ($transactions, $day) : array {
-                return [
-                    "day" => $day, // this is day?
-                    "members" => collect($transactions)->unique('lid_id')->count()
-                ];
-            }
-        )->sortBy(function ($day) {
-            return $day["day"];
-        })->merge([
-            "Total" => [
-                "day" => "Total",
-                "members" => $transactions->unique('lid_id')->count()
-            ]
+        return collect(range(0, 5))->map(fn (int $index) : array => [
+            "day" => "Week " . ($index + 1),
+            "members" => isset($weeks[$index])
+                ? collect($transactionsPerWeek->get($weeks[$index], []))->unique('lid_id')->count()
+                : null,
+        ])->push([
+            "day" => "Total",
+            "members" => $transactions->unique('lid_id')->count()
         ]);
     }
 

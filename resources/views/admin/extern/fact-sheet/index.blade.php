@@ -13,6 +13,6 @@
 
     @include('admin.extern.fact-sheet._first-years', ['firstYearStudentsPerYear' => $firstYearStudentsPerYear])
 
-    @include('admin.extern.fact-sheet._canteen-statistics', ['weeklyStats' => $weeklyStats])
-    @include('admin.extern.fact-sheet._canteen-statistics', ['weeklyStats' => $monthlyStats])
+    @include('admin.extern.fact-sheet._canteen-statistics', ['weeklyStats' => $weeklyStats, 'period' => 'week'])
+    @include('admin.extern.fact-sheet._canteen-statistics', ['weeklyStats' => $monthlyStats, 'period' => 'month'])
 @endsection
