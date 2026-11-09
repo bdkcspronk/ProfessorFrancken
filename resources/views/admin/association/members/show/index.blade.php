@@ -16,7 +16,7 @@
                 </div>
             </div>
 
-            <div class="col-4">
+            <div class="col-md-4">
                 @include('admin.association.members.show._boards', ['member' => $member, 'boardMembers' => $boardMembers])
                 @include('admin.association.members.show._francken-vrij-subscription', ['member' => $member, 'subscription' => $subscription])
                 @include('admin.association.members.show._consumption-counter', ['member' => $member, 'consumptionCounterExtra' => $consumptionCounterExtra])

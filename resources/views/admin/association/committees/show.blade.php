@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-9">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex justify-content-start">
@@ -107,7 +107,7 @@
             </p>
             {!! Form::close() !!}
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
             @include('admin.association.committees.members._suggestions', ['committee' => $committee])
             @include('admin.association.committees.permissions._index', ['committee' => $committee])
         </div>

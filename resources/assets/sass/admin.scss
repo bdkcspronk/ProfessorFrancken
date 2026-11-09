@@ -69,6 +69,20 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
         margin: 0;
     }
 
+    // The buttons of a page are often in a row of their own, which wraps as well, so that
+    // they stay on the screen of a phone
+    .d-flex {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        // The gap is the space between the buttons, also when they wrap
+        > .mx-2,
+        > .mx-3 {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+        }
+    }
+
     // Labels of fields in the hero, like the board on the page of committees
     label,
     .text-muted {
@@ -89,6 +103,22 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
 .admin-content {
     padding-top: 2rem;
     padding-bottom: 3rem;
+}
+
+// On phones the columns of equal width (.col) are below each other, as fields and cards
+// become too narrow next to each other, and rows of buttons and fields wrap instead of
+// running off the screen. Tables scroll sideways, see AdminTables.js
+@include media-breakpoint-down(xs) {
+    .admin-content {
+        .row > .col {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        .d-flex:not(.flex-nowrap) {
+            flex-wrap: wrap;
+        }
+    }
 }
 
 // The sections as tabs in the header, with a crimson line at the bottom of the header on the
@@ -143,6 +173,38 @@ $admin-side: unquote("max(#{$admin-gutter-md}, (100% - #{$admin-content-width}) 
 @media (min-width: $logo-block-big-from) {
     .admin-tabs {
         padding-left: 0.5rem;
+    }
+}
+
+// On phones there is no room for the tabs next to the logo, so they get a row of their own
+// below it, as wide as the screen. They fade out at the edges, as a hint that they scroll
+@include media-breakpoint-down(sm) {
+    .admin-header {
+        flex-wrap: wrap;
+        height: auto;
+
+        .home-header__brand,
+        .home-header__actions {
+            height: $header-height;
+        }
+    }
+
+    .admin-tabs {
+        order: 1;
+        flex: 0 0 100%;
+        height: 3rem;
+        padding: 0 0.5rem;
+        border-top: 1px solid rgba(white, 0.1);
+        mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+    }
+
+    .admin-tabs__tab {
+        padding: 0 0.75rem;
+        font-size: 1rem;
+    }
+
+    .admin-subtabs__list {
+        mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
     }
 }
 

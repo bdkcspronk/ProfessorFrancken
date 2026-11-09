@@ -24,7 +24,7 @@
         <x-forms.checkbox name="promote_on_agenda" label='Promote on agenda' />
     </div>
 
-    <div class="col-3">
+    <div class="col-md-3">
         <div class="d-flex flex-column h-100">
             <div>
                 <img

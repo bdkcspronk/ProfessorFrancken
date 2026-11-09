@@ -128,7 +128,7 @@
             </div>
 
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
             @include('admin.association.members._search', ['request' => $request])
         </div>
     </div>

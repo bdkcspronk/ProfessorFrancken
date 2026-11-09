@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4">
             <div class="card">
                 {!!
                        Form::model($photo, [
@@ -31,7 +31,7 @@
             </div>
         </div>
 
-        <div class="col-8">
+        <div class="col-md-8">
             @include('admin.association.photo-albums._photo', ['photo' => $photo, 'href' => $photo->src(),
             'title' => $photo->name,
             ])

@@ -4,25 +4,25 @@
 </div>
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-6">
         <h4 class="font-weight-bold">
             Activity
         </h4>
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.text name="name" label="Name" placeholder="Bitterballen borrel" disabled />
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.text name="location" label="Location" placeholder="Franckenroom" disabled />
             </div>
         </div>
 
         <div class="row">
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.datetime name="start_date" label="Start date" disabled />
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.datetime name="end_date" label="End date" disabled />
             </div>
         </div>
@@ -33,7 +33,7 @@
             </x-slot>
         </x-forms.text>
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
         <x-forms.markdown />
     </div>
 </div>

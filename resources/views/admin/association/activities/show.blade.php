@@ -46,7 +46,7 @@
         {!! Form::close() !!}
     </div>
 
-    <div class="col-3">
+    <div class="col-md-3">
         {{--
         @include('admin.association.activities._notes', ['activity' => $activity])
         @include('admin.association.activities._organizers', ['activity' => $activity])

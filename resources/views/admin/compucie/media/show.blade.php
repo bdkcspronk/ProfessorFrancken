@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="col-4">
+        <div class="col-md-4">
             @if ($media->isImage())
                 <img
                     src="{{ $media->getUrl() }}"

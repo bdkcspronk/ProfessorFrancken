@@ -3,7 +3,7 @@
 </h4>
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-6">
         <x-forms.datetime
             name="deadline_at"
             label="Sign up deadline"
@@ -20,7 +20,7 @@
             </x-slot>
         </x-forms.number>
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
         <x-forms.number
             name="costs_per_person"
             label="Costs per person (&euro;)"

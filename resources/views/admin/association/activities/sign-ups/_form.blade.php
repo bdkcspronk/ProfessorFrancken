@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-6">
 
         @if ($signUp->member)
             {!!
@@ -23,7 +23,7 @@
             <x-forms.checkbox name="has_drivers_license" label="Has drivers license" />
         @endif
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
         <x-forms.textarea name="notes" label="Board notes" rows="4">
             <x-slot name="help">
                 Use this field to keep track of any notes related to this member.

@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-md-2">
                             <img
                                 class="img-fluid"
                                 alt="{{ $symposium->name }} logo"

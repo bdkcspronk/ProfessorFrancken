@@ -3,7 +3,7 @@
 
     @section('content')
         <div class="row">
-            <div class="col-9">
+            <div class="col-md-9">
                 <div class="card">
                     <div class="card-body">
                         <img
@@ -115,7 +115,7 @@
             </p>
             {!! Form::close() !!}
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
             @include('admin.extern.partners._notes', ['partner' => $partner])
             @include('admin.extern.partners._contacts', ['partner' => $partner])
             @include('admin.extern.partners._alumni', ['partner' => $partner])

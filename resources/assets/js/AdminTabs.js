@@ -4,7 +4,9 @@
     document.querySelectorAll('.admin-tabs, .admin-subtabs__list').forEach(function (list) {
         var active = list.querySelector('.is-active');
         if (active && list.scrollWidth > list.clientWidth) {
-            list.scrollLeft = active.offsetLeft - (list.clientWidth - active.offsetWidth) / 2;
+            var listBox = list.getBoundingClientRect();
+            var activeBox = active.getBoundingClientRect();
+            list.scrollLeft += activeBox.left - listBox.left - (listBox.width - activeBox.width) / 2;
         }
     });
 })();

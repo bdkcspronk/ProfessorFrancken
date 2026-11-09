@@ -2,13 +2,13 @@
 <div class="row">
     <div class="col-md-9">
         <div class="row">
-            <div class="col-5">
+            <div class="col-md-5">
                 <x-forms.text name="title" label="Book name" placeholder="Title" required />
             </div>
-            <div class="col-5">
+            <div class="col-md-5">
                 <x-forms.text name="author" label="Author" placeholder="Author" required />
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 <x-forms.text name="edition" label="Edition" placeholder="Edition" />
             </div>
         </div>
@@ -20,7 +20,7 @@
                     </x-slot>
                 </x-forms.text>
             </div>
-            <div class="col-3">
+            <div class="col-md-3">
                 <x-forms.number name="price" label="Price in euros" placeholder="10" required>
                     <x-slot name="help">
                         Must be in whole euros (so 10 for &euro;10,-)
@@ -48,7 +48,7 @@
         </p>
 
         <div class="form-row">
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms-autocomplete-member
                     name="seller"
                     name-id="seller_id"
@@ -57,7 +57,7 @@
                     :value-id="optional($book->seller)->id"
                 />
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.date
                     name="purchase_date"
                     label="Purchase date"
@@ -75,7 +75,7 @@
             Fill out these forms once the book has been bought by a member
         </p>
         <div class="form-row">
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms-autocomplete-member
                     name="buyer"
                     name-id="buyer_id"
@@ -84,7 +84,7 @@
                     :value-id="optional($book->buyer)->id"
                 />
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <x-forms.date
                     name="sale_date"
                     label="Sale date"

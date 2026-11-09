@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-3">
+            <div class="col-md-3">
                 <div class="d-flex flex-column justify-content-end h-100">
                     <div>
                         <img
