@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LegacySeeder::class);
         $this->call(AuthSeeder::class);
         $this->call(BoardsSeeder::class);
+        $this->call(AssociationSeeder::class);
         $this->call(ActivitiesSeeder::class);
         $this->call(FranckenVrijSeeder::class);
 
