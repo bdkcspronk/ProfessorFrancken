@@ -21,12 +21,14 @@
                     >
                     {{--
                         The homepage colors the logo with a mask instead of the image above.
-                        Browsers only use masks from the same domain, so only use the path of
-                        the logo (the logos are uploaded to the website itself)
+                        Browsers only use masks from the same domain, so use the path of the
+                        logo on the domain of the page (the logos are uploaded to the website
+                        itself). The url has to be absolute, as a url in a variable is relative
+                        to the stylesheet, which comes from Vite during development
                     --}}
                     <span
                         class="sponsors__logo"
-                        style="--logo: url('{{ parse_url($company['footer-logo'], PHP_URL_PATH) }}')"
+                        style="--logo: url('{{ request()->getSchemeAndHttpHost() . parse_url($company['footer-logo'], PHP_URL_PATH) }}')"
                         role="img"
                         aria-label="Logo of {{ $company['name'] }}"
                     ></span>

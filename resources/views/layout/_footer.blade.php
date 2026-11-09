@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <p class="home-footer__copyright">&copy; {{ date('Y') }} T.F.V. ‘Professor Francken’</p>
+            <p class="home-footer__copyright">&copy; {{ date('Y') }} T.F.V. ‘Professor Francken’ &middot; K.v.K. 400 252 71</p>
         </div>
     </div>
 </footer>
