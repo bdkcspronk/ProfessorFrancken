@@ -6,6 +6,7 @@ namespace Francken\Association\Photos\Http\Controllers;
 
 use Francken\Association\Photos\Album;
 use Francken\Association\Photos\AlbumsRepository;
+use Francken\Association\Photos\NextcloudAlbumsRepository;
 use Francken\Association\Photos\Photo;
 use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Http\Request;
@@ -56,11 +57,12 @@ final class PhotosController
         ]);
     }
 
-    public function showImage(Album $album, Photo $photo) : StreamedResponse
+    public function showImage(Album $album, Photo $photo, NextcloudAlbumsRepository $albums) : StreamedResponse
     {
         // Visitors who may not see the album (for instance because it is older than a
-        // year) may not see its photos either
-        $this->albums->bySlug($album->slug);
+        // year) may not see its photos either, the photos always come from Nextcloud
+        // so the album is looked up there, whichever repository is bound for the albums
+        $albums->bySlug($album->slug);
 
         $nextcloud = Storage::disk('nextcloud');
         $response = $this->streamedResponse($nextcloud, $photo->path);
