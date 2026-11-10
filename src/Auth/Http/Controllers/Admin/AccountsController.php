@@ -128,7 +128,7 @@ final class AccountsController
     {
         $words = preg_split('/\s+/', $search) ?: [];
 
-        return LegacyMember::query()
+        return (new LegacyMember())->newQuery()
             ->where(function (Builder $query) use ($words) : void {
                 foreach ($words as $word) {
                     $query->where(function (Builder $query) use ($word) : void {
@@ -149,7 +149,7 @@ final class AccountsController
      */
     private function orderByMemberName(Builder $query, string $direction) : void
     {
-        $memberIds = LegacyMember::query()
+        $memberIds = (new LegacyMember())->newQuery()
             ->whereIn('id', Account::query()->pluck('member_id'))
             ->orderBy('achternaam', $direction)
             ->orderBy('voornaam', $direction)

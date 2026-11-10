@@ -1697,7 +1697,7 @@ parameters:
 
 		-
 			message: "#^Cannot call method format\\(\\) on DateTimeInterface\\|null\\.$#"
-			count: 3
+			count: 1
 			path: src/Extern/Http/FactSheetController.php
 
 		-

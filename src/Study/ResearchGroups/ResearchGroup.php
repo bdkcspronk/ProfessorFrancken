@@ -28,7 +28,7 @@ final class ResearchGroup extends Model
     protected $table = 'study_research_groups';
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'title',

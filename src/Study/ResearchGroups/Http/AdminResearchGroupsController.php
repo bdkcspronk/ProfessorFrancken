@@ -83,7 +83,7 @@ final class AdminResearchGroupsController
     {
         $markdown = $compiler->content($request->content());
 
-        $group = ResearchGroup::create([
+        $group = ResearchGroup::query()->create([
             'title' => $request->title(),
             'slug' => $request->slug(),
             'source_content' => $markdown->originalMarkdown(),

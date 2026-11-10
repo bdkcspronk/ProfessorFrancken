@@ -29,7 +29,7 @@ final class ResearchUnit extends Model
     protected $table = 'study_research_units';
 
     /**
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
         'research_group_id',
